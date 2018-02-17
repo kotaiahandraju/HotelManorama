@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+	<definition name="base.definition" template="/WEB-INF/Home/home.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header" value="/WEB-INF/Home/header.jsp" />
+		<!-- <put-attribute name="menu" value="/WEB-INF/Home/menu.jsp" /> -->
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/Home/footer.jsp" />
+
+	</definition>
+
+	<!-- Login -->
+	<definition name="loginHome" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/pages/login.jsp" />
+	</definition>
+	<!-- <definition name="partnerLoginHome" extends="base.definition"> <put-attribute 
+		name="body" value="/WEB-INF/pages/partnerLogin.jsp" /> </definition> -->
+	<!-- Exception page -->
+
+	<definition name="changePasswordPage" extends="base.definition">
+		<put-attribute name="body"
+			value="/WEB-INF/pages/changePasswordPage.jsp" />
+	</definition>
+	<definition name="cylinderHome" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/pages/cylinder.jsp" />
+	</definition>
+
+	<definition name="itemsHome" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/pages/items.jsp" />
+	</definition>
+	<definition name="customerHome" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/pages/customer.jsp" />
+	</definition>
+	<definition name="truckHome" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/pages/truck.jsp" />
+	</definition>
+	<definition name="fillingStationHome" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/pages/fillingStation.jsp" />
+	</definition>
+	<definition name="storeHome" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/pages/stores.jsp" />
+	</definition>
+
+	<definition name="dashboardHome" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/pages/dashboard.jsp" />
+	</definition>
+	<definition name="tariffMasterHome" extends="base.definition">
+		<put-attribute name="body"
+			value="/WEB-INF/pages/tariffMasterHome.jsp" />
+	</definition>
+
+	<definition name="movetoFillingStation" extends="base.definition">
+		<put-attribute name="body"
+			value="/WEB-INF/pages/cylindermovetoFillingStation.jsp" />
+	</definition>
+
+	<definition name="companymasterHome" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/pages/companymaster.jsp" />
+	</definition>
+	<definition name="lpoHome" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/pages/lpo.jsp" />
+	</definition>
+	<definition name="staffMasterHome" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/pages/staffMaster.jsp" />
+	</definition>
+	<definition name="checkQualityHome" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/pages/checkQuality.jsp" />
+	</definition>
+	<definition name="FillingStationInQualitycheck" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/pages/FillingStationInQualitycheck.jsp" />
+	</definition>
+	<definition name="cylinderQualityCheck" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/pages/cylinderQualityCheck.jsp" />
+	</definition>
+	<definition name="cylinderMovetoTruck" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/pages/cylinderMovetoTruck.jsp" />
+	</definition>
+	<definition name="expenseTrackerHome" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/pages/expenseTracker.jsp" />
+	</definition>
+	<definition name="cylinderFiledStatus" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/pages/cylinderFilledStatus.jsp" />
+	</definition>
+	<definition name="cylinderDeliver" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/pages/cylinderDeliver.jsp" />
+	</definition>
+	<definition name="qualityCheckHome" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/pages/returnCylinderQualityCheck.jsp" />
+	</definition>
+	
+	<definition name="TruckTrakingHome" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/pages/truckTracking.jsp" />
+	</definition>
+	
+	<definition name="TruckComingintoFactory" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/pages/truckComingintoFactory.jsp" />
+	</definition>
+	<!-- <definition name="reportsHome" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/pages/reports.jsp" />
+	</definition> -->
+	<definition name="cylinderAutoGenHome" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/pages/cylinderAutoGenaration.jsp" />
+	</definition>
+	
+</tiles-definitions>
+
+
