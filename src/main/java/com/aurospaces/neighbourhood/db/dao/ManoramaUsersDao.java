@@ -23,7 +23,7 @@ public class ManoramaUsersDao extends BaseManoramaUsersDao
 	JdbcTemplate jdbcTemplate;
 	 public ManoramaUsersBean loginChecking(ManoramaUsersBean khaibarUsersBean) {
 		 jdbcTemplate = custom.getJdbcTemplate();
-			String sql = "SELECT * from khaibar_users where userName = ? and password =? and status='1'  ";
+			String sql = "SELECT * from hotel_users where userName = ? and password =? and status='1'  ";
 			List<ManoramaUsersBean> retlist = jdbcTemplate.query(sql,
 			new Object[]{khaibarUsersBean.getUserName(),khaibarUsersBean.getPassword()},
 			ParameterizedBeanPropertyRowMapper.newInstance(ManoramaUsersBean.class));

@@ -6,16 +6,30 @@ import java.util.Date;
 
 
 
-public class ManoramaUsersBean 
+
+public class HotelRoomBean 
 {
 protected int id   = 0;
 protected Date createdTime ;
 protected Date updatedTime ;
-protected String userName ;
-protected String password ;
-protected String roleId ;
-protected String status ;
+protected String name ;
+protected String status,roomstatus,roomnumber ;
 
+
+
+
+public String getRoomnumber() {
+	return roomnumber;
+}
+public void setRoomnumber(String roomnumber) {
+	this.roomnumber = roomnumber;
+}
+public String getRoomstatus() {
+	return roomstatus;
+}
+public void setRoomstatus(String roomstatus) {
+	this.roomstatus = roomstatus;
+}
 public int getId()
 {
   return id;
@@ -40,29 +54,13 @@ public void setUpdatedTime(final Date updatedTime)
 {
   this.updatedTime = updatedTime;
 }
-public String getUserName()
+public String getName()
 {
-  return userName;
+  return name;
 }
-public void setUserName(final String userName)
+public void setName(final String name)
 {
-  this.userName = userName;
-}
-public String getPassword()
-{
-  return password;
-}
-public void setPassword(final String password)
-{
-  this.password = password;
-}
-public String getRoleId()
-{
-  return roleId;
-}
-public void setRoleId(final String roleId)
-{
-  this.roleId = roleId;
+  this.name = name;
 }
 public String getStatus()
 {

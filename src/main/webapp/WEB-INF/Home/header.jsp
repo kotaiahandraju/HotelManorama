@@ -12,7 +12,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Khaibar Gas LLC</title>
+    <title>Hotel Manorama</title>
     <link rel="shortcut icon" href="${baseurl }/img/logo.jpeg"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -215,10 +215,8 @@ $(function() {
             <ul class="nav navbar-nav">
             
             <li class="dashboard"><a href="${baseurl }/admin/dashboard"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-            <li class="items"><a href="${baseurl }/admin/itemsHome"><i class="fa fa-tint"></i> <span>Items</span></a></li>
-             <li class="lpo"><a href="${baseurl }/admin/lpoHome"><i class="fa fa-bar-chart-o"></i> <span>LPO</span></a></li>
-              <li class="company"><a href="${baseurl }/admin/companymaster"><i class="fa fa-building"></i> <span>Company</span></a></li>
-              <li class="stores"><a href="${baseurl }/admin/storeHome"><i class="fa fa-th"></i> <span>Stores</span></a></li>
+            <li class="roomType"><a href="${baseurl }/admin/roomTypeHome"><i class="fa fa-tint"></i> <span>Room Type</span></a></li>
+            <li class="rooms"><a href="${baseurl }/admin/roomHome"><i class="fa fa-tint"></i> <span>Rooms</span></a></li>
               
               <li class="transactions">
             		<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-list"></i> <span>Cylinder</span> <span class="caret"></span></a>
@@ -227,47 +225,6 @@ $(function() {
 						<li class="cylinderAutoGenHome"><a href="${baseurl }/admin/cylinderAutoGenHome"><i class="fa fa-bar-chart-o"></i> <span>Cylinder AutoGenHome</span></a></li>
 					</ul>
 				</li>
-              
-              
-              
-             <li class="truck"><a href="${baseurl }/admin/truckHome"><i class="fa fa-truck" aria-hidden="true"></i> <span>Trucks</span></a></li>
-                <li class="fillingStation"><a href="${baseurl }/admin/fillingStationHome"><i class="fa fa-archive"></i> <span>Filling Stations</span></a></li>
-                <li class="customer"><a href="${baseurl }/admin/customerHome"><i class="fa fa-group"></i> <span>Customers</span></a></li>
-                <li class="staff"><a href="${baseurl }/admin/staffMaster"><i class="fa fa-user"></i> <span>Staff</span></a></li>
-                <li class="tariffMaster"><a href="${baseurl }/admin/tariffMaster"><i class="fa fa-bar-chart-o"></i> <span>Tariff Master</span></a></li>
-				<li class="transactions">
-            		<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-list"></i> <span>Transactions</span> <span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li class="cylinderMovetofillingStation"><a href="${baseurl }/admin/cylinderMovetofillingStation"><i class="fa fa-bar-chart-o"></i> <span>Cylinder Move to FillingStation</span></a></li>
-						<li class="cylinderFilledStatus"><a href="${baseurl }/admin/cylinderFilledStatus"><i class="fa fa-bar-chart-o"></i> <span>Cylinder Filled Status</span></a></li>
-                		<li class="cylinderQualityCheck"><a href="${baseurl }/admin/cylinderQualityCheck"><i class="fa fa-bar-chart-o"></i> <span>Cylinder Quality Check</span></a></li>
-						<li class="cylinderMovetoTruck"><a href="${baseurl }/admin/cylinderMovetoTruck"><i class="fa fa-bar-chart-o"></i> <span>Cylinder Move to Truck</span></a></li>
-						<li class="cylinderDeliver"><a href="${baseurl }/admin/cylinderDeliver"><i class="fa fa-bar-chart-o"></i> <span>Cylinder Delivered to Customer</span></a></li>
-						<li class="qualityCheckHome"><a href="${baseurl }/admin/qualityCheckHome"><i class="fa fa-bar-chart-o"></i> <span>Return Cylinder Quality Check And Move To Store</span></a></li>
-						
-					</ul>
-				</li>
-				<li class="transactions">
-            		<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-list"></i> <span>Truck Tracking</span> <span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li class="truckTracking"><a href="${baseurl }/admin/TruckTrakingHome"><i class="fa fa-bar-chart-o"></i> <span>Truck is going out from Factory </span></a></li>
-						<li class="truckTracking1"><a href="${baseurl }/admin/TruckComingintoFactory"><i class="fa fa-bar-chart-o"></i> <span>Truck Coming into Factory</span></a></li>
-					</ul>
-				</li>
-				<li class="expenseTracker"><a href="${baseurl }/admin/expenseTrackerHome"><i class="fa fa-bar-chart-o"></i> <span>Expense Tracker</span></a></li>
-				<li class="reports">
-            		<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-list"></i> <span>Reports</span> <span class="caret"></span></a>
-					<ul class="dropdown-menu" style="margin-left:-50px;">
-						<li class="CylinderReport"><a href="${baseurl }/admin/reportsHome"><i class="fa fa-bar-chart-o"></i> <span>Cylinder Report </span></a></li>
-						<li class="expensesReport"><a href="${baseurl }/admin/expensesReport"><i class="fa fa-bar-chart-o"></i> <span>Expenses Report</span></a></li>
-						<li class="gasReport"><a href="${baseurl }/admin/gasReport"><i class="fa fa-bar-chart-o"></i> <span>Gas Report</span></a></li>
-						
-						
-					</ul>
-				</li>
-				
-				
-				
 				
 			</ul>
 		</div>
@@ -283,9 +240,9 @@ $(function() {
 				<div class="col-md-6">
 					<div class="options">
 		                <div class="btn-toolbar">
-		                    <a href="#" class="btn btn-danger "><span id="cylinderCount1"></span><br />Cylinders</a>
+		                    <a href="#" class="btn btn-danger "><span id="cylinderCount1"></span><br />Available Rooms</a>
 		                    <a href="#" class="btn btn-warning"><span id="customerCount1"></span><br />Customers</a>
-		                    <a href="#" class="btn btn-info"><span id="totalGas1"></span><br />Gas in Kgs</a>
+		                    <a href="#" class="btn btn-info"><span id="totalGas1"></span><br /></a>
 		                </div>
 	            	</div>
 	            </div>

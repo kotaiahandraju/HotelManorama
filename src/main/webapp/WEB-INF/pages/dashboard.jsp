@@ -5,63 +5,15 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>  
 
-	<!-- <style type="text/css">
-table { border-collapse: collapse; }
-
-caption { background: #D3D3D3; }
-
-th {
-  background: #A7C942;
-  border: 1px solid #98BF21;
-  color: #ffffff;
-  font-weight: bold;
-  text-align: left;
-}
-
-td {
-  border: 1px solid #98BF21;
-  text-align: left;
-  font-weight: normal;
-  color: #000000;
-}
-
-tr:nth-child(odd) { background: #ffffff; }
-
-tbody tr:nth-child(odd) th {
-  background: #ffffff;
-  color: #000000;
-}
-
-tr:nth-child(even) { background: #EAF2D3; }
-
-tbody tr:nth-child(even) th {
-  background: #EAF2D3;
-  color: #000000;
-}
-
-#target {
-  width: 600px;
-  height: 400px;
-}
-
-#target2 {
-  width: 800px;
-  height: 400px;
-}
-</style> -->
 
 <script>
-$(document).ready(function(){
+window.onload = function() {
     if(!window.location.hash) {
         window.location = window.location + '#loaded';
         window.location.reload();
     }
-});
+}
 </script>
-
-<script type="text/javascript" src="${baseurl }/js/TableBarChart.js"></script>
-	<link rel="stylesheet" href="${baseurl }/assets/css/TableBarChart.css" />
-	
         <div class="clearfix"></div>
              <ol class="breadcrumb">
               <li><a href="#">Dashboard</a></li>
@@ -201,50 +153,6 @@ $(document).ready(function(){
     </div> <!-- #wrap -->
 </div> <!-- page-content -->
  
- 
- <table id="source" style="display: none">
-      <caption>
-  Locating Element By Id
-  </caption>
-      <thead>
-    <tr>
-          <th></th>
-          <th>Run 1</th>
-          <th>Run 2</th>
-          <th>Run 3</th>
-        </tr>
-  </thead>
-      <tbody>
-    <tr>
-          <th>Chrome</th>
-          <td>1595</td>
-          <td>1578</td>
-          <td>1584</td>
-        </tr>
-    <tr>
-          <th>Firefox</th>
-          <td>1470</td>
-          <td>1430</td>
-          <td>1500</td>
-        </tr>
-    <tr>
-          <th>Internet Explorer</th>
-          <td>2750</td>
-          <td>3140</td>
-          <td>3162</td>
-        </tr>
-    <tr>
-          <th>HTMLUnit with JS</th>
-          <td>170</td>
-          <td>100</td>
-          <td>90</td>
-        </tr>
-  </tbody>
-    </table>
-<div id="target"> </div>
-<br/>
-<br/>
-
 <!-- Body Ends Here -->
 <script type="text/javascript">
 
@@ -275,9 +183,4 @@ $(".dashboard").addClass("active");
 		});
 		chart.render();
 	}
-// 	$(function() {
-// 		$('#source').tableBarChart('#target', '', false);
-// 		$('#source2').tableBarChart('#target2', '', true);
-// 	});
 	</script>
-	

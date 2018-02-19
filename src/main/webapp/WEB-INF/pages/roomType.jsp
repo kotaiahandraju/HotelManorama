@@ -8,7 +8,7 @@
 	<div class="clearfix"></div>
 	<ol class="breadcrumb">
     	<li><a href="#">Home</a></li>
-		<li>Items</li>
+		<li>Room Type</li>
 	</ol>
 	<div class="clearfix"></div>
 	<div class="container">
@@ -16,7 +16,7 @@
 			<div class="col-md-12">
 				<div class="panel panel-primary">
 					<div class="panel-heading">
-						<h4>Items List</h4>
+						<h4>Room Type List</h4>
 						<div class="options">   
 							<a href="javascript:;" class="panel-collapse"><i class="fa fa-chevron-down"></i></a>
 						</div>
@@ -28,10 +28,7 @@
 							id="example">
 							<thead>
 								<tr>
-									<th>Item Name</th>
-									<th>Item Type</th>
-									<th>Description</th>
-									<th>Price</th>
+									<th>Room Type</th>
 									<th>Status</th>
 									<th></th>
 								</tr>
@@ -50,42 +47,16 @@
 					<div class="panel-heading">
 						<h4>Add Item</h4>
 					</div>
-					<form:form modelAttribute="itemsForm" action="itemsSave" class="form-horizontal" method="Post" >
+					<form:form modelAttribute="roomTypeForm" action="saveRoomType" class="form-horizontal" method="Post" >
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
 									<form:hidden path="id"/>
-									<label for="focusedinput" class="col-md-4 control-label">Item Name <span class="impColor">*</span></label>
+									<label for="name" class="col-md-4 control-label">Room Type<span class="impColor">*</span></label>
 									<div class="col-md-7">
 										<form:input path="name" class="form-control validate" placeholder="Item Name"/>
 									</div>
-                    			</div>
-                    			<div class="form-group">
-                    				<label for="focusedinput" class="col-md-4 control-label">Item Type <span class="impColor">*</span></label>
-                    				<div class="col-md-7">
-	                    				<form:select path="itemType" class="form-control validate" onfocus="removeBorder(this.id)">
-		                    				<form:option value="Cylinder">Cylinder</form:option>
-		                    				<form:option value="Truck">Truck</form:option>
-		                    				<form:option value="Accessories">Accessories</form:option>
-		                    				<form:option value="GAS">GAS</form:option>
-		                    				<form:option value="Equipment">Equipment</form:option>
-	                    				</form:select>
-                    				</div>
-                    			</div>
-                    			<div class="form-group">
-                    				<label for="focusedinput" class="col-md-4 control-label">Price(AED) <span class="impColor">*</span></label>
-                    				<div class="col-md-7">
-		                            	<form:input  path="price" class="form-control numericOnly validate" placeholder="Price(AED)"/>
-								  	</div>
-                    			</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-                    				<label for="focusedinput" class="col-md-2 control-label">Description</label>
-                    				<div class="col-md-8">
-		                            	<form:textarea path="description" class="form-control" placeholder="Description" rows="6"></form:textarea>
-								  	</div>
                     			</div>
 							</div>
 						</div>
@@ -107,7 +78,7 @@
 	</div> <!-- container -->
 
 <script type="text/javascript">
-var listOrders1 =${allObjects};
+var listOrders1 =${allOrders1};
 
 console.log(listOrders1);
 if (listOrders1 != "") {
@@ -124,7 +95,7 @@ function showTableData(response){
 	serviceUnitArray = {};
 	var protectType = null;
 	var tableHead = '<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="example">'+
-    	'<thead><tr><th>Item Name</th><th>Item Type</th><th>Description</th><th>Price(AED)</th><th>Status</th><th></th></tr>'+
+    	'<thead><tr><th>Room Type </th><th>Status</th><th></th></tr>'+
     	"</thead><tbody></tbody></table>";
 	$("#tableId").html(tableHead);
 	$.each(response,function(i, orderObj) {
@@ -137,10 +108,7 @@ function showTableData(response){
 		serviceUnitArray[orderObj.id] = orderObj;
 		var tblRow ="<tr>"
 			+ "<td title='"+orderObj.name+"'>" + orderObj.name + "</td>"
-			+ "<td class='impFiled' title='"+orderObj.itemType+"'>" + orderObj.itemType + "</td>"
-			+ "<td title='"+orderObj.description+"'>" + orderObj.description + "</td>"
-			+ "<td title='"+orderObj.price+"'>" + orderObj.price + "</td>"
-			+ "<td title='"+orderObj.Status+"'>" + orderObj.itemstatus + "</td>"
+			+ "<td title='"+orderObj.Status+"'>" + orderObj.roomTypestatus + "</td>"
 			+ "<td style='text-align: center;white-space: nowrap;'>" + edit + "&nbsp;&nbsp;" + deleterow + "</td>"
 			+"</tr>";
 		$(tblRow).appendTo("#tableId table tbody");
@@ -151,10 +119,6 @@ function showTableData(response){
 function editItem(id){
 	$("#id").val(id);
 	$("#name").val(serviceUnitArray[id].name);
-	$("#description").val(serviceUnitArray[id].description);
-	$("#itemType").val(serviceUnitArray[id].itemType);
-	$("#price").val(serviceUnitArray[id].price);
-	$("#status").val(serviceUnitArray[id].status);
 	$("#submit1").val("Update");
 	$(window).scrollTop($('#moveTo').offset().top);
 }
@@ -169,7 +133,7 @@ function deleteItem(id,status){
 	if(checkstr == true){
 		$.ajax({
 			type : "POST",
-			url : "itemDelete.htm",
+			url : "deleteRoomType.htm",
 			data :"id="+id+"&status="+status,
 			beforeSend : function() {
 				$.blockUI({ message: 'Please wait' });
@@ -178,10 +142,10 @@ function deleteItem(id,status){
 				if(response != null ){
 					$.unblockUI();
 		        	var resJson=JSON.parse(response);
-		            showTableData(resJson);
+		            showTableData(resJson.allOrders1);
 		            //window.location.reload();
 				}
-		        window.location.reload();
+		       // window.location.reload();
 			},
 			error: function (e) { 
 		    	$.unblockUI();
@@ -202,11 +166,16 @@ function inactiveData() {
 		var formData = new FormData();
 		formData.append('status', status);
 		
-		$.fn.makeMultipartRequest('POST', 'inActiveItem', false,
+		$.fn.makeMultipartRequest('POST', 'inActiveRoomType', false,
 				formData, false, 'text', function(data) {
-			var resJson=JSON.parse(data);
-            showTableData(resJson);
-					console.log(resJson);
+			if(data != null && data != ''){
+				var resJson=JSON.parse(data);
+	            showTableData(resJson);
+						console.log(resJson);
+			}else{
+				showTableData(data);
+			}
+			
 				});
 	
 }
