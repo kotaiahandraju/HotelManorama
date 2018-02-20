@@ -161,6 +161,7 @@ function inactiveData() {
 		status="0";
 	}else{
 		status="1";
+		$('#inActive').prop('checked', false);
 	}
 		
 		var formData = new FormData();
@@ -168,11 +169,12 @@ function inactiveData() {
 		
 		$.fn.makeMultipartRequest('POST', 'inActiveRoomType', false,
 				formData, false, 'text', function(data) {
-			if(data != null && data != ''){
+			if(data != ''){
 				var resJson=JSON.parse(data);
 	            showTableData(resJson);
 						console.log(resJson);
 			}else{
+				//alert('Inactive Data Empty...! ');
 				showTableData(data);
 			}
 			

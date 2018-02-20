@@ -172,10 +172,12 @@ public class RoomTypeController {
 				 try {
 					 
 					 listHotelRoomTypeBean=roomTypeDao.getAllRoomType(status);
-						if(listHotelRoomTypeBean !=null){
+						if(listHotelRoomTypeBean !=null && listHotelRoomTypeBean.size() > 0 ){
 							objectMapper =new ObjectMapper();
 					sJson=objectMapper.writeValueAsString(listHotelRoomTypeBean);
-				} 
+				}  else {
+							sJson= "";
+						}
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

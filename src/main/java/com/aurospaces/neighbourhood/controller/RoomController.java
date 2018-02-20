@@ -176,6 +176,8 @@ public class RoomController {
 			if(listHotelRoomTypeBean !=null){
 				objectMapper =new ObjectMapper();
 				 sJson=objectMapper.writeValueAsString(listHotelRoomTypeBean);
+			} else {
+				sJson= "";
 			}
 			
 			return sJson;

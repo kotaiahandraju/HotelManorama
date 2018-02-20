@@ -106,7 +106,7 @@ function showTableData(response){
 	serviceUnitArray = {};
 	var protectType = null;
 	var tableHead = '<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="example">'+
-    	'<thead><tr><th>Room Name </th><th></th><th>Status</th><th></th></tr>'+
+    	'<thead><tr><th>Room Name </th><th>Room Number</th><th>Status</th></tr>'+
     	"</thead><tbody></tbody></table>";
 	$("#tableId").html(tableHead);
 	$.each(response,function(i, orderObj) {
@@ -174,6 +174,7 @@ function inactiveData() {
 		status="0";
 	}else{
 		status="1";
+		$('#inActive').prop('checked', false);
 	}
 		
 		var formData = new FormData();
