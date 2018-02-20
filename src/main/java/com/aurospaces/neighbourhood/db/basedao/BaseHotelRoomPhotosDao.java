@@ -15,17 +15,17 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.aurospaces.neighbourhood.bean.HotelRoomTypeBean;
+import com.aurospaces.neighbourhood.bean.HotelRoomPhotosBean;
 import com.aurospaces.neighbourhood.daosupport.CustomConnection;
 
 
-public class BaseHotelRoomTypeDao{
+public class BaseHotelRoomPhotosDao{
 
 	@Autowired
 	CustomConnection custom;
 	JdbcTemplate jdbcTemplate;
  
-	public final String INSERT_SQL = "INSERT INTO hotel_room_type( created_time, updated_time, name, status) values (?, ?, ?, ?)"; 
+	public final String INSERT_SQL = "INSERT INTO hotel_room_photos( created_time, updated_time, room_type_id, image1, image2, image3, image4, image5) values (?, ?, ?, ?, ?, ?, ?, ?)"; 
 
 
 
@@ -33,10 +33,10 @@ public class BaseHotelRoomTypeDao{
 
 	/* this should be conditional based on whether the id is present or not */
 	@Transactional
-	public void save(final HotelRoomTypeBean hotelRoomType) 
+	public void save(final HotelRoomPhotosBean hotelRoomPhotos) 
 	{
 		jdbcTemplate = custom.getJdbcTemplate();
-	if(hotelRoomType.getId() == 0)	{
+	if(hotelRoomPhotos.getId() == 0)	{
 
 	KeyHolder keyHolder = new GeneratedKeyHolder();
 	int update = jdbcTemplate.update(
@@ -44,26 +44,30 @@ public class BaseHotelRoomTypeDao{
 					public PreparedStatement 
 					createPreparedStatement(Connection connection) throws SQLException {
 	
-					if(hotelRoomType.getCreatedTime() == null)
+					if(hotelRoomPhotos.getCreatedTime() == null)
 					{
-					hotelRoomType.setCreatedTime( new Date());
+					hotelRoomPhotos.setCreatedTime( new Date());
 					}
 					java.sql.Timestamp createdTime = 
-						new java.sql.Timestamp(hotelRoomType.getCreatedTime().getTime()); 
+						new java.sql.Timestamp(hotelRoomPhotos.getCreatedTime().getTime()); 
 							
-					if(hotelRoomType.getUpdatedTime() == null)
+					if(hotelRoomPhotos.getUpdatedTime() == null)
 					{
-					hotelRoomType.setUpdatedTime( new Date());
+					hotelRoomPhotos.setUpdatedTime( new Date());
 					}
 					java.sql.Timestamp updatedTime = 
-						new java.sql.Timestamp(hotelRoomType.getUpdatedTime().getTime()); 
+						new java.sql.Timestamp(hotelRoomPhotos.getUpdatedTime().getTime()); 
 							
 					PreparedStatement ps =
 									connection.prepareStatement(INSERT_SQL,new String[]{"id"});
 	ps.setTimestamp(1, createdTime);
 ps.setTimestamp(2, updatedTime);
-ps.setString(3, hotelRoomType.getName());
-ps.setString(4, hotelRoomType.getStatus());
+ps.setString(3, hotelRoomPhotos.getRoomTypeId());
+ps.setString(4, hotelRoomPhotos.getImage1());
+ps.setString(5, hotelRoomPhotos.getImage2());
+ps.setString(6, hotelRoomPhotos.getImage3());
+ps.setString(7, hotelRoomPhotos.getImage4());
+ps.setString(8, hotelRoomPhotos.getImage5());
 
 							return ps;
 						}
@@ -71,16 +75,16 @@ ps.setString(4, hotelRoomType.getStatus());
 				keyHolder);
 				
 				Number unId = keyHolder.getKey();
-				hotelRoomType.setId(unId.intValue());
+				hotelRoomPhotos.setId(unId.intValue());
 				
 
 		}
 		else
 		{
 
-			String sql = "UPDATE hotel_room_type  set name = ? ,status = ?  where id = ? ";
+			String sql = "UPDATE hotel_room_photos  set room_type_id = ? ,image1 = ? ,image2 = ? ,image3 = ? ,image4 = ? ,image5 = ?  where id = ? ";
 	
-			jdbcTemplate.update(sql, new Object[]{hotelRoomType.getName(),hotelRoomType.getStatus(),hotelRoomType.getId()});
+			jdbcTemplate.update(sql, new Object[]{hotelRoomPhotos.getRoomTypeId(),hotelRoomPhotos.getImage1(),hotelRoomPhotos.getImage2(),hotelRoomPhotos.getImage3(),hotelRoomPhotos.getImage4(),hotelRoomPhotos.getImage5(),hotelRoomPhotos.getId()});
 		}
 	}
 		
@@ -88,7 +92,7 @@ ps.setString(4, hotelRoomType.getStatus());
 	public Boolean delete(int id,String status) {
 		boolean result=false;
 		jdbcTemplate = custom.getJdbcTemplate();
-		String sql = "update hotel_room_type set status='"+status+"' where id = ?";
+		String sql = "update hotel_room_photos set status='"+status+"' where id = ?";
 		jdbcTemplate.update(sql, new Object[]{id});
 		 int results=jdbcTemplate.update(sql, new Object[]{id});
 			if(results!=0){
@@ -98,12 +102,11 @@ ps.setString(4, hotelRoomType.getStatus());
 	}
 		
 
-	 public HotelRoomTypeBean getById(int id) {
-		 jdbcTemplate = custom.getJdbcTemplate();
-			String sql = "SELECT * from hotel_room_type where id = ? ";
-			List<HotelRoomTypeBean> retlist = jdbcTemplate.query(sql,
+	 public HotelRoomPhotosBean getById(int id) {
+			String sql = "SELECT * from hotel_room_photos where id = ? ";
+			List<HotelRoomPhotosBean> retlist = jdbcTemplate.query(sql,
 			new Object[]{id},
-			ParameterizedBeanPropertyRowMapper.newInstance(HotelRoomTypeBean.class));
+			ParameterizedBeanPropertyRowMapper.newInstance(HotelRoomPhotosBean.class));
 			if(retlist.size() > 0)
 				return retlist.get(0);
 			return null;

@@ -87,12 +87,18 @@ ps.setString(6, khaibarUsers.getStatus());
 		}
 	}
 		
-		@Transactional
-		public void delete(int id) {
-			jdbcTemplate = custom.getJdbcTemplate();
-			String sql = "DELETE FROM khaibar_users WHERE id=?";
-			jdbcTemplate.update(sql, new Object[]{id});
-		}
+	@Transactional
+	public Boolean delete(int id,String status) {
+		boolean result=false;
+		jdbcTemplate = custom.getJdbcTemplate();
+		String sql = "update hotel_room_master set status='"+status+"' where id = ?";
+		jdbcTemplate.update(sql, new Object[]{id});
+		 int results=jdbcTemplate.update(sql, new Object[]{id});
+			if(results!=0){
+				result= true;
+			}
+			return result;
+	}
 		
 
 	 public ManoramaUsersBean getById(int id) {

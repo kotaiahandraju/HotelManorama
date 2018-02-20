@@ -6,18 +6,18 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.aurospaces.neighbourhood.daosupport.CustomConnection;
-import com.aurospaces.neighbourhood.db.basedao.BaseHotelRoomTypeDao;
+import com.aurospaces.neighbourhood.db.basedao.BaseHotelRoomMasterDao;
 
 
 
 
-@Repository(value = "hotelRoomTypeDao")
-public class HotelRoomTypeDao extends BaseHotelRoomTypeDao
+@Repository(value = "hotelRoomMasterDao")
+public class HotelRoomMasterDao extends BaseHotelRoomMasterDao
 {
+
 	@Autowired
 	CustomConnection custom;
 	JdbcTemplate jdbcTemplate;
-
 
 }
 

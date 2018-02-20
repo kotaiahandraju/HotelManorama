@@ -3,33 +3,15 @@ package com.aurospaces.neighbourhood.bean;
 
 import java.util.Date;
 
-
-
-
-
-public class HotelRoomBean 
+public class HotelCapacityMasterBean 
 {
 protected int id   = 0;
 protected Date createdTime ;
 protected Date updatedTime ;
 protected String name ;
-protected String status,roomstatus,roomnumber ;
+protected String numberOfAdult ;
+protected String status ;
 
-
-
-
-public String getRoomnumber() {
-	return roomnumber;
-}
-public void setRoomnumber(String roomnumber) {
-	this.roomnumber = roomnumber;
-}
-public String getRoomstatus() {
-	return roomstatus;
-}
-public void setRoomstatus(String roomstatus) {
-	this.roomstatus = roomstatus;
-}
 public int getId()
 {
   return id;
@@ -61,6 +43,14 @@ public String getName()
 public void setName(final String name)
 {
   this.name = name;
+}
+public String getNumberOfAdult()
+{
+  return numberOfAdult;
+}
+public void setNumberOfAdult(final String numberOfAdult)
+{
+  this.numberOfAdult = numberOfAdult;
 }
 public String getStatus()
 {
