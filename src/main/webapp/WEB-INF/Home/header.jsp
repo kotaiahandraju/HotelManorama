@@ -216,7 +216,7 @@ $(function() {
             
             <li class="dashboard"><a href="${baseurl }/admin/dashboard"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
             <li class="roomType"><a href="${baseurl }/admin/roomTypeHome"><i class="fa fa-tint"></i> <span>Room Type</span></a></li>
-            <li class="rooms"><a href="${baseurl }/admin/roomHome"><i class="fa fa-tint"></i> <span>Rooms</span></a></li>
+            <li class="rooms"><a href="${baseurl }/admin/capacityHome"><i class="fa fa-tint"></i> <span>Room Capacity</span></a></li>
               
               <li class="transactions">
             		<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-list"></i> <span>Cylinder</span> <span class="caret"></span></a>

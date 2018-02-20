@@ -10,8 +10,14 @@ protected Date createdTime ;
 protected Date updatedTime ;
 protected String name ;
 protected String numberOfAdult ;
-protected String status ;
+protected String status,capacitystatus ;
 
+public String getCapacitystatus() {
+	return capacitystatus;
+}
+public void setCapacitystatus(String capacitystatus) {
+	this.capacitystatus = capacitystatus;
+}
 public int getId()
 {
   return id;

@@ -31,6 +31,9 @@
 	<definition name="roomHome" extends="base.definition">
 		<put-attribute name="body" value="/WEB-INF/pages/rooms.jsp" />
 	</definition>
+	<definition name="capacityHome" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/pages/capacity.jsp" />
+	</definition>
 	
 	
 </tiles-definitions>

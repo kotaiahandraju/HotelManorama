@@ -8,7 +8,7 @@
 	<div class="clearfix"></div>
 	<ol class="breadcrumb">
     	<li><a href="#">Home</a></li>
-		<li>Room Type</li>
+		<li>Rooms</li>
 	</ol>
 	<div class="clearfix"></div>
 	<div class="container">
@@ -16,7 +16,7 @@
 			<div class="col-md-12">
 				<div class="panel panel-primary">
 					<div class="panel-heading">
-						<h4>Room Type List</h4>
+						<h4>List Of Room</h4>
 						<div class="options">   
 							<a href="javascript:;" class="panel-collapse"><i class="fa fa-chevron-down"></i></a>
 						</div>
@@ -28,7 +28,8 @@
 							id="example">
 							<thead>
 								<tr>
-									<th>Room Type</th>
+									<th>Name </th>
+									<th>Room Number</th>
 									<th>Status</th>
 									<th></th>
 								</tr>
@@ -47,18 +48,28 @@
 					<div class="panel-heading">
 						<h4>Add Item</h4>
 					</div>
-					<form:form modelAttribute="roomTypeForm" action="addRoomType" class="form-horizontal" method="Post" >
+					<form:form modelAttribute="capacityForm" action="addCapacity" class="form-horizontal" method="Post" >
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
 									<form:hidden path="id"/>
-									<label for="name" class="col-md-4 control-label">Room Type<span class="impColor">*</span></label>
+									<label for="name" class="col-md-4 control-label">Room Name<span class="impColor">*</span></label>
 									<div class="col-md-7">
-										<form:input path="name" class="form-control validate" placeholder="Item Name"/>
+										<form:input path="name" class="form-control validate" placeholder="Room Name"/>
 									</div>
                     			</div>
 							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<form:hidden path="id"/>
+									<label for="numberOfAdult" class="col-md-4 control-label">Room Number<span class="impColor">*</span></label>
+									<div class="col-md-7">
+										<form:input path="numberOfAdult" class="form-control validate" placeholder="Room Number"/>
+									</div>
+                    			</div>
+							</div>
+							
 						</div>
                     </div>
                     <div class="panel-footer">
@@ -95,7 +106,7 @@ function showTableData(response){
 	serviceUnitArray = {};
 	var protectType = null;
 	var tableHead = '<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="example">'+
-    	'<thead><tr><th>Room Type </th><th>Status</th><th></th></tr>'+
+    	'<thead><tr><th>Room Name </th><th>Room Number</th><th>Status</th><th></th></tr>'+
     	"</thead><tbody></tbody></table>";
 	$("#tableId").html(tableHead);
 	$.each(response,function(i, orderObj) {
@@ -108,7 +119,8 @@ function showTableData(response){
 		serviceUnitArray[orderObj.id] = orderObj;
 		var tblRow ="<tr>"
 			+ "<td title='"+orderObj.name+"'>" + orderObj.name + "</td>"
-			+ "<td title='"+orderObj.Status+"'>" + orderObj.roomtypestatus + "</td>"
+			+ "<td title='"+orderObj.numberOfAdult+"'>" + orderObj.numberOfAdult + "</td>"
+			+ "<td title='"+orderObj.Status+"'>" + orderObj.capacitystatus + "</td>"
 			+ "<td style='text-align: center;white-space: nowrap;'>" + edit + "&nbsp;&nbsp;" + deleterow + "</td>"
 			+"</tr>";
 		$(tblRow).appendTo("#tableId table tbody");
@@ -119,6 +131,7 @@ function showTableData(response){
 function editItem(id){
 	$("#id").val(id);
 	$("#name").val(serviceUnitArray[id].name);
+	$("#roomnumber").val(serviceUnitArray[id].roomnumber);
 	$("#submit1").val("Update");
 	$(window).scrollTop($('#moveTo').offset().top);
 }
@@ -133,7 +146,7 @@ function deleteItem(id,status){
 	if(checkstr == true){
 		$.ajax({
 			type : "POST",
-			url : "deleteRoomType.htm",
+			url : "deleteCapacity.htm",
 			data :"id="+id+"&status="+status,
 			beforeSend : function() {
 				$.blockUI({ message: 'Please wait' });
@@ -167,18 +180,17 @@ function inactiveData() {
 		var formData = new FormData();
 		formData.append('status', status);
 		
-		$.fn.makeMultipartRequest('POST', 'inActiveRoomType', false,
+		$.fn.makeMultipartRequest('POST', 'inActiveCapacity', false,
 				formData, false, 'text', function(data) {
-			if(data != ''){
+			if(data != null && data != ''){
 				var resJson=JSON.parse(data);
 	            showTableData(resJson);
 						console.log(resJson);
 			}else{
-				//alert('Inactive Data Empty...! ');
 				showTableData(data);
 			}
-			
 				});
+		
 	
 }
 function dataClear(){
@@ -187,6 +199,6 @@ function dataClear(){
 	$("#s").val("");
 	$("#location").val("");
 }
-$("#pageName").text("Room Type");
+$("#pageName").text("Room Capacity");
 $(".items").addClass("active"); 
 </script>
