@@ -155,7 +155,12 @@ function deleteItem(id,status){
 				if(response != null ){
 					$.unblockUI();
 		        	var resJson=JSON.parse(response);
+		        	 $('.activate').attr('data-toggle','tooltip');
+						$('.activate').attr('data-original-title','Activate');
+						$('.deactivate').attr('data-toggle','tooltip');
+						$('.deactivate').attr('data-original-title','Deactivate');
 		            showTableData(resJson.allOrders1);
+		           
 		            //window.location.reload();
 				}
 		       // window.location.reload();
@@ -189,6 +194,10 @@ function inactiveData() {
 			}else{
 				showTableData(data);
 			}
+			$('.activate').attr('data-toggle','tooltip');
+			$('.activate').attr('data-original-title','Activate');
+			$('.deactivate').attr('data-toggle','tooltip');
+			$('.deactivate').attr('data-original-title','Deactivate');
 				});
 		
 	

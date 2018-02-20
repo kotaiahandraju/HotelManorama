@@ -79,9 +79,9 @@ ps.setString(5, hotelCapacityMaster.getStatus());
 		else
 		{
 
-			String sql = "UPDATE hotel_capacity_master  set name = ? ,numberOfAdult = ? ,status = ?  where id = ? ";
+			String sql = "UPDATE hotel_capacity_master  set name = ? ,numberOfAdult = ?  where id = ? ";
 	
-			jdbcTemplate.update(sql, new Object[]{hotelCapacityMaster.getName(),hotelCapacityMaster.getNumberOfAdult(),hotelCapacityMaster.getStatus(),hotelCapacityMaster.getId()});
+			jdbcTemplate.update(sql, new Object[]{hotelCapacityMaster.getName(),hotelCapacityMaster.getNumberOfAdult(),hotelCapacityMaster.getId()});
 		}
 	}
 		

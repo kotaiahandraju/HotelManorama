@@ -78,9 +78,9 @@ ps.setString(4, hotelRoomType.getStatus());
 		else
 		{
 
-			String sql = "UPDATE hotel_room_type  set name = ? ,status = ?  where id = ? ";
+			String sql = "UPDATE hotel_room_type  set name = ?  where id = ? ";
 	
-			jdbcTemplate.update(sql, new Object[]{hotelRoomType.getName(),hotelRoomType.getStatus(),hotelRoomType.getId()});
+			jdbcTemplate.update(sql, new Object[]{hotelRoomType.getName(),hotelRoomType.getId()});
 		}
 	}
 		
