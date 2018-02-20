@@ -45,7 +45,7 @@
 			<div class="col-md-12 col-sm-12">
 				<div class="panel panel-primary">
 					<div class="panel-heading">
-						<h4>Add Item</h4>
+						<h4>Room Type</h4>
 					</div>
 					<form:form modelAttribute="roomTypeForm" action="addRoomType" class="form-horizontal" method="Post" >
 					<div class="panel-body">

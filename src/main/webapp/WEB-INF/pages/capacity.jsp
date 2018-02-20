@@ -16,7 +16,7 @@
 			<div class="col-md-12">
 				<div class="panel panel-primary">
 					<div class="panel-heading">
-						<h4>List Of Room</h4>
+						<h4>Room Capacity List</h4>
 						<div class="options">   
 							<a href="javascript:;" class="panel-collapse"><i class="fa fa-chevron-down"></i></a>
 						</div>
@@ -46,7 +46,7 @@
 			<div class="col-md-12 col-sm-12">
 				<div class="panel panel-primary">
 					<div class="panel-heading">
-						<h4>Add Item</h4>
+						<h4>Add Capacity</h4>
 					</div>
 					<form:form modelAttribute="capacityForm" action="addCapacity" class="form-horizontal" method="Post" >
 					<div class="panel-body">

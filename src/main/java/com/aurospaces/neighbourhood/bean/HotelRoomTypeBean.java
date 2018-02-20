@@ -9,15 +9,15 @@ protected int id   = 0;
 protected Date createdTime ;
 protected Date updatedTime ;
 protected String name ;
-protected String status,capacitystatus ;
+protected String status,roomtypestatus ;
 
 
 
-public String getCapacitystatus() {
-	return capacitystatus;
+public String getRoomtypestatus() {
+	return roomtypestatus;
 }
-public void setCapacitystatus(String capacitystatus) {
-	this.capacitystatus = capacitystatus;
+public void setRoomtypestatus(String roomtypestatus) {
+	this.roomtypestatus = roomtypestatus;
 }
 public int getId()
 {
