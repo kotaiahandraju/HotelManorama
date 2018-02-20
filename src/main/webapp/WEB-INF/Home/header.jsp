@@ -177,7 +177,7 @@ $(function() {
 
     <header class="navbar navbar-inverse navbar-fixed-top" role="banner">
         <div class="navbar-header pull-left">
-            <a class="navbar-brand" href="javascript:void(0);"><img src="${baseurl }/assets/img/khaibar_logo.png" class="img-responsive"></a>
+            <a class="navbar-brand" href="javascript:void(0);"><%-- <img src="${baseurl }/assets/img/khaibar_logo.png" class="img-responsive"> --%><h1 style="color:aliceblue">HOTEL MANORAMA</h1></a>
             <div class="clearfix"></div>
         </div>
 		<div class="masters">
@@ -217,15 +217,15 @@ $(function() {
             <li class="dashboard"><a href="${baseurl }/admin/dashboard"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
             <li class="roomType"><a href="${baseurl }/admin/roomTypeHome"><i class="fa fa-tint"></i> <span>Room Type</span></a></li>
             <li class="roomCapacity"><a href="${baseurl }/admin/capacityHome"><i class="fa fa-tint"></i> <span>Room Capacity</span></a></li>
-            <li class="rooms"><a href="${baseurl }/admin/roomMasterHome"><i class="fa fa-tint"></i> <span>Rooms</span></a></li>
+            <li class="rooms"><a href="${baseurl }/admin/roomMasterHome"><i class="fa fa-tint"></i> <span>Room Master</span></a></li>
               
-              <li class="transactions">
+              <%-- <li class="transactions">
             		<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-list"></i> <span>Cylinder</span> <span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li class="cylinder"><a href="${baseurl }/admin/CylinderHome"><i class="fa fa-fire-extinguisher" aria-hidden="true"></i> <span>Cylinders</span></a></li>
 						<li class="cylinderAutoGenHome"><a href="${baseurl }/admin/cylinderAutoGenHome"><i class="fa fa-bar-chart-o"></i> <span>Cylinder AutoGenHome</span></a></li>
 					</ul>
-				</li>
+				</li> --%>
 				
 			</ul>
 		</div>
@@ -243,7 +243,7 @@ $(function() {
 		                <div class="btn-toolbar">
 		                    <a href="#" class="btn btn-danger "><span id="cylinderCount1"></span><br />Available Rooms</a>
 		                    <a href="#" class="btn btn-warning"><span id="customerCount1"></span><br />Customers</a>
-		                    <a href="#" class="btn btn-info"><span id="totalGas1"></span><br /></a>
+<!-- 		                    <a href="#" class="btn btn-info"><span id="totalGas1"></span><br /></a> -->
 		                </div>
 	            	</div>
 	            </div>

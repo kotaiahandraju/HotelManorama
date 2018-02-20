@@ -30,11 +30,11 @@
   </listener>
   <context-param>
     <param-name>webAppRootKey</param-name>
-    <param-value>webapp.root.khaibarGas</param-value>
+    <param-value>webapp.root.HotelManorama</param-value>
   </context-param>
   <context-param>
     <param-name>log4jConfigLocation</param-name>
-    <param-value>/WEB-INF/log4js/log4jkhaibarGas.properties</param-value>
+    <param-value>/WEB-INF/log4js/log4jHotelManorama.properties</param-value>
   </context-param>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
