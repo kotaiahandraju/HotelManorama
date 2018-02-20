@@ -273,7 +273,6 @@ function deleteCylinder(id,status){
 			var alldata = jsonobj.allOrders1;
 			console.log(jsonobj.allOrders1);
 			displayTable(alldata);
-			window.location.reload();
 		});
 	}
 }

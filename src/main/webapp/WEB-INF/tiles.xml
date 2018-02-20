@@ -32,6 +32,11 @@
 		<put-attribute name="body" value="/WEB-INF/pages/rooms.jsp" />
 	</definition>
 	
+<!-- 	room master -->
+	<definition name="roomMasterHome" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/pages/roomMaster.jsp" />
+	</definition>
+	
 	
 </tiles-definitions>
 

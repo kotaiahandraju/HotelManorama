@@ -81,14 +81,14 @@ ps.setString(7, hotelRoomMaster.getStatus());
 		else
 		{
 
-			String sql = "UPDATE hotel_room_master  set room_number = ? ,room_type_id = ? ,capacity_id = ? ,max_chaild = ? ,status = ?  where id = ? ";
+			String sql = "UPDATE hotel_room_master  set room_number = ? ,room_type_id = ? ,capacity_id = ? ,max_chaild = ?   where id = ? ";
 	
-			jdbcTemplate.update(sql, new Object[]{hotelRoomMaster.getRoomNumber(),hotelRoomMaster.getRoomTypeId(),hotelRoomMaster.getCapacityId(),hotelRoomMaster.getMaxChaild(),hotelRoomMaster.getStatus(),hotelRoomMaster.getId()});
+			jdbcTemplate.update(sql, new Object[]{hotelRoomMaster.getRoomNumber(),hotelRoomMaster.getRoomTypeId(),hotelRoomMaster.getCapacityId(),hotelRoomMaster.getMaxChaild(),hotelRoomMaster.getId()});
 		}
 	}
 		
 	@Transactional
-	public Boolean delete(int id,String status) {
+	public boolean delete(int id,String status) {
 		boolean result=false;
 		jdbcTemplate = custom.getJdbcTemplate();
 		String sql = "update hotel_room_master set status='"+status+"' where id = ?";
