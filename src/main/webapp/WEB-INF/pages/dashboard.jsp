@@ -23,7 +23,7 @@ window.onload = function() {
             <div class="row">
 	            		<div class="col-md-3 col-xs-12 col-sm-6">
 	                            <a class="info-tiles tiles-orange" href="#">
-	                                <div class="tiles-heading">EMPTY CYLINDERS</div>
+	                                <div class="tiles-heading">Available Rooms </div>
 	                                <div class="tiles-body-alt">
 	                                <c:if test="${not empty Empty}">
 	                                    <div class="text-center" id="emptycylinders">${Empty }</div>
@@ -36,16 +36,21 @@ window.onload = function() {
 	                        </div>
                         <div class="col-md-3 col-xs-12 col-sm-6">
                             <a class="info-tiles tiles-toyo" href="#">
-                                <div class="tiles-heading">CYLINDER IN FILLING STATION</div>
+                                <div class="tiles-heading">Filled Rooms </div>
                                 <div class="tiles-body-alt">
+                                <c:if test="${not empty Empty}">
+	                                    <div class="text-center" id="emptycylinders">${Empty }</div>
+	                                </c:if>
+	                                <c:if test="${ empty Empty}">
+	                                    <div class="text-center" id="emptycylinders">0</div>
+	                                </c:if>
                                     <!--i class="fa fa-bar-chart-o"></i-->
-                                    <div class="text-center" id="idleCylinders" >${FillingStation}</div>
                                 </div>
                             </a>
                         </div>
                         <div class="col-md-3 col-xs-12 col-sm-6">
-                            <a class="info-tiles tiles-alizarin" href="#">
-                                <div class="tiles-heading">FILLED CYLINDERS</div>
+                            <a class="info-tiles tiles-info" href="#">
+                                <div class="tiles-heading ">Today Vacate Rooms</div>
                                 <div class="tiles-body-alt">
                                  <c:if test="${not empty Filled}">
                                     <div class="text-center" id="filledcylinders">${Filled }</div>
@@ -58,7 +63,7 @@ window.onload = function() {
                         </div>
                          <div class="col-md-3 col-xs-12 col-sm-6">
                             <a class="info-tiles tiles-alizarin" href="#">
-                                <div class="tiles-heading">QUALITY CHECK CYLINDERS</div>
+                                <div class="tiles-heading">Blocked Rooms</div>
                                 <div class="tiles-body-alt">
                                  <c:if test="${not empty QualityCheck}">
                                     <div class="text-center" id="filledcylinders">${QualityCheck }</div>
@@ -69,7 +74,7 @@ window.onload = function() {
                                 </div>
                             </a>
                         </div>
-                        <div class="col-md-3 col-xs-12 col-sm-6">
+                        <%-- <div class="col-md-3 col-xs-12 col-sm-6">
                             <a class="info-tiles tiles-info" href="#">
                                 <div class="tiles-heading">CYLINDERS IN TRUCK</div>
                                 <div class="tiles-body-alt">
@@ -107,7 +112,7 @@ window.onload = function() {
                                     <div class="text-center" id="missidcylinders">${MissedCylinder }</div>
                                 </div>
                             </a>
-                        </div>
+                        </div> --%>
                         
                     </div>
                     
@@ -136,7 +141,7 @@ window.onload = function() {
             <div class="col-md-6 col-lg-6">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h4>Gas Usage</h4>
+                        <h4>Rooms Usage</h4>
                         <div class="options">
                         </div>
                     </div>

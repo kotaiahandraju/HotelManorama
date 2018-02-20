@@ -14,7 +14,7 @@
      event.preventDefault(); 
  }
 function changetext(){
-$(".capsOnly").val(function () {
+$(".capsOnly").val(function() {
     return this.value.toUpperCase();
 }); 
 }*/

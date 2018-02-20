@@ -54,7 +54,7 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<form:hidden path="id"/>
-									<label for="name" class="col-md-4 control-label">Room Name<span class="impColor">*</span></label>
+									<label for="name" class="col-md-4 control-label">Room Capacity Title<span class="impColor">*</span></label>
 									<div class="col-md-7">
 										<form:input path="name" class="form-control validate" placeholder="Room Name"/>
 									</div>
@@ -63,9 +63,9 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<form:hidden path="id"/>
-									<label for="numberOfAdult" class="col-md-4 control-label">Room Number<span class="impColor">*</span></label>
+									<label for="numberOfAdult" class="col-md-4 control-label">Number of Adult<span class="impColor">*</span></label>
 									<div class="col-md-7">
-										<form:input path="numberOfAdult" class="form-control validate" placeholder="Room Number"/>
+										<form:input path="numberOfAdult" class="form-control numericOnly validate" placeholder="Room Number"/>
 									</div>
                     			</div>
 							</div>

@@ -48,13 +48,19 @@
 									<form:hidden path="id"/>
 									<label for="roomTypeId" class="col-md-4 control-label">Room Type <span class="impColor">*</span></label>
 									<div class="col-md-7">
-										<form:input path="roomTypeId" class="form-control validate" placeholder="room_type_id"/>
+									<form:select path="roomTypeId" class="form-control validate" onfocus="removeBorder(this.id);">
+									<form:option value="">-- Select Room Type --</form:option>
+									<form:options items="${roomtype }"></form:options>
+									</form:select>
 									</div>
                     			</div>
                     			<div class="form-group">
                     				<label for="capacityId" class="col-md-4 control-label">Room/Adult <span class="impColor">*</span></label>
                     				<div class="col-md-7">
-	                    				<form:input path="capacityId" class="form-control validate" placeholder="capacity_id"/>
+                    				<form:select path="capacityId" class="form-control validate" onfocus="removeBorder(this.id);">
+									<form:option value="">-- Select Room Capacity --</form:option>
+									<form:options items="${capacity }"></form:options>
+									</form:select>
                     				</div>
                     			</div>
                     			<div class="form-group">
@@ -118,8 +124,8 @@ function showTableData(response){
 		var edit = "<a class='edit editIt' onclick='editItem("+ orderObj.id+ ")'><i class='fa fa-edit'></i></a>"
 		serviceUnitArray[orderObj.id] = orderObj;
 		var tblRow ="<tr>"
-			+ "<td title='"+orderObj.roomTypeId+"'>" + orderObj.roomTypeId + "</td>"
-			+ "<td class='impFiled' title='"+orderObj.capacityId+"'>" + orderObj.capacityId + "</td>"
+			+ "<td title='"+orderObj.roomtype+"'>" + orderObj.roomtype + "</td>"
+			+ "<td title='"+orderObj.roomcapacity+"'>" + orderObj.roomcapacity + "</td>"
 			+ "<td title='"+orderObj.maxChaild+"'>" + orderObj.maxChaild + "</td>"
 			+ "<td title='"+orderObj.roomNumber+"'>" + orderObj.roomNumber + "</td>"
 			+ "<td title='"+orderObj.roomStatus+"'>" + orderObj.roomStatus + "</td>"

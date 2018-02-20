@@ -8,7 +8,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper;
 import org.springframework.stereotype.Repository;
 
-import com.aurospaces.neighbourhood.bean.CylindermasterBean;
 import com.aurospaces.neighbourhood.bean.HotelRoomTypeBean;
 import com.aurospaces.neighbourhood.daosupport.CustomConnection;
 import com.aurospaces.neighbourhood.db.basedao.BaseHotelRoomTypeDao;
@@ -48,6 +47,10 @@ public class HotelRoomTypeDao extends BaseHotelRoomTypeDao
 			return null;
 		}
 
-
+	public List<HotelRoomTypeBean> populate(String sql ){
+		 jdbcTemplate = custom.getJdbcTemplate();
+				List<HotelRoomTypeBean> retlist = jdbcTemplate.query(sql,ParameterizedBeanPropertyRowMapper.newInstance(HotelRoomTypeBean.class));
+					return retlist;
+		 }
 }
 

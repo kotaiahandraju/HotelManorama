@@ -45,6 +45,11 @@ public class HotelCapacityMasterDao extends BaseHotelCapacityMasterDao
 				return retlist.get(0);
 			return null;
 		}
+	public List<HotelCapacityMasterBean> populate(String sql ){
+		 jdbcTemplate = custom.getJdbcTemplate();
+				List<HotelCapacityMasterBean> retlist = jdbcTemplate.query(sql,ParameterizedBeanPropertyRowMapper.newInstance(HotelCapacityMasterBean.class));
+					return retlist;
+		 }
 	
 }
 
