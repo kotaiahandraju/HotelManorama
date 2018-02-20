@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Khaibar Gas LLC</title>
+    <title>Hotel Manorama</title>
     <link rel="shortcut icon" href="img/logo.jpeg"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,7 +52,7 @@ window.setTimeout(function() {
 
 <body class="focusedform">
 <div class="verticalcenter">
-<div><img src="assets/img/khaibar_logo_login.png" class="img-responsive"></div>
+<div><img src="assets/img/hotel_logo_login.png" class="img-responsive"></div>
 <!-- 	<h1 align="center">KHAIBAR GAS</h1> -->
 	<div class="panel panel-primary">
 		<form name='loginForm' action="loginAction" method='POST' class="form-horizontal" style="margin-bottom: 0px !important;">

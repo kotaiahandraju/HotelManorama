@@ -200,5 +200,5 @@ function dataClear(){
 	$("#location").val("");
 }
 $("#pageName").text("Room Capacity");
-$(".items").addClass("active"); 
+$(".roomCapacity").addClass("active"); 
 </script>

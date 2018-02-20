@@ -136,7 +136,7 @@ span.has-error,span.hasError
 			
 			var formData = new FormData();
 		    
-			$.fn.makeMultipartRequest('POST', 'getCount', false,
+			/* $.fn.makeMultipartRequest('POST', 'getCount', false,
 					formData, false, 'text', function(data){
 				var jsonobj = $.parseJSON(data);
 //		 		alert(jsonobj.cylinderCount);
@@ -147,7 +147,7 @@ span.has-error,span.hasError
 //		 		var alldata = jsonobj.allOrders1;
 //		 		console.log(jsonobj.allOrders1);
 //		 		displayTable(alldata);
-			});
+			}); */
 		});
 		
 $(function() {
@@ -216,7 +216,8 @@ $(function() {
             
             <li class="dashboard"><a href="${baseurl }/admin/dashboard"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
             <li class="roomType"><a href="${baseurl }/admin/roomTypeHome"><i class="fa fa-tint"></i> <span>Room Type</span></a></li>
-            <li class="rooms"><a href="${baseurl }/admin/capacityHome"><i class="fa fa-tint"></i> <span>Room Capacity</span></a></li>
+            <li class="roomCapacity"><a href="${baseurl }/admin/capacityHome"><i class="fa fa-tint"></i> <span>Room Capacity</span></a></li>
+            <li class="rooms"><a href="${baseurl }/admin/roomMasterHome"><i class="fa fa-tint"></i> <span>Rooms</span></a></li>
               
               <li class="transactions">
             		<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-list"></i> <span>Cylinder</span> <span class="caret"></span></a>

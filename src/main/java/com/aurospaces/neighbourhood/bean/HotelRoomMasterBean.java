@@ -12,8 +12,16 @@ protected String roomNumber ;
 protected String roomTypeId ;
 protected String capacityId ;
 protected String maxChaild ;
-protected String status ;
+protected String status,roomStatus ;
 
+
+
+public String getRoomStatus() {
+	return roomStatus;
+}
+public void setRoomStatus(String roomStatus) {
+	this.roomStatus = roomStatus;
+}
 public int getId()
 {
   return id;
