@@ -8904,8 +8904,10 @@ footer #back-to-top {
   }
 }
 .focusedform {
-  background: #e6e7e8 url(../img/bbg.jpg);
+  background: #e6e7e8 url(../img/dining1.png);
   padding: 0;
+  width:100%;
+  height:100%;
 }
 .focusedform .panel {
   width: 400px;

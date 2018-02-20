@@ -177,7 +177,7 @@ $(function() {
 
     <header class="navbar navbar-inverse navbar-fixed-top" role="banner">
         <div class="navbar-header pull-left">
-            <a class="navbar-brand" href="javascript:void(0);"><img src="${baseurl }/assets/img/khaibar_logo.png" class="img-responsive"></a>
+            <a class="navbar-brand" href="javascript:void(0);"><%-- <img src="${baseurl }/assets/img/khaibar_logo.png" class="img-responsive"> --%><h1 style="color:aliceblue">HOTEL MANORAMA</h1></a>
             <div class="clearfix"></div>
         </div>
 		<div class="masters">

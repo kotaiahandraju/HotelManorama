@@ -52,7 +52,7 @@ window.setTimeout(function() {
 
 <body class="focusedform">
 <div class="verticalcenter">
-<div><img src="assets/img/hotel_logo_login.png" class="img-responsive"></div>
+<!-- <div><img src="assets/img/hotel_logo_login.png" class="img-responsive"></div> -->
 <!-- 	<h1 align="center">KHAIBAR GAS</h1> -->
 	<div class="panel panel-primary">
 		<form name='loginForm' action="loginAction" method='POST' class="form-horizontal" style="margin-bottom: 0px !important;">
