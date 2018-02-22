@@ -16,8 +16,23 @@ protected String tue ;
 protected String wed ;
 protected String thu ;
 protected String fri ;
-protected String sat ;
+protected String sat,status,roomPriceStatus;
 
+
+
+
+public String getRoomPriceStatus() {
+	return roomPriceStatus;
+}
+public void setRoomPriceStatus(String roomPriceStatus) {
+	this.roomPriceStatus = roomPriceStatus;
+}
+public String getStatus() {
+	return status;
+}
+public void setStatus(String status) {
+	this.status = status;
+}
 public int getId()
 {
   return id;

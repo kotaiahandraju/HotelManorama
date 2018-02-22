@@ -20,30 +20,34 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.aurospaces.neighbourhood.bean.HotelCapacityMasterBean;
 import com.aurospaces.neighbourhood.bean.HotelRoomMasterBean;
+import com.aurospaces.neighbourhood.bean.HotelRoomPriceBean;
 import com.aurospaces.neighbourhood.bean.HotelRoomTypeBean;
 import com.aurospaces.neighbourhood.db.dao.HotelCapacityMasterDao;
 import com.aurospaces.neighbourhood.db.dao.HotelRoomMasterDao;
+import com.aurospaces.neighbourhood.db.dao.HotelRoomPriceDao;
 import com.aurospaces.neighbourhood.db.dao.HotelRoomTypeDao;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Controller
 @RequestMapping(value="/admin")
-public class RoomMasterController {
+public class RoomPriceController {
 	
 	@Autowired HotelRoomTypeDao hotelRoomTypeDao;
 	@Autowired HotelRoomMasterDao hotelRoomMasterDao;
 	@Autowired HotelCapacityMasterDao hotelCapacityMasterDao;
-		private Logger logger = Logger.getLogger(RoomMasterController.class);
+	@Autowired HotelRoomPriceDao roomPriceDao;
+	
+		private Logger logger = Logger.getLogger(RoomPriceController.class);
 		
-		@RequestMapping(value = "/roomMasterHome")
-		public String storeHome(@ModelAttribute("roomForm")HotelRoomMasterBean hotelRoomMasterBean,HttpServletRequest request,
+		@RequestMapping(value = "/roomPriceHome")
+		public String storeHome(@ModelAttribute("roomPriceForm")HotelRoomPriceBean roomPriceBean,HttpServletRequest request,
 				HttpSession session) {
 			ObjectMapper objectMapper = null;
 			String sJson = null;
-			List<HotelRoomMasterBean> listOrderBeans=null;
+			List<HotelRoomPriceBean> listOrderBeans=null;
 			try {
 				
-				listOrderBeans = hotelRoomMasterDao.getAllRooms("1");
+				listOrderBeans = roomPriceDao.getAllRoomPriceList("1");
 				if (listOrderBeans != null && listOrderBeans.size() > 0) {
 					objectMapper = new ObjectMapper();
 					sJson = objectMapper.writeValueAsString(listOrderBeans);
@@ -60,30 +64,30 @@ public class RoomMasterController {
 				System.out.println(e);
 
 			}
-			return "roomMasterHome";
+			return "roomPriceHome";
 				
 		}
 		
-		@RequestMapping(value = "/roomMasterSave")
-		public  String storeSave(@ModelAttribute("roomForm")HotelRoomMasterBean hotelRoomMasterBean, HttpSession objSession,HttpServletRequest objRequest,RedirectAttributes redirect) {
-			HotelRoomMasterBean hotelRoomMaster=null;
+		@RequestMapping(value = "/roomPriceSave")
+		public  String storeSave(HotelRoomPriceBean roomPriceBean, HttpSession objSession,HttpServletRequest objRequest,RedirectAttributes redirect) {
+			HotelRoomPriceBean hotelRoomPriceIdsList=null;
 			 int id = 0;
 			try {
 				System.out.println("--------Room MasterSave----------");
 				
-				String roomTypeId=hotelRoomMasterBean.getRoomTypeId();
-				String capacity_id = hotelRoomMasterBean.getCapacityId();
-				hotelRoomMaster=hotelRoomMasterDao.getByRoomType(roomTypeId,capacity_id);
+				String roomTypeId=roomPriceBean.getRoomTypeId();
+				String capacity_id = roomPriceBean.getCapacityId();
+				hotelRoomPriceIdsList=roomPriceDao.getByRoomPriceIdAndCapacity(roomTypeId,capacity_id);
 				int dummyId =0;
-				if(hotelRoomMaster != null){
-					dummyId = hotelRoomMaster.getId();
+				if(hotelRoomPriceIdsList != null){
+					dummyId = hotelRoomPriceIdsList.getId();
 				}
-				if(hotelRoomMasterBean.getId() != 0)
+				if(roomPriceBean.getId() != 0)
 				{
-					id = hotelRoomMasterBean.getId();
-					if(id == dummyId || hotelRoomMaster == null )
+					id = roomPriceBean.getId();
+					if(id == dummyId || hotelRoomPriceIdsList == null )
 					{
-						hotelRoomMasterDao.save(hotelRoomMasterBean);
+						roomPriceDao.save(roomPriceBean);
 						redirect.addFlashAttribute("msg", "Record Updated Successfully");
 						redirect.addFlashAttribute("cssMsg", "warning");
 					}
@@ -93,15 +97,15 @@ public class RoomMasterController {
 						redirect.addFlashAttribute("cssMsg", "danger");
 					}
 				}
-				if(hotelRoomMasterBean.getId() == 0 && hotelRoomMaster == null)
+				if(roomPriceBean.getId() == 0 && hotelRoomPriceIdsList == null)
 				{
-					hotelRoomMasterBean.setStatus("1");
-					hotelRoomMasterDao.save(hotelRoomMasterBean);
+					roomPriceBean.setStatus("1");
+					roomPriceDao.save(roomPriceBean);
 					
 					redirect.addFlashAttribute("msg", "Record Inserted Successfully");
 					redirect.addFlashAttribute("cssMsg", "success");
 				}
-				if(hotelRoomMasterBean.getId() == 0 && hotelRoomMaster != null)
+				if(roomPriceBean.getId() == 0 && hotelRoomPriceIdsList != null)
 				{
 					redirect.addFlashAttribute("msg", "Already Record Exist");
 					redirect.addFlashAttribute("cssMsg", "danger");
@@ -113,19 +117,19 @@ public class RoomMasterController {
 				redirect.addFlashAttribute("msg", "Failed");
 				redirect.addFlashAttribute("cssMsg", "danger");
 			}
-			return "redirect:roomMasterHome";
+			return "redirect:roomPriceHome";
 		}
 		
-		@RequestMapping(value = "/roomDelete")
-		public @ResponseBody String storeDelete(HotelRoomMasterBean objHotelRoomMasterBean, HttpSession objSession,
+		@RequestMapping(value = "/roomPriceDelete")
+		public @ResponseBody String roomPriceDelete(HotelRoomPriceBean  roomPriceBean, HttpSession objSession,
 				HttpServletRequest objRequest)  {
 			boolean delete = false;
 			JSONObject jsonObj = new JSONObject();
-			List<HotelRoomMasterBean> listOrderBeans=null;
+			List<HotelRoomPriceBean> listOrderBeans=null;
 			try{
 				
-				if (objHotelRoomMasterBean.getId() != 0 && objHotelRoomMasterBean.getStatus() !="") {
-					delete = hotelRoomMasterDao.delete(objHotelRoomMasterBean.getId(),objHotelRoomMasterBean.getStatus());
+				if (roomPriceBean.getId() != 0 && roomPriceBean.getStatus() !="") {
+					delete = roomPriceDao.delete(roomPriceBean.getId(),roomPriceBean.getStatus());
 					if (delete) {
 						jsonObj.put("message", "deleted");
 					} else {
@@ -133,7 +137,7 @@ public class RoomMasterController {
 					}
 				}
 
-				listOrderBeans = hotelRoomMasterDao.getAllRooms("1");
+				listOrderBeans = roomPriceDao.getAllRoomPriceList("1");
 				if (listOrderBeans != null && listOrderBeans.size() > 0) {
 
 					jsonObj.put("allOrders1", listOrderBeans);
@@ -151,12 +155,12 @@ public class RoomMasterController {
 			}
 			return String.valueOf(jsonObj);
 		}
-		@RequestMapping(value = "/inActiveRoom")
-		public @ResponseBody String inActiveItem(@RequestParam("status") String status)  {
+		@RequestMapping(value = "/inActivePrice")
+		public @ResponseBody String inActivePrice(@RequestParam("status") String status)  {
 			JSONObject jsonObj = new JSONObject();
-			List<HotelRoomMasterBean> listOrderBeans=null;
+			List<HotelRoomPriceBean> listOrderBeans=null;
 			try{
-				listOrderBeans = hotelRoomMasterDao.getAllRooms(status);
+				listOrderBeans = roomPriceDao.getAllRoomPriceList(status);
 				if (listOrderBeans != null && listOrderBeans.size() > 0) {
 
 					jsonObj.put("allOrders1", listOrderBeans);
@@ -197,7 +201,6 @@ public class RoomMasterController {
 			try {
 				String sSql = "SELECT id ,CONCAT(name,'(',numberOfAdult,')') AS name FROM `hotel_capacity_master` WHERE status='1'";
 				List<HotelCapacityMasterBean> list = hotelCapacityMasterDao.populate(sSql);
-				System.out.println("--------List-----"+list.size());
 				for (HotelCapacityMasterBean bean : list) {
 					statesMap.put(bean.getId(), bean.getName());
 				}
@@ -208,7 +211,6 @@ public class RoomMasterController {
 			}
 			return statesMap;
 		}	
-		
 	}
 
 

@@ -25,7 +25,7 @@ public class BaseHotelRoomPriceDao{
 	CustomConnection custom;
 	JdbcTemplate jdbcTemplate;
  
-	public final String INSERT_SQL = "INSERT INTO hotel_room_price( created_time, updated_time, room_type_id, capacity_id, sun, mon, tue, wed, thu, fri, sat) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"; 
+	public final String INSERT_SQL = "INSERT INTO hotel_room_price( created_time, updated_time, room_type_id, capacity_id, sun, mon, tue, wed, thu, fri, sat,status) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)"; 
 
 
 
@@ -71,6 +71,7 @@ ps.setString(8, hotelRoomPrice.getWed());
 ps.setString(9, hotelRoomPrice.getThu());
 ps.setString(10, hotelRoomPrice.getFri());
 ps.setString(11, hotelRoomPrice.getSat());
+ps.setString(12, hotelRoomPrice.getStatus());
 
 							return ps;
 						}

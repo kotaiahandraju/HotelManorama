@@ -39,6 +39,10 @@
 	<definition name="roomMasterHome" extends="base.definition">
 		<put-attribute name="body" value="/WEB-INF/pages/roomMaster.jsp" />
 	</definition>
+	<!-- 	room Price master -->
+	<definition name="roomPriceHome" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/pages/roomPrice.jsp" />
+	</definition>
 	
 	
 </tiles-definitions>
