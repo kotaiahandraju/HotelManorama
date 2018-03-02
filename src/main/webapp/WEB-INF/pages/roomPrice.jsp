@@ -8,7 +8,7 @@
 	<div class="clearfix"></div>
 	<ol class="breadcrumb">
     	<li><a href="#">Home</a></li>
-		<li>Room Price</li>
+		<li>Room Tariff</li>
 	</ol>
 	<div class="clearfix"></div>
 	<div class="container">
@@ -16,7 +16,7 @@
 			<div class="col-md-12">
 				<div class="panel panel-primary">
 					<div class="panel-heading">
-						<h4>Room Price List</h4>
+						<h4>Room Tariff List</h4>
 						<div class="options">   
 							<a href="javascript:;" class="panel-collapse"><i class="fa fa-chevron-down"></i></a>
 						</div>
@@ -38,7 +38,7 @@
 			<div class="col-md-12 col-sm-12">
 				<div class="panel panel-primary">
 					<div class="panel-heading">
-						<h4>Add Room</h4>
+						<h4>Add Room Tariff</h4>
 					</div>
 					<form:form modelAttribute="roomPriceForm" action="roomPriceSave" class="form-horizontal" method="Post" >
 					<div class="panel-body">
@@ -233,6 +233,6 @@ function dataClear(){
 	$("#s").val("");
 	$("#location").val("");
 }
-$("#pageName").text("Room Price Plan");
-$(".roomPrice").addClass("active"); 
+$("#pageName").text("Room Tariff");
+$(".roomsTariff").addClass("active"); 
 </script>
