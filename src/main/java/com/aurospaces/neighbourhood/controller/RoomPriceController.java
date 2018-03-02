@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.aurospaces.neighbourhood.bean.HotelCapacityMasterBean;
-import com.aurospaces.neighbourhood.bean.HotelRoomMasterBean;
 import com.aurospaces.neighbourhood.bean.HotelRoomPriceBean;
 import com.aurospaces.neighbourhood.bean.HotelRoomTypeBean;
 import com.aurospaces.neighbourhood.db.dao.HotelCapacityMasterDao;
