@@ -44,6 +44,11 @@
 		<put-attribute name="body" value="/WEB-INF/pages/roomPrice.jsp" />
 	</definition>
 	
+	<!-- 	room PHotos master -->
+	<definition name="roomPhotosHome" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/pages/roomPhotos.jsp" />
+	</definition>
+	
 	
 </tiles-definitions>
 

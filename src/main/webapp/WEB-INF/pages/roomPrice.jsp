@@ -66,43 +66,43 @@
                     			<div class="form-group">
                     				<label for="sun" class="col-md-4 control-label">Sunday<span class="impColor">*</span></label>
                     				<div class="col-md-7">
-		                            	<form:input  path="sun" class="form-control numericOnly validate" placeholder="Sunday"/>
+		                            	<form:input  path="sun" class="form-control numericOnly validate" placeholder="Price(INR)"/>
 								  	</div>
                     			</div>
 								<div class="form-group">
                     				<label for="mon" class="col-md-4 control-label">Monday</label>
                     				<div class="col-md-7">
-		                            	<form:input  path="mon" class="form-control numericOnly validate" placeholder="Mon"/>
+		                            	<form:input  path="mon" class="form-control numericOnly validate" placeholder="Price(INR)"/>
 								  	</div>
                     			</div>
                     			<div class="form-group">
                     				<label for="tue" class="col-md-4 control-label">Tuesday</label>
                     				<div class="col-md-7">
-		                            	<form:input  path="tue" class="form-control numericOnly validate" placeholder="Tuesday"/>
+		                            	<form:input  path="tue" class="form-control numericOnly validate" placeholder="Price(INR)"/>
 								  	</div>
                     			</div>
                     			<div class="form-group">
                     				<label for="wed" class="col-md-4 control-label">Wednesday</label>
                     				<div class="col-md-7">
-		                            	<form:input  path="wed" class="form-control numericOnly validate" placeholder="Wednesday"/>
+		                            	<form:input  path="wed" class="form-control numericOnly validate" placeholder="Price(INR)"/>
 								  	</div>
                     			</div>
                     			<div class="form-group">
                     				<label for="thu" class="col-md-4 control-label">Thursday</label>
                     				<div class="col-md-7">
-		                            	<form:input  path="thu" class="form-control  validate" placeholder="Thursday"/>
+		                            	<form:input  path="thu" class="form-control  validate" placeholder="Price(INR)"/>
 								  	</div>
                     			</div>
                     			<div class="form-group">
                     				<label for="fri" class="col-md-4 control-label">Friday</label>
                     				<div class="col-md-7">
-		                            	<form:input  path="fri" class="form-control numericOnly validate" placeholder="Friday"/>
+		                            	<form:input  path="fri" class="form-control numericOnly validate" placeholder="Price(INR)"/>
 								  	</div>
                     			</div>
                     			<div class="form-group">
                     				<label for="sat" class="col-md-4 control-label">Saturday</label>
                     				<div class="col-md-7">
-		                            	<form:input  path="sat" class="form-control numericOnly validate" placeholder="Saturday"/>
+		                            	<form:input  path="sat" class="form-control numericOnly validate" placeholder="Price(INR)"/>
 								  	</div>
                     			</div>
 							</div>
@@ -147,11 +147,11 @@ function showTableData(response){
 	$("#tableId").html(tableHead);
 	$.each(response,function(i, orderObj) {
 		if(orderObj.status == "1"){
-			var deleterow = "<a class='deactivate' onclick='deleteItem("+ orderObj.id+ ",0)'><i class='fa fa-eye'></i></a>"
+			var deleterow = "<a class='deactivate' onclick='deleteRoomPrice("+ orderObj.id+ ",0)'><i class='fa fa-eye'></i></a>"
 		}else{  
-			var deleterow = "<a class='activate' onclick='deleteItem("+ orderObj.id+ ",1)'><i class='fa fa-eye-slash'></i></a>"
+			var deleterow = "<a class='activate' onclick='deleteRoomPrice("+ orderObj.id+ ",1)'><i class='fa fa-eye-slash'></i></a>"
 		}
-		var edit = "<a class='edit editIt' onclick='editItem("+ orderObj.id+ ")'><i class='fa fa-edit'></i></a>"
+		var edit = "<a class='edit editIt' onclick='editRoom("+ orderObj.id+ ")'><i class='fa fa-edit'></i></a>"
 		serviceUnitArray[orderObj.id] = orderObj;
 		var tblRow ="<tr>"
 			+ "<td title='"+orderObj.roomTypeId+"'>" + orderObj.roomTypeId + "</td>"
@@ -171,7 +171,7 @@ function showTableData(response){
 	if(isClick=='Yes') $('.datatables').dataTable();
 }
 
-function editItem(id){
+function editRoom(id){
 	$("#id").val(id);
 	$("#roomTypeId").val(serviceUnitArray[id].roomTypeId);
 	$("#capacityId").val(serviceUnitArray[id].capacityId);
@@ -187,7 +187,7 @@ function editItem(id){
 	$(window).scrollTop($('#moveTo').offset().top);
 }
 
-function deleteItem(id,status){
+function deleteRoomPrice(id,status){
 	var checkstr=null;
 	if(status == 0){
 		 checkstr = confirm('Are you sure you want to Deactivate?');
@@ -233,6 +233,6 @@ function dataClear(){
 	$("#s").val("");
 	$("#location").val("");
 }
-$("#pageName").text("Room Price Master");
-$(".rooms").addClass("active"); 
+$("#pageName").text("Room Price Plan");
+$(".roomPrice").addClass("active"); 
 </script>
