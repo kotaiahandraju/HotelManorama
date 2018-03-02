@@ -29,7 +29,7 @@
 							<thead>
 								<tr>
 									<th>Name </th>
-									<th>Room Number</th>
+									<th>Number of Adult</th>
 									<th>Status</th>
 									<th></th>
 								</tr>
@@ -56,7 +56,7 @@
 									<form:hidden path="id"/>
 									<label for="name" class="col-md-4 control-label">Room Capacity Title<span class="impColor">*</span></label>
 									<div class="col-md-7">
-										<form:input path="name" class="form-control validate" placeholder="Room Name"/>
+										<form:input path="name" class="form-control validate" placeholder="Room Capacity Title"/>
 									</div>
                     			</div>
 							</div>
@@ -65,7 +65,7 @@
 									<form:hidden path="id"/>
 									<label for="numberOfAdult" class="col-md-4 control-label">Number of Adult<span class="impColor">*</span></label>
 									<div class="col-md-7">
-										<form:input path="numberOfAdult" class="form-control numericOnly validate" placeholder="Room Number"/>
+										<form:input path="numberOfAdult" class="form-control numericOnly validate" placeholder="Number of Adult"/>
 									</div>
                     			</div>
 							</div>
@@ -106,16 +106,16 @@ function showTableData(response){
 	serviceUnitArray = {};
 	var protectType = null;
 	var tableHead = '<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="example">'+
-    	'<thead><tr><th>Room Name </th><th>Room Number</th><th>Status</th><th></th></tr>'+
+    	'<thead><tr><th>Room Capacity Title </th><th>Number of Adult</th><th>Status</th><th></th></tr>'+
     	"</thead><tbody></tbody></table>";
 	$("#tableId").html(tableHead);
 	$.each(response,function(i, orderObj) {
 		if(orderObj.status == "1"){
-			var deleterow = "<a class='deactivate' onclick='deleteItem("+ orderObj.id+ ",0)'><i class='fa fa-eye'></i></a>"
+			var deleterow = "<a class='deactivate' onclick='deleteRoomCapacity("+ orderObj.id+ ",0)'><i class='fa fa-eye'></i></a>"
 		}else{  
-			var deleterow = "<a class='activate' onclick='deleteItem("+ orderObj.id+ ",1)'><i class='fa fa-eye-slash'></i></a>"
+			var deleterow = "<a class='activate' onclick='deleteRoomCapacity("+ orderObj.id+ ",1)'><i class='fa fa-eye-slash'></i></a>"
 		}
-		var edit = "<a class='edit editIt' onclick='editItem("+ orderObj.id+ ")'><i class='fa fa-edit'></i></a>"
+		var edit = "<a class='edit editIt' onclick='editRoomCapacity("+ orderObj.id+ ")'><i class='fa fa-edit'></i></a>"
 		serviceUnitArray[orderObj.id] = orderObj;
 		var tblRow ="<tr>"
 			+ "<td title='"+orderObj.name+"'>" + orderObj.name + "</td>"
@@ -128,15 +128,15 @@ function showTableData(response){
 	if(isClick=='Yes') $('.datatables').dataTable();
 }
 
-function editItem(id){
+function editRoomCapacity(id){
 	$("#id").val(id);
 	$("#name").val(serviceUnitArray[id].name);
-	$("#roomnumber").val(serviceUnitArray[id].roomnumber);
+	$("#numberOfAdult").val(serviceUnitArray[id].numberOfAdult);
 	$("#submit1").val("Update");
 	$(window).scrollTop($('#moveTo').offset().top);
 }
 
-function deleteItem(id,status){
+function deleteRoomCapacity(id,status){
 	var checkstr=null;
 	if(status == 0){
 		 checkstr = confirm('Are you sure you want to Deactivate?');

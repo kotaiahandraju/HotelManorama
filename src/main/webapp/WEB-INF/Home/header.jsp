@@ -219,6 +219,7 @@ $(function() {
             <li class="roomCapacity"><a href="${baseurl }/admin/capacityHome"><i class="fa fa-tint"></i> <span>Room Capacity</span></a></li>
             <li class="rooms"><a href="${baseurl }/admin/roomMasterHome"><i class="fa fa-tint"></i> <span>Room Master</span></a></li>
             <li class="roomsTariff"><a href="${baseurl }/admin/roomPriceHome"><i class="fa fa-tint"></i> <span>Room Tariff</span></a></li>
+             <li class="roomPhoto"><a href="${baseurl }/admin/roomPhotosHome"><i class="fa fa-tint"></i> <span>Room Photos</span></a></li>
               
               <%-- <li class="transactions">
             		<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-list"></i> <span>Cylinder</span> <span class="caret"></span></a>

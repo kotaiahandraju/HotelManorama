@@ -14,7 +14,60 @@ protected String image2 ;
 protected String image3 ;
 protected String image4 ;
 protected String image5 ;
+protected String status,photoStatus;
+protected String capacityId ;
+protected String imagePath1,imagePath2,imagePath3,imagePath4,imagePath5 ;
 
+
+
+public String getImagePath1() {
+	return imagePath1;
+}
+public void setImagePath1(String imagePath1) {
+	this.imagePath1 = imagePath1;
+}
+public String getImagePath2() {
+	return imagePath2;
+}
+public void setImagePath2(String imagePath2) {
+	this.imagePath2 = imagePath2;
+}
+public String getImagePath3() {
+	return imagePath3;
+}
+public void setImagePath3(String imagePath3) {
+	this.imagePath3 = imagePath3;
+}
+public String getImagePath4() {
+	return imagePath4;
+}
+public void setImagePath4(String imagePath4) {
+	this.imagePath4 = imagePath4;
+}
+public String getImagePath5() {
+	return imagePath5;
+}
+public void setImagePath5(String imagePath5) {
+	this.imagePath5 = imagePath5;
+}
+public String getCapacityId() {
+	return capacityId;
+}
+public void setCapacityId(String capacityId) {
+	this.capacityId = capacityId;
+}
+public String getStatus() {
+	return status;
+}
+public void setStatus(String status) {
+	this.status = status;
+}
+public String getPhotoStatus() {
+	return photoStatus;
+}
+public void setPhotoStatus(String photoStatus) {
+	this.photoStatus = photoStatus;
+}
 public int getId()
 {
   return id;

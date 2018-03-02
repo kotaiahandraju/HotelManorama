@@ -117,11 +117,11 @@ function showTableData(response){
 	$("#tableId").html(tableHead);
 	$.each(response,function(i, orderObj) {
 		if(orderObj.status == "1"){
-			var deleterow = "<a class='deactivate' onclick='deleteItem("+ orderObj.id+ ",0)'><i class='fa fa-eye'></i></a>"
+			var deleterow = "<a class='deactivate' onclick='deleteRoom("+ orderObj.id+ ",0)'><i class='fa fa-eye'></i></a>"
 		}else{  
-			var deleterow = "<a class='activate' onclick='deleteItem("+ orderObj.id+ ",1)'><i class='fa fa-eye-slash'></i></a>"
+			var deleterow = "<a class='activate' onclick='deleteRoom("+ orderObj.id+ ",1)'><i class='fa fa-eye-slash'></i></a>"
 		}
-		var edit = "<a class='edit editIt' onclick='editItem("+ orderObj.id+ ")'><i class='fa fa-edit'></i></a>"
+		var edit = "<a class='edit editIt' onclick='editRoom("+ orderObj.id+ ")'><i class='fa fa-edit'></i></a>"
 		serviceUnitArray[orderObj.id] = orderObj;
 		var tblRow ="<tr>"
 			+ "<td title='"+orderObj.roomtype+"'>" + orderObj.roomtype + "</td>"
@@ -136,7 +136,7 @@ function showTableData(response){
 	if(isClick=='Yes') $('.datatables').dataTable();
 }
 
-function editItem(id){
+function editRoom(id){
 	$("#id").val(id);
 	$("#roomTypeId").val(serviceUnitArray[id].roomTypeId);
 	$("#capacityId").val(serviceUnitArray[id].capacityId);
@@ -146,7 +146,7 @@ function editItem(id){
 	$(window).scrollTop($('#moveTo').offset().top);
 }
 
-function deleteItem(id,status){
+function deleteRoom(id,status){
 	var checkstr=null;
 	if(status == 0){
 		 checkstr = confirm('Are you sure you want to Deactivate?');
