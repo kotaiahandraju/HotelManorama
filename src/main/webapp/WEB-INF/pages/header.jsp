@@ -140,12 +140,12 @@ function subForm()
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav pull-right" style="background: none;">
-        <li><a href="index.html" style="color: white;">Home</a></li>
-		<li><a href="about.html" style="color: white;">About Us</a></li>
-        <li><a href="roomtariff.html" style="color: white;">Room & Tariff</a></li>
-        <li><a href="facilities.html" style="color: white;">Facilities</a></li> 
-        <li><a href="contact.html" style="color: white;">Contact Us</a></li> 
-		<li><a href="login.html" style="color: white;">Login</a></li> 
+        <li><a href="userindex.jsp" style="color: white;">Home</a></li>
+		<li><a href="about.jsp" style="color: white;">About Us</a></li>
+        <li><a href="userRoomTariff" style="color: white;">Room & Tariff</a></li>
+        <li><a href="facilities.jsp" style="color: white;">Facilities</a></li> 
+        <li><a href="contact.jsp" style="color: white;">Contact Us</a></li> 
+		<li><a href="login.jsp" style="color: white;">Login</a></li> 
       </ul>      
     </div>
   </div>
@@ -169,7 +169,7 @@ function subForm()
 					<div class="image"><img src="user/icons/tariff.jpg" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
 					<div class="info">
 						<div class="more">
-							<a href="roomtariff.html" title="Title Link">
+							<a href="userRoomTariff" title="Title Link">
 								Rooms
 							</a>
 						</div>

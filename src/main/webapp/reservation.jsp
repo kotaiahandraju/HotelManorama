@@ -1,185 +1,4 @@
 <jsp:include page="header.jsp" />
-			<div class="container">
-			<legend style="font-weight: bold; font-size: 26px; border-bottom: 2px solid teal; color: teal;">OUR SERVICES</legend>
-        <!-- Boxes de Acoes -->
-    		
-		<div class="col-md-1">
-			<div class="box">							
-				<div class="icon">
-					<div class="image"><img src="icons/tariff.jpg" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
-					<div class="info">
-						<div class="more">
-							<a href="roomtariff.html" title="Title Link">
-								Rooms
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="space"></div>
-			</div> 
-		</div>
-				
-		<div class="col-md-1">
-			<div class="box">							
-				<div class="icon">
-					<div class="image"><img src="icons/facility.png" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
-					<div class="info">
-						<div class="more">
-							<a href="facilities.html" title="Title Link">
-								Facilities
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="space"></div>
-			</div> 
-		</div>
-		
-		<div class="col-md-1">
-			<div class="box">							
-				<div class="icon">
-					<div class="image"><img src="icons/banquets.jpg" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
-					<div class="info">
-						<div class="more">
-							<a href="meetings.html" title="Title Link">
-								Banquets
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="space"></div>
-			</div> 
-		</div>
-		
-		<div class="col-md-1">
-			<div class="box">							
-				<div class="icon">
-					<div class="image"><img src="icons/dining.png" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
-					<div class="info">
-						<div class="more">
-							<a href="dining.html" title="Title Link">
-								Dining
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="space"></div>
-			</div> 
-		</div>
-		
-		<div class="col-md-1">
-			<div class="box">							
-				<div class="icon">
-					<div class="image"><img src="icons/gallery.png" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
-					<div class="info">
-						<div class="more">
-							<a href="gallery.html" title="Title Link">
-								Gallery
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="space"></div>
-			</div> 
-		</div>
-		
-		<div class="col-md-1">
-			<div class="box">							
-				<div class="icon">
-					<div class="image"><img src="icons/attractions.png" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
-					<div class="info">
-						<div class="more">
-							<a href="attractions.html" title="Title Link">
-								Attractions
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="space"></div>
-			</div> 
-		</div>
-		
-		<div class="col-md-1">
-			<div class="box">							
-				<div class="icon">
-					<div class="image"><img src="icons/offer.jpg" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
-					<div class="info">
-						<div class="more">
-							<a href="offers.html" title="Title Link">
-								Offers
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="space"></div>
-			</div> 
-		</div>
-		
-		<div class="col-md-1">
-			<div class="box">							
-				<div class="icon">
-					<div class="image"><img src="icons/enquire.png" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
-					<div class="info">
-						<div class="more">
-							<a href="enquiry.html" title="Title Link">
-								Enquire
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="space"></div>
-			</div> 
-		</div>
-		
-		<div class="col-md-1">
-			<div class="box">							
-				<div class="icon">
-					<div class="image"><img src="icons/careers.jpg" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
-					<div class="info">
-						<div class="more">
-							<a href="careers.html" title="Title Link">
-								Careers
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="space"></div>
-			</div> 
-		</div>
-		
-		<div class="col-md-1">
-			<div class="box">							
-				<div class="icon">
-					<div class="image"><img src="icons/reach.png" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
-					<div class="info">
-						<div class="more">
-							<a href="reach.html" title="Title Link">
-								Address
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="space"></div>
-			</div> 
-		</div>
-		
-		 <div class="col-md-1">
-			<div class="box">							
-				<div class="icon">
-					<div class="image"><img src="icons/reservation.jpg" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
-					<div class="info">
-						<div class="more">
-							<a href="reservation.html" title="Title Link">
-								Reservation
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="space"></div>
-			</div> 
-		</div>
-		</div>
-</div>		  	  
 <div class="container">
          <div class="row">
             	 <div class="col-md-8">
@@ -410,7 +229,7 @@ else
 
 <table>
   <tr>
-    <td><a href="javascript:void(0);" onclick="getRate();" > <img src="/img/check-rate-btn.png" alt="" /></a></td>
+    <td><a href="javascript:void(0);" onclick="getRate();" > <img src="user/img/check-rate-btn.png" alt="" /></a></td>
     <td><span id="rate_div">      </span></td>
   </tr>
 </table>
@@ -677,7 +496,7 @@ else
                 <label for="captcha" class="col-sm-2 control-label"></label>
                 <div class="col-sm-10 col-md-6">         		 
 			     <img src="http://www.hotelManorama.com/pages/captcha" style="" vspace="2" id="captcha_image" alt="" />                 <a href="javascript:void(0);" onclick="javascript:document.images.captcha_image.src='http://www.hotelManorama.com/pages/captcha?' + Math.round(Math.random(0)*1000)+1">
-                   <img src="/img/refresh.jpg" alt="" /> 	
+                   <img src="user/img/refresh.jpg" alt="" /> 	
                  </a>
                 </div>
             </div>
@@ -693,8 +512,8 @@ else
     background-color: transparent;
     border: 0px;
     margin-right: 10px;
-" ><img src="/img/bookmyplan-now.png" alt="" /></button>
-              <a href="javascript:void(0);" onclick="reset_form();" ><img src="/img/reset-btn.png" alt="" /></a>
+" ><img src="user/img/bookmyplan-now.png" alt="" /></button>
+              <a href="javascript:void(0);" onclick="reset_form();" ><img src="user/img/reset-btn.png" alt="" /></a>
             </div>
           </div>          
 	    
@@ -874,12 +693,12 @@ $('.odoo').each(function(){
        
 <div class="col-md-4">	
 	<legend style="font-size: 36px;"> Services</legend>
-	<img src="img/b7.png" class="img-responsive"><br>
-	<img src="img/b4.png" class="img-responsive"><br>
-	<img src="img/b8.png" class="img-responsive"><br>
-	<img src="img/b1.png" class="img-responsive"><br>
-	<img src="img/b2.png" class="img-responsive"><br>
-	<img src="img/b3.png" class="img-responsive">
+	<img src="user/img/b7.png" class="img-responsive"><br>
+	<img src="user/img/b4.png" class="img-responsive"><br>
+	<img src="user/img/b8.png" class="img-responsive"><br>
+	<img src="user/img/b1.png" class="img-responsive"><br>
+	<img src="user/img/b2.png" class="img-responsive"><br>
+	<img src="user/img/b3.png" class="img-responsive">
 	</div>   </div>                    
                  </div>
                 </div>   

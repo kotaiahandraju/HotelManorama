@@ -24,10 +24,10 @@
                       		<!--One Start-->
                      		<div class="col-md-3 col-sm-12 col-xs-12 padding_0">
                             	<div class="footItem">
-                                    <a href="about.html" title="About Us" alt="About Us" class="footMore">About Us</a>                                     <br>                                     
-                                     <a href="reach.html" title="How to Reach" alt="How to reach" class="footMore">How to Reach</a>                                     <br>                                     
-                                     <a href="attractions.html" title="Attractions" alt="Attractions" class="footMore">Attractions</a>                                     <br>                                     
-                                     <a href="offers.html" title="Offers" alt="Offers" class="footMore">Offers</a>                                   
+                                    <a href="about.jsp" title="About Us" alt="About Us" class="footMore">About Us</a>                                     <br>                                     
+                                     <a href="reach.jsp" title="How to Reach" alt="How to reach" class="footMore">How to Reach</a>                                     <br>                                     
+                                     <a href="attractions.jsp" title="Attractions" alt="Attractions" class="footMore">Attractions</a>                                     <br>                                     
+                                     <a href="offers.jsp" title="Offers" alt="Offers" class="footMore">Offers</a>                                   
                                     
                         		 </div>
                             
@@ -36,10 +36,10 @@
                              <!--Two Start-->
                             <div class="col-md-3 col-sm-12 col-xs-12 padding_0">
                             	 <div class="footItem">
-                                 		<a href="gallery.html" title="Gallery" class="footMore">Gallery</a><br>                                 	
-                                      	<a href="meetings.html" title="Meetings" class="footMore">Meetings</a><br>
-                                        <a href="dining.html" title="Dining" alt="Dining" class="footMore">Dining</a><br>
-                                        <a href="careers.html" title="Careers" alt="Careers" class="footMore">Careers</a><br>
+                                 		<a href="gallery.jsp" title="Gallery" class="footMore">Gallery</a><br>                                 	
+                                      	<a href="meetings.jsp" title="Meetings" class="footMore">Meetings</a><br>
+                                        <a href="dining.jsp" title="Dining" alt="Dining" class="footMore">Dining</a><br>
+                                        <a href="careers.jsp" title="Careers" alt="Careers" class="footMore">Careers</a><br>
                                        
                         		  </div>
                             
@@ -48,11 +48,11 @@
                               <!--Three Start-->
                             <div class="col-md-2 col-sm-12 col-xs-12 padding_0">
                             	<div class="footItem">
-                                	 <a href="enquiry.html" title="Enquiry" alt="Enquiry" class="footMore">Enquiry</a><br>
-                                	<a href="facilities.html" title="Facilities" alt="Facilities" class="footMore">Facilities</a>   <br>                                 
+                                	 <a href="enquiry.jsp" title="Enquiry" alt="Enquiry" class="footMore">Enquiry</a><br>
+                                	<a href="facilities.jsp" title="Facilities" alt="Facilities" class="footMore">Facilities</a>   <br>                                 
                                    
-                                    <a href="reservation.html" title="Reservations" class="footMore">Reservation</a>  <br>
-                                    <a href="contact.html" title="Contact Us" alt="Contact Us" class="footMore">Contact Us</a><br>
+                                    <a href="reservation.jsp" title="Reservations" class="footMore">Reservation</a>  <br>
+                                    <a href="contact.jsp" title="Contact Us" alt="Contact Us" class="footMore">Contact Us</a><br>
                                    
                         		  </div>
                             

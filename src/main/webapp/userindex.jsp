@@ -6,23 +6,23 @@
         <meta name="keywords" content="Home">
             <meta name="description" content="Home">
 			
-			<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-			<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
-			<link rel="stylesheet" type="text/css" href="css/style.css">
-			<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-			<link rel="stylesheet" type="text/css" href="css/style_banner.css">
-			<link rel="stylesheet" type="text/css" href="css/settings.css">
-			<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.18.custom.css">
+			<link rel="stylesheet" type="text/css" href="user/css/bootstrap.css">
+			<link rel="stylesheet" type="text/css" href="user/css/bootstrap-theme.css">
+			<link rel="stylesheet" type="text/css" href="user/css/style.css">
+			<link rel="stylesheet" type="text/css" href="user/css/font-awesome.min.css">
+			<link rel="stylesheet" type="text/css" href="user/css/style_banner.css">
+			<link rel="stylesheet" type="text/css" href="user/css/settings.css">
+			<link rel="stylesheet" type="text/css" href="user/css/jquery-ui-1.8.18.custom.css">
 			
-			<script async="" src="js/analytics.js.download"></script>
-			<script type="text/javascript" src="js/jquery.js.download"></script>
-			<script type="text/javascript" src="js/bootstrap.min.js.download"></script>
-			<script type="text/javascript" src="js/docs.min.js.download"></script>
-			<script type="text/javascript" src="js/jquery.themepunch.plugins.min.js.download"></script>
-			<script type="text/javascript" src="js/jquery.themepunch.revolution.min.js.download"></script>
-			<script type="text/javascript" src="js/jquery-ui-1.8.21.custom.min.js.download"></script>
-			<script type="text/javascript" src="js/preview-fullwidth.js.download"></script>
-			<script type="text/javascript" src="js/jquery-ui-1.8.18.custom.min.js.download"></script>
+			<script async="" src="user/js/analytics.js.download"></script>
+			<script type="text/javascript" src="user/js/jquery.js.download"></script>
+			<script type="text/javascript" src="user/js/bootstrap.min.js.download"></script>
+			<script type="text/javascript" src="user/js/docs.min.js.download"></script>
+			<script type="text/javascript" src="user/js/jquery.themepunch.plugins.min.js.download"></script>
+			<script type="text/javascript" src="user/js/jquery.themepunch.revolution.min.js.download"></script>
+			<script type="text/javascript" src="user/js/jquery-ui-1.8.21.custom.min.js.download"></script>
+			<script type="text/javascript" src="user/js/preview-fullwidth.js.download"></script>
+			<script type="text/javascript" src="user/js/jquery-ui-1.8.18.custom.min.js.download"></script>
 			<style>
 			.box > .icon { text-align: center; position: relative; }
 .box > .icon > .image { position: relative; z-index: 2; margin: auto; width: 88px; height: 88px; border: 8px solid white; line-height: 88px; border-radius: 50%; background: white; vertical-align: middle; }
@@ -130,16 +130,16 @@ function subForm()
         <span class="icon-bar"></span> 
       </button>
       <a class="navbar-brand" href="Hotel manorama.html" style="color: white; font-size: 36px; height: 83px;">
-	  <img src="img/logo2.png" class="img-responsive"></a>
+	  <img src="user/img/logo2.png" class="img-responsive"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav pull-right" style="background: none;">
-        <li><a href="index.html" style="color: white;">Home</a></li>
-		<li><a href="about.html" style="color: white;">About Us</a></li>
-        <li><a href="roomtariff.html" style="color: white;">Room & Tariff</a></li>
-        <li><a href="facilities.html" style="color: white;">Facilities</a></li> 
-        <li><a href="contact.html" style="color: white;">Contact Us</a></li> 
-		<li><a href="login.html" style="color: white;">Login</a></li> 
+        <li><a href="userindex.jsp" style="color: white;">Home</a></li>
+		<li><a href="about.jsp" style="color: white;">About Us</a></li>
+        <li><a href="userRoomTariff" style="color: white;">Room & Tariff</a></li>
+        <li><a href="facilities.jsp" style="color: white;">Facilities</a></li> 
+        <li><a href="contact.jsp" style="color: white;">Contact Us</a></li> 
+		<li><a href="login.jsp" style="color: white;">Login</a></li> 
       </ul>      
     </div>
   </div>
@@ -158,16 +158,16 @@ function subForm()
    
     <div class="carousel-inner">
       <div class="item active">
-        <img src="img/droom1.jpg" alt="Los Angeles" style="width:100%;">
+        <img src="user/img/droom1.jpg" alt="Los Angeles" style="width:100%;">
       </div>
 
       <div class="item">
-        <img src="img/restaurent.png" alt="Chicago" style="width:100%;">
+        <img src="user/img/restaurent.png" alt="Chicago" style="width:100%;">
       </div>
     
 	
 	<div class="item">
-        <img src="img/dining.png" alt="Insia" style="width:100%;">
+        <img src="user/img/dining.png" alt="Insia" style="width:100%;">
       </div>
     </div>
 </div>
@@ -187,7 +187,7 @@ function subForm()
                 	 <div class="col-md-12 col-sm-12 col-xs-12">                    
                      	<div class="col-md-2 col-sm-12 col-xs-12 text-center-xs text-center-sm padding_0">
                         
-                        	<img src="img/bookingHome.png" class="responsive_02" title="Hotel Manorama" alt="Hotel Manorama">  
+                        	<img src="user/img/bookingHome.png" class="responsive_02" title="Hotel Manorama" alt="Hotel Manorama">  
                         </div>
                        
                           <form method="post" action="reservation.html" id="checkAv">
@@ -219,7 +219,7 @@ function subForm()
                                     	
                                    	 </div>
                                      <div class="col-md-1 col-sm-12 col-xs-12 homeBook padding_0 text-right-md text-right-lg text-right-xs text-right-sm">
-                                     <img src="img/checkavailability.png" alt="Manorama" class="responsive_02 margin_TB_01" onclick="subForm();">
+                                     <img src="user/img/checkavailability.png" alt="Manorama" class="responsive_02 margin_TB_01" onclick="subForm();">
                                                                                 <!-- <input type="image" src="/img/checkavailability.png" alt="Submit" class="responsive_02 margin_TB_01" />-->
                                     </div>  
                           </form>                
@@ -235,10 +235,10 @@ function subForm()
 		<div class="col-md-1">
 			<div class="box">							
 				<div class="icon">
-					<div class="image"><img src="icons/tariff.jpg" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
+					<div class="image"><img src="user/icons/tariff.jpg" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
 					<div class="info">
 						<div class="more">
-							<a href="roomtariff.html" title="Title Link">
+							<a href="userRoomTariff" title="Title Link">
 								Rooms
 							</a>
 						</div>
@@ -251,7 +251,7 @@ function subForm()
        		<div class="col-md-1">
 			<div class="box">							
 				<div class="icon">
-					<div class="image"><img src="icons/facility.png" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
+					<div class="image"><img src="user/icons/facility.png" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
 					<div class="info">
 						<div class="more">
 							<a href="facilities.html" title="Title Link">
@@ -267,7 +267,7 @@ function subForm()
 		<div class="col-md-1">
 			<div class="box">							
 				<div class="icon">
-					<div class="image"><img src="icons/banquets.jpg" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
+					<div class="image"><img src="user/icons/banquets.jpg" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
 					<div class="info">
 						<div class="more">
 							<a href="meetings.html" title="Title Link">
@@ -283,7 +283,7 @@ function subForm()
 		<div class="col-md-1">
 			<div class="box">							
 				<div class="icon">
-					<div class="image"><img src="icons/dining.png" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
+					<div class="image"><img src="user/icons/dining.png" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
 					<div class="info">
 						<div class="more">
 							<a href="dining.html" title="Title Link">
@@ -299,7 +299,7 @@ function subForm()
 		<div class="col-md-1">
 			<div class="box">							
 				<div class="icon">
-					<div class="image"><img src="icons/gallery.png" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
+					<div class="image"><img src="user/icons/gallery.png" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
 					<div class="info">
 						<div class="more">
 							<a href="gallery.html" title="Title Link">
@@ -315,7 +315,7 @@ function subForm()
 		<div class="col-md-1">
 			<div class="box">							
 				<div class="icon">
-					<div class="image"><img src="icons/attractions.png" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
+					<div class="image"><img src="user/icons/attractions.png" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
 					<div class="info">
 						<div class="more">
 							<a href="attractions.html" title="Title Link">
@@ -331,7 +331,7 @@ function subForm()
 		<div class="col-md-1">
 			<div class="box">							
 				<div class="icon">
-					<div class="image"><img src="icons/offer.jpg" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
+					<div class="image"><img src="user/icons/offer.jpg" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
 					<div class="info">
 						<div class="more">
 							<a href="offers.html" title="Title Link">
@@ -347,7 +347,7 @@ function subForm()
 		<div class="col-md-1">
 			<div class="box">							
 				<div class="icon">
-					<div class="image"><img src="icons/enquire.png" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
+					<div class="image"><img src="user/icons/enquire.png" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
 					<div class="info">
 						<div class="more">
 							<a href="enquiry.html" title="Title Link">
@@ -363,7 +363,7 @@ function subForm()
 		<div class="col-md-1">
 			<div class="box">							
 				<div class="icon">
-					<div class="image"><img src="icons/careers.jpg" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
+					<div class="image"><img src="user/icons/careers.jpg" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
 					<div class="info">
 						<div class="more">
 							<a href="careers.html" title="Title Link">
@@ -379,7 +379,7 @@ function subForm()
 		<div class="col-md-1">
 			<div class="box">							
 				<div class="icon">
-					<div class="image"><img src="icons/reach.png" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
+					<div class="image"><img src="user/icons/reach.png" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
 					<div class="info">
 						<div class="more">
 							<a href="reach.html" title="Title Link">
@@ -395,7 +395,7 @@ function subForm()
 		 <div class="col-md-1">
 			<div class="box">							
 				<div class="icon">
-					<div class="image"><img src="icons/reservation.jpg" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
+					<div class="image"><img src="user/icons/reservation.jpg" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
 					<div class="info">
 						<div class="more">
 							<a href="reservation.html" title="Title Link">
@@ -412,7 +412,7 @@ function subForm()
 
 				<div class="container padding_0">
             	 <div class="col-md-12 col-sm-12 col-xs-12 padding_0 text-center-xs text-center-sm padding_TB_02">    
-                 	<strong>Hotel Manorama, Business class hotel</strong> - Luxury Accommodation at Vijayawada - a perfect destination for business travelers or tourists traveling to Vijayawada 
+                 	<strong>Hotel Manorama, Business class hotel</strong> - Luxury Accommodation at Vijayawada - a perfect destination for business travelers or tourists traveling to Vijayawada.
                  </div>
                 </div>
         <div class="row footCon_Warp bdr_Top padding_0" style="margin-left: 0px; margin-right: 0px;">        	 
@@ -423,7 +423,7 @@ function subForm()
                      <div class="col-md-3 col-sm-12 col-xs-12 padding_0">    
                      	<div class="footLogo text-center-xs text-center-sm">
                          
-                        <!-- <a href="http://www.hotelManorama.com/"><img src="img/icon.png" title="Hotel Manorama" alt="Hotel Manorama"></a>     -->                    </div>
+                            <!-- <a href="http://www.hotelManorama.com/"><img src="img/icon.png" title="Hotel Manorama" alt="Hotel Manorama"></a>  -->                          </div>
                      	<div class="allreserve padding_0 text-center-xs text-center-sm">
                     		© 2014 Hotel Manorama. All rights reserved.
                     
@@ -436,10 +436,10 @@ function subForm()
                       		<!--One Start-->
                      		<div class="col-md-3 col-sm-12 col-xs-12 padding_0">
                             	<div class="footItem">
-                                    <a href="about.html" title="About Us" alt="About Us" class="footMore">About Us</a>                                     <br>                                     
-                                     <a href="reach.html" title="How to Reach" alt="How to reach" class="footMore">How to Reach</a>                                     <br>                                     
-                                     <a href="attractions.html" title="Attractions" alt="Attractions" class="footMore">Attractions</a>                                     <br>                                     
-                                     <a href="offers.html" title="Offers" alt="Offers" class="footMore">Offers</a>                                   
+                                    <a href="about.jsp" title="About Us" alt="About Us" class="footMore">About Us</a>                                     <br>                                     
+                                     <a href="reach.jsp" title="How to Reach" alt="How to reach" class="footMore">How to Reach</a>                                     <br>                                     
+                                     <a href="attractions.jsp" title="Attractions" alt="Attractions" class="footMore">Attractions</a>                                     <br>                                     
+                                     <a href="offers.jsp" title="Offers" alt="Offers" class="footMore">Offers</a>                                   
                                     
                         		 </div>
                             
@@ -448,10 +448,10 @@ function subForm()
                              <!--Two Start-->
                             <div class="col-md-3 col-sm-12 col-xs-12 padding_0">
                             	 <div class="footItem">
-                                 		<a href="gallery.html" title="Gallery" class="footMore">Gallery</a><br>                                 	
-                                      	<a href="meetings.html" title="Meetings" class="footMore">Meetings</a><br>
-                                        <a href="dining.html" title="Dining" alt="Dining" class="footMore">Dining</a><br>
-                                        <a href="careers.html" title="Careers" alt="Careers" class="footMore">Careers</a><br>
+                                 		<a href="gallery.jsp" title="Gallery" class="footMore">Gallery</a><br>                                 	
+                                      	<a href="meetings.jsp" title="Meetings" class="footMore">Meetings</a><br>
+                                        <a href="dining.jsp" title="Dining" alt="Dining" class="footMore">Dining</a><br>
+                                        <a href="careers.jsp" title="Careers" alt="Careers" class="footMore">Careers</a><br>
                                        
                         		  </div>
                             
@@ -460,11 +460,11 @@ function subForm()
                               <!--Three Start-->
                             <div class="col-md-2 col-sm-12 col-xs-12 padding_0">
                             	<div class="footItem">
-                                	 <a href="enquiry.html" title="Enquiry" alt="Enquiry" class="footMore">Enquiry</a><br>
-                                	<a href="facilities.html" title="Facilities" alt="Facilities" class="footMore">Facilities</a>   <br>                                 
+                                	 <a href="enquiry.jsp" title="Enquiry" alt="Enquiry" class="footMore">Enquiry</a><br>
+                                	<a href="facilities.jsp" title="Facilities" alt="Facilities" class="footMore">Facilities</a>   <br>                                 
                                    
-                                    <a href="reservation.html" title="Reservations" class="footMore">Reservation</a>  <br>
-                                    <a href="contact.html" title="Contact Us" alt="Contact Us" class="footMore">Contact Us</a><br>
+                                    <a href="reservation.jsp" title="Reservations" class="footMore">Reservation</a>  <br>
+                                    <a href="contact.jsp" title="Contact Us" alt="Contact Us" class="footMore">Contact Us</a><br>
                                    
                         		  </div>
                             
@@ -495,7 +495,7 @@ function subForm()
                                				 <!--web_Social_F End-->
                                             <!-- powered_F start-->
                                              <div class="powered_F">
-                                             <!--	Powered By : <a href="http://www.windsonline.com/" class="footMore" target="_blank">Winds Online</a> -->
+                                             	 <!--	Powered By : <a href="http://www.windsonline.com/" class="footMore" target="_blank">Winds Online</a> -->
                                              
                                              </div>
                                              <!-- powered_F End-->
