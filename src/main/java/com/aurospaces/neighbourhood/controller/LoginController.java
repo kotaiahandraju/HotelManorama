@@ -21,7 +21,7 @@ import com.aurospaces.neighbourhood.db.dao.ManoramaUsersDao;
 @Controller
 public class LoginController {
 	@Autowired ManoramaUsersDao objKhaibarUsersDao;
-	@RequestMapping(value = "/LoginHome")
+	@RequestMapping(value = "/admin")
 	public String LoginHome(Map<String, Object> model1, ModelMap model, HttpServletRequest request,
 			HttpSession session)  {
 //		System.out.println("LoginHome page...");
@@ -104,11 +104,11 @@ public class LoginController {
 				// response.sendRedirect(baseUrl+"/LoginHome1.htm" );
 //				response.sendRedirect(request.getContextPath() + "/LoginHome");
 			}
-			return "redirect:LoginHome";
+			return "../../index";
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println(e);
 		}
-		return "redirect:LoginHome";
+		return "index";
 	}
 }
