@@ -1,4 +1,8 @@
-<jsp:include page="header.jsp" />
+<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<jsp:include page="../../header.jsp" />
+
 <div class="container">
            		<div class="row">
             	 <div class="col-md-8">
@@ -117,4 +121,4 @@
 </div>                        
                  </div>
                        
-				
+				<jsp:include page="../../footer.jsp" />
