@@ -252,7 +252,7 @@ function subForm()
 					<div class="image"><img src="user/icons/facility.png" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
 					<div class="info">
 						<div class="more">
-							<a href="facilities.html" title="Title Link">
+							<a href="facilities.jsp" title="Title Link">
 								Facilities
 							</a>
 						</div>
@@ -268,7 +268,7 @@ function subForm()
 					<div class="image"><img src="user/icons/banquets.jpg" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
 					<div class="info">
 						<div class="more">
-							<a href="meetings.html" title="Title Link">
+							<a href="meetings.jsp" title="Title Link">
 								Banquets
 							</a>
 						</div>
@@ -284,7 +284,7 @@ function subForm()
 					<div class="image"><img src="user/icons/dining.png" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
 					<div class="info">
 						<div class="more">
-							<a href="dining.html" title="Title Link">
+							<a href="dining.jsp" title="Title Link">
 								Dining
 							</a>
 						</div>
@@ -300,7 +300,7 @@ function subForm()
 					<div class="image"><img src="user/icons/gallery.png" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
 					<div class="info">
 						<div class="more">
-							<a href="gallery.html" title="Title Link">
+							<a href="gallery.jsp" title="Title Link">
 								Gallery
 							</a>
 						</div>
@@ -316,7 +316,7 @@ function subForm()
 					<div class="image"><img src="user/icons/attractions.png" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
 					<div class="info">
 						<div class="more">
-							<a href="attractions.html" title="Title Link">
+							<a href="attractions.jsp" title="Title Link">
 								Attractions
 							</a>
 						</div>
@@ -332,7 +332,7 @@ function subForm()
 					<div class="image"><img src="user/icons/offer.jpg" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
 					<div class="info">
 						<div class="more">
-							<a href="offers.html" title="Title Link">
+							<a href="offers.jsp" title="Title Link">
 								Offers
 							</a>
 						</div>
@@ -348,7 +348,7 @@ function subForm()
 					<div class="image"><img src="user/icons/enquire.png" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
 					<div class="info">
 						<div class="more">
-							<a href="enquiry.html" title="Title Link">
+							<a href="enquiry.jsp" title="Title Link">
 								Enquire
 							</a>
 						</div>
@@ -364,7 +364,7 @@ function subForm()
 					<div class="image"><img src="user/icons/careers.jpg" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
 					<div class="info">
 						<div class="more">
-							<a href="careers.html" title="Title Link">
+							<a href="careers.jsp" title="Title Link">
 								Careers
 							</a>
 						</div>
@@ -380,7 +380,7 @@ function subForm()
 					<div class="image"><img src="user/icons/reach.png" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
 					<div class="info">
 						<div class="more">
-							<a href="reach.html" title="Title Link">
+							<a href="reach.jsp" title="Title Link">
 								Address
 							</a>
 						</div>
@@ -396,7 +396,7 @@ function subForm()
 					<div class="image"><img src="user/icons/reservation.jpg" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
 					<div class="info">
 						<div class="more">
-							<a href="reservation.html" title="Title Link">
+							<a href="reservation.jsp" title="Title Link">
 								Reservation
 							</a>
 						</div>

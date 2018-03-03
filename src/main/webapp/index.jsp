@@ -6,6 +6,6 @@
 
    <body>
 <%--       <c:redirect url = "/HomePage"/> --%>
-      <jsp:forward page="LoginHome"/> 
+      <jsp:forward page="userindex.jsp"/> 
    </body>
 </html>
