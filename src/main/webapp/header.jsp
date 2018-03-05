@@ -13,7 +13,10 @@
 			<link rel="stylesheet" type="text/css" href="user/css/style_banner.css">
 			<link rel="stylesheet" type="text/css" href="user/css/settings.css">
 			<link rel="stylesheet" type="text/css" href="user/css/jquery-ui-1.8.18.custom.css">
-			
+			<link href="user/css/ninja-slider.css" rel="stylesheet" />
+    <script src="user/js/ninja-slider.js"></script>
+    <link href="user/css/thumbnail-slider.css" rel="stylesheet" type="text/css" />
+    <script src="user/js/thumbnail-slider.js" type="text/javascript"></script>
 			<script async="" src="user/js/analytics.js.download"></script>
 			<script type="text/javascript" src="user/js/jquery.js.download"></script>
 			<script type="text/javascript" src="user/js/bootstrap.min.js.download"></script>
@@ -166,23 +169,23 @@ function subForm()
 		<div class="col-md-1">
 			<div class="box">							
 				<div class="icon">
-					<div class="image"><img src="user/icons/tariff.jpg" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
+					<div class="image"><a href="userRoomTariff" title="Title Link"><img src="user/icons/tariff.jpg"  style="width: 50px; margin: -15px 0px 0px 0px;"></a></div><br>
 					<div class="info">
 						<div class="more">
-							<a href="userRoomTariff" title="Title Link">
+						<a href="userRoomTariff" title="Title Link">
 								Rooms
-							</a>
+										</a>
 						</div>
 					</div>
 				</div>
 				<div class="space"></div>
-			</div> 
+			</div>
 		</div>
 		
 		<div class="col-md-1">
 			<div class="box">							
 				<div class="icon">
-					<div class="image"><img src="user/icons/facility.png" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
+					<div class="image"><a href="facilities.jsp" title="Title Link"><img src="user/icons/facility.png" style="width: 50px; margin: -15px 0px 0px 0px;"></a></div><br>
 					<div class="info">
 						<div class="more">
 							<a href="facilities.jsp" title="Title Link">
@@ -198,7 +201,7 @@ function subForm()
 		<div class="col-md-1">
 			<div class="box">							
 				<div class="icon">
-					<div class="image"><img src="user/icons/banquets.jpg" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
+					<div class="image"><a href="meetings.jsp" title="Title Link"><img src="user/icons/banquets.jpg" style="width: 50px; margin: -15px 0px 0px 0px;"></a></div><br>
 					<div class="info">
 						<div class="more">
 							<a href="meetings.jsp" title="Title Link">
@@ -214,7 +217,7 @@ function subForm()
 		<div class="col-md-1">
 			<div class="box">							
 				<div class="icon">
-					<div class="image"><img src="user/icons/dining.png" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
+					<div class="image"><a href="dining.jsp" title="Title Link"><img src="user/icons/dining.png" style="width: 50px; margin: -15px 0px 0px 0px;"></a></div><br>
 					<div class="info">
 						<div class="more">
 							<a href="dining.jsp" title="Title Link">
@@ -230,7 +233,7 @@ function subForm()
 		<div class="col-md-1">
 			<div class="box">							
 				<div class="icon">
-					<div class="image"><img src="user/icons/gallery.png" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
+					<div class="image"><a href="gallery.jsp" title="Title Link"><img src="user/icons/gallery.png" style="width: 50px; margin: -15px 0px 0px 0px;"></a></div><br>
 					<div class="info">
 						<div class="more">
 							<a href="gallery.jsp" title="Title Link">
@@ -246,7 +249,7 @@ function subForm()
 		<div class="col-md-1">
 			<div class="box">							
 				<div class="icon">
-					<div class="image"><img src="user/icons/attractions.png" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
+					<div class="image"><a href="attractions.jsp" title="Title Link"><img src="user/icons/attractions.png" style="width: 50px; margin: -15px 0px 0px 0px;"></a></div><br>
 					<div class="info">
 						<div class="more">
 							<a href="attractions.jsp" title="Title Link">
@@ -262,7 +265,7 @@ function subForm()
 		<div class="col-md-1">
 			<div class="box">							
 				<div class="icon">
-					<div class="image"><img src="user/icons/offer.jpg" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
+					<div class="image"><a href="offers.jsp" title="Title Link"><img src="user/icons/offer.jpg" style="width: 50px; margin: -15px 0px 0px 0px;"></a></div><br>
 					<div class="info">
 						<div class="more">
 							<a href="offers.jsp" title="Title Link">
@@ -278,7 +281,7 @@ function subForm()
 		<div class="col-md-1">
 			<div class="box">							
 				<div class="icon">
-					<div class="image"><img src="user/icons/enquire.png" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
+					<div class="image"><a href="enquiry.jsp" title="Title Link"><img src="user/icons/enquire.png" style="width: 50px; margin: -15px 0px 0px 0px;"></a></div><br>
 					<div class="info">
 						<div class="more">
 							<a href="enquiry.jsp" title="Title Link">
@@ -294,7 +297,7 @@ function subForm()
 		<div class="col-md-1">
 			<div class="box">							
 				<div class="icon">
-					<div class="image"><img src="user/icons/careers.jpg" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
+					<div class="image"><a href="careers.jsp" title="Title Link"><img src="user/icons/careers.jpg" style="width: 50px; margin: -15px 0px 0px 0px;"></a></div><br>
 					<div class="info">
 						<div class="more">
 							<a href="careers.jsp" title="Title Link">
@@ -310,7 +313,7 @@ function subForm()
 		<div class="col-md-1">
 			<div class="box">							
 				<div class="icon">
-					<div class="image"><img src="user/icons/reach.png" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
+					<div class="image"><a href="reach.jsp" title="Title Link"><img src="user/icons/reach.png" style="width: 50px; margin: -15px 0px 0px 0px;"></a></div><br>
 					<div class="info">
 						<div class="more">
 							<a href="reach.jsp" title="Title Link">
@@ -326,7 +329,7 @@ function subForm()
 		 <div class="col-md-1">
 			<div class="box">							
 				<div class="icon">
-					<div class="image"><img src="user/icons/reservation.jpg" style="width: 50px; margin: -15px 0px 0px 0px;"></div><br>
+					<div class="image"><a href="reservation.jsp" title="Title Link"><img src="user/icons/reservation.jpg" style="width: 50px; margin: -15px 0px 0px 0px;"></a></div><br>
 					<div class="info">
 						<div class="more">
 							<a href="reservation.jsp" title="Title Link">
