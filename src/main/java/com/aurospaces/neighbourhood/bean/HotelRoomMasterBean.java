@@ -12,12 +12,30 @@ protected String roomNumber ;
 protected String roomTypeId ;
 protected String capacityId ;
 protected String maxChaild ;
-protected String status,roomStatus,roomcapacity,roomtype,roomPriceStatus ;
+protected String status,roomStatus,roomcapacity,roomtype,roomPriceStatus,capacityname,roomtypename,isAvailable ;
 
 
 
 
 
+public String getIsAvailable() {
+	return isAvailable;
+}
+public void setIsAvailable(String isAvailable) {
+	this.isAvailable = isAvailable;
+}
+public String getCapacityname() {
+	return capacityname;
+}
+public void setCapacityname(String capacityname) {
+	this.capacityname = capacityname;
+}
+public String getRoomtypename() {
+	return roomtypename;
+}
+public void setRoomtypename(String roomtypename) {
+	this.roomtypename = roomtypename;
+}
 public String getRoomPriceStatus() {
 	return roomPriceStatus;
 }

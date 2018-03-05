@@ -154,8 +154,8 @@ function showTableData(response){
 		var edit = "<a class='edit editIt' onclick='editRoom("+ orderObj.id+ ")'><i class='fa fa-edit'></i></a>"
 		serviceUnitArray[orderObj.id] = orderObj;
 		var tblRow ="<tr>"
-			+ "<td title='"+orderObj.roomTypeId+"'>" + orderObj.roomTypeId + "</td>"
-			+ "<td title='"+orderObj.capacityId+"'>" + orderObj.capacityId + "</td>"
+			+ "<td title='"+orderObj.roomTypeId+"'>" + orderObj.roomtypename + "</td>"
+			+ "<td title='"+orderObj.capacityId+"'>" + orderObj.capacityname + "</td>"
 			+ "<td title='"+orderObj.sun+"'>" + orderObj.sun + "</td>"
 			+ "<td title='"+orderObj.mon+"'>" + orderObj.mon + "</td>"
 			+ "<td title='"+orderObj.tue+"'>" + orderObj.tue + "</td>"

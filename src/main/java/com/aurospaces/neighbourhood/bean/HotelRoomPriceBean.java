@@ -16,11 +16,41 @@ protected String tue ;
 protected String wed ;
 protected String thu ;
 protected String fri ;
-protected String sat,status,roomPriceStatus;
+protected String sat,status,roomPriceStatus,capacityname,roomtypename,noOfRooms,created_time1,updated_time1;
 
 
 
 
+public String getUpdated_time1() {
+	return updated_time1;
+}
+public void setUpdated_time1(String updated_time1) {
+	this.updated_time1 = updated_time1;
+}
+public String getCreated_time1() {
+	return created_time1;
+}
+public void setCreated_time1(String created_time1) {
+	this.created_time1 = created_time1;
+}
+public String getNoOfRooms() {
+	return noOfRooms;
+}
+public void setNoOfRooms(String noOfRooms) {
+	this.noOfRooms = noOfRooms;
+}
+public String getCapacityname() {
+	return capacityname;
+}
+public void setCapacityname(String capacityname) {
+	this.capacityname = capacityname;
+}
+public String getRoomtypename() {
+	return roomtypename;
+}
+public void setRoomtypename(String roomtypename) {
+	this.roomtypename = roomtypename;
+}
 public String getRoomPriceStatus() {
 	return roomPriceStatus;
 }
@@ -129,5 +159,14 @@ public void setSat(final String sat)
 {
   this.sat = sat;
 }
+@Override
+public String toString() {
+	return "HotelRoomPriceBean [id=" + id + ", createdTime=" + createdTime + ", updatedTime=" + updatedTime
+			+ ", roomTypeId=" + roomTypeId + ", capacityId=" + capacityId + ", sun=" + sun + ", mon=" + mon + ", tue="
+			+ tue + ", wed=" + wed + ", thu=" + thu + ", fri=" + fri + ", sat=" + sat + ", status=" + status
+			+ ", roomPriceStatus=" + roomPriceStatus + ", capacityname=" + capacityname + ", roomtypename="
+			+ roomtypename + ", noOfRooms=" + noOfRooms + "]";
+}
+
 
 }
