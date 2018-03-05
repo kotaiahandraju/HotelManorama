@@ -97,44 +97,17 @@
             </div>        	        
         </div>         
 	
-    <script type="text/javascript">								
-				var tpj=jQuery;
-				tpj.noConflict();				
-				tpj(document).ready(function() {				
-				if (tpj.fn.cssOriginal!=undefined)
-					tpj.fn.css = tpj.fn.cssOriginal;
-					tpj('.fullwidthabnner').revolution(
-						{	
-							delay:10000,												
-							startwidth:1366,
-							startheight:612,
-							
-							onHoverStop:"off",						// Stop Banner Timet at Hover on Slide on/off
-							
-							thumbWidth:100,							// Thumb With and Height and Amount (only if navigation Tyope set to thumb !)
-							thumbHeight:50,
-							thumbAmount:4,
-							
-							/*hideThumbs:200,*/
-							navigationType:"both",					//bullet, thumb, none, both	 (No Shadow in Fullwidth Version !)
-							/*navigationArrows:"verticalcentered",		//nexttobullets, verticalcentered, none*/
-							navigationStyle:"round",				//round,square,navbar
-							
-							touchenabled:"on",						// Enable Swipe Function : on/off
-							
-							navOffsetHorizontal:724,
-							navOffsetVertical:30,
-							
-							fullWidth:"off",
-							
-							shadow:0								//0 = no Shadow, 1,2,3 = 3 Different Art of Shadows -  (No Shadow in Fullwidth Version !)
-														
-						});	
-						
-			});
-			</script>
-   
+   <script type='text/javascript' src='${baseurl }/assets/js/jqueryui-1.10.3.min.js'></script> 
+
+
+
+<script type='text/javascript' src='${baseurl }/assets/js/bootstrap.min.js'></script>  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.js"></script>
 
 <div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div>
+
+ <script type="text/javascript" src="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/src/js/bootstrap-datetimepicker.js"></script>
+      <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/build/css/bootstrap-datetimepicker.css">
+    
 	</body>
 </html>
