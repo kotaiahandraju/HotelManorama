@@ -9,8 +9,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper;
 import org.springframework.stereotype.Repository;
 
+import com.aurospaces.neighbourhood.bean.HotelRoomHistory;
 import com.aurospaces.neighbourhood.bean.HotelRoomPriceBean;
-import com.aurospaces.neighbourhood.bean.HotelRoomUserDetails;
+import com.aurospaces.neighbourhood.bean.HotelRoomPriceHistory;
+import com.aurospaces.neighbourhood.bean.HotelRoomUserDetailsBean;
 import com.aurospaces.neighbourhood.daosupport.CustomConnection;
 import com.aurospaces.neighbourhood.db.basedao.BaseHotelRoomPriceDao;
 
@@ -56,8 +58,10 @@ public class HotelRoomPriceDao extends BaseHotelRoomPriceDao {
 		return null;
 	}
 
-	public Boolean userDetails(HotelRoomUserDetails userDetails) {
+	public Boolean userDetails(HotelRoomUserDetailsBean userDetails) {
+		jdbcTemplate = custom.getJdbcTemplate();
 		boolean isSave = false;
+		System.out.println("----userbean"+userDetails);
 		try {
 			if (userDetails.getCreatedTime() == null) {
 				userDetails.setCreatedTime(new Date());
@@ -71,7 +75,7 @@ public class HotelRoomPriceDao extends BaseHotelRoomPriceDao {
 
 			final String INSERT_SQL1 = "INSERT INTO userdetails(created_time,updated_time,name,mobileNumber,alternateMobileNumber,email,city,address,country) values (?,?,?,?,?,?,?,?,?)";
 			System.out.println("INSERT_SQL1===" + INSERT_SQL1);
-			int insert = jdbcTemplate.update(INSERT_SQL1, new Object[] {});
+			int insert = jdbcTemplate.update(INSERT_SQL1, new Object[] {userDetails.getCreatedTime(),userDetails.getUpdatedTime(),userDetails.getName(),userDetails.getAlternateMobileNumber(),userDetails.getAlternateMobileNumber(),userDetails.getEmail(),userDetails.getCity(),userDetails.getAddress(),userDetails.getCountry()});
 			System.out.println("222insert===" + insert);
 			if (insert > 0) {
 				isSave = true;
@@ -81,5 +85,61 @@ public class HotelRoomPriceDao extends BaseHotelRoomPriceDao {
 		}
 		return isSave;
 	}
+	
+	public Boolean roomHistory(HotelRoomUserDetailsBean userDetails) {
+		boolean isSave = false;
+		try {
+			if (userDetails.getCreatedTime() == null) {
+				userDetails.setCreatedTime(new Date());
+			}
+			java.sql.Timestamp createdTime = new java.sql.Timestamp(userDetails.getCreatedTime().getTime());
 
+			if (userDetails.getUpdatedTime() == null) {
+				userDetails.setUpdatedTime(new Date());
+			}
+			java.sql.Timestamp updatedTime = new java.sql.Timestamp(userDetails.getUpdatedTime().getTime());
+
+			final String INSERT_SQL1 = "INSERT INTO roomhistory(created_time,updated_time,userId,checkIn,checkOut,"
+					+ "roomTypeId,capacityId,noOfRooms,roomPrice,GST,totalPrice,roomsStatus) values (?,?,?,?,?,?,?,?,?,?,?,?)";
+			System.out.println("INSERT_SQL1===" + INSERT_SQL1);
+			int insert = jdbcTemplate.update(INSERT_SQL1, new Object[] {userDetails.getCreatedTime(),
+					userDetails.getUpdatedTime(),userDetails.getUserId(),userDetails.getCheckIn(),
+					userDetails.getCheckOut(),userDetails.getRoomTypeId(),userDetails.getCapacityId(),
+					userDetails.getNoOfRooms(),userDetails.getRoomPrice(),userDetails.getGST(),userDetails.getTotalPrice(),
+					userDetails.getRoomsStatus()});
+			System.out.println("222insert===" + insert);
+			if (insert > 0) {
+				isSave = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return isSave;
+	}
+	
+	public Boolean userDetails(HotelRoomPriceHistory  priceHistory) {
+		boolean isSave = false;
+		try {
+			if (priceHistory.getCreatedTime() == null) {
+				priceHistory.setCreatedTime(new Date());
+			}
+			java.sql.Timestamp createdTime = new java.sql.Timestamp(priceHistory.getCreatedTime().getTime());
+
+			if (priceHistory.getUpdatedTime() == null) {
+				priceHistory.setUpdatedTime(new Date());
+			}
+			java.sql.Timestamp updatedTime = new java.sql.Timestamp(priceHistory.getUpdatedTime().getTime());
+
+			final String INSERT_SQL1 = "INSERT INTO userdetails(created_time,updated_time,roomId,roomPrice,GST,discount,totalPrice) values (?,?,?,?,?,?,?)";
+			System.out.println("INSERT_SQL1===" + INSERT_SQL1);
+			int insert = jdbcTemplate.update(INSERT_SQL1, new Object[] {priceHistory.getCreatedTime(),priceHistory.getUpdatedTime(),priceHistory.getRoomId(),priceHistory.getRoomPrice(),priceHistory.getGST(),priceHistory.getDiscount(),priceHistory.getTotalPrice()});
+			System.out.println("222insert===" + insert);
+			if (insert > 0) {
+				isSave = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return isSave;
+	}
 }

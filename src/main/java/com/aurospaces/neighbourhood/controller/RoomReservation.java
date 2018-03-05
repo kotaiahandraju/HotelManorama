@@ -1,17 +1,17 @@
 package com.aurospaces.neighbourhood.controller;
 
 
-import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -20,7 +20,7 @@ import com.aurospaces.neighbourhood.bean.HotelCapacityMasterBean;
 import com.aurospaces.neighbourhood.bean.HotelRoomMasterBean;
 import com.aurospaces.neighbourhood.bean.HotelRoomPriceBean;
 import com.aurospaces.neighbourhood.bean.HotelRoomTypeBean;
-import com.aurospaces.neighbourhood.bean.HotelRoomUserDetails;
+import com.aurospaces.neighbourhood.bean.HotelRoomUserDetailsBean;
 import com.aurospaces.neighbourhood.db.dao.HotelCapacityMasterDao;
 import com.aurospaces.neighbourhood.db.dao.HotelRoomMasterDao;
 import com.aurospaces.neighbourhood.db.dao.HotelRoomPriceDao;
@@ -127,14 +127,22 @@ public class RoomReservation {
 			
 		}
 		@RequestMapping("/roomUserDetails")
-		@ResponseBody public String roomUserDetails(@RequestBody HotelRoomUserDetails userDetails) {
+		public @ResponseBody  String roomUserDetails(HttpServletRequest request,@ModelAttribute HotelRoomUserDetailsBean userDetails) {
 			HotelRoomPriceBean priceBean=null;
 			JSONObject jsonObj=null;
 			ObjectMapper objectMapper=null;
 			boolean result=false;
+			//HotelRoomUserDetailsBean userDetails =null;
 			try {
+				jsonObj =new JSONObject();
+				/*userDetails =new HotelRoomUserDetailsBean();
+				userDetails.setAddress(request.getParameter("address"));
+				userDetails.setAlternateMobileNumber(request.getParameter("alternateMobileNumber"));
+				userDetails.setMobileNumber(request.getParameter("mobileNumber"));*/
 				System.out.println("----roomUserDetails List---");
+				userDetails.setRoomNumber("dsfhds");
 				result=roomPriceDao.userDetails(userDetails);
+				roomPriceDao.roomHistory(userDetails);
 			
 			if(result) {
 				jsonObj.put("msg", "success...");
