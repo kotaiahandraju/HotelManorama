@@ -50,7 +50,7 @@ public class HotelRoomPriceDao extends BaseHotelRoomPriceDao {
 
 	public HotelRoomPriceBean getAvailabilytyUsingRoomTypeIdAndCapacity(String roomTypeId, String capacityId) {
 		jdbcTemplate = custom.getJdbcTemplate();
-		String sql = "SELECT *,DATE_FORMAT(created_time, '%d-%M-%Y') as created_time1,DATE_FORMAT(updated_time, '%d-%M-%Y') as updated_time1 from hotel_room_price where room_type_id = ? and capacity_id=? ";
+		String sql = "SELECT hrp.*,DATE_FORMAT(hrp.created_time, '%d-%M-%Y') as created_time1,DATE_FORMAT(hrp.updated_time, '%d-%M-%Y') as updated_time1,hrm.max_chaild,hcm.numberOfAdult from hotel_room_price hrp,hotel_room_master hrm,hotel_capacity_master hcm where hrm.room_type_id=hrp.room_type_id and hcm.numberOfAdult=hrp.capacity_id and hrp.room_type_id = ? and hrp.capacity_id=?";
 		List<HotelRoomPriceBean> retlist = jdbcTemplate.query(sql, new Object[] { roomTypeId, capacityId },
 				ParameterizedBeanPropertyRowMapper.newInstance(HotelRoomPriceBean.class));
 		if (retlist.size() > 0)

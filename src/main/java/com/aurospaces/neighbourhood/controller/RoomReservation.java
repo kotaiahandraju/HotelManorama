@@ -109,13 +109,16 @@ public class RoomReservation {
 			int price=0;
 			int result=0;
 			try {
-				if(roomPriceBean.getRoomTypeId() !=null  || roomPriceBean.getRoomTypeId() !="" || roomPriceBean.getNoOfRooms()  !="" || roomPriceBean.getNoOfRooms()  !=null ||  roomPriceBean.getCapacityId() !=null || roomPriceBean.getCapacityId() !=null) {
+				if(roomPriceBean.getRoomTypeId() !=null  || roomPriceBean.getRoomTypeId() !="" ||  roomPriceBean.getCapacityId() !=null ||  roomPriceBean.getCapacityId() !="") {
 					priceBean=roomPriceDao.getAvailabilytyUsingRoomTypeIdAndCapacity(roomPriceBean.getRoomTypeId(), roomPriceBean.getCapacityId());
+					jsonObj=new JSONObject(priceBean);
+					System.out.println(jsonObj);
 //					System.out.println("----Price List---"+priceBean.toString());
 					String currentPrice= priceBean.getSun();
 					price=Integer.parseInt(priceBean.getSun());
 					int iNoOfRooms=Integer.parseInt(roomPriceBean.getNoOfRooms());
 					result= iNoOfRooms * price;
+					jsonObj.put("price", result);
 				}
 				
 				
@@ -123,7 +126,7 @@ public class RoomReservation {
 			} catch (Exception e) {
 				// TODO: handle exception
 			}
-			return String.valueOf(result);
+			return String.valueOf(jsonObj);
 			
 		}
 		@RequestMapping("/roomUserDetails")
