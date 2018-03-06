@@ -115,7 +115,14 @@
 									</div>
 								</div>
 							</div>
-
+							<div class="rooms">
+								<div class="input-group roomplan-w">
+									<span class="input-group-addon" id="basic-addon1">How
+										Many Rooms<font color="red">*</font> :
+									</span> <input name="noOfRooms" class="form-control validate"
+										id="noOfRooms" />
+								</div>
+							</div>
 							<div class="rooms">
 								<div class="input-group roomplan-w">
 									<span class="input-group-addon" id="basic-addon1">Room
@@ -134,27 +141,47 @@
 									</span>
 
 									<form:select path="capacityId" class="form-control validate"
-										onfocus="removeBorder(this.id);">
+										onfocus="removeBorder(this.id);" onchange="CheckAvailability();">
 										<form:option value="">-- Select Room Capacity --</form:option>
 										<form:options items="${capacity }"></form:options>
 									</form:select>
 
 								</div>
 							</div>
-
-
-							<div class="rooms">
+							<div class="rooms" id="noOfAdt" style="display: none;">
 								<div class="input-group roomplan-w">
-									<span class="input-group-addon" id="basic-addon1">How
-										Many Rooms<font color="red">*</font> :
-									</span> <input name="noOfRooms" class="form-control validate"
-										id="noOfRooms" />
+									<span class="input-group-addon" id="basic-addon1">No Of Adults<font color="red">*</font> :
+									</span>
+
+									<select name="numberOfAdult" required="required" 
+										class="form-control" title="Please select Country"
+										id="numberOfAdult">
+										<option value="">Select Country</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										</select>
+
+								</div>
+							</div>
+							<div class="rooms" id="noOfChld" style="display: none;">
+								<div class="input-group roomplan-w">
+									<span class="input-group-addon" id="basic-addon1">No Of Childs<font color="red">*</font> :
+									</span>
+									<select name="max_chaild" required="required"
+										class="form-control" title="Please select Country"
+										id="max_chaild">
+										<option value="">Select Country</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										</select>
+
 								</div>
 							</div>
 							<div class="rooms">
 								<div class="input-group roomplan-w">
-									<button type="button" class="btn btn-success"
-										onclick="CheckAvailability();">Check Avalability</button>
+									<button type="button" class="btn btn-success">Check Avalability</button>
 								</div>
 							</div>
 							<div>
@@ -551,8 +578,52 @@
 
 					$.fn.makeMultipartRequest('POST', 'roomCheckAvail', false,
 							formData, false, 'text', function(data) {
-								console.log(data);
-								$("#roomPrice").text(data);
+						
+						$.each(JSON.parse(data), function( index, value ) {
+							 if(index =="price" ){
+								 $("#roomPrice").text(value);
+							 }
+							  if(index =="numberOfAdult" ){
+								  
+								  $("#noOfAdt").show();
+								  if(value == 1){
+									 
+									  $("#numberOfAdult option[value=1]").show();
+									  $("#numberOfAdult option[value=2]").hide();
+									  $("#numberOfAdult option[value=3]").hide();
+								  }
+								  if(value ==2){
+									  $("#numberOfAdult option[value=1]").show();
+									  $("#numberOfAdult option[value=2]").show();
+									  $("#numberOfAdult option[value=3]").hide();
+								  }
+								  if(value ==3){
+									  $("#numberOfAdult option[value=1]").show();
+									  $("#numberOfAdult option[value=2]").show();
+									  $("#numberOfAdult option[value=3]").show();
+								  }
+							  }
+							if(index =="max_chaild" ){
+								$("#noOfChld").show();
+								 // $("#roomPrice").text(value);
+								  if(value == 1){
+									  $("#max_chaild option[value=1]").show();
+									  $("#max_chaild option[value=2]").hide();
+									  $("#max_chaild option[value=3]").hide();
+								  }
+								  if(value ==2){
+									  $("#max_chaild option[value=1]").show();
+									  $("#max_chaild option[value=2]").show();
+									  $("#max_chaild option[value=3]").hide();
+								  }
+								  if(value ==3){
+									  $("#max_chaild option[value=1]").show();
+									  $("#max_chaild option[value=2]").show();
+									  $("#max_chaild option[value=3]").show();
+								  }
+							  }
+							 
+							});
 
 							});
 

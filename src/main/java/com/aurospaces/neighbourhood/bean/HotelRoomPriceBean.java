@@ -16,11 +16,23 @@ protected String tue ;
 protected String wed ;
 protected String thu ;
 protected String fri ;
-protected String sat,status,roomPriceStatus,capacityname,roomtypename,noOfRooms,created_time1,updated_time1;
+protected String sat,status,roomPriceStatus,capacityname,roomtypename,noOfRooms,created_time1,updated_time1,numberOfAdult,max_chaild;
 
 
 
 
+public String getNumberOfAdult() {
+	return numberOfAdult;
+}
+public void setNumberOfAdult(String numberOfAdult) {
+	this.numberOfAdult = numberOfAdult;
+}
+public String getMax_chaild() {
+	return max_chaild;
+}
+public void setMax_chaild(String max_chaild) {
+	this.max_chaild = max_chaild;
+}
 public String getUpdated_time1() {
 	return updated_time1;
 }
