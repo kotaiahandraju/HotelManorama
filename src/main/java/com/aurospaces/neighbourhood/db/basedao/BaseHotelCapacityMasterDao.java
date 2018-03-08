@@ -27,11 +27,7 @@ public class BaseHotelCapacityMasterDao{
  
 	public final String INSERT_SQL = "INSERT INTO hotel_capacity_master( created_time, updated_time, name, numberOfAdult, status) values (?, ?, ?, ?, ?)"; 
 
-
-
-
-
-	/* this should be conditional based on whether the id is present or not */
+/* this should be conditional based on whether the id is present or not */
 	@Transactional
 	public void save(final HotelCapacityMasterBean hotelCapacityMaster) 
 	{
