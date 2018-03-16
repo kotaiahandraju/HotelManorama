@@ -15,17 +15,17 @@
 	</definition>
 
 	<!-- Login -->
-	
+
 	<definition name="loginHome" extends="base.definition">
 		<put-attribute name="body" value="/WEB-INF/pages/login.jsp" />
 	</definition>
 	<definition name="cylinderHome" extends="base.definition">
 		<put-attribute name="body" value="/WEB-INF/pages/cylinder.jsp" />
 	</definition>
-	<definition name="roomTypeHome" extends="base.definition"> <put-attribute 
-		name="body" value="/WEB-INF/pages/roomType.jsp" /> 
-		</definition> 
-		<definition name="dashboardHome" extends="base.definition">
+	<definition name="roomTypeHome" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/pages/roomType.jsp" />
+	</definition>
+	<definition name="dashboardHome" extends="base.definition">
 		<put-attribute name="body" value="/WEB-INF/pages/dashboard.jsp" />
 	</definition>
 	<definition name="roomHome" extends="base.definition">
@@ -34,26 +34,28 @@
 	<definition name="capacityHome" extends="base.definition">
 		<put-attribute name="body" value="/WEB-INF/pages/capacity.jsp" />
 	</definition>
-	
-<!-- 	room master -->
+
+	<!-- room master -->
 	<definition name="roomMasterHome" extends="base.definition">
 		<put-attribute name="body" value="/WEB-INF/pages/roomMaster.jsp" />
 	</definition>
-	<!-- 	room Price master -->
+	
+	<!-- room Price master -->
 	<definition name="roomPriceHome" extends="base.definition">
 		<put-attribute name="body" value="/WEB-INF/pages/roomPrice.jsp" />
 	</definition>
-	
-	<!-- 	room PHotos master -->
+
+	<!-- room PHotos master -->
 	<definition name="roomPhotosHome" extends="base.definition">
 		<put-attribute name="body" value="/WEB-INF/pages/roomPhotos.jsp" />
 	</definition>
+	
 	<!-- 	room Booking History master -->
 	<definition name="bookingHistory" extends="base.definition">
 		<put-attribute name="body" value="/WEB-INF/pages/booking.jsp" />
 	</definition>
-	
-	
+
+
 </tiles-definitions>
 
 
