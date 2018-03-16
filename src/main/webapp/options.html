@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hotel Admin Panel</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<link href="css/editor.css" type="text/css" rel="stylesheet"/>
+  </head>
+  <style>
+	th, td {
+		border:solid 1px;
+		border-color:#CCCCCC;
+		}
+	tr{
+		border:solid 1px;
+		border-color:#CCCCCC;
+	}
+	.td1{
+		text-align:center;
+	}
+	table .tab{
+		border:none;
+	}
+	.add {
+		margin-top:15px;
+	}
+	.td2 {
+		text-align:center;
+		border:none;
+	}
+	.tt {
+		width:200px;
+	}
+	.td3 {
+		border:none;
+	}
+	.tr2 {
+		background:#F7F7F7;
+	}
+	.tr4 {
+		background:#F7F7F7;
+		border:#FFFFFF;
+		padding:10px;
+	}
+	.tr3 {
+		padding:10px;
+	}
+	.bttn {
+		float:right;
+	}
+	.abtn{
+		margin-top:20px;
+	}
+	#sel2 {
+		width:400px;
+		margin-top:10px;
+	}
+	.sadd {
+		margin-top:20px;
+	}
+  </style>
+  <body>
+  <div class="header">
+  	<!--<img src="images/1.png" class="img-responsive" style="margin:0 auto;"/>--><div id="logo"><h2 style="text-align:center;">Hotel Booking</h2></div>
+  </div>
+  	<div class="container">
+    	<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!--<a class="navbar-brand" href="#">Hotel Bookings</a>-->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="collapse-1">
+      <ul class="nav navbar-nav">
+        <li>
+        	<a href="index.html"><button type="button" class="btn btn-default btn-lg">
+  				<span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span><br> Dashboard
+			</button></a>
+            </li>
+        <li>
+        	<a href="bookings.html"><button type="button" class="btn btn-default btn-lg">
+  				<span class="glyphicon glyphicon-book" aria-hidden="true"></span><br> Bookings
+			</button></a>
+            </li>
+        <li>
+        	<a href="rooms.html"><button type="button" class="btn btn-default btn-lg">
+  				<span class="glyphicon glyphicon-tags" aria-hidden="true"></span><br> Rooms
+			</button></a>
+            </li>
+        <li class="active">
+        	<a href="options.html"><button type="button" class="btn btn-default btn-lg">
+  				<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span><br> Options
+			</button></a>
+            </li>
+        <li>
+        	<a href="reports.html"><button type="button" class="btn btn-default btn-lg">
+  				<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><br> Reports
+			</button></a>
+            </li>
+        <li>
+        	<a href="users.html"><button type="button" class="btn btn-default btn-lg">
+  				<span class="glyphicon glyphicon-user" aria-hidden="true"></span><br> Users
+			</button></a>
+            </li>
+        <!--<li>
+        	<a href="#"><button type="button" class="btn btn-default btn-lg">
+  				<span class="glyphicon glyphicon-edit" aria-hidden="true"></span><br> Preview
+			</button></a>
+            </li>
+        <li>
+        	<a href="#"><button type="button" class="btn btn-default btn-lg">
+  				<span class="glyphicon glyphicon-save" aria-hidden="true"></span><br> Install
+			</button></a>
+            </li>-->
+        <li>
+        	<a href="#"><button type="button" class="btn btn-default btn-lg">
+  				<span class="glyphicon glyphicon-off" aria-hidden="true"></span><br> Logout
+			</button></a>
+            </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+    </div>
+    <div class="container">
+    <div class="data">
+    	<!--<nav class="navbar navbar-default" style="background:#fff;" >
+  <div class="container-fluid">
+ 
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-2" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    
+    </div>-->
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+   <!-- <div class="collapse navbar-collapse" id="collapse-2">-->
+   <div class="container-fluid" style="padding-left:0px;">
+				<ul style="background-color:#F7F7F7; margin:0 0px; margin-top:5px; border:solid 1px; border-color:#CCCCCC; border-radius:5px;" id="myTab" class="nav nav-tabs navbar-nav" role="tablist">
+					<li style="margin-left:10px; margin-top:5px;" role="presentation" class="active"><a href="#general" id="general-tab" role="tab" data-toggle="tab" aria-controls="general" aria-expanded="true">General</a></li>
+					<li style="margin-top:5px;" role="presentation"><a href="#bookings" id="bookings-tab" role="tab" data-toggle="tab" aria-controls="calender" aria-expanded="true">Bookings</a></li>
+					<li style="margin-top:5px;" role="presentation"><a href="#lang" role="tab" id="lang-tab" data-toggle="tab" aria-controls="lang">Languages</a></li>
+					<li style="margin-top:5px;" role="presentation"><a href="#back" role="tab" id="back-tab" data-toggle="tab" aria-controls="back">Backup</a></li>
+					<li style="margin-top:5px;" role="presentation"><a href="#sms" role="tab" id="sms-tab" data-toggle="tab" aria-controls="sms">SMS</a></li>
+					<li style="margin-top:5px;" role="presentation"><a href="#inv" role="tab" id="inv-tab" data-toggle="tab" aria-controls="inv">Invoice</a></li>
+					<li style="margin-top:5px;" role="presentation"><a href="#cou" role="tab" id="cou-tab" data-toggle="tab" aria-controls="cou">Countries</a></li>
+				</ul>
+    </div>
+				<div id="myTabContent" class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="general" aria-labelledby="general-tab">
+                    	<h3>General</h3>
+                        <div class="table-responsive">
+                        	<table s>
+                            	<thead>
+                                	<tr class="tr3">
+                                    	<th class="tr4">Option</th>
+                                    	<th class="tr4">Value</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                	<tr>
+                                    	<td class="tr3">Date Format</td>
+                                    	<td class="tr3">
+                                        	<select class="form-control" id="sel2">
+                                            	<option>d.m.y (07.03.2018)</option>
+                                            	<option>m.d.y (03.07.2018)</option>
+                                            	<option>y.m.d (2018.03.07)</option>
+                                            	<option>d/m/y (07/03/2018)</option>
+                                            	<option>m/d/y (03/07/2018)</option>
+                                            	<option>y/m/d (2018/03/07)</option>
+                                            	<option>d-m-y (07-03-2018)</option>
+                                            	<option>m-d-y (03-07-2018)</option>
+                                            	<option>y-m-d (2018-03-07)</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                	<tr>
+                                    	<td class="tr3">Time Format</td>
+                                    	<td class="tr3">
+                                        	<select class="form-control" id="sel2">
+                                            	<option>H:i (09:45)</option>
+                                            	<option>G:i (9:45)</option>
+                                            	<option>h:i (09:45)</option>
+                                            	<option>h:i a (09:45 am)</option>
+                                            	<option>h:i A (09:45 AM)</option>
+                                            	<option>g:i (9:45)</option>
+                                            	<option>g:i a (9:45 am)</option>
+                                            	<option>g:i A (9:45 AM)</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                	<tr>
+                                    	<td class="tr3">First Day of the Week</td>
+                                    	<td class="tr3">
+                                        	<select class="form-control" id="sel2">
+                                            	<option>Sunday</option>
+                                            	<option>Monday</option>
+                                            	<option>Tuesday</option>
+                                            	<option>Wednesday</option>
+                                            	<option>Thursday</option>
+                                            	<option>Friday</option>
+                                            	<option>Saturday</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                	<tr>
+                                    	<td class="tr3">Timezone</td>
+                                    	<td class="tr3">
+                                        	<select class="form-control" id="sel2">
+                                            	<option>GMT-12:00</option>
+                                            	<option>GMT-11:00</option>
+                                            	<option>GMT-10:00</option>
+                                            	<option>GMT-09:00</option>
+                                            	<option>GMT-08:00</option>
+                                            	<option>GMT-07:00</option>
+                                            	<option>GMT-06:00</option>
+                                            	<option>GMT-05:00</option>
+                                            	<option>GMT-04:00</option>
+                                            	<option>GMT-03:00</option>
+                                            	<option>GMT-02:00</option>
+                                            	<option>GMT-01:00</option>
+                                            	<option>GMT</option>
+                                            	<option>GMT+01:00</option>
+                                            	<option>GMT+02:00</option>
+                                            	<option>GMT+03:00</option>
+                                            	<option>GMT+04:00</option>
+                                            	<option>GMT+05:00</option>
+                                            	<option>GMT+06:00</option>
+                                            	<option>GMT+07:00</option>
+                                            	<option>GMT+08:00</option>
+                                            	<option>GMT+09:00</option>
+                                            	<option>GMT+10:00</option>
+                                            	<option>GMT+11:00</option>
+                                            	<option>GMT+12:00</option>
+                                            	<option>GMT+13:00</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                	<tr>
+                                    	<td class="tr3">Send email</td>
+                                    	<td class="tr3">
+                                        	<select class="form-control" id="sel2">
+                                            	<option>PHP mail()</option>
+                                            	<option>SMTP</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="sadd">
+                            	<button type="button" class="btn btn-success">Save</button>
+                            </div>
+                        </div><div class="clearfix"></div>
+                    </div>
+					<div role="tabpanel" class="tab-pane" id="bookings" aria-labelledby="bookings-tab">
+                    	<h1>Bookings</h1>
+                        <div class="submenu">
+							<ul style="background-color:#F7F7F7; margin:0 0px; margin-top:5px; border:solid 1px; border-color:#CCCCCC; border-radius:5px;" id="myTab0" class="nav nav-tabs navbar-nav" role="tablist">
+                            	<li style="margin-left:10px; margin-top:5px;" role="presentation" class="active"><a href="#op1" id="op1-tab" role="tab" data-toggle="tab" aria-controls="op1" aria-expanded="true">Options</a></li>
+                                <li style="margin-top:5px;" role="presentation"><a href="#pay" id="pay-tab" role="tab" data-toggle="tab" aria-controls="pay" aria-expanded="true">Payments</a></li>
+                                <li style="margin-top:5px;" role="presentation"><a href="#boo" id="boo-tab" role="tab" data-toggle="tab" aria-controls="boo" aria-expanded="true">Booking Form</a></li>
+                                <li style="margin-top:5px;" role="presentation"><a href="#con" id="con-tab" role="tab" data-toggle="tab" aria-controls="con" aria-expanded="true">Confirmation</a></li>
+                                <li style="margin-top:5px;" role="presentation"><a href="#terms" id="terms-tab" role="tab" data-toggle="tab" aria-controls="terms" aria-expanded="true">Terms</a></li>
+                            </ul>
+
+							<div id="myTab0Content" class="tab-content"><div class="clearfix"></div>
+                            	<div role="tabpanel" class="tab-pane active" id="op1" aria-labelledby="op1-tab">
+                                	<div style="margin-top:10px;" class="alert alert-info alert-dismissible" role="alert">
+                                		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                		<strong>Warning!</strong> Better check yourself, you're not looking too good.
+                                	</div>
+                                    <h3>Options</h3>
+                                    <div class="table-responsive">
+                                    	<table>
+                                        	<thead>
+                                            	<tr>
+                                                	<th>Option</th>
+                                                	<th>Value</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            	<tr>
+                                                	<td>Check this if you want people to be able to make reservations.</td>
+                                                    <td><input type="checkbox"></td>
+                                                </tr>
+                                            	<tr>
+                                                	<td>Set the status for new reservations if payment has been made for it</td>
+                                                    <td>
+                                                    	<select class="form-control" id="sel1">
+                                                        	<option>Confirmed</option>
+                                                        	<option>Pending</option>
+                                                        	<option>Cancelled</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                            	<tr>
+                                                	<td>Set the status for new reservations when reservation form is saved</td>
+                                                    <td>
+                                                    	<select class="form-control" id="sel1">
+                                                        	<option>Confirmed</option>
+                                                        	<option>Pending</option>
+                                                        	<option>Cancelled</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                            	<tr>
+                                                	<td>Reservations and prices will be based on</td>
+                                                    <td>
+                                                    	<select class="form-control" id="sel1">
+                                                        	<option>Days</option>
+                                                        	<option>Nights</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                            	<tr>
+                                                	<td>Room pending reservation time (minutes).<br><span style="font-size:10px;">Set the time while the system will keep as reserved the room assigned to a Pending booking. After the time expires, if booking is not paid meanwhile, the booking status will become "Not Confirmed" and rooms will be available to be booked again by other visitors.</span></td>
+                                                    <td>
+                                                    	<select class="form-control" id="sel1">
+                                                        	<option>1</option>
+                                                        	<option>2</option>
+                                                        	<option>3</option>
+                                                        	<option>4</option>
+                                                        	<option>5</option>
+                                                        	<option>6</option>
+                                                        	<option>7</option>
+                                                        	<option>8</option>
+                                                        	<option>9</option>
+                                                        	<option>10</option>
+                                                        	<option>11</option>
+                                                        	<option>12</option>
+                                                        	<option>13</option>
+                                                        	<option>14</option>
+                                                        	<option>15</option>
+                                                        	<option>16</option>
+                                                        	<option>17</option>
+                                                        	<option>18</option>
+                                                        	<option>19</option>
+                                                        	<option>20</option>
+                                                        	<option>21</option>
+                                                        	<option>22</option>
+                                                        	<option>23</option>
+                                                        	<option>24</option>
+                                                        	<option>25</option>
+                                                        	<option>26</option>
+                                                        	<option>27</option>
+                                                        	<option>28</option>
+                                                        	<option>29</option>
+                                                        	<option>30</option>
+                                                        	<option>31</option>
+                                                        	<option>32</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <button style="margin-top:20px;" type="button" class="btn btn-success">Save</button>
+                                    </div>
+                                </div><div class="clearfix"></div>
+                            	<div role="tabpanel" class="tab-pane" id="pay" aria-labelledby="pay-tab">
+                                	<div style="margin-top:10px;" class="alert alert-info alert-dismissible" role="alert">
+                                		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                		<strong>Warning!</strong> Better check yourself, you're not looking too good.
+                                	</div>
+                                	<h3>Payments</h3>
+                                    <div class="table-responsive">
+                                    	<table>
+                                        	<thead>
+                                            	<tr>
+                                                	<th>Option</th>
+                                                    <th>Value</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            	<tr>
+                                                	<td>Check if you want to disable payments and only collect reservation details</td>
+                                                    <td><input type="checkbox"></td>
+                                                </tr>
+                                            	<tr>
+                                                	<td>Currency</td>
+                                                    <td>
+                                                    	<select class="form-control" id="sel1">
+                                                        	<option>INR</option>
+                                                        	<option>Dollar</option>
+                                                        	<option>EUR</option>
+                                                        	<option>Pound</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                            	<tr>
+                                                	<td>Set deposit amount to be collected for each reservation</td>
+                                                    <td>
+                                                    <div class="col-sm-6">
+                                                    	<input class="form-control" placeholder="Add amount" aria-describedby="addon1">
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                    	<select class="form-control" style="float:left;" id="sel1">
+                                                        	<option>Percent</option>
+                                                        	<option>Amount</option>
+                                                        </select>
+                                                    </div>
+                                                    </td>
+                                                </tr>
+                                            	<tr>
+                                                	<td>Set a security deposit payment to be collected with each reservation</td>
+                                                    <td>
+                                                    	<div class="input-group">
+  															<span class="input-group-addon" id="basic-addon1">INR</span>
+  																<input type="text" class="form-control" placeholder="Amount" aria-describedby="basic-addon1">
+														</div>
+                                                    </td>
+                                                </tr>
+                                            	<tr>
+                                                	<td>Tax amount to be collected for each reservation</td>
+                                                    <td>
+                                                    	<div class="input-group">
+  															<span class="input-group-addon" id="basic-addon1">%</span>
+  																<input type="text" class="form-control" placeholder="Amount" aria-describedby="basic-addon1">
+														</div>
+                                                    </td>
+                                                </tr>
+                                            	<tr>
+                                                	<td>Require 100% if the reservations is within X days</td>
+                                                    <td>
+                                                    	<select class="form-control" id="sel1">
+                                                        	<option>1</option>
+                                                        	<option>2</option>
+                                                        	<option>3</option>
+                                                        	<option>4</option>
+                                                        	<option>5</option>
+                                                        	<option>6</option>
+                                                        	<option>7</option>
+                                                        	<option>8</option>
+                                                        	<option>9</option>
+                                                        	<option>10</option>
+                                                        	<option>11</option>
+                                                        	<option>12</option>
+                                                        	<option>13</option>
+                                                        	<option>14</option>
+                                                        	<option>15</option>
+                                                        	<option>16</option>
+                                                        	<option>17</option>
+                                                        	<option>18</option>
+                                                        	<option>19</option>
+                                                        	<option>20</option>
+                                                        	<option>21</option>
+                                                        	<option>22</option>
+                                                        	<option>23</option>
+                                                        	<option>24</option>
+                                                        	<option>25</option>
+                                                        	<option>26</option>
+                                                        	<option>27</option>
+                                                        	<option>28</option>
+                                                        	<option>29</option>
+                                                        	<option>30</option>
+                                                        	<option>31</option>
+                                                        	<option>32</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                	<td>Allow payments with PayPal</td>
+                                                    <td><input type="checkbox"></td>
+                                                </tr>
+                                                <tr>
+                                                	<td>PayPal address</td>
+                                                    <td><input type="text" class="form-control" placeholder="paypal_seller@example.com"></td>
+                                                </tr>
+                                                <tr>
+                                                	<td>Allow payments with Authorize.net</td>
+                                                    <td><input type="checkbox"></td>
+                                                </tr>
+                                                <tr>
+                                                	<td>Collect Credit Card details for offline processing</td>
+                                                    <td><input type="checkbox"></td>
+                                                </tr>
+                                                <tr>
+                                                	<td>Provide Bank account details for wire transfers</td>
+                                                    <td><input type="checkbox"></td>
+                                                </tr>
+                                                <tr>
+                                                	<td>Allow Cash payments</td>
+                                                    <td><input type="checkbox"></td>
+                                                </tr>
+                                                <tr>
+                                                	<td>URL for the web page where your clients will be redirected after PayPal or Authorize.net payment</td>
+                                                    <td><input type="text" class="form-control" placeholder="website"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <button style="margin-top:20px;" type="button" class="btn btn-success">Save</button>
+                                    </div>
+                                </div><div class="clearfix"></div>
+                            	<div role="tabpanel" class="tab-pane" id="boo" aria-labelledby="boo-tab">
+                                	<div style="margin-top:10px;" class="alert alert-info alert-dismissible" role="alert">
+                                		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                		<strong>Warning!</strong> Better check yourself, you're not looking too good.
+                                	</div>
+                                	<h3>Booking Form</h3>
+                                    <div class="table-responsive">
+                                    	<table>
+                                        	<thead>
+                                            	<tr>
+                                                	<th>Option</th>
+                                                	<th>Value</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            	<tr>
+                                                	<td>Title</td>
+                                                    <td>
+                                                    	<select class="form-control" id="sel2">
+                                                        	<option>Yes (required)</option>
+                                                        	<option>Yes</option>
+                                                        	<option>No</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                            	<tr>
+                                                	<td>First Name</td>
+                                                    <td>
+                                                    	<select class="form-control" id="sel2">
+                                                        	<option>Yes (required)</option>
+                                                        	<option>Yes</option>
+                                                        	<option>No</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                            	<tr>
+                                                	<td>Middle Name</td>
+                                                    <td>
+                                                    	<select class="form-control" id="sel2">
+                                                        	<option>Yes (required)</option>
+                                                        	<option>Yes</option>
+                                                        	<option>No</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                            	<tr>
+                                                	<td>Last Name</td>
+                                                    <td>
+                                                    	<select class="form-control" id="sel2">
+                                                        	<option>Yes (required)</option>
+                                                        	<option>Yes</option>
+                                                        	<option>No</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                            	<tr>
+                                                	<td>Email</td>
+                                                    <td>
+                                                    	<select class="form-control" id="sel2">
+                                                        	<option>Yes (required)</option>
+                                                        	<option>Yes</option>
+                                                        	<option>No</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                            	<tr>
+                                                	<td>Phone</td>
+                                                    <td>
+                                                    	<select class="form-control" id="sel2">
+                                                        	<option>Yes (required)</option>
+                                                        	<option>Yes</option>
+                                                        	<option>No</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                            	<tr>
+                                                	<td>Arrival Time</td>
+                                                    <td>
+                                                    	<select class="form-control" id="sel2">
+                                                        	<option>Yes (required)</option>
+                                                        	<option>Yes</option>
+                                                        	<option>No</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                            	<tr>
+                                                	<td>Notes</td>
+                                                    <td>
+                                                    	<select class="form-control" id="sel2">
+                                                        	<option>Yes (required)</option>
+                                                        	<option>Yes</option>
+                                                        	<option>No</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                            	<tr>
+                                                	<td>Company</td>
+                                                    <td>
+                                                    	<select class="form-control" id="sel2">
+                                                        	<option>Yes (required)</option>
+                                                        	<option>Yes</option>
+                                                        	<option>No</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                            	<tr>
+                                                	<td>City</td>
+                                                    <td>
+                                                    	<select class="form-control" id="sel2">
+                                                        	<option>Yes (required)</option>
+                                                        	<option>Yes</option>
+                                                        	<option>No</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                            	<tr>
+                                                	<td>State</td>
+                                                    <td>
+                                                    	<select class="form-control" id="sel2">
+                                                        	<option>Yes (required)</option>
+                                                        	<option>Yes</option>
+                                                        	<option>No</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                            	<tr>
+                                                	<td>Country</td>
+                                                    <td>
+                                                    	<select class="form-control" id="sel2">
+                                                        	<option>Yes (required)</option>
+                                                        	<option>Yes</option>
+                                                        	<option>No</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                            	<tr>
+                                                	<td>Zip</td>
+                                                    <td>
+                                                    	<select class="form-control" id="sel2">
+                                                        	<option>Yes (required)</option>
+                                                        	<option>Yes</option>
+                                                        	<option>No</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                            	<tr>
+                                                	<td>Captcha</td>
+                                                    <td>
+                                                    	<select class="form-control" id="sel2">
+                                                        	<option>Yes (required)</option>
+                                                        	<option>No</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                            	<tr>
+                                                	<td>Terms</td>
+                                                    <td>
+                                                    	<select class="form-control" id="sel2">
+                                                        	<option>Yes (required)</option>
+                                                        	<option>No</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div><div class="clearfix"></div>
+                                </div><div class="clearfix"></div>
+                            	<div role="tabpanel" class="tab-pane" id="con" aria-labelledby="con-tab">
+                                	<div style="margin-top:10px;" class="alert alert-info alert-dismissible" role="alert">
+                                		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                		<strong>Warning!</strong> Better check yourself, you're not looking too good.
+                                	</div>
+                                    <div class="submenu1">
+                                    	<ul style="background-color:#F7F7F7; margin:0 0px; margin-top:5px; border:solid 1px; border-color:#CCCCCC; border-radius:5px;" id="myTab01" class="nav nav-tabs navbar-nav" role="tablist">
+                                        	<li style="margin-left:10px; margin-top:5px;" role="presentation" class="active"><a href="#email" id="email-tab" role="tab" data-toggle="tab" aria-controls="email" aria-expanded="true">Email</a></li>
+                                            <li style="margin-left:10px; margin-top:5px;" role="presentation"><a href="#sms1" id="sms1-tab" role="tab" data-toggle="tab" aria-controls="sms1" aria-expanded="true">SMS</a></li>
+                                        </ul>
+                                        <div id="myTab01Content" class="tab-content"><div class="clearfix"></div>
+                                        	<div role="tabpanel" class="tab-pane active" id="email" aria-labelledby="email-tab">
+                                            	<div class="table-responsive">
+                                                	<table>
+                                                    	<thead>
+                                                        	<tr class="td3">
+                                                            	<th class="td3">Email Message:</th>
+                                                                <td class="td3">
+                                                                	<select class="form-control" id="sel2">
+                                                                    	<option>Client - booking confirmation email</option>
+                                                                    	<option>Admin - booking confirmation email</option>
+                                                                    	<option>Client - payment confirmation email</option>
+                                                                    	<option>Admin - payment confirmation email</option>
+                                                                    	<option>Admin - booking cancellation email</option>
+                                                                    </select>
+                                                                </td>
+                                                            </tr>
+                                                        	<tr class="td3">
+                                                            	<th class="td3">Subject:</th>
+                                                                <td class="td3"><input class="form-control" type="text" palceholder="Subject of Email"></td>
+                                                            </tr>
+                                                        	<tr class="td3">
+                                                            	<th class="td3">Email Body:</th>
+                                                                <td class="td3">
+																	<div class="container-fluid">
+																		<div class="row">
+																			<div class="text">
+																				<textarea id="txtEditor"></textarea> 
+																			</div>
+																		</div>
+																	</div><div class="clearfix"></div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="td3">
+                                                            	<td class="td3"></td>
+                                                                <td class="td3"><button type="button" class="btn btn-success">Save</button></td>
+                                                            </tr>
+                                                        </thead>
+                                                    </table>
+                                                </div>
+                                            </div><div class="clearfix"></div>
+                                        	<div role="tabpanel" class="tab-pane" id="sms1" aria-labelledby="sms1-tab">
+                                            	<p>Admin - booking confirmation SMS</p>
+                                                <table>
+                                                	<tr class="td3">
+                                                    	<th class="td3">SMS Content</th>
+                                                        <td class="td3"><textarea rows="4" cols="50">Bank Account Details</textarea></td>
+                                                    </tr>
+                                                </table>
+                                            	<p>Admin - booking confirmation SMS</p>
+                                                <table>
+                                                    <tr class="td3">
+                                                    	<th class="td3">SMS Content</th>
+                                                        <td class="td3"><textarea rows="4" cols="50">Bank Account Details</textarea></td>
+                                                    </tr>
+                                                </table>
+                                                <button type="button" class="btn btn-success">Save</button>
+                                            </div><div class="clearfix"></div>
+                                        </div><div class="clearfix"></div>
+                                    </div><div class="clearfix"></div>
+                                </div><div class="clearfix"></div>
+                            	<div role="tabpanel" class="tab-pane" id="terms" aria-labelledby="terms-tab">
+                                	<div style="margin-top:10px;" class="alert alert-info alert-dismissible" role="alert">
+                                		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                		<strong>Warning!</strong> Better check yourself, you're not looking too good.
+                                	</div>
+                                    <div style="" class="choose">
+                                    	<img src="images/germany.png" style="width:50px; height:30px; float:right; margin-left:10px;" class="img-responsive">
+                                    	<img src="images/uk.png" style="width:50px; height:30px; float:right; margin-left:10px;" class="img-responsive">
+                                        <button type="button" class="btn btn-default" title="choose language" style="float:right;">?</button>
+                                    </div><div class="clearfix"></div>
+                                    <p>Booking terms URL</p>
+                                    <div class="input-group">
+  										<span class="input-group-addon" id="basic-addon1"><i class="fa fa-globe"></i></span>
+  										<input type="text" class="form-control" style="width:300px;" placeholder="URL of the reference Website" aria-describedby="basic-addon1">
+									</div>
+                                    <p>Booking terms Content</p>
+                                    <div class="txteditor">
+										<div class="container-fluid">
+																		<div class="row">
+																			<div class="text">
+																				<textarea id="txtEditor" style="display: none;"></textarea><div class="row-fluid Editor-container"><div id="menuBarDiv" class="row-fluid"><div class="btn-group"><div class="btn-group" title="Fonts" style="cursor: pointer;"><a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)" title="Fonts">Font<span class="caret"></span></a><ul class="dropdown-menu"><li><a tabindex="-1" href="javascript:void(0)">Sans serif</a></li><li><a tabindex="-1" href="javascript:void(0)">Serif</a></li><li><a tabindex="-1" href="javascript:void(0)">Wide</a></li><li><a tabindex="-1" href="javascript:void(0)">Narrow</a></li><li><a tabindex="-1" href="javascript:void(0)">Comic Sans MS</a></li><li><a tabindex="-1" href="javascript:void(0)">Courier New</a></li><li><a tabindex="-1" href="javascript:void(0)">Garamond</a></li><li><a tabindex="-1" href="javascript:void(0)">Georgia</a></li><li><a tabindex="-1" href="javascript:void(0)">Tahoma</a></li><li><a tabindex="-1" href="javascript:void(0)">Trebuchet MS</a></li><li><a tabindex="-1" href="javascript:void(0)">Verdana</a></li></ul></div><div class="btn-group" title="Paragraph Format" style="cursor: pointer;"><a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)" title="Paragraph Format">Formatting<span class="caret"></span></a><ul class="dropdown-menu"><li><a tabindex="-1" href="javascript:void(0)">Heading 1</a></li><li><a tabindex="-1" href="javascript:void(0)">Heading 2</a></li><li><a tabindex="-1" href="javascript:void(0)">Heading 3</a></li><li><a tabindex="-1" href="javascript:void(0)">Heading 4</a></li><li><a tabindex="-1" href="javascript:void(0)">Heading 5</a></li><li><a tabindex="-1" href="javascript:void(0)">Heading 6</a></li><li><a tabindex="-1" href="javascript:void(0)">Paragraph</a></li></ul></div><div class="btn-group" title="Font Size" style="cursor: pointer;"><a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)" title="Font Size">Font size<span class="caret"></span></a><ul class="dropdown-menu"><li><a tabindex="-1" href="javascript:void(0)">Small</a></li><li><a tabindex="-1" href="javascript:void(0)">Normal</a></li><li><a tabindex="-1" href="javascript:void(0)">Medium</a></li><li><a tabindex="-1" href="javascript:void(0)">Large</a></li><li><a tabindex="-1" href="javascript:void(0)">Huge</a></li></ul></div></div><div class="btn-group"><a href="javascript:void(0)" class="btn btn-default" title="Bold" style="cursor: pointer;"><i class="fa fa-bold"></i></a><a href="javascript:void(0)" class="btn btn-default" title="Italics" style="cursor: pointer;"><i class="fa fa-italic"></i></a><a href="javascript:void(0)" class="btn btn-default" title="Underline" style="cursor: pointer;"><i class="fa fa-underline"></i></a><a href="javascript:void(0)" class="btn btn-default" title="Text/Background Color" style="cursor: pointer;"><i class="fa fa-font"></i></a></div><div class="btn-group"><a href="javascript:void(0)" class="btn btn-default" title="Align Left" style="cursor: pointer;"><i class="fa fa-align-left"></i></a><a href="javascript:void(0)" class="btn btn-default" title="Align Center" style="cursor: pointer;"><i class="fa fa-align-center"></i></a><a href="javascript:void(0)" class="btn btn-default" title="Align Right" style="cursor: pointer;"><i class="fa fa-align-right"></i></a><a href="javascript:void(0)" class="btn btn-default" title="Justify" style="cursor: pointer;"><i class="fa fa-align-justify"></i></a></div><div class="btn-group"><a href="javascript:void(0)" class="btn btn-default" title="Increase Indent" style="cursor: pointer;"><i class="fa fa-indent"></i></a><a href="javascript:void(0)" class="btn btn-default" title="Decrease Indent" style="cursor: pointer;"><i class="fa fa-outdent"></i></a><a href="javascript:void(0)" class="btn btn-default" title="Block Quote" style="cursor: pointer;"><i class="fa fa-quote-right"></i></a><a href="javascript:void(0)" class="btn btn-default" title="Insert/Remove Numbered List" style="cursor: pointer;"><i class="fa fa-list-ol"></i></a><a href="javascript:void(0)" class="btn btn-default" title="Insert/Remove Bulleted List" style="cursor: pointer;"><i class="fa fa-list-ul"></i></a></div><div class="btn-group"><a href="javascript:void(0)" class="btn btn-default" title="Undo" style="cursor: pointer;"><i class="fa fa-undo"></i></a><a href="javascript:void(0)" class="btn btn-default" title="Redo" style="cursor: pointer;"><i class="fa fa-repeat"></i></a></div><div class="btn-group"><a href="#InsertLink" role="button" class="btn btn-default" data-toggle="modal" title="Insert Link"><i class="fa fa-link"></i></a><a href="javascript:void(0)" class="btn btn-default" title="Unlink" style="cursor: pointer;"><i class="fa fa-unlink"></i></a><a href="#InsertImage" role="button" class="btn btn-default" data-toggle="modal" title="Insert Image"><i class="fa fa-picture-o"></i></a><a href="#InsertTable" role="button" class="btn btn-default" data-toggle="modal" title="Insert Table"><i class="fa fa-table"></i></a></div><div class="btn-group"><a href="javascript:void(0)" class="btn btn-default" title="Strike Through" style="cursor: pointer;"><i class="fa fa-strikethrough"></i></a><a href="javascript:void(0)" class="btn btn-default" title="Horizontal Rule" style="cursor: pointer;"><i class="fa fa-minus"></i></a><a href="javascript:void(0)" class="btn btn-default" title="Insert Special Character" style="cursor: pointer;"><i class="fa fa-asterisk"></i></a></div><div class="btn-group"><a href="javascript:void(0)" class="btn btn-default" title="Print" style="cursor: pointer;"><i class="fa fa-print"></i></a><a href="javascript:void(0)" class="btn btn-default" title="Remove Formatting" style="cursor: pointer;"><i class="fa fa-eraser"></i></a><a href="javascript:void(0)" class="btn btn-default" title="Select All" style="cursor: pointer;"><i class="fa fa-file-text"></i></a><a href="javascript:void(0)" class="btn btn-default" title="Source" style="cursor: pointer;"><i class="fa fa-code"></i></a></div><div class="btn-group"><a href="javascript:void(0)" class="btn btn-default" title="Toggle Screen" style="cursor: pointer;"><i class="fa fa-arrows-alt"></i></a></div></div><div class="Editor-editor" contenteditable="true" style="overflow: auto;"></div><div id="statusbar" class="row-fluid" unselectable="on"></div></div> 
+																			</div>
+																		</div>
+																	</div><div class="clearfix"></div>
+                                    </div><div class="clearfix"></div>
+                                </div><div class="clearfix"></div>
+                            </div><div class="clearfix"></div>
+                        </div>
+                    </div>
+					<div role="tabpanel" class="tab-pane active" id="general" aria-labelledby="general-tab">
+                    	<h3>General</h3>
+                        <div class="table-responsive">
+                        	<table>
+                            	<thead>
+                                	<tr class="tr3">
+                                    	<th class="tr4">Option</th>
+                                    	<th class="tr4">Value</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                	<tr>
+                                    	<td class="tr3">Date Format</td>
+                                    	<td class="tr3">
+                                        	<select class="form-control" id="sel2">
+                                            	<option>d.m.y (07.03.2018)</option>
+                                            	<option>m.d.y (03.07.2018)</option>
+                                            	<option>y.m.d (2018.03.07)</option>
+                                            	<option>d/m/y (07/03/2018)</option>
+                                            	<option>m/d/y (03/07/2018)</option>
+                                            	<option>y/m/d (2018/03/07)</option>
+                                            	<option>d-m-y (07-03-2018)</option>
+                                            	<option>m-d-y (03-07-2018)</option>
+                                            	<option>y-m-d (2018-03-07)</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                	<tr>
+                                    	<td class="tr3">Time Format</td>
+                                    	<td class="tr3">
+                                        	<select class="form-control" id="sel2">
+                                            	<option>H:i (09:45)</option>
+                                            	<option>G:i (9:45)</option>
+                                            	<option>h:i (09:45)</option>
+                                            	<option>h:i a (09:45 am)</option>
+                                            	<option>h:i A (09:45 AM)</option>
+                                            	<option>g:i (9:45)</option>
+                                            	<option>g:i a (9:45 am)</option>
+                                            	<option>g:i A (9:45 AM)</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                	<tr>
+                                    	<td class="tr3">First Day of the Week</td>
+                                    	<td class="tr3">
+                                        	<select class="form-control" id="sel2">
+                                            	<option>Sunday</option>
+                                            	<option>Monday</option>
+                                            	<option>Tuesday</option>
+                                            	<option>Wednesday</option>
+                                            	<option>Thursday</option>
+                                            	<option>Friday</option>
+                                            	<option>Saturday</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                	<tr>
+                                    	<td class="tr3">Timezone</td>
+                                    	<td class="tr3">
+                                        	<select class="form-control" id="sel2">
+                                            	<option>GMT-12:00</option>
+                                            	<option>GMT-11:00</option>
+                                            	<option>GMT-10:00</option>
+                                            	<option>GMT-09:00</option>
+                                            	<option>GMT-08:00</option>
+                                            	<option>GMT-07:00</option>
+                                            	<option>GMT-06:00</option>
+                                            	<option>GMT-05:00</option>
+                                            	<option>GMT-04:00</option>
+                                            	<option>GMT-03:00</option>
+                                            	<option>GMT-02:00</option>
+                                            	<option>GMT-01:00</option>
+                                            	<option>GMT</option>
+                                            	<option>GMT+01:00</option>
+                                            	<option>GMT+02:00</option>
+                                            	<option>GMT+03:00</option>
+                                            	<option>GMT+04:00</option>
+                                            	<option>GMT+05:00</option>
+                                            	<option>GMT+06:00</option>
+                                            	<option>GMT+07:00</option>
+                                            	<option>GMT+08:00</option>
+                                            	<option>GMT+09:00</option>
+                                            	<option>GMT+10:00</option>
+                                            	<option>GMT+11:00</option>
+                                            	<option>GMT+12:00</option>
+                                            	<option>GMT+13:00</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                	<tr>
+                                    	<td class="tr3">Send email</td>
+                                    	<td class="tr3">
+                                        	<select class="form-control" id="sel2">
+                                            	<option>PHP mail()</option>
+                                            	<option>SMTP</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="sadd">
+                            	<button type="button" class="btn btn-success">Save</button>
+                            </div>
+                        </div><div class="clearfix"></div>
+                    </div>
+					<div role="tabpanel" class="tab-pane" id="bookings" aria-labelledby="bookings-tab">
+                    	<h3>Bookings</h3>
+                    </div>
+					<div role="tabpanel" class="tab-pane" id="lang" aria-labelledby="lang-tab">
+                    	<h3>Languages</h3>
+                        <div class="submenu">
+							<ul style="background-color:#F7F7F7; margin:0 0px; margin-top:5px; border:solid 1px; border-color:#CCCCCC; border-radius:5px;" id="myTab1" class="nav nav-tabs navbar-nav" role="tablist">
+                            	<li style="margin-left:10px; margin-top:5px;" role="presentation" class="active"><a href="#lan" id="lan-tab" role="tab" data-toggle="tab" aria-controls="lan" aria-expanded="true">Languages</a></li>
+                                <li style="margin-top:5px;" role="presentation"><a href="#tran" id="tran-tab" role="tab" data-toggle="tab" aria-controls="tran" aria-expanded="true">Translate</a></li>
+                                <li style="margin-top:5px;" role="presentation"><a href="#imp" id="imp-tab" role="tab" data-toggle="tab" aria-controls="imp" aria-expanded="true">Import/Export</a></li>
+                            </ul>
+							<div id="myTab1Content" class="tab-content"><div class="clearfix"></div>
+                            	<div role="tabpanel" class="tab-pane active" id="lan" aria-labelledby="lan-tab">
+                                	<div style="margin-top:10px;" class="alert alert-info alert-dismissible" role="alert">
+                                		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                		<strong>Warning!</strong> Better check yourself, you're not looking too good.
+                                	</div>
+                    				<h3>Languages</h3>
+                                    <div class="table-responsive">
+                                    	<table>
+                                        	<thead>
+                                            	<tr>
+                                                	<th>Language<a href="#"><span style="float:right;" class="glyphicon glyphicon-sort"></span></a></th>
+                                                	<th>Front-end Title<a href="#"><span style="float:right;" class="glyphicon glyphicon-sort"></span></a></th>
+                                                	<th>Flags</th>
+                                                	<th>Upload Language Document</th>
+                                                	<th>Text Direction<a href="#"><span style="float:right;" class="glyphicon glyphicon-sort"></span></a></th>
+                                                	<th>Is default<a href="#"><span style="float:right;" class="glyphicon glyphicon-sort"></span></a></th>
+                                                	<th>Order<a href="#"><span style="float:right;" class="glyphicon glyphicon-sort"></span></a></th>
+                                                	<th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            	<tr>
+                                                	<td class="td1">English (United Kingdom)</td>
+                                                	<td class="td1">English</td>
+                                                	<td class="td1"><img style="width:30px; height:15px; margin:0 auto;" src="images/uk.png" class="img-responsive"></td>
+                                                	<td class="td1"><a href="#"><span class="glyphicon glyphicon-cloud-upload"></span></a></td>
+                                                	<td class="td1">Left to Right</td>
+                                                	<td class="td1"><a href="#"><span class="glyphicon glyphicon-ok-circle"></span></a></td>
+                                                	<td class="td1">1</td>
+                                                	<td class="td1"></td>
+                                                </tr>
+                                            	<tr>
+                                                	<td class="td1">German (Germany)</td>
+                                                	<td class="td1">Deutsch</td>
+                                                	<td class="td1"><img style="width:30px; height:15px; margin:0 auto;" src="images/germany.png" class="img-responsive"></td>
+                                                	<td class="td1"><a href="#"><span class="glyphicon glyphicon-cloud-upload"></span></a></td>
+                                                	<td class="td1">Left to Right</td>
+                                                	<td class="td1"><a href="#"><span class="glyphicon glyphicon-ok-circle"></span></a></td>
+                                                	<td class="td1">2</td>
+                                                	<td class="td1"><a href="#"><span class="glyphicon glyphicon-remove-circle"></span></a></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="add">
+                                        	<button style="margin-top:10px; float:right;" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus
+"></span>Add more languages</button>
+                                        </div>
+                                    </div>
+                    			</div><div class="clearfix"></div>
+                            	<div role="tabpanel" class="tab-pane" id="tran" aria-labelledby="tran-tab">
+                                	<div style="margin-top:10px;" class="alert alert-info alert-dismissible" role="alert">
+                                		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                		<strong>Warning!</strong> Better check yourself, you're not looking too good.
+                                	</div>
+                    				<h3>Translate</h3>
+                                    <div  class="table1">
+                                    	<div class="col-sm-4">
+                                        <p style="background-color: #003366;color: #fff;padding: 2px 5px;border-radius: 3px;-moz-border-radius: 3px;-webkit-border-radius: 3px;width: 250px;">Show Ids</h3>
+                                    	<table style="border:none !important;">
+                                        	<tr class="tab">
+                                            	<th class="tab">Show ids : <span style="float:right;"><input type="checkbox" aria-label="..."></span></th>
+                                                <th class="tab"><button type="button" class="btn btn-default">Save</button></th>
+                                            </tr>
+                                        </table>
+                                        </div>
+                                    	<div class="col-sm-8">
+                                    	</div>
+                                    </div>
+                                    <div class="clearfix"></div><br>
+                                    <div  class="tab1">
+                                    	<div class="col-sm-3">
+    										<div style="margin-top:20px;" class="input-group">
+                                            	<input type="text" class="form-control" placeholder="Search for...">
+                                                	<span class="input-group-btn">
+                                                    	<button class="btn btn-default" type="button">Go!</button>
+                                                    </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-9">
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="lantab">
+                                    	<table class="table-responsive">
+                                        	<thead>
+                                            	<tr>
+                                                	<th>ID:</th>
+                                                	<th>English (United Kingdom)-default</th>
+                                                	<th>German (Germany)</th>
+                                                	<th>Fie ld</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            	<tr>
+                                                	<td><input type="checkbox" aria-label="..."></td>
+                                                	<td><input type="text" class="form-control" placeholder="Name" aria-describedby="sizing-addon1"></td>
+                                                	<td><input type="text" class="form-control" placeholder="Name" aria-describedby="sizing-addon1"></td>
+                                                	<td>Name</td>
+                                                    
+                                                </tr>
+                                            	<tr>
+                                                	<td><input type="checkbox" aria-label="..."></td>
+                                                	<td><input type="text" class="form-control" placeholder="Name1" aria-describedby="sizing-addon1"></td>
+                                                	<td><input type="text" class="form-control" placeholder="Name1" aria-describedby="sizing-addon1"></td>
+                                                	<td>Name1</td>
+                                                    
+                                                </tr>
+                                            	<tr>
+                                                	<td><input type="checkbox" aria-label="..."></td>
+                                                	<td><input type="text" class="form-control" placeholder="Name2" aria-describedby="sizing-addon1"></td>
+                                                	<td><input type="text" class="form-control" placeholder="Name2" aria-describedby="sizing-addon1"></td>
+                                                	<td>Name2</td>
+                                                    
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="add">
+                        				<p style="padding:5px;"><button type="button" class="btn btn-danger" style="boder-radius:10px; margin-left:5px;">Delete Selected</button>
+                            			Go to page: 1/1<span style="float:right">Toatal items: 5/10</span></p>
+                                    </div>
+                    			</div>
+                            	<div role="tabpanel" class="tab-pane" id="imp" aria-labelledby="imp-tab">
+                                	<div style="margin-top:10px;" class="alert alert-info alert-dismissible" role="alert">
+  										<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  										<strong>Warning!</strong> Better check yourself, you're not looking too good.
+									</div>
+                    				<h3>Import/ Export</h3>
+                                    <div class="import">
+                                    	<p>Import</p>
+                                        <div class="col-sm-4 ttab">
+                                        <table>
+                                        	<tr class="td2">
+                                            	<th class="td2">Delimeter</th>
+                                                <th class="td2">
+                                                	<select class="form-control" id="sel1">
+                                                    	<option>Choose one</option>
+                                                    	<option>Comma</option>
+                                                    	<option>Semicolon</option>
+                                                    	<option>Tab</option>
+                                                    </select>
+                                                </th>
+                                            </tr>
+                                            <tr class="td2">
+                                            	<th class="td2">Browse File</th>
+                                                <th class="td2">
+                                                	<input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+                                                </th>
+                                            </tr>
+                                            <tr class="td2">
+                                            	<th class="td2"></th>
+                                                <th class="td2"><button type="button" class="btn btn-info">Import</button></th>
+                                            </tr>
+                                        </table>
+                                        </div>
+                                        <div class="col-sm-8">
+                                        </div><div class="clearfix"></div>
+                                    </div><div class="clearfix"></div>
+                                    <div class="export">
+                                    	<p>Exports</p>
+                                        <div class="col-sm-4">
+                                        <table>
+                                        	<tr class="td2">
+                                            	<th class="td2">Delimeter</th>
+                                                <th class="td2">
+                                                	<select class="form-control" id="sel1">
+                                                    	<option>Choose one</option>
+                                                    	<option>Comma</option>
+                                                    	<option>Semicolon</option>
+                                                    	<option>Tab</option>
+                                                    </select>
+                                                </th>
+                                            </tr>
+                                            <tr class="td2">
+                                            	<th class="td2"></th>
+                                                <th class="td2"><button type="button" class="btn btn-info">Export</button></th>
+                                            </tr>
+                                        </table>
+                                        </div>
+                                        <div class="col-sm-8">
+                                        </div><div class="clearfix"></div>
+                                    </div><div class="clearfix"></div>
+                    			</div><div class="clearfix"></div>
+                            </div><div class="clearfix"></div>
+                        </div>
+                    </div>
+					<div role="tabpanel" class="tab-pane" id="back" aria-labelledby="back-tab">
+                                	<div style="margin-top:10px;" class="alert alert-info alert-dismissible" role="alert">
+                                		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                		<strong>Warning!</strong> Better check yourself, you're not looking too good.
+                                	</div>
+                    	<!--<h3>Backup</h3>-->
+                  <p style="background-color: #003366;color: #fff;padding: 2px 5px;border-radius: 3px;-moz-border-radius: 3px;-webkit-border-radius: 3px;width: 250px;">Backup</p>
+                        <div class="btab">
+                        	<div class="col-sm-4">
+                        	<table style="border: none !important;">
+                            	<tr class="td2">
+                                	<th class="td2">Backup</th>
+                                	<th class="td2"><input type="checkbox"></th>
+                                    <th class="td2"><button type="button" class="btn btn-default">Backup</button></th>
+                                </tr>
+                            	<tr class="td2">
+                                	<th class="td2">Backup Files</th>
+                                	<th class="td2"><input type="checkbox"></th>
+                                    <th class="td2"></th>
+                                </tr>
+                            </table>
+                            </div>
+                            <div class="col-sm-8">
+                            </div><div class="clearfix"></div>
+                            <div class="table-responsive">
+                            	<table>
+                                	<thead>
+                                	<tr>
+                                    	<th><input type="checkbox"></th>
+                                    	<th>Date/Time</th>
+                                    	<th>Type</th>
+                                    	<th>Dize</th>
+                                    	<th>File</th>
+                                    </tr>
+                                    </thead>
+                                	<tbody>
+                                	<tr>
+                                    	<td colspan="5">No records found</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div><div class="clearfix"></div>
+                                    <div class="add">
+                        				<p style="padding:5px;"><button type="button" class="btn btn-danger" style="boder-radius:10px; margin-left:5px;">Delete Selected</button>
+                            			Go to page: 1/1<span style="float:right">Toatal items: 5/10</span></p>
+                                    </div>
+                        </div><div class="clearfix"></div>
+                	</div>
+					<div role="tabpanel" class="tab-pane" id="sms" aria-labelledby="sms-tab">
+                                	<div style="margin-top:10px;" class="alert alert-info alert-dismissible" role="alert">
+                                		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                		<strong>Warning!</strong> Better check yourself, you're not looking too good.
+                                	</div>
+                    	                  <p style="background-color: #003366;color: #fff;padding: 2px 5px;border-radius: 3px;-moz-border-radius: 3px;-webkit-border-radius: 3px;width: 250px;">SMS Config</p>
+
+                        <div class="col-sm-4">
+                        	<table style="border:none !important;">
+                            	<tr class="td2">
+                                	<th class="td2">API Key</th>
+                                    <th class="td2"><input type="text" class="form-control" placeholder="API Key" aria-describedby="addon1"></th>
+                                </tr>
+                            	<tr class="td2">
+                                	<th class="td2"></th>
+                                    <th class="td2"><button type="button" class="btn btn-default">Save</button></th>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-sm-8">
+                        </div><div class="clearfix"></div>
+                        <div class="col-sm-4">
+                        	<table  style="border:none !important;">
+                            	<tr class="td2">
+                                	<th class="td2">
+    										<div style="margin-top:20px;" class="input-group">
+                                            	<input type="text" class="form-control" placeholder="Search for...">
+                                                	<span class="input-group-btn">
+                                                    	<button class="btn btn-default" type="button">Go!</button>
+                                                    </span>
+                                            </div></th>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-sm-8">
+                        </div><div class="clearfix"></div>
+                        <div class="stab">
+                        	<table class="table-responsive">
+                            	<thead>
+                                <tr>
+                                	<th class="tt">Date/Time sent</th>
+                                	<th class="tt">Phone Number</th>
+                                	<th class="tt1">Message</th>
+                                    <th class="tt">status</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                	<td class="tt" colspan="4">No records found</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div><div class="clearfix"></div><br>
+                    <div class="dat">
+                    	<p>Go to page 10 <span style="float:right">Total items 1/10</span></p>
+                    </div><div class="clearfix"></div>
+                	</div>
+					<div role="tabpanel" class="tab-pane" id="inv" aria-labelledby="inv-tab">
+                    	<h1>Invoice</h1>
+                        <div class="submenu">
+                        <ul style="background-color:#F7F7F7; margin:0 0px; margin-top:5px; border:solid 1px; border-color:#CCCCCC; border-radius:5px;" id="myTab2" class="nav nav-tabs navbar-nav" role="tablist">
+                        	<li style="margin-left:10px; margin-top:5px;" role="presentation" class="active"><a href="#com" id="com-tab" role="tab" data-toggle="tab" aria-controls="com" aria-expanded="true">Company Details</a></li>
+                        	<li style="margin-top:5px;" role="presentation"><a href="#opt" id="opt-tab" role="tab" data-toggle="tab" aria-controls="opt" aria-expanded="true">Options</a></li>
+                        	<li style="margin-top:5px;" role="presentation"><a href="#tem" id="tem-tab" role="tab" data-toggle="tab" aria-controls="tem" aria-expanded="true">Template</a></li>
+                        </ul>
+							<div id="myTab2Content" class="tab-content"><div class="clearfix"></div>
+                            	<div role="tabpanel" class="tab-pane active" id="com" aria-labelledby="com-tab">
+                                	<div style="margin-top:10px;" class="alert alert-info alert-dismissible" role="alert">
+                                		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                		<strong>Warning!</strong> Better check yourself, you're not looking too good.
+                                	</div>
+                                    <div style="" class="choose">
+                                    	<img src="images/germany.png" style="width:50px; height:30px; float:right; margin-left:10px;" class="img-responsive">
+                                    	<img src="images/uk.png" style="width:50px; height:30px; float:right; margin-left:10px;" class="img-responsive">
+                                        <button type="button" class="btn btn-default" title="choose language" style="float:right;">?</button>
+                                    </div><div class="clearfix"></div>
+                                    <div class="table-responsive">
+                                    	<table>
+                                            <tbody>
+                                            	<tr class="td3">
+                                                	<th class="td3">Company Logo :</th>
+                                                <td class="td3">
+                                                	<input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+                                                </td>
+                                                </tr>
+                                            	<tr class="td3">
+                                                	<th class="td3">Company Name :</th>
+                                                <td class="td3">
+                                                	<input type="text" class="form-control" aria-describedby="addon1" placeholder="Name of the Company">
+                                                </td>
+                                                </tr>
+                                            	<tr class="td3">
+                                                	<th class="td3">Name :</th>
+                                                <td class="td3">
+                                                	<input type="text" class="form-control" aria-describedby="addon1" placeholder="Name of the Person">
+                                                </td>
+                                                </tr>
+                                            	<tr class="td3">
+                                                	<th class="td3">Street Name :</th>
+                                                <td class="td3">
+                                                	<input type="text" class="form-control" aria-describedby="addon1" placeholder="Name of the Street">
+                                                </td>
+                                                </tr>
+                                            	<tr class="td3">
+                                                	<th class="td3">Country :</th>
+                                                <td class="td3">
+                                                	<select class="form-control" id="sel1">
+                                                    	<option>India</option>
+                                                    	<option>U.S.A</option>
+                                                    	<option>U.K</option>
+                                                    	<option>Canada</option>
+                                                    	<option>Singapore</option>
+                                                    	<option>Germany</option>
+                                                    </select>
+                                                </td>
+                                                </tr>
+                                            	<tr class="td3">
+                                                	<th class="td3">City :</th>
+                                                <td class="td3">
+                                                	<input type="text" class="form-control" aria-describedby="addon1" placeholder="Name of the City">
+                                                </td>
+                                                </tr>
+                                            	<tr class="td3">
+                                                	<th class="td3">State :</th>
+                                                <td class="td3">
+                                                	<input type="text" class="form-control" aria-describedby="addon1" placeholder="Name of the State">
+                                                </td>
+                                                </tr>
+                                            	<tr class="td3">
+                                                	<th class="td3">Zip :</th>
+                                                <td class="td3">
+                                                	<input type="text" class="form-control" aria-describedby="addon1" placeholder="Zip/Postal Code">
+                                                </td>
+                                                </tr>
+                                            	<tr class="td3">
+                                                	<th class="td3">Phone Number :</th>
+                                                <td class="td3">
+                                                	<input type="text" class="form-control" aria-describedby="addon1" placeholder="Mobile Number">
+                                                </td>
+                                                </tr>
+                                            	<tr class="td3">
+                                                	<th class="td3">Fax :</th>
+                                                <td class="td3">
+                                                	<input type="text" class="form-control" aria-describedby="addon1" placeholder="Fax">
+                                                </td>
+                                                </tr>
+                                            	<tr class="td3">
+                                                	<th class="td3">Email :</th>
+                                                <td class="td3">
+                                                	<input type="text" class="form-control" aria-describedby="addon1" placeholder="Email">
+                                                </td>
+                                                </tr>
+                                            	<tr class="td3">
+                                                	<th class="td3">Website :</th>
+                                                <td class="td3">
+                                                	<input type="text" class="form-control" aria-describedby="addon1" placeholder="Website">
+                                                </td>
+                                                </tr>
+                                            	<tr class="td3">
+                                                	<th class="td3"></th>
+                                                <td class="td3">
+                                                	<button type="button" class="btn btn-success">Save</button>
+                                                </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            	<div role="tabpanel" class="tab-pane" id="opt" aria-labelledby="opt-tab">
+                                	<div style="margin-top:10px;" class="alert alert-info alert-dismissible" role="alert">
+                                		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                		<strong>Warning!</strong> Better check yourself, you're not looking too good.
+                                	</div>
+                                    <div style="" class="choose">
+                                    	<img src="images/germany.png" style="width:50px; height:30px; float:right; margin-left:10px;" class="img-responsive">
+                                    	<img src="images/uk.png" style="width:50px; height:30px; float:right; margin-left:10px;" class="img-responsive">
+                                        <button type="button" class="btn btn-default" title="choose language" style="float:right;">?</button>
+                                    </div><div class="clearfix"></div>
+                                    <div class="table-responsive">
+                                    	<table>
+                                        	<thead>
+                                            	<tr class="tr2">
+                                                	<th class="tr2">Option</th>
+                                                    <th class="tr2">Value</th>
+                                                </tr>
+                                            </thead>
+                                        	<tbody>
+                                            	<tr>
+                                                	<td>Accept Payment</td>
+                                                	<td><input type="checkbox"></td>
+                                                </tr>
+                                            	<tr>
+                                                	<td>Accept Payment with Paypal</td>
+                                                	<td><input type="checkbox"></td>
+                                                </tr>
+                                            	<tr>
+                                                	<td>Paypal address</td>
+                                                	<td><input type="text" class="form-control" placeholder="info@domain.com"></td>
+                                                </tr>
+                                            	<tr>
+                                                	<td>Accept Payment with Authorize.Net</td>
+                                                	<td><input type="checkbox"></td>
+                                                </tr>
+                                            	<tr>
+                                                	<td>Accept Payment with Credit Card</td>
+                                                	<td><input type="checkbox"></td>
+                                                </tr>
+                                            	<tr>
+                                                	<td>Allow Cash Payment</td>
+                                                	<td><input type="checkbox"></td>
+                                                </tr>
+                                            	<tr>
+                                                	<td>Accept Payment with Bank Accounts</td>
+                                                	<td><input type="checkbox"></td>
+                                                </tr>
+                                            	<tr>
+                                                	<td>Bank Account</td>
+                                                	<td><textarea rows="4" cols="50">Bank Account Details</textarea></td>
+                                                </tr>
+                                            	<tr>
+                                                	<td>Use Shipping Details</td>
+                                                	<td><input type="checkbox"></td>
+                                                </tr>
+                                            	<tr>
+                                                	<td>Use quantity and unit price</td>
+                                                	<td><input type="checkbox"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <button type="button" class="btn btn-success">Save</button>
+                                    </div><div class="clearfix"></div>
+                                </div>
+                            	<div role="tabpanel" class="tab-pane" id="tem" aria-labelledby="tem-tab">
+                                	<div style="margin-top:10px;" class="alert alert-info alert-dismissible" role="alert">
+                                		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                		<strong>Warning!</strong> Better check yourself, you're not looking too good.
+                                	</div>
+                                    <div style="" class="choose">
+                                    	<img src="images/germany.png" style="width:50px; height:30px; float:right; margin-left:10px;" class="img-responsive">
+                                    	<img src="images/uk.png" style="width:50px; height:30px; float:right; margin-left:10px;" class="img-responsive">
+                                        <button type="button" class="btn btn-default" title="choose language" style="float:right;">?</button>
+                                    </div><div class="clearfix"></div>
+										<div class="txteditor">
+										<div class="container-fluid">
+																		<div class="row">
+																			<div class="text">
+																				<textarea id="txtEditor" style="display: none;"></textarea><div class="row-fluid Editor-container"><div id="menuBarDiv" class="row-fluid"><div class="btn-group"><div class="btn-group" title="Fonts" style="cursor: pointer;"><a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)" title="Fonts">Font<span class="caret"></span></a><ul class="dropdown-menu"><li><a tabindex="-1" href="javascript:void(0)">Sans serif</a></li><li><a tabindex="-1" href="javascript:void(0)">Serif</a></li><li><a tabindex="-1" href="javascript:void(0)">Wide</a></li><li><a tabindex="-1" href="javascript:void(0)">Narrow</a></li><li><a tabindex="-1" href="javascript:void(0)">Comic Sans MS</a></li><li><a tabindex="-1" href="javascript:void(0)">Courier New</a></li><li><a tabindex="-1" href="javascript:void(0)">Garamond</a></li><li><a tabindex="-1" href="javascript:void(0)">Georgia</a></li><li><a tabindex="-1" href="javascript:void(0)">Tahoma</a></li><li><a tabindex="-1" href="javascript:void(0)">Trebuchet MS</a></li><li><a tabindex="-1" href="javascript:void(0)">Verdana</a></li></ul></div><div class="btn-group" title="Paragraph Format" style="cursor: pointer;"><a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)" title="Paragraph Format">Formatting<span class="caret"></span></a><ul class="dropdown-menu"><li><a tabindex="-1" href="javascript:void(0)">Heading 1</a></li><li><a tabindex="-1" href="javascript:void(0)">Heading 2</a></li><li><a tabindex="-1" href="javascript:void(0)">Heading 3</a></li><li><a tabindex="-1" href="javascript:void(0)">Heading 4</a></li><li><a tabindex="-1" href="javascript:void(0)">Heading 5</a></li><li><a tabindex="-1" href="javascript:void(0)">Heading 6</a></li><li><a tabindex="-1" href="javascript:void(0)">Paragraph</a></li></ul></div><div class="btn-group" title="Font Size" style="cursor: pointer;"><a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)" title="Font Size">Font size<span class="caret"></span></a><ul class="dropdown-menu"><li><a tabindex="-1" href="javascript:void(0)">Small</a></li><li><a tabindex="-1" href="javascript:void(0)">Normal</a></li><li><a tabindex="-1" href="javascript:void(0)">Medium</a></li><li><a tabindex="-1" href="javascript:void(0)">Large</a></li><li><a tabindex="-1" href="javascript:void(0)">Huge</a></li></ul></div></div><div class="btn-group"><a href="javascript:void(0)" class="btn btn-default" title="Bold" style="cursor: pointer;"><i class="fa fa-bold"></i></a><a href="javascript:void(0)" class="btn btn-default" title="Italics" style="cursor: pointer;"><i class="fa fa-italic"></i></a><a href="javascript:void(0)" class="btn btn-default" title="Underline" style="cursor: pointer;"><i class="fa fa-underline"></i></a><a href="javascript:void(0)" class="btn btn-default" title="Text/Background Color" style="cursor: pointer;"><i class="fa fa-font"></i></a></div><div class="btn-group"><a href="javascript:void(0)" class="btn btn-default" title="Align Left" style="cursor: pointer;"><i class="fa fa-align-left"></i></a><a href="javascript:void(0)" class="btn btn-default" title="Align Center" style="cursor: pointer;"><i class="fa fa-align-center"></i></a><a href="javascript:void(0)" class="btn btn-default" title="Align Right" style="cursor: pointer;"><i class="fa fa-align-right"></i></a><a href="javascript:void(0)" class="btn btn-default" title="Justify" style="cursor: pointer;"><i class="fa fa-align-justify"></i></a></div><div class="btn-group"><a href="javascript:void(0)" class="btn btn-default" title="Increase Indent" style="cursor: pointer;"><i class="fa fa-indent"></i></a><a href="javascript:void(0)" class="btn btn-default" title="Decrease Indent" style="cursor: pointer;"><i class="fa fa-outdent"></i></a><a href="javascript:void(0)" class="btn btn-default" title="Block Quote" style="cursor: pointer;"><i class="fa fa-quote-right"></i></a><a href="javascript:void(0)" class="btn btn-default" title="Insert/Remove Numbered List" style="cursor: pointer;"><i class="fa fa-list-ol"></i></a><a href="javascript:void(0)" class="btn btn-default" title="Insert/Remove Bulleted List" style="cursor: pointer;"><i class="fa fa-list-ul"></i></a></div><div class="btn-group"><a href="javascript:void(0)" class="btn btn-default" title="Undo" style="cursor: pointer;"><i class="fa fa-undo"></i></a><a href="javascript:void(0)" class="btn btn-default" title="Redo" style="cursor: pointer;"><i class="fa fa-repeat"></i></a></div><div class="btn-group"><a href="#InsertLink" role="button" class="btn btn-default" data-toggle="modal" title="Insert Link"><i class="fa fa-link"></i></a><a href="javascript:void(0)" class="btn btn-default" title="Unlink" style="cursor: pointer;"><i class="fa fa-unlink"></i></a><a href="#InsertImage" role="button" class="btn btn-default" data-toggle="modal" title="Insert Image"><i class="fa fa-picture-o"></i></a><a href="#InsertTable" role="button" class="btn btn-default" data-toggle="modal" title="Insert Table"><i class="fa fa-table"></i></a></div><div class="btn-group"><a href="javascript:void(0)" class="btn btn-default" title="Strike Through" style="cursor: pointer;"><i class="fa fa-strikethrough"></i></a><a href="javascript:void(0)" class="btn btn-default" title="Horizontal Rule" style="cursor: pointer;"><i class="fa fa-minus"></i></a><a href="javascript:void(0)" class="btn btn-default" title="Insert Special Character" style="cursor: pointer;"><i class="fa fa-asterisk"></i></a></div><div class="btn-group"><a href="javascript:void(0)" class="btn btn-default" title="Print" style="cursor: pointer;"><i class="fa fa-print"></i></a><a href="javascript:void(0)" class="btn btn-default" title="Remove Formatting" style="cursor: pointer;"><i class="fa fa-eraser"></i></a><a href="javascript:void(0)" class="btn btn-default" title="Select All" style="cursor: pointer;"><i class="fa fa-file-text"></i></a><a href="javascript:void(0)" class="btn btn-default" title="Source" style="cursor: pointer;"><i class="fa fa-code"></i></a></div><div class="btn-group"><a href="javascript:void(0)" class="btn btn-default" title="Toggle Screen" style="cursor: pointer;"><i class="fa fa-arrows-alt"></i></a></div></div><div class="Editor-editor" contenteditable="true" style="overflow: auto;"></div><div id="statusbar" class="row-fluid" unselectable="on"></div></div> 
+																			</div>
+																		</div>
+																	</div><div class="clearfix"></div>
+                                    </div><div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div><div class="clearfix"></div>
+                	</div><div class="clearfix"></div>
+					<div role="tabpanel" class="tab-pane" id="cou" aria-labelledby="cou-tab"><div class="clearfix"></div>
+                    	<div class="htab">
+                    		<div class="col-sm-3">
+                    			<table>
+                                <tr class="td3">
+                        			<th class="td3">
+    									<div class="input-group">
+                                           	<input type="text" class="form-control" placeholder="Search for...">
+                                               	<span class="input-group-btn">
+                                                   	<button class="btn btn-default" type="button">Go!</button>
+                                                   </span>
+                                        </div>
+                            		</th>
+                                </tr>
+                        		</table>
+                    		</div>
+                            <div col-sm-9>
+                            <div class="bttn">
+                            	<button type="button" class="btn btn-default">All</button>
+                            	<button type="button" class="btn btn-default">Active</button>
+                            	<button type="button" class="btn btn-default">Inactive</button>
+                            </div>
+                            </div><div class="clearfix"></div>
+                            <div style="margin-top:20px;" class="table-responsive">
+                            	<table>
+                                	<thead>
+                                    	<tr class="tr2">
+                                        	<th style="width:25px" class="tr2"><input type="checkbox"></th>
+                                            <th class="tr2">Country Name<span style="float:right; margin-right:10px;"><a href="#"><i class="fa fa-sort"></i></a></span></th>
+                                            <th class="tr2">Alpha 2<span style="float:right; margin-right:10px;"><a href="#"><i class="fa fa-sort"></i></a></span></th>
+                                            <th class="tr2">Alpha 3<span style="float:right; margin-right:10px;"><a href="#"><i class="fa fa-sort"></i></a></span></th>
+                                            <th class="tr2">Status<span style="float:right; margin-right:10px;"><a href="#"><i class="fa fa-sort"></i></a></span></th>
+                                            <th class="tr2">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    	<tr>
+                                        	<td class="td1"><input type="checkbox"></td>
+                                            <td class="td1">Afghanisthan</td>
+                                            <td class="td1">AF</td>
+                                            <td class="td1">AFG</td>
+                                            <td class="td1">
+                                            	<select class="form-control" id="sel1">
+                                                	<option>Active</option>
+                                                	<option>Inactive</option>
+                                                </select>
+                                            </td>
+                                            <td><a href="#"><span class="glyphicon glyphicon-erase"></span></a><a style="float:right;" href="#"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                                        </tr>
+                                    	<tr>
+                                        	<td class="td1"><input type="checkbox"></td>
+                                            <td class="td1">Aland Islands</td>
+                                            <td class="td1">AX</td>
+                                            <td class="td1">ALG</td>
+                                            <td class="td1">
+                                            	<select class="form-control" id="sel1">
+                                                	<option>Active</option>
+                                                	<option>Inactive</option>
+                                                </select>
+                                            </td>
+                                            <td><a href="#"><span class="glyphicon glyphicon-erase"></span></a><a style="float:right;" href="#"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                                        </tr>
+                                    	<tr>
+                                        	<td class="td1"><input type="checkbox"></td>
+                                            <td class="td1">Albania</td>
+                                            <td class="td1">AL</td>
+                                            <td class="td1">ALB</td>
+                                            <td class="td1">
+                                            	<select class="form-control" id="sel1">
+                                                	<option>Active</option>
+                                                	<option>Inactive</option>
+                                                </select>
+                                            </td>
+                                            <td><a href="#"><span class="glyphicon glyphicon-erase"></span></a><a style="float:right;" href="#"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                                        </tr>
+                                    	<tr>
+                                        	<td class="td1"><input type="checkbox"></td>
+                                            <td class="td1">Algeria</td>
+                                            <td class="td1">DZ</td>
+                                            <td class="td1">DZA</td>
+                                            <td class="td1">
+                                            	<select class="form-control" id="sel1">
+                                                	<option>Active</option>
+                                                	<option>Inactive</option>
+                                                </select>
+                                            </td>
+                                            <td><a href="#"><span class="glyphicon glyphicon-erase"></span></a><a style="float:right;" href="#"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="abtn">
+                                	<button type="button" class="btn btn-default"><a href="#"><span class="glyphicon glyphicon-plus"></span>Add Countries</a></button>
+                                </div>
+                                    <div class="add">
+                        				<p style="padding:5px;"><button type="button" class="btn btn-danger" style="boder-radius:10px; margin-left:5px;">Delete Selected</button>
+                            			Go to page: 1/1<span style="float:right">Toatal items: 5/10</span></p>
+                                    </div>
+                            </div><div class="clearfix"></div>
+                    	</div>
+                	</div>
+    </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script src="js/editor.js"></script>
+		<script>
+			$(document).ready(function() {
+				$("#txtEditor").Editor();
+			});
+		</script>
+  </body>
+</html>

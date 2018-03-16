@@ -48,6 +48,10 @@
 	<definition name="roomPhotosHome" extends="base.definition">
 		<put-attribute name="body" value="/WEB-INF/pages/roomPhotos.jsp" />
 	</definition>
+	<!-- 	room Booking History master -->
+	<definition name="bookingHistory" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/pages/booking.jsp" />
+	</definition>
 	
 	
 </tiles-definitions>

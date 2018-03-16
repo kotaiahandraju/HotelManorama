@@ -4,24 +4,27 @@
 <%@ taglib uri="http://displaytag.sf.net" prefix="display"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+<div class="container">
 
-	<div class="clearfix"></div>
-	<ol class="breadcrumb">
-    	<li><a href="#">Home</a></li>
-		<li>Room Tariff</li>
-	</ol>
-	<div class="clearfix"></div>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-						<h4>Room Tariff List</h4>
-						<div class="options">   
-							<a href="javascript:;" class="panel-collapse"><i class="fa fa-chevron-down"></i></a>
-						</div>
-					</div>
-					<div class="panel-body collapse in">
+
+<h2 style="margin-top:0px;">Room Tariff</h2>
+         
+         <ol class="breadcrumb">
+         <li><a href="dashboard.html">Dashboard</a></li>
+         <li><a href="#">Rooms</a></li>
+         <li>Room Tariff</li>
+         
+         
+         </ol>        
+         
+       <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Room Tariff List</h3>
+          <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-down"></i></span>
+        </div>
+        <div class="panel-body collapse in">
 					<input type="checkbox" class="form-check-input" onclick="inactiveData();" id="inActive"> <label class="form-check-label">Show Inactive List</label>
 					<div class="table-responsive" id="tableId">
 						<table class="table table-striped table-bordered datatables" id="example">
@@ -30,18 +33,18 @@
 						</table>
 					</div>
 				</div>
-				</div>
-			</div>
-		</div>
-                    
-		<div class="row" id="moveTo">
-			<div class="col-md-12 col-sm-12">
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-						<h4>Add Room Tariff</h4>
-					</div>
-					<form:form modelAttribute="roomPriceForm" action="roomPriceSave" class="form-horizontal" method="Post" >
-					<div class="panel-body">
+    </div>
+    </div></div>
+<div class="clearfix"></div>
+      <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Room Tariff</h3>
+         
+        </div>
+        <form:form modelAttribute="roomPriceForm" action="roomPriceSave" class="form-horizontal" method="Post" >
+        <div class="panel-body">
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
@@ -107,8 +110,7 @@
                     			</div>
 							</div>
 						</div>
-                    </div>
-                    <div class="panel-footer">
+                    </div><div class="panel-footer">
 				      	<div class="row">
 				      		<div class="col-sm-12">
 				      			<div class="btn-toolbar text-center">
@@ -117,12 +119,9 @@
 				      			</div>
 				      		</div>
 				    	</div>
-					</div>
-         			</form:form>				    
-                </div>
-            </div>
-        </div>
-	</div> <!-- container -->
+					</div></form:form>
+    </div>
+    </div></div></div>
 
 <script type="text/javascript">
 var listOrders1 =${allOrders1};

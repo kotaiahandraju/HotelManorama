@@ -1,191 +1,175 @@
-<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib uri="http://displaytag.sf.net" prefix="display"%>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>  
 
-
-<script>
-window.onload = function() {
-    if(!window.location.hash) {
-        window.location = window.location + '#loaded';
-        window.location.reload();
-    }
-}
-</script>
-        <div class="clearfix"></div>
-             <ol class="breadcrumb">
-              <li><a href="#">Dashboard</a></li>
-            </ol>
-            <div class="clearfix"></div>
-        <div class="container">
-            <div class="row">
-	            		<div class="col-md-3 col-xs-12 col-sm-6">
-	                            <a class="info-tiles tiles-orange" href="#">
-	                                <div class="tiles-heading">Available Rooms </div>
-	                                <div class="tiles-body-alt">
-	                                <c:if test="${not empty Empty}">
-	                                    <div class="text-center" id="emptycylinders">${Empty }</div>
-	                                </c:if>
-	                                <c:if test="${ empty Empty}">
-	                                    <div class="text-center" id="emptycylinders">0</div>
-	                                </c:if>
-	                                </div>
-	                            </a>
-	                        </div>
-                        <div class="col-md-3 col-xs-12 col-sm-6">
-                            <a class="info-tiles tiles-toyo" href="#">
-                                <div class="tiles-heading">Filled Rooms </div>
-                                <div class="tiles-body-alt">
-                                <c:if test="${not empty Empty}">
-	                                    <div class="text-center" id="emptycylinders">${Empty }</div>
-	                                </c:if>
-	                                <c:if test="${ empty Empty}">
-	                                    <div class="text-center" id="emptycylinders">0</div>
-	                                </c:if>
-                                    <!--i class="fa fa-bar-chart-o"></i-->
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-3 col-xs-12 col-sm-6">
-                            <a class="info-tiles tiles-info" href="#">
-                                <div class="tiles-heading ">Today Vacate Rooms</div>
-                                <div class="tiles-body-alt">
-                                 <c:if test="${not empty Filled}">
-                                    <div class="text-center" id="filledcylinders">${Filled }</div>
-                                  </c:if>
-                                   <c:if test="${empty Filled}">
-                                    <div class="text-center" id="filledcylinders">0</div>
-                                  </c:if>
-                                </div>
-                            </a>
-                        </div>
-                         <div class="col-md-3 col-xs-12 col-sm-6">
-                            <a class="info-tiles tiles-alizarin" href="#">
-                                <div class="tiles-heading">Blocked Rooms</div>
-                                <div class="tiles-body-alt">
-                                 <c:if test="${not empty QualityCheck}">
-                                    <div class="text-center" id="filledcylinders">${QualityCheck }</div>
-                                  </c:if>
-                                   <c:if test="${empty QualityCheck}">
-                                    <div class="text-center" id="filledcylinders">0</div>
-                                  </c:if>
-                                </div>
-                            </a>
-                        </div>
-                        <%-- <div class="col-md-3 col-xs-12 col-sm-6">
-                            <a class="info-tiles tiles-info" href="#">
-                                <div class="tiles-heading">CYLINDERS IN TRUCK</div>
-                                <div class="tiles-body-alt">
-                                    <div class="text-center">${Truck }</div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-3 col-xs-12 col-sm-6">
-                            <a class="info-tiles tiles-success" href="#">
-                                <div class="tiles-heading" id="delivered">DELIVERED CYLINDERS</div>
-                                <div class="tiles-body-alt">
-                                    <!--i class="fa fa-money"></i-->
-                                     <c:if test="${not empty Delivered}">
-                                    <div class="text-center">${Delivered }</div>
-                                    </c:if>
-                                     <c:if test="${empty Delivered}">
-                                    <div class="text-center">0</div>
-                                    </c:if>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-3 col-xs-12 col-sm-6">
-                            <a class="info-tiles tiles-warning" href="#">
-                                <div class="tiles-heading">RECEIVED CYLINDERS</div>
-                                <div class="tiles-body-alt">
-                                    <div class="text-center" id="returned">${Returned }</div>
-                                </div>
-                            </a>
-                        </div>
-                        
-                        <div class="col-md-3 col-xs-12 col-sm-6">
-                            <a class="info-tiles tiles-warning" href="#">
-                                <div class="tiles-heading">MISSED CYLINDERS</div>
-                                <div class="tiles-body-alt">
-                                    <div class="text-center" id="missidcylinders">${MissedCylinder }</div>
-                                </div>
-                            </a>
-                        </div> --%>
-                        
+    <div class="container">
+    <div class="col-lg-3">
+    	<div class="panel panel-default">
+  <!-- Default panel contents -->
+  
+  <!-- Table -->
+  <div class="scrol">
+  <table class="table table-hover">
+  <tbody>
+    <tr>
+      <td colspan="2">Rooms Booked Today: </td>
+      <td style="text-align:right;"><a style="text-decoration:underline;" href="#">3</a></td>
+    </tr>
+    <tr>
+      <td style="border:none;" colspan="2">Pending Rooms Today: </td>
+      <td style="text-align:right; border:none;"><a style="text-decoration:underline;" href="#">0</a></td>
+    </tr>
+    <tr style="">
+      <td style="border:none;" colspan="2">Available Rooms Today: </td>
+      <td style="text-align:right; border:none;"><a style="text-decoration:underline;" href="#">29</a></td>
+    </tr>
+    <tr>
+      <td style="background:#F7F7F7; color:#000;" colspan="2">Available Rooms by Type: </td>
+      <td style="background:#F7F7F7;"></td>
+    </tr>
+    <tr>
+      <td style="border:none; background:#F7F7F7; color:#000;" colspan="2">Appartment: </td>
+      <td style="text-align:right; border:none;background:#F7F7F7; color:#000;">4</td>
+    </tr>
+    <tr>
+      <td style="border:none; background:#F7F7F7; color:#000;" colspan="2">Double Room: </td>
+      <td style="text-align:right; border:none; background:#F7F7F7; color:#000;">9</td>
+    </tr>
+    <tr>
+      <td style="border:none; background:#F7F7F7; color:#000;" colspan="2">Family Room: </td>
+      <td style="text-align:right; border:none; background:#F7F7F7; color:#000;">5</td>
+    </tr>
+    <tr>
+      <td style="border:none; background:#F7F7F7; color:#000;" colspan="2">Single Room: </td>
+      <td style="text-align:right; border:none; background:#F7F7F7; color:#000;">5</td>
+    </tr>
+    <tr>
+      <td style="border:none; background:#F7F7F7; color:#000;" colspan="2">Studio: </td>
+      <td style="text-align:right; border:none; background:#F7F7F7; color:#000;">6</td>
+    </tr>
+    <tr>
+      <td style="border:none;" colspan="2"><a href="bookings.html"><span class="glyphicon glyphicon-calendar">View Calender</span></a></td>
+      <td style="border:none;"></td>
+    </tr>
+    <tr>
+      <td colspan="2">Guests: </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td style="border:none; text-align:center;" colspan="2">Staying Tonight </td>
+      <td style="text-align:right; border:none;">4</td>
+    </tr>
+    <tr>
+      <td style="border:none; text-align:center;" colspan="2">Adults </td>
+      <td style="text-align:right; border:none;">3</td>
+    </tr>
+    <tr>
+      <td style="border:none; text-align:center; color:#000;" colspan="2">Children </td>
+      <td style="text-align:right; border:none; color:#000;">1</td>
+    </tr>
+    <tr>
+      <td style="background:#F7F7F7; color:#000;" colspan="2">Arriving Today </td>
+      <td style="background:#F7F7F7; color:#000;"></td>
+    </tr>
+    <tr>
+      <td style="border:none; text-align:center; background:#F7F7F7; color:#000;" colspan="2">Adults </td>
+      <td style="text-align:right; border:none; background:#F7F7F7; color:#000;">1</td>
+    </tr>
+    <tr>
+      <td style="border:none; text-align:center; background:#F7F7F7; color:#000;" colspan="2">Children </td>
+      <td style="text-align:right; border:none; background:#F7F7F7; color:#000;">0</td>
+    </tr>
+    <tr>
+      <td colspan="2">Leaving Today </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td style="border:none; text-align:center;" colspan="2">Adults </td>
+      <td style="text-align:right; border:none;">1</td>
+    </tr>
+    <tr>
+      <td style="border:none; text-align:center;" colspan="2">Children </td>
+      <td style="text-align:right; border:none;">0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+    </div>
+    <div class="col-lg-4">
+				<ul style="background-color:#F7F7F7; margin-top:5px; border:solid 1px; border-color:#CCCCCC; border-radius:5px;" id="myTab" class="nav nav-tabs" role="tablist">
+					<li style="margin-left:3px; margin-top:5px;" role="presentation" class="active"><a href="#arrival" id="arrival-tab" role="tab" data-toggle="tab" aria-controls="arrival" aria-expanded="true">Arrivals</a></li>
+					<li style="margin-top:5px;" role="presentation"><a href="#departure" role="tab" id="departure-tab" data-toggle="tab" aria-controls="departure">Departures</a></li>
+					<li style="margin-top:5px;" role="presentation"><a href="#latest" role="tab" id="latest-tab" data-toggle="tab" aria-controls="latest">Latest</a></li>
+				</ul>
+				<div id="myTabContent" class="tab-content">
+					<div role="tabpanel" class="tab-pane active" id="arrival" aria-labelledby="arrival-tab">
+                    <div class="data">
+                    	<a style="text-decoration:underline;" href="#"><p>ID : 123456 (Id no of the user)</p></a>
+                        <p>Selma Bean</p>
+                        <p>+686-75-8847125</p>
+                        <p>Stay: to 07-03-2018, 4 nights</p>
+                        <p><b>Rooms:</b></p>
+                        <p>Appartment A4</p>
                     </div>
-                    
-            <div class="row">
-            <div class="col-md-6 col-lg-6">
-<!--                 <div class="panel panel-primary"> -->
-<!--                     <div class="panel-heading"> -->
-<!--                         <h4>Cylinders Usage</h4> -->
-<!--                         <div class="options"> -->
-<!--                         </div> -->
-<!--                     </div> -->
-<!--                     <div class="panel-body"> -->
-<!--                       <div id="bar-example"></div> -->
-<!--                     </div> -->
-<!--                 </div> -->
-
-<div id="chartContainer" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>  
-            </div>
-           <!--  <div id="chart-container">FusionCharts will render here</div>
-				<div id="details">
-				    <div id="header" class="textStyle">Total Revenue</div>
-				    <div></div>
-				    <div id="data" class="textStyle">$7.25M</div>
-			</div> -->
-				
-            <div class="col-md-6 col-lg-6">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h4>Rooms Usage</h4>
-                        <div class="options">
-                        </div>
+                    <div style="border-top:solid 1px; border-top-color:#CCCCCC;" class="data1">
+                    	<br>
+                    	<a href="bookings.html"><p><span class="glyphicon glyphicon-calendar"></span>View All Arrivals</p></a>
                     </div>
-                    <div class="panel-body">
-                        <div id="line-example"></div>
+                    </div>
+					<div role="tabpanel" class="tab-pane" id="departure" aria-labelledby="departure-tab">
+                    <div class="data">
+                    	<a style="text-decoration:underline;" href="#"><p>ID : 123456 (Id no of the user)</p></a>
+                        <p>Isaiah Thompson</p>
+                        <p>+299-97-1236911</p>
+                        <p><b>Rooms:</b></p>
+                        <p>Double room DR4</p>
+                    </div>
+                    <div style="border-top:solid 1px; border-top-color:#CCCCCC;" class="data1">
+                    	<br>
+                    	<a href="bookings.html"><p><span class="glyphicon glyphicon-calendar"></span>View All Departures</p></a>
+                    </div>
+                    </div>
+					<div role="tabpanel" class="tab-pane" id="latest" aria-labelledby="latest-tab">
+                    <div class="data">
+                    	<a style="text-decoration:underline;" href="#"><p>ID : 123456 (Id no of the user)</p></a>
+                        <p>Mechelle Perez</p>
+                        <p>+533-32-7696947</p>
+                        <p>Stay: from 09-03-2018 to 11-03-2018, 2 nights</p>
+                        <p><b>Rooms:</b></p>
+                        <p>Studio S1</p>
+                    </div>
+                    <div style="border-top:solid 1px; border-top-color:#CCCCCC;" class="data">
+                    	<a style="text-decoration:underline;" href="#"><p>ID : 123456 (Id no of the user)</p></a>
+                        <p>Yuli Griffin</p>
+                        <p>+516-82-6009210</p>
+                        <p>Stay: from 02-03-2018 to 03-03-2018, 1 night</p>
+                        <p><b>Rooms:</b></p>
+                        <p>Studio S2</p>
+                    </div>
+                    <div style="border-top:solid 1px; border-top-color:#CCCCCC;" class="data1">
+                    	<br>
+                    	<a href="bookings.html"><p><span class="glyphicon glyphicon-calendar"></span>View All Bookings</p></a>
+                    </div>
                     </div>
                 </div>
-            </div>
-            
-            
-        </div>
-
-        </div> <!-- container -->
-    </div> <!-- #wrap -->
-</div> <!-- page-content -->
- 
-<!-- Body Ends Here -->
-<script type="text/javascript">
-
-
-$(".dashboard").addClass("active"); 
-
-
-
-
-</script>
-	<script type="text/javascript">
-	var listOrders1 = ${allOrders1};
-	var data = JSON.stringify(listOrders1);
-	var myJSON = $.parseJSON(data);
-	
-	window.onload = function () {
-		var chart = new CanvasJS.Chart("chartContainer", {
-			title:{
-				text: "Gas Usage"              
-			},
-			data: [              
-			{
-				// Change type to "doughnut", "line", "splineArea", etc.
-				type: "column",
-				dataPoints: myJSON
-			}
-			]
-		});
-		chart.render();
-	}
-	</script>
+    </div>
+    <div class="col-lg-5">
+				<ul style="background-color:#F7F7F7; margin-top:5px; border:solid 1px; border-color:#CCCCCC; border-radius:5px;" id="myTab1" class="nav nav-tabs" role="tablist">
+					<li style="margin-left:3px; margin-top:5px;" role="presentation" class="active"><a href="#ub" id="ub-tab" role="tab" data-toggle="tab" aria-controls="ub" aria-expanded="true">Upcoming Bookings</a></li>
+					<li style="margin-top:5px;" role="presentation"><a href="#pb" role="tab" id="pb-tab" data-toggle="tab" aria-controls="pb">Post Bookings</a></li>
+                </ul>
+				<div id="myTab1Content" class="tab-content">
+					<div role="tabpanel" class="tab-pane active" id="ub" aria-labelledby="ub-tab">
+                    	<img src="img/graph.jpg" class="img-responsive"/>
+                       
+                    </div>
+					<div role="tabpanel" class="tab-pane" id="pb" aria-labelledby="pb-tab">
+                    	<img src="img/graph1.jpg" class="img-responsive"/>
+                      
+                    </div>
+                </div>
+                <br>
+    </div>
+    
+    
+    
+    </div>
+    </div>

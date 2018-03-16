@@ -19,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.aurospaces.neighbourhood.bean.HotelCapacityMasterBean;
 import com.aurospaces.neighbourhood.bean.HotelRoomMasterBean;
 import com.aurospaces.neighbourhood.bean.HotelRoomPriceBean;
+import com.aurospaces.neighbourhood.bean.HotelRoomPriceHistory;
 import com.aurospaces.neighbourhood.bean.HotelRoomTypeBean;
 import com.aurospaces.neighbourhood.bean.HotelRoomUserDetailsBean;
 import com.aurospaces.neighbourhood.db.dao.HotelCapacityMasterDao;
@@ -26,6 +27,8 @@ import com.aurospaces.neighbourhood.db.dao.HotelRoomMasterDao;
 import com.aurospaces.neighbourhood.db.dao.HotelRoomPriceDao;
 import com.aurospaces.neighbourhood.db.dao.HotelRoomTypeDao;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import CommonUtils.CommonUtils;
 
 @Controller
 public class RoomReservation {
@@ -38,27 +41,27 @@ public class RoomReservation {
 		private Logger logger = Logger.getLogger(RoomReservation.class);
 		
 		@RequestMapping(value = "/userRoomReservation")
-		 public String userRoomReservation(@ModelAttribute("reservationForm")HotelRoomPriceBean roomPriceBean) {
+		 public String userRoomReservation(@ModelAttribute("reservationForm")HotelRoomPriceBean roomPriceBean,HttpServletRequest request) {
 			ObjectMapper objectMapper = null;
 			String sJson = null;
-			List<HotelRoomMasterBean> listOrderBeans=null;
+			List<HotelRoomPriceHistory> listOrderBeans=null;
 			ModelAndView modelAndview;
 			try {
 				
 				System.out.println("user room Reservation");
 				
-				/*listOrderBeans = hotelRoomMasterDao.getAllRooms("1");
+				/*listOrderBeans = roomPriceDao.getBookigHistory();
 				if (listOrderBeans != null && listOrderBeans.size() > 0) {
 					objectMapper = new ObjectMapper();
 					sJson = objectMapper.writeValueAsString(listOrderBeans);
 					request.setAttribute("allOrders1", sJson);
-					// System.out.println(sJson);
+				 System.out.println(sJson);
 				} else {
 					objectMapper = new ObjectMapper();
 					sJson = objectMapper.writeValueAsString(listOrderBeans);
 					request.setAttribute("allOrders1", "''");
-				}*/
-
+				}
+*/
 			} catch (Exception e) {
 				e.printStackTrace();
 				System.out.println(e);
@@ -67,7 +70,6 @@ public class RoomReservation {
 			return "reservation";
 				
 		}
-		
 		@ModelAttribute("roomtype")
 		public Map<Integer, String> populateRoomtype() {
 			Map<Integer, String> statesMap = new LinkedHashMap<Integer, String>();
@@ -138,13 +140,11 @@ public class RoomReservation {
 			//HotelRoomUserDetailsBean userDetails =null;
 			try {
 				jsonObj =new JSONObject();
-				/*userDetails =new HotelRoomUserDetailsBean();
-				userDetails.setAddress(request.getParameter("address"));
-				userDetails.setAlternateMobileNumber(request.getParameter("alternateMobileNumber"));
-				userDetails.setMobileNumber(request.getParameter("mobileNumber"));*/
 				System.out.println("----roomUserDetails List---");
 				userDetails.setRoomNumber("dsfhds");
+				userDetails.setUserDetailsId(CommonUtils.getAutoGenId());
 				result=roomPriceDao.userDetails(userDetails);
+				userDetails.setRoomsStatus("1");
 				roomPriceDao.roomHistory(userDetails);
 			
 			if(result) {

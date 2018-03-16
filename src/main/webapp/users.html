@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hotel Admin Panel</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+  <style>
+	th, td {
+		border:solid 1px;
+		border-color:#CCCCCC;
+		}
+	tr{
+		border:solid 1px;
+		border-color:#CCCCCC;
+	}
+	.btn-sm {
+margin:5px;	
+padding:5px 25px;
+}
+.btn-group {
+float:right;	
+}
+ 
+</style>
+<body>
+   <div class="header">
+  	<!--<img src="images/1.png" class="img-responsive" style="margin:0 auto;"/>--><div id="logo"><h2 style="text-align:center;">Hotel Booking</h2></div>
+  </div>
+  	<div class="container">
+    	<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!--<a class="navbar-brand" href="#">Hotel Bookings</a>-->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="collapse-1">
+      <ul class="nav navbar-nav">
+        <li>
+        	<a href="dashboard.html"><button type="button" class="btn btn-default btn-lg">
+  				<span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span><br> Dashboard
+			</button></a>
+            </li>
+        <li>
+        	<a href="bookings.html"><button type="button" class="btn btn-default btn-lg">
+  				<span class="glyphicon glyphicon-book" aria-hidden="true"></span><br> Bookings
+			</button></a>
+            </li>
+       <li  class="dropdown">
+        	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><button type="button" class="btn btn-default btn-lg">
+  				<span class="glyphicon glyphicon-tags" aria-hidden="true"></span><br> Rooms
+			</button></a>
+            <ul class="dropdown-menu">
+            <li><a href="roomtype.html">Room Type</a></li>
+            <li><a href="roomoccupation.html">Room Occupation</a></li>
+            <li><a href="roommaster.html">Room Master</a></li>
+             <li><a href="roomtariff.html">Room Tariff</a></li>
+            <li><a href="roomphotos.html">Room Photos</a></li>
+          </ul>
+            </li>
+        <li>
+        	<a href="options.html"><button type="button" class="btn btn-default btn-lg">
+  				<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span><br> Options
+			</button></a>
+            </li>
+        <li>
+        	<a href="reports.html"><button type="button" class="btn btn-default btn-lg">
+  				<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><br> Reports
+			</button></a>
+            </li>
+        <li   class="active">
+        	<a href="users.html"><button type="button" class="btn btn-default btn-lg">
+  				<span class="glyphicon glyphicon-user" aria-hidden="true"></span><br> Users
+			</button></a>
+            </li>
+        <!--<li>
+        	<a href="#"><button type="button" class="btn btn-default btn-lg">
+  				<span class="glyphicon glyphicon-edit" aria-hidden="true"></span><br> Preview
+			</button></a>
+            </li>
+        <li>
+        	<a href="#"><button type="button" class="btn btn-default btn-lg">
+  				<span class="glyphicon glyphicon-save" aria-hidden="true"></span><br> Install
+			</button></a>
+            </li>-->
+        <li>
+        	<a href="index.html"><button type="button" class="btn btn-default btn-lg">
+  				<span class="glyphicon glyphicon-off" aria-hidden="true"></span><br> Logout
+			</button></a>
+            </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+    </div>
+<div class="container">
+
+
+
+                    
+    <div class="data">
+    	
+   <div class="container-fluid" style="padding-left:0px;">
+				<ul style="background-color:#F7F7F7; margin:0 0px; margin-top:5px; border:solid 1px; border-color:#CCCCCC; border-radius:5px;" id="myTab" class="nav nav-tabs navbar" role="tablist">
+					<!--<li style="margin-left:10px; margin-top:5px;" role="presentation" class="active"><a href="#calender" id="calender-tab" role="tab" data-toggle="tab" aria-controls="calender" aria-expanded="true">Calenders</a></li>-->
+					<li style="margin-top:5px;" role="presentation" class="active"><a href="#users" id="bookings-tab" role="tab" data-toggle="tab" aria-controls="calender" aria-expanded="true">Users</a></li>
+					<li style="margin-top:5px;" role="presentation"><a href="#adduser" role="tab" id="addbook-tab" data-toggle="tab" aria-controls="addbook">Add User</a></li>
+				</ul>
+    </div>
+				<div id="myTabContent" class="tab-content">
+					<!--<div role="tabpanel" class="tab-pane active" id="calender" aria-labelledby="calender-tab">
+                    	<h1>Calender</h1>
+                    </div>-->
+					<div role="tabpanel" class="tab-pane active" id="users" aria-labelledby="bookings-tab">
+                    <div class="alert alert-info alert-dismissible" role="alert">
+  						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <strong>Users!</strong>
+Below you can view system users. Under the Add user tab you can add a new user. To Edit a user just click on the edit icon next to it.
+					</div>
+                        <div class="tab" style="margin-top:10px;">
+                        <table class="table" style="border:none;">
+                        	<tr>
+                            	<th style="border:none;" colspan="2">
+    						<div class="input-group">
+      							<input type="text" class="form-control" placeholder="Search for...">
+      								<span class="input-group-btn">
+        								<button class="btn btn-default" type="button">Go!</button>
+      								</span>
+    						</div>
+                                </th>
+                                <th style="border:none;">
+    	<nav class="navbar navbar-default" style="background:#fff; border:none;" >
+  <div class="container-fluid">
+ 
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-3" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+   <div class="collapse navbar-collapse" id="collapse-3">
+   <!-- <ul class="nav navbar-nav">
+                        	<li><a href="#"><button type="button" class="btn btn-sm">All</button></a></li>
+                        	<li><a href="#"><button type="button" class="btn btn-sm">Confirmed</button></a></li>
+                        	<li><a href="#"><button type="button" class="btn btn-sm">Pending</button></a></li>
+                        	<li><a href="#"><button type="button" class="btn btn-sm">Not Confirmed</button></a></li>
+                        	<li><a href="#"><button type="button" class="btn btn-sm">Cancelled</button></a></li>
+   </ul>-->
+   <div class="btn-group">
+    <div class="btn-group">
+                        	<a href="#"><button type="button" class="btn btn-sm">All</button></a>
+    </div>
+    <div class="btn-group">
+                        <a href="#"><button type="button" class="btn btn-sm">Active</button></a>
+    </div>
+    <div class="btn-group">
+     <a href="#"><button type="button" class="btn btn-sm">In Active</button></a>
+    </div>
+     
+  </div>
+   </div>
+                                </th>
+                            </tr>
+                        </table>
+                        </div>
+                        <div class="table-responsive">
+  							<table>
+    							<tr>
+      								<th>
+                                    	<form>
+                                        	<input type="checkbox" name=" " value=" " >
+                                        </form>
+                                    </th>
+      								<th>Name<a href="#"><span style="float:right;" class="glyphicon glyphicon-sort"></span></a></th>
+      								<th>Email<a href="#"><span style="float:right;" class="glyphicon glyphicon-sort"></span></a></th>
+      								<th>Registration date/time<a href="#"><span style="float:right;" class="glyphicon glyphicon-sort"></span></a></th>
+      								<th>Role</th>
+      								<th>Is confirmed
+<a href="#"><span style="float:right;" class="glyphicon glyphicon-sort"></span></a></th>
+      								<th>Status</th>
+   								 </tr>
+    							<tr style="border:solid 1px; border-color:#CCCCCC;">
+      								<th>
+                                    	<form>
+                                        	<input type="checkbox" name=" " value=" " >
+                                        </form>
+                                    </th>
+      								<td>Status</td>
+      								<td>Status</td>
+      								<td>25-08-2015</td>
+      								<td>Admin</td>
+      								<td>Booking status </td>
+      								<td>
+                                    	<a href="#"><span class="glyphicon glyphicon-erase" title="Delete"></span></a>
+                                        <a href="#"><span style="float:right;" title="Edit" class="glyphicon glyphicon-pencil"></span></a>
+                                    </td>
+    							</tr>
+                                <tr style="border:solid 1px; border-color:#CCCCCC;">
+      								<th>
+                                    	<form>
+                                        	<input type="checkbox" name=" " value=" " >
+                                        </form>
+                                    </th>
+      								<td>Id of employee</td>
+      								<td>Arrival date & departure date</td>
+      								<td>Name of the client</td>
+      								<td>Type of room booked</td>
+      								<td>Booking status </td>
+      								<td>
+                                    	<a href="#"><span class="glyphicon glyphicon-erase" title="Delete"></span></a>
+                                        <a href="#"><span style="float:right;" title="Edit" class="glyphicon glyphicon-pencil"></span></a>
+                                    </td>
+    							</tr>
+                                <tr style="border:solid 1px; border-color:#CCCCCC;">
+      								<th>
+                                    	<form>
+                                        	<input type="checkbox" name=" " value=" " >
+                                        </form>
+                                    </th>
+      								<td>Id of employee</td>
+      								<td>Arrival date & departure date</td>
+      								<td>Name of the client</td>
+      								<td>Type of room booked</td>
+      								<td>Booking status </td>
+      								<td>
+                                    	<a href="#"><span class="glyphicon glyphicon-erase" title="Delete"></span></a>
+                                        <a href="#"><span style="float:right;" title="Edit" class="glyphicon glyphicon-pencil"></span></a>
+                                    </td>
+    							</tr>
+  							</table>
+						</div>
+
+                        </div><div class="clearfix"></div>
+                        
+                        
+                        
+                        
+					<div role="tabpanel" class="tab-pane" id="adduser" aria-labelledby="addbook-tab">
+				<div class="alert alert-info alert-dismissible" role="alert">
+  						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <strong>Add an User!</strong>
+
+Enter role (e.g. admin or editor), email and password for the user. You can also specify the name and phone of the user.					</div>
+<table style="border:none; " class="col-md-6">
+                                	<thead>
+                                    	<tr><th>Role:</th>
+                                        <th>
+                                        	<select class="form-control" id="">
+                                            <option>--Choose--</option>
+        										<option>admin</option>
+        										<option>Editor</option>
+        										
+      										</select>
+                                        </th>
+                                    </tr></thead>
+                                    <tbody>
+                                    <tr>
+                                    	<td><b>Email:</b></td>
+                                    	<td>
+                                        	
+      													<input class="form-control" placeholder="Enter your Email" type="email">
+      											
+                                        </td>
+                                    </tr>  
+                                      
+                                    <tr>
+                                    	<td><b>Password</b></td>
+      									<td><input class="form-control" placeholder="Enter your Password" type="password"></td>
+                                    </tr>
+                                    <tr>
+                                    	<td><b>Name</b></td>
+      									<td><input class="form-control" placeholder="Enter your Name" type="text"></td>
+                                    </tr>
+                                    <tr>
+                                    	<td><b>Phone</b></td>
+      									<td><input class="form-control" placeholder="Enter your Phone No" type="text"></td>
+                                    </tr>
+                                    <tr><td>Status:</td>
+                                        <td>
+                                        	<select class="form-control" id="">
+                                            <option>--Choose--</option>
+        										<option>Active</option>
+        										<option>Inactive</option>
+        										
+      										</select>
+                                        </td>
+                                    </tr>
+                                    <tr style="border:none;"><th></th>
+                                        <th>
+                                        	<button class="btn btn-default">Save</button>
+                                        </th>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                
+                                
+
+                    
+
+				
+                    </div><div class="clearfix"></div>
+                </div>
+    </div>
+    </div>
+<div class="clearfix"></div><br>
+<div id="footer-wrap">
+			<div class="content"  style="margin:0 100px;">
+			   	<p>All Rights Reserved © 2018 <a href="#" target="_blank"></a></p>
+	        </div>
+        </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

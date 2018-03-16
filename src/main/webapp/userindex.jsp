@@ -516,13 +516,13 @@
 				<div class="box">
 					<div class="icon">
 						<div class="image">
-							<a href="reservation.jsp" title="Title Link"><img src="user/icons/reservation.jpg"
+							<a href="reservation.jsp" title="Title Link"><img src="../../user/icons/reservation.jpg"
 								style="width: 50px; margin: -15px 0px 0px 0px;"></a>
 						</div>
 						<br>
 						<div class="info">
 							<div class="more">
-								<a href="reservation.jsp" title="Title Link"> Reservation </a>
+								<a href="userRoomReservation" title="Title Link"> Reservation </a>
 							</div>
 						</div>
 					</div>

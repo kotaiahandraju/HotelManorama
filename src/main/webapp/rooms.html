@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hotel Admin Panel</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel='stylesheet ' href='css/bootstrap-datepicker.min.css'>
+<link rel='stylesheet ' href='fonts/font-awesome.min.css'>
+
+  </head>
+  <style>
+  .roomsactive
+  {
+	color: #555;
+    background-color: #e7e7e7
+  }
+  	th, td {
+		border:solid 1px;
+		border-color:#CCCCCC;
+		}
+	tr {
+		border:solid 1px;
+		border-color:#CCCCCC;
+	}
+	.td1 {
+		text-align:center;
+	}
+	.tab{
+		background:#CCCCCC;
+	}
+	.table{
+		width:100%;
+		overflow-x:auto;
+	}
+  </style>
+  <body>
+  <div class="header">
+  	<!--<img src="images/1.png" class="img-responsive" style="margin:0 auto;"/>--><div id="logo"><h2 style="text-align:center;">Hotel Booking</h2></div>
+  </div>
+  	<div class="container">
+    	<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!--<a class="navbar-brand" href="#">Hotel Bookings</a>-->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="collapse-1">
+      <ul class="nav navbar-nav">
+        <li>
+        	<a href="dashboard.html"><button type="button" class="btn btn-default btn-lg">
+  				<span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span><br> Dashboard
+			</button></a>
+            </li>
+        <li>
+        	<a href="bookings.html"><button type="button" class="btn btn-default btn-lg">
+  				<span class="glyphicon glyphicon-book" aria-hidden="true"></span><br> Bookings
+			</button></a>
+            </li>
+        <li class="active">
+        	<a href="rooms.html"><button type="button" class="btn btn-default btn-lg">
+  				<span class="glyphicon glyphicon-tags" aria-hidden="true"></span><br> Rooms
+			</button></a>
+            </li>
+        <li>
+        	<a href="options.html"><button type="button" class="btn btn-default btn-lg">
+  				<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span><br> Options
+			</button></a>
+            </li>
+        <li>
+        	<a href="reports.html"><button type="button" class="btn btn-default btn-lg">
+  				<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><br> Reports
+			</button></a>
+            </li>
+        <li>
+        	<a href="users.html"><button type="button" class="btn btn-default btn-lg">
+  				<span class="glyphicon glyphicon-user" aria-hidden="true"></span><br> Users
+			</button></a>
+            </li>
+        <!--<li>
+        	<a href="#"><button type="button" class="btn btn-default btn-lg">
+  				<span class="glyphicon glyphicon-edit" aria-hidden="true"></span><br> Preview
+			</button></a>
+            </li>
+        <li>
+        	<a href="#"><button type="button" class="btn btn-default btn-lg">
+  				<span class="glyphicon glyphicon-save" aria-hidden="true"></span><br> Install
+			</button></a>
+            </li>-->
+        <li>
+        	<a href="index.html"><button type="button" class="btn btn-default btn-lg">
+  				<span class="glyphicon glyphicon-off" aria-hidden="true"></span><br> Logout
+			</button></a>
+            </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+    </div>
+    <div class="container">
+    <!--<div id="datepicker" class="input-group date" data-date-format="mm-dd-yyyy">
+    <input class="form-control" type="text" readonly />
+    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+</div>-->
+    <div class="col" style="border:solid 1px; border-color:#CCCCCC; border-radius:5px;">
+				<ul style="background-color:#F7F7F7; margin-top:5px; border:solid 1px; border-color:#CCCCCC; border-radius:5px;" id="myTab" class="nav nav-tabs" role="tablist">
+					<li style="margin-left:3px; margin-top:5px;" role="presentation" class="active"><a href="#rooms" id="rooms-tab" role="tab" data-toggle="tab" aria-controls="rooms" aria-expanded="true">Rooms</a></li>
+					<li style="margin-top:5px;" role="presentation"><a href="#price" role="tab" id="price-tab" data-toggle="tab" aria-controls="price">Pricing</a></li>
+					<li style="margin-top:5px;" role="presentation"><a href="#limit" role="tab" id="limit-tab" data-toggle="tab" aria-controls="limit">Limit</a></li>
+					<li style="margin-left:3px; margin-top:5px;" role="presentation"><a href="#discount" id="discount-tab" role="tab" data-toggle="tab" aria-controls="discount" aria-expanded="true">Discount</a></li>
+					<li style="margin-top:5px;" role="presentation"><a href="#extra" role="tab" id="extra-tab" data-toggle="tab" aria-controls="extra">Extras</a></li>
+					<li style="margin-top:5px;" role="presentation"><a href="#unavai" role="tab" id="unavai-tab" data-toggle="tab" aria-controls="unavai">Unavailable</a></li>
+				</ul>
+				<div id="myTabContent" class="tab-content">
+					<div role="tabpanel" class="tab-pane fade in active" id="rooms" aria-labelledby="rooms-tab">
+                    <div class="alert alert-info alert-dismissible" role="alert">
+  						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>Warning!</strong> Better check yourself, you're not looking too good.
+					</div>
+                    	<h3>Rooms</h3>
+                        <div class="table-responsive">
+                        <table>
+    							<tr>
+      								<th>
+                                    	<form>
+                                        	<input type="checkbox" name=" " value=" " >
+                                        </form>
+                                    </th>
+      								<th>Picture</th>
+      								<th>Room type<a href="#"><span style="float:right;" class="glyphicon glyphicon-sort"></span></a></th>
+      								<th>Adults<a href="#"><span style="float:right;" class="glyphicon glyphicon-sort"></span></a></th>
+      								<th>Children<a href="#"><span style="float:right;" class="glyphicon glyphicon-sort"></span></a></th>
+      								<th>Room count<a href="#"><span style="float:right;" class="glyphicon glyphicon-sort"></span></a></th>
+      								<th>Action</th>
+   								 </tr>
+    							<tr style="border:solid 1px; border-color:#CCCCCC;">
+      								<th>
+                                    	<form>
+                                        	<input type="checkbox" name=" " value=" " >
+                                        </form>
+                                    </th>
+      								<td class="td1"><img src="images/apart.jpg" class="img-responsive" style="width:100px; height:80px;"/></td>
+      								<td class="td1">Apartment</td>
+      								<td class="td1">4</td>
+      								<td class="td1">2</td>
+      								<td class="td1">1</td>
+      								<td>
+                                    	<a href="#"><span class="glyphicon glyphicon-erase" title="Delete"></span></a>
+                                        <a href="#"><span style="float:right;" title="Edit" class="glyphicon glyphicon-pencil"></span></a>
+                                    </td>
+    							</tr>
+    							<tr style="border:solid 1px; border-color:#CCCCCC;">
+      								<th>
+                                    	<form>
+                                        	<input type="checkbox" name=" " value=" " >
+                                        </form>
+                                    </th>
+      								<td class="td1"><img src="images/double.jpg" class="img-responsive" style="width:100px; height:80px;"/></td>
+      								<td class="td1">Double Room</td>
+      								<td class="td1">5</td>
+      								<td class="td1">0</td>
+      								<td class="td1">1</td>
+      								<td>
+                                    	<a href="#"><span class="glyphicon glyphicon-erase" title="Delete"></span></a>
+                                        <a href="#"><span style="float:right;" title="Edit" class="glyphicon glyphicon-pencil"></span></a>
+                                    </td>
+    							</tr>
+    							<tr style="border:solid 1px; border-color:#CCCCCC;">
+      								<th>
+                                    	<form>
+                                        	<input type="checkbox" name=" " value=" " >
+                                        </form>
+                                    </th>
+      								<td class="td1"><img src="images/Single.jpg" class="img-responsive" style="width:100px; height:80px;"/></td>
+      								<td class="td1">Single Room</td>
+      								<td class="td1">2</td>
+      								<td class="td1">0</td>
+      								<td class="td1">1</td>
+      								<td>
+                                    	<a href="#"><span class="glyphicon glyphicon-erase" title="Delete"></span></a>
+                                        <a href="#"><span style="float:right;" title="Edit" class="glyphicon glyphicon-pencil"></span></a>
+                                    </td>
+    							</tr>
+    							<tr style="border:solid 1px; border-color:#CCCCCC;">
+      								<th>
+                                    	<form>
+                                        	<input type="checkbox" name=" " value=" " >
+                                        </form>
+                                    </th>
+      								<td class="td1"><img src="images/family.jpg" class="img-responsive" style="width:100px; height:80px;"/></td>
+      								<td class="td1">Family Room</td>
+      								<td class="td1">5</td>
+      								<td class="td1">0</td>
+      								<td class="td1">1</td>
+      								<td>
+                                    	<a href="#"><span class="glyphicon glyphicon-erase" title="Delete"></span></a>
+                                        <a href="#"><span style="float:right;" title="Edit" class="glyphicon glyphicon-pencil"></span></a>
+                                    </td>
+    							</tr>
+  							</table>
+                        <div style="padding:10px;" class="add">
+                        	<button type="button" class="btn btn-default"><a style="text-decoration:" href="#"><span class="glyphicon glyphicon-plus"></span>Add more rooms</a></button>
+                        </div>
+                        </div>
+                        <div class="tab">
+                        	 <p style="padding:10px;"><span><button type="button" class="btn btn-default" style="boder-radius:10px; margin-left:5px;">Choose Action</button>
+                           Go to page: 1/1<span style="float:right">Toatal items: 5/10</span></span></p>
+                        </div>
+                    </div>
+					<div role="tabpanel" class="tab-pane fade in" id="price" aria-labelledby="price-tab">
+                    <div class="alert alert-info alert-dismissible" role="alert">
+  						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>Warning!</strong> Better check yourself, you're not looking too good.
+					</div>
+                    	<h3>Pricing</h3>
+                        <div class="ptab">
+                        <div class="head">
+                        	
+                            <div class="col-sm-2"><p style="margin-top:-0px; text-align:right;">Select a room</p>
+                            </div> <div class="col-sm-4">
+                            <select class="form-control" id="sel1">
+        										<option>Choose one</option>
+        										<option>Apartment</option>
+        										<option>Double Room</option>
+        										<option>Single Room</option>
+        										<option>Family Room</option>
+        										<option>Studio</option>
+      						</select>
+                            </div>
+                            <div class="col-sm-6">
+                            </div>
+                            
+                        </div><div class="clearfix"></div><br>
+                        <div class="table">
+                        	<table>
+                            	<thead>
+                                	<tr>
+                                    	<th>Monday</th>
+                                    	<th>Tuesday</th>
+                                    	<th>Thursday</th>
+                                    	<th>Friday</th>
+                                    	<th>Saturday</th>
+                                    	<th>Sunday</th>
+                                    	<th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                	<tr>
+                                    	<td style="text-align:center;" colspan="7">Default</td>
+                                    </tr>
+                                	<tr>
+                                    	<td class="td1">
+                                        <div class="input-group">
+  <span class="input-group-addon" id="basic-addon1">INR</span>
+  <input type="text" class="form-control" placeholder="Amount" aria-describedby="basic-addon1">
+                                        </div>
+  										</td>
+                                    	<td class="td1">
+                                        <div class="input-group">
+  <span class="input-group-addon" id="basic-addon1">INR</span>
+  <input type="text" class="form-control" placeholder="Amount" aria-describedby="basic-addon1">
+                                        </div>
+  										</td>
+                                    	<td class="td1">
+                                        <div class="input-group">
+  <span class="input-group-addon" id="basic-addon1">INR</span>
+  <input type="text" class="form-control" placeholder="Amount" aria-describedby="basic-addon1">
+                                        </div>
+  										</td>
+                                    	<td class="td1">
+                                        <div class="input-group">
+  <span class="input-group-addon" id="basic-addon1">INR</span>
+  <input type="text" class="form-control" placeholder="Amount" aria-describedby="basic-addon1">
+                                        </div>
+  										</td>
+                                    	<td class="td1">
+                                        <div class="input-group">
+  <span class="input-group-addon" id="basic-addon1">INR</span>
+  <input type="text" class="form-control" placeholder="Amount" aria-describedby="basic-addon1">
+                                        </div>
+  										</td>
+                                    	<td class="td1">
+                                        <div class="input-group">
+  <span class="input-group-addon" id="basic-addon1">INR</span>
+  <input type="text" class="form-control" placeholder="Amount" aria-describedby="basic-addon1">
+                                        </div>
+  										</td>
+                                        <td class="td1"><a href="#"><span class="glyphicon glyphicon-erase"></span></a></td>
+                                    </tr>
+                                	<tr>
+                                    	<td class="td1">
+                                        <div class="input-group">
+  <span class="input-group-addon" id="basic-addon1">INR</span>
+  <input type="text" class="form-control" placeholder="Amount" aria-describedby="basic-addon1">
+                                        </div>
+  										</td>
+                                    	<td class="td1">
+                                        <div class="input-group">
+  <span class="input-group-addon" id="basic-addon1">INR</span>
+  <input type="text" class="form-control" placeholder="Amount" aria-describedby="basic-addon1">
+                                        </div>
+  										</td>
+                                    	<td class="td1">
+                                        <div class="input-group">
+  <span class="input-group-addon" id="basic-addon1">INR</span>
+  <input type="text" class="form-control" placeholder="Amount" aria-describedby="basic-addon1">
+                                        </div>
+  										</td>
+                                    	<td class="td1">
+                                        <div class="input-group">
+  <span class="input-group-addon" id="basic-addon1">INR</span>
+  <input type="text" class="form-control" placeholder="Amount" aria-describedby="basic-addon1">
+                                        </div>
+  										</td>
+                                    	<td class="td1">
+                                        <div class="input-group">
+  <span class="input-group-addon" id="basic-addon1">INR</span>
+  <input type="text" class="form-control" placeholder="Amount" aria-describedby="basic-addon1">
+                                        </div>
+  										</td>
+                                    	<td class="td1">
+                                        <div class="input-group">
+  <span class="input-group-addon" id="basic-addon1">INR</span>
+  <input type="text" class="form-control" placeholder="Amount" aria-describedby="basic-addon1">
+                                        </div>
+  										</td>
+                                        <td class="td1"><a href="#"><span class="glyphicon glyphicon-erase"></span></a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div style="padding:10px;" class="add">
+                        	<button type="button" class="btn btn-success">Save</button>
+                        	<button type="button" class="btn btn-default"><a style="text-decoration:" href="#"><span class="glyphicon glyphicon-plus"></span>Adults or Children</a></button>
+                        	<button type="button" class="btn btn-default"><a style="text-decoration:" href="#"><span class="glyphicon glyphicon-plus"></span>Add Season</a></button>
+                        </div>
+                        </div>
+                    </div>
+					<div role="tabpanel" class="tab-pane fade in" id="limit" aria-labelledby="limit-tab">
+                    <div class="alert alert-info alert-dismissible" role="alert">
+  						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>Warning!</strong>You can use the Limits feature to define certain limits for all the bookings made by your clients. For example you may want to limit "Double room" bookings to be at least 2 nights long if booking start on Friday during summer season. Or you may want to allow maximum 30 days long bookings. Just click on the "Add limit" button and fill in the form.
+					</div>
+                    	<h3>Limit</h3>
+                        	<button type="button" class="btn btn-default" data-toggle="modal" data-target="#Modal"><a style="text-decoration:" href="#"><span class="glyphicon glyphicon-plus"></span>Add Limit</a></button>
+                            <!-- MODAL -->
+                            
+                            <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h5 class="modal-title" id="ModalLabel">Add Limit</h5>
+      </div>
+      <div class="modal-body">
+      	<div class="table-responsive">
+      		<table>
+            	<tr>
+                	<th>Room</th>
+                                    	<td class="td1">
+                            <select class="form-control" id="sel1">
+        										<option>Choose one</option>
+        										<option>Apartment</option>
+        										<option>Double Room</option>
+        										<option>Single Room</option>
+        										<option>Family Room</option>
+        										<option>Studio</option>
+      						</select>
+  										</td>
+                </tr>
+                <tr>
+                	<th>Date from</th>
+                    <td>
+                                        <div class="input-group">
+       <input type="text" class="form-control" aria-label="...">  
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-calendar
+"></span></button>
+      </div>    
+                                        </div>
+                    </td>
+                </tr>
+                <tr>
+                	<th>Date to</th>
+                    <td>
+                                        <div class="input-group">
+       <input type="text" class="form-control" aria-label="...">  
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-calendar
+"></span></button>
+      </div>    
+                                        </div>
+                    </td>
+                </tr>
+            	<tr>
+                	<th>Start day</th>
+                                    	<td class="td1">
+                            <select class="form-control" id="sel1">
+        										<option>Any day</option>
+        										<option>Sunday</option>
+        										<option>Monday</option>
+        										<option>Tuesday</option>
+        										<option>Wednesday</option>
+        										<option>Thursday</option>
+        										<option>Friday</option>
+        										<option>Saturday</option>
+      						</select>
+  										</td>
+                </tr>
+            	<tr>
+                	<th>Min nights</th>
+                                    	<td class="td1">
+                            <select class="form-control" id="sel1">
+        										<option>Choose one</option>
+        										<option>1</option>
+        										<option>2</option>
+        										<option>3</option>
+        										<option>4</option>
+        										<option>5</option>
+        										<option>6</option>
+        										<option>7</option>
+      						</select>
+  										</td>
+                </tr>
+            	<tr>
+                	<th>Max nights</th>
+                                    	<td class="td1">
+                            <select class="form-control" id="sel1">
+        										<option>Choose one</option>
+        										<option>1</option>
+        										<option>2</option>
+        										<option>3</option>
+        										<option>4</option>
+        										<option>5</option>
+        										<option>6</option>
+        										<option>7</option>
+      						</select>
+  										</td>
+                </tr>
+      		</table>
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success">Save changes</button>
+        <button type="button" class="btn btn-info" data-dismiss="modal">Reset</button>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+                            
+                            <!-- MODAL -->
+                    </div>
+					<div role="tabpanel" class="tab-pane fade in" id="discount" aria-labelledby="discount-tab">
+                    	<h3>Discount</h3>
+                        <div class="tabs">
+				<ul style="background-color:#FFFFFF; margin-top:5px; border:solid 1px; border-color:#CCCCCC; border-radius:5px;" id="myTab1" class="nav nav-tabs" role="tablist">
+					<li style="margin-left:3px; margin-top:5px;" role="presentation" class="active"><a href="#pack" id="pack-tab" role="tab" data-toggle="tab" aria-controls="pack" aria-expanded="true">Package</a></li>
+					<li style="margin-top:5px;" role="presentation"><a href="#free" role="tab" id="free-tab" data-toggle="tab" aria-controls="price">Free night</a></li>
+					<li style="margin-top:5px;" role="presentation"><a href="#promo" role="tab" id="promo-tab" data-toggle="tab" aria-controls="limit">Promo Code</a></li>
+				</ul>
+				<div id="myTab1Content" class="tab-content">
+                	<div role="tabpanel" class="tab-pane fade in active" id="pack" aria-labelledby="pack-tab">
+                    <div class="alert alert-info alert-dismissible" role="alert">
+  						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>Warning!</strong> Better check yourself, you're not looking too good.
+					</div>
+                    	<h3>Package</h3>
+                        	<button type="button" class="btn btn-default" data-toggle="modal" data-target="#Modal1"><a style="text-decoration:" href="#"><span class="glyphicon glyphicon-plus"></span>Add Package</a></button>
+                            <!-- MODAL -->
+                            
+                            <div class="modal fade" id="Modal1" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h5 class="modal-title" id="ModalLabel">Add Package</h5>
+      </div>
+      <div class="modal-body">
+      	<div class="table-responsive">
+      		<table>
+            	<tr>
+                	<th>Room</th>
+                                    	<td class="td1">
+                            <select class="form-control" id="sel1">
+        										<option>Choose one</option>
+        										<option>Apartment</option>
+        										<option>Double Room</option>
+        										<option>Single Room</option>
+        										<option>Family Room</option>
+        										<option>Studio</option>
+      						</select>
+  										</td>
+                </tr>
+                <tr>
+                	<th>Date from</th>
+                    <td>
+                                        <div class="input-group">
+       <input type="text" class="form-control" aria-label="...">  
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-calendar
+"></span></button>
+      </div>    
+                                        </div>
+                    </td>
+                </tr>
+                <tr>
+                	<th>Date to</th>
+                    <td>
+                                        <div class="input-group">
+       <input type="text" class="form-control" aria-label="...">  
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-calendar
+"></span></button>
+      </div>    
+                                        </div>
+                    </td>
+                </tr>
+            	<tr>
+                	<th>Start day</th>
+                                    	<td class="td1">
+                            <select class="form-control" id="sel1">
+        										<option>Any day</option>
+        										<option>Sunday</option>
+        										<option>Monday</option>
+        										<option>Tuesday</option>
+        										<option>Wednesday</option>
+        										<option>Thursday</option>
+        										<option>Friday</option>
+        										<option>Saturday</option>
+      						</select>
+  										</td>
+                </tr>
+            	<tr>
+                	<th>End day</th>
+                                    	<td class="td1">
+                            <select class="form-control" id="sel1">
+        										<option>Any day</option>
+        										<option>Sunday</option>
+        										<option>Monday</option>
+        										<option>Tuesday</option>
+        										<option>Wednesday</option>
+        										<option>Thursday</option>
+        										<option>Friday</option>
+        										<option>Saturday</option>
+      						</select>
+  										</td>
+                </tr>
+            	<tr>
+                	<th>Total Price</th>
+                                    	<td class="td1">
+                                        <div class="input-group">
+  <span class="input-group-addon" id="basic-addon1">INR</span>
+  <input type="text" class="form-control" placeholder="Amount" aria-describedby="basic-addon1">
+                                        </div>
+                                        </td>
+                </tr>
+      		</table>
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success">Save changes</button>
+        <button type="button" class="btn btn-info" data-dismiss="modal">Reset</button>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+                            
+                            <!-- MODAL -->
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade in" id="free" aria-labelledby="free-tab">
+                    <div class="alert alert-info alert-dismissible" role="alert">
+  						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>Warning!</strong> Better check yourself, you're not looking too good.
+					</div>
+                    	<h1>Free Night</h1>
+                        	<button type="button" class="btn btn-default" data-toggle="modal" data-target="#Modal0"><a style="text-decoration:" href="#"><span class="glyphicon glyphicon-plus"></span>Add Free Night</a></button>
+                            <!-- MODAL -->
+                            
+                            <div class="modal fade" id="Modal0" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h5 class="modal-title" id="ModalLabel">Add Free Night</h5>
+      </div>
+      <div class="modal-body">
+      	<div class="table-responsive">
+      		<table>
+            	<tr>
+                	<th>Room</th>
+                                    	<td class="td1">
+                            <select class="form-control" id="sel1">
+        										<option>Choose one</option>
+        										<option>Apartment</option>
+        										<option>Double Room</option>
+        										<option>Single Room</option>
+        										<option>Family Room</option>
+        										<option>Studio</option>
+      						</select>
+  										</td>
+                </tr>
+                <tr>
+                	<th>Date from</th>
+                    <td>
+                                        <div class="input-group">
+       <input type="text" class="form-control" aria-label="...">  
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-calendar
+"></span></button>
+      </div>    
+                                        </div>
+                    </td>
+                </tr>
+                <tr>
+                	<th>Date to</th>
+                    <td>
+                                        <div class="input-group">
+       <input type="text" class="form-control" aria-label="...">  
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-calendar
+"></span></button>
+      </div>    
+                                        </div>
+                    </td>
+                </tr>
+            	<tr>
+                	<th>Min Length</th>
+                                    	<td class="td1">
+                            <select class="form-control" id="sel1">
+        										<option>Choose one</option>
+        										<option>1</option>
+        										<option>2</option>
+        										<option>3</option>
+        										<option>4</option>
+        										<option>5</option>
+        										<option>6</option>
+        										<option>7</option>
+      						</select>
+  										</td>
+                </tr>
+            	<tr>
+                	<th>Max Length</th>
+                                    	<td class="td1">
+                            <select class="form-control" id="sel1">
+        										<option>Choose one</option>
+        										<option>1</option>
+        										<option>2</option>
+        										<option>3</option>
+        										<option>4</option>
+        										<option>5</option>
+        										<option>6</option>
+        										<option>7</option>
+      						</select>
+  										</td>
+                </tr>
+            	<tr>
+                	<th>Free Nights</th>
+                                    	<td class="td1">
+                            <select class="form-control" id="sel1">
+        										<option>Choose one</option>
+        										<option>1</option>
+        										<option>2</option>
+        										<option>3</option>
+        										<option>4</option>
+        										<option>5</option>
+        										<option>6</option>
+        										<option>7</option>
+      						</select>
+  										</td>
+                </tr>
+      		</table>
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success">Save changes</button>
+        <button type="button" class="btn btn-info" data-dismiss="modal">Reset</button>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+                            
+                            <!-- MODAL -->
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade in" id="promo" aria-labelledby="promo-tab">
+                    <div class="alert alert-info alert-dismissible" role="alert">
+  						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>Warning!</strong> Better check yourself, you're not looking too good.
+					</div>
+                    	<h1>Promo Code</h1>
+                        	<button type="button" class="btn btn-default" data-toggle="modal" data-target="#Modal2"><a style="text-decoration:" href="#"><span class="glyphicon glyphicon-plus"></span>Add Promo Code</a></button>
+                            <!-- MODAL -->
+                            
+                            <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h5 class="modal-title" id="ModalLabel">Add Free Night</h5>
+      </div>
+      <div class="modal-body">
+      	<div class="table-responsive">
+      		<table>
+            	<tr>
+                	<th>Room</th>
+                                    	<td class="td1">
+                            <select class="form-control" id="sel1">
+        										<option>Choose one</option>
+        										<option>Apartment</option>
+        										<option>Double Room</option>
+        										<option>Single Room</option>
+        										<option>Family Room</option>
+        										<option>Studio</option>
+      						</select>
+  										</td>
+                </tr>
+                <tr>
+                	<th>Date from</th>
+                    <td>
+                                        <div class="input-group">
+       <input type="text" class="form-control" aria-label="...">  
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-calendar
+"></span></button>
+      </div>    
+                                        </div>
+                    </td>
+                </tr>
+                <tr>
+                	<th>Date to</th>
+                    <td>
+                                        <div class="input-group">
+       <input type="text" class="form-control" aria-label="...">  
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-calendar
+"></span></button>
+      </div>    
+                                        </div>
+                    </td>
+                </tr>
+            	<tr>
+                	<th>Promo code</th>
+                    <td class="td1">
+                                        <div class="input-group">
+       										<input type="text" class="form-control" aria-label="...">  
+       									</div>
+  										</td>
+                </tr>
+            	<tr>
+                	<th>Discount</th>
+                                    	<td class="td1">
+    										<div class="input-group">
+      											<div class="input-group-btn">
+        											<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">INR <span class="caret"></span></button>
+        											<ul class="dropdown-menu">
+          												<li><a href="#">Euro</a></li>
+          												<li><a href="#">Dollar (U.S)</a></li>
+          												<li><a href="#">Pound</a></li>
+          												<li><a href="#">Dollar (Canada)</a></li>
+        											</ul>
+      											</div>
+      											<input type="text" class="form-control" aria-label="...">
+    										</div>
+  										</td>
+                </tr>
+      		</table>
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success">Save changes</button>
+        <button type="button" class="btn btn-info" data-dismiss="modal">Reset</button>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+                            
+                            <!-- MODAL -->
+                    </div>
+                </div>
+                        </div>
+                    </div>
+					<div role="tabpanel" class="tab-pane fade in" id="extra" aria-labelledby="extra-tab">
+                    <div class="alert alert-info alert-dismissible" role="alert">
+  						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>Warning!</strong> These are special items and/or services which your clients can book. For example a breakfast, airport pickup, or anything else that you offer.
+					</div>
+                    	<h3>Extras</h3>
+                        <div class="table-responsive">
+  							<table>
+    							<tr>
+      								<th>
+                                    	<form>
+                                        	<input type="checkbox" name=" " value=" " >
+                                        </form>
+                                    </th>
+      								<th>Name<a href="#"><span style="float:right;" class="glyphicon glyphicon-sort"></span></a></th>
+      								<th>Per<a href="#"><span style="float:right;" class="glyphicon glyphicon-sort"></span></a></th>
+      								<th>Price<a href="#"><span style="float:right;" class="glyphicon glyphicon-sort"></span></a></th>
+      								<th>Status<a href="#"><span style="float:right;" class="glyphicon glyphicon-sort"></span></a></th>
+      								<th>Action</th>
+   								 </tr>
+    							<tr>
+      								<th>
+                                    	<form>
+                                        	<input type="checkbox" name=" " value=" " >
+                                        </form>
+                                    </th>
+      								<td>Airport Pickup</td>
+      								<td>Per Person</td>
+      								<td>20.00</td>
+                                    	<td class="td1">
+                            <select class="form-control" id="sel1">
+        										<option>Active</option>
+        										<option>Inactive</option>
+      						</select>
+  										</td>
+      								<td>
+                                    	<a href="#"><span class="glyphicon glyphicon-erase" title="Delete"></span></a>
+                                        <a href="#"><span style="float:right;" title="Edit" class="glyphicon glyphicon-pencil"></span></a>
+                                    </td>
+    							</tr>
+    							<tr>
+      								<th>
+                                    	<form>
+                                        	<input type="checkbox" name=" " value=" " >
+                                        </form>
+                                    </th>
+      								<td>Breakfast</td>
+      								<td>Per Day/per Person</td>
+      								<td>8.00</td>
+                                    	<td class="td1">
+                            <select class="form-control" id="sel1">
+        										<option>Active</option>
+        										<option>Inactive</option>
+      						</select>
+  										</td>
+      								<td>
+                                    	<a href="#"><span class="glyphicon glyphicon-erase" title="Delete"></span></a>
+                                        <a href="#"><span style="float:right;" title="Edit" class="glyphicon glyphicon-pencil"></span></a>
+                                    </td>
+    							</tr>
+    							<tr>
+      								<th>
+                                    	<form>
+                                        	<input type="checkbox" name=" " value=" " >
+                                        </form>
+                                    </th>
+      								<td>Parking</td>
+      								<td>Per Day</td>
+      								<td>10.00</td>
+                                    	<td class="td1">
+                            <select class="form-control" id="sel1">
+        										<option>Active</option>
+        										<option>Inactive</option>
+      						</select>
+  										</td>
+      								<td>
+                                    	<a href="#"><span class="glyphicon glyphicon-erase" title="Delete"></span></a>
+                                        <a href="#"><span style="float:right;" title="Edit" class="glyphicon glyphicon-pencil"></span></a>
+                                    </td>
+    							</tr>
+    							<tr>
+      								<th>
+                                    	<form>
+                                        	<input type="checkbox" name=" " value=" " >
+                                        </form>
+                                    </th>
+      								<td>Wi-fi</td>
+      								<td>Per Day</td>
+      								<td>6.00</td>
+                                    	<td class="td1">
+                            <select class="form-control" id="sel1">
+        										<option>Active</option>
+        										<option>Inactive</option>
+      						</select>
+  										</td>
+      								<td>
+                                    	<a href="#"><span class="glyphicon glyphicon-erase" title="Delete"></span></a>
+                                        <a href="#"><span style="float:right;" title="Edit" class="glyphicon glyphicon-pencil"></span></a>
+                                    </td>
+    							</tr>
+  							</table>
+                        <div style="padding:10px;" class="add">
+                        	<button type="button" class="btn btn-default"><a style="text-decoration:" href="#"><span class="glyphicon glyphicon-plus"></span>Add more extras</a></button>
+                        </div>
+                        </div>
+                        <div class="tab">
+                        	 <p style="padding:10px;"><button type="button" class="btn btn-danger" style="boder-radius:10px; margin-left:5px;">Delete Selected</button>
+                           Go to page: 1/1<span style="float:right">Toatal items: 5/10</span></p>
+                        </div>
+                    </div>
+					<div role="tabpanel" class="tab-pane fade in" id="unavai" aria-labelledby="unavai-tab">
+                    <div class="alert alert-info alert-dismissible" role="alert">
+  						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>Manage Extras!</strong> Better check yourself, you're not looking too good.
+					</div>
+                    	<h3>Unavailable</h3>
+                        <div class="table-responsive">
+  							<table>
+    							<tr>
+      								<th>
+                                    	<form>
+                                        	<input type="checkbox" name=" " value=" " >
+                                        </form>
+                                    </th>
+      								<th>Date from<a href="#"><span style="float:right;" class="glyphicon glyphicon-sort"></span></a></th>
+      								<th>Date to<a href="#"><span style="float:right;" class="glyphicon glyphicon-sort"></span></a></th>
+      								<th>Room(s)<a href="#"><span style="float:right;" class="glyphicon glyphicon-sort"></span></a></th>
+      								<th>Type<a href="#"><span style="float:right;" class="glyphicon glyphicon-sort"></span></a></th>
+      								<th>Action</th>
+   								 </tr>
+    							<tr>
+      								<th>
+                                    	<form>
+                                        	<input type="checkbox" name=" " value=" " >
+                                        </form>
+                                    </th>
+      								<td>24-03-2018</td>
+      								<td>31-03-2018</td>
+      								<td>Double Room-DR1<br>Double Room-DR2<br>Double Room-DR3<br>Double Room-DR4<br></td>
+                                    	<td class="td1">
+                            <select class="form-control" id="sel1">
+        										<option>External Booking</option>
+        										<option>Unavailable</option>
+        										<option>Stop from Web</option>
+      						</select>
+  										</td>
+      								<td>
+                                    	<a href="#"><span class="glyphicon glyphicon-erase" title="Delete"></span></a>
+                                        <a href="#"><span style="float:right;" title="Edit" class="glyphicon glyphicon-pencil"></span></a>
+                                    </td>
+    							</tr>
+    							<tr>
+      								<th>
+                                    	<form>
+                                        	<input type="checkbox" name=" " value=" " >
+                                        </form>
+                                    </th>
+      								<td>24-03-2018</td>
+      								<td>31-03-2018</td>
+      								<td>Studio-s1<br>Studio-S2<br>Studio-S3<br>Studio-S4<br></td>
+                                    	<td class="td1">
+                            <select class="form-control" id="sel1">
+        										<option>External Booking</option>
+        										<option>Unavailable</option>
+        										<option>Stop from Web</option>
+      						</select>
+  										</td>
+      								<td>
+                                    	<a href="#"><span class="glyphicon glyphicon-erase" title="Delete"></span></a>
+                                        <a href="#"><span style="float:right;" title="Edit" class="glyphicon glyphicon-pencil"></span></a>
+                                    </td>
+    							</tr>
+  							</table>
+                        <div style="padding:10px;" class="add">
+                        	<button type="button" class="btn btn-default"><a style="text-decoration:" href="#"><span class="glyphicon glyphicon-plus"></span>Add more unavailable</a></button>
+                        </div>
+                        </div>
+                        <div class="tab">
+                        	 <p style="padding:5px"><button type="button" class="btn btn-danger" style="boder-radius:10px; margin-left:5px;">Delete Selected</button>
+                           Go to page: 1/1<span style="float:right">Toatal items: 5/10</span></p>
+                        </div>
+                    </div>
+                </div>
+    </div>
+    </div><div class="clearfix"></div><br>
+<div id="footer-wrap">
+			<div class="content"  style="margin:0 100px;">
+			   	<p>All Rights Reserved © 2018 <a href="#" target="_blank"></a></p>
+	        </div>
+        </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+<!--<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css'>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js'></script>
+-->
+<!--<script src='js/jquery.min.js'></script>
+<script src='js/bootstrap1.min.js'></script>-->
+<script src='js/bootstrap-datepicker.min.js'></script>
+<script>
+$('.input-group.date').datepicker({format: "dd.mm.yyyy"});
+</script>
+
+        <!--<script type="text/javascript">
+           $(function () {
+			  $("#datepicker").datepicker({ 
+					autoclose: true, 
+					todayHighlight: true
+			  }).datepicker('update', new Date());
+			});
+        </script>-->
+  </body>
+</html>

@@ -368,7 +368,7 @@ function subForm()
 						<br>
 						<div class="info">
 							<div class="more">
-								<a href="reservation.jsp" title="Title Link"> Reservation </a>
+								<a href="userRoomReservation" title="Title Link"> Reservation </a>
 							</div>
 						</div>
 					</div>

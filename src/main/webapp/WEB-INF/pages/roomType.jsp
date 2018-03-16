@@ -5,26 +5,33 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 
-	<div class="clearfix"></div>
-	<ol class="breadcrumb">
-    	<li><a href="#">Home</a></li>
-		<li>Room Type</li>
-	</ol>
-	<div class="clearfix"></div>
 	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-						<h4>Room Type List</h4>
-						<div class="options">   
-							<a href="javascript:;" class="panel-collapse"><i class="fa fa-chevron-down"></i></a>
-						</div>
-					</div>
-					<div class="panel-body collapse in">
-					<input type="checkbox" class="form-check-input" onclick="inactiveData();" id="inActive"> <label class="form-check-label">Show Inactive List</label>
-					<div class="table-responsive" id="tableId">
-						<table class="table table-striped table-bordered datatables"
+
+
+<h2 style="margin-top:0px;">Room Type</h2>
+         
+         <ol class="breadcrumb">
+         <li><a href="dashboard.html">Dashboard</a></li>
+         <li><a href="#">Rooms</a></li>
+         <li>Room Type</li>
+         
+         
+         </ol>        
+         
+       <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Room Type List</h3>
+          <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-down"></i></span>
+        </div>
+        <div class="panel-body">
+        
+        <div class="col-md-12"><input type="checkbox" class="form-check-input" onclick="inactiveData();" id="inActive"> <label class="form-check-label">Show Inactive List</label>
+</div><br>
+      <div class="col-md-12">
+        <div id="tableId">
+        <table class="table table-striped table-bordered datatables"
 							id="example">
 							<thead>
 								<tr>
@@ -35,47 +42,44 @@
 							</thead>
 							<tbody></tbody>
 						</table>
-					</div>
-				</div>
-				</div>
-			</div>
-		</div>
-                    
-		<div class="row" id="moveTo">
-			<div class="col-md-12 col-sm-12">
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-						<h4>Room Type</h4>
-					</div>
-					<form:form modelAttribute="roomTypeForm" action="addRoomType" class="form-horizontal" method="Post" >
-					<div class="panel-body">
-						<div class="row">
-							<div class="col-md-6">
+        </div>
+        </div>
+      </div>
+    </div>
+    </div></div>
+<div class="clearfix"></div>
+      <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Room Type</h3>
+         
+        </div>
+        <div class="panel-body">
+       <form:form modelAttribute="roomTypeForm" action="addRoomType" class="form-horizontal" method="Post" >
+      <div class="col-md-12">
+     <div class="col-md-6">
 								<div class="form-group">
-									<form:hidden path="id"/>
-									<label for="name" class="col-md-4 control-label">Room Type<span class="impColor">*</span></label>
+									<input id="id" name="id" type="hidden" value="0">
+									<span for="roomTypeId" class="col-md-4 control-label">Room Type <span class="impColor">*</span></span>
 									<div class="col-md-7">
-										<form:input path="name" class="form-control validate" placeholder="Item Name"/>
+									<input id="name" name="name" placeholder="Item Name" class="form-control validate placeholder-style your-class" type="text" value="" >
 									</div>
                     			</div>
+                    			
 							</div>
-						</div>
-                    </div>
-                    <div class="panel-footer">
-				      	<div class="row">
-				      		<div class="col-sm-12">
-				      			<div class="btn-toolbar text-center">
-					      			<input class="btn-primary btn" type="submit" value="Submit" id="submit1"/>
-					      			<input class="btn-danger btn cancel" type="reset" value="Reset" />
+        </div><br><br><br>
+        <div class="col-sm-12">
+				      			<div class="btn-toolbar" 
+         style="float:right;">
+					      			<input class="btn-primary btn" type="submit" value="Submit" id="submit1">
+					      			<input class="btn-danger btn cancel" type="reset" value="Reset">
 				      			</div>
-				      		</div>
-				    	</div>
-					</div>
-         			</form:form>				    
-                </div>
-            </div>
-        </div>
-	</div> <!-- container -->
+				      		</div></form:form>
+      </div>
+    </div>
+    </div></div></div>
+
 
 <script type="text/javascript">
 var listOrders1 =${allOrders1};

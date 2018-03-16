@@ -16,11 +16,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.aurospaces.neighbourhood.bean.HotelCapacityMasterBean;
 import com.aurospaces.neighbourhood.bean.HotelRoomPriceBean;
+import com.aurospaces.neighbourhood.bean.HotelRoomPriceHistory;
 import com.aurospaces.neighbourhood.bean.HotelRoomTypeBean;
+import com.aurospaces.neighbourhood.bean.HotelRoomUserDetailsBean;
 import com.aurospaces.neighbourhood.db.dao.HotelCapacityMasterDao;
 import com.aurospaces.neighbourhood.db.dao.HotelRoomMasterDao;
 import com.aurospaces.neighbourhood.db.dao.HotelRoomPriceDao;
@@ -210,6 +213,7 @@ public class RoomPriceController {
 			}
 			return statesMap;
 		}	
+	
 	}
 
 

@@ -37,7 +37,7 @@
 			<script>
 				$(function() {
 
-					$('#ReservationToDate').datetimepicker({
+					$('#checkIn').datetimepicker({
 
 						useCurrent : false,
 						format : 'DD-MMM-YYYY hh:mm A',
@@ -49,7 +49,7 @@
 						toolbarPlacement : 'top'
 
 					});
-					$('#ReservationFromDate').datetimepicker({
+					$('#checkOut').datetimepicker({
 
 						useCurrent : false,
 						format : 'DD-MMM-YYYY hh:mm A',
@@ -99,9 +99,9 @@
 										In<font color="red">*</font> :
 									</span>
 									<div class="input text required">
-										<input name="fromDate" style="width: 170px;" value=""
+										<input name="checkIn" style="width: 170px;" value=""
 											class="form-control" title="From Date" required="required"
-											onblur="clearRate();" type="text" id="fromDate" />
+											onblur="clearRate();" type="text" id="checkIn" />
 									</div>
 								</div>
 								<div class="input-group">
@@ -109,9 +109,9 @@
 										Out <font color="red">*</font> :
 									</span>
 									<div class="input text required">
-										<input name="toDate" style="width: 170px;" value=""
+										<input name="checkOut" style="width: 170px;" value=""
 											class="form-control" title="To Date" required="required"
-											onblur="clearRate();" type="text" id="toDate" />
+											onblur="clearRate();" type="text" id="checkOut" />
 									</div>
 								</div>
 							</div>
@@ -640,6 +640,12 @@
 					var city = $("#city").val();
 					var address = $("#address").val();
 					var country = $("#country").val();
+					var roomPrice = $("#roomPrice").text();
+					var roomsStatus = $("#roomsStatus").val();
+					var GST = $("#GST").val();
+					var totalPrice = $("#totalPrice").val();
+					var checkIn = $("#checkIn").val();
+					var checkOut = $("#checkOut").val();
 					
 					
 					var formData = new FormData();
@@ -652,7 +658,13 @@
 					formData.append('email', email);
 					formData.append('city', city);
 					formData.append('address', address);
+					formData.append('roomPrice', roomPrice);
 					formData.append('country', country);
+					formData.append('roomsStatus', roomsStatus);
+					formData.append('totalPrice', totalPrice);
+					formData.append('GST', GST);
+					formData.append('checkOut', checkOut);
+					formData.append('checkIn', checkIn);
 					
 					$.fn.makeMultipartRequest('POST','roomUserDetails', false,
 							formData, false, 'text', function(data) {

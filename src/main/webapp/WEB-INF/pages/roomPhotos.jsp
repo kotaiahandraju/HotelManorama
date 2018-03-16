@@ -5,23 +5,27 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 
-	<div class="clearfix"></div>
-	<ol class="breadcrumb">
-    	<li><a href="#">Home</a></li>
-		<li>Room Phoos</li>
-	</ol>
-	<div class="clearfix"></div>
 	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-						<h4>Room Phoos List</h4>
-						<div class="options">   
-							<a href="javascript:;" class="panel-collapse"><i class="fa fa-chevron-down"></i></a>
-						</div>
-					</div>
-					<div class="panel-body collapse in">
+
+
+<h2 style="margin-top:0px;">Room Photos</h2>
+         
+         <ol class="breadcrumb">
+         <li><a href="dashboard.html">Dashboard</a></li>
+         <li><a href="#">Rooms</a></li>
+         <li>Room Photos</li>
+         
+         
+         </ol>        
+         
+       <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Room Photos List</h3>
+          <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-down"></i></span>
+        </div>
+       <div class="panel-body collapse in">
 					<input type="checkbox" class="form-check-input" onclick="inactiveData();" id="inActive"> <label class="form-check-label">Show Inactive List</label>
 					<div class="table-responsive" id="tableId">
 						<table class="table table-striped table-bordered datatables"
@@ -43,140 +47,65 @@
 						</table>
 					</div>
 				</div>
-				</div>
-			</div>
-		</div>
-                    
-		<div class="row" id="moveTo">
-			<div class="col-md-12 col-sm-12">
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-						<h4>Room Type</h4>
-					</div>
-					<form:form modelAttribute="roomPhotoForm" action="addRoomPhotos" class="form-horizontal" method="Post"  enctype="multipart/form-data">
-					<div class="panel-body">
-						<div class="row">
-						<div class="col-md-4">
+    </div>
+    </div></div>
+<div class="clearfix"></div>
+      <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Room Photos</h3>
+         
+        </div>
+        <form:form modelAttribute="roomPhotoForm" action="addRoomPhotos" class="form-horizontal" method="Post"  enctype="multipart/form-data">
+        <div class="panel-body">
+        
+       
+      <div class="col-md-12">
+     <div class="col-md-6">
 								<div class="form-group">
-									<form:hidden path="id"/>
-									<label for="roomTypeId" class="col-md-4 control-label">Room Type <span class="impColor">*</span></label>
+									<input id="id" name="id" type="hidden" value="0">
+									<span for="roomTypeId" class="col-md-4 control-label">Room Type <span class="impColor">*</span></span>
 									<div class="col-md-7">
-									<form:select path="roomTypeId" class="form-control validate" onfocus="removeBorder(this.id);">
-									<form:option value="">-- Select Room Type --</form:option>
-									<form:options items="${roomtype }"></form:options>
-									</form:select>
+									<select id="roomTypeId" name="roomTypeId" class="form-control validate default-class placeholder-style your-class" onFocus="removeBorder(this.id);" style="color: rgb(231, 61, 74); border-color: rgb(231, 61, 74);">
+									<option value="">-- Select Room Type --</option>
+									
+									</select>
 									</div>
-									</div>
-									</div>
-									<div class="col-md-4">
+                    			</div>
                     			<div class="form-group">
-                    				<label for="capacityId" class="col-md-4 control-label">Room/Adult <span class="impColor">*</span></label>
+                    				<span for="capacityId" class="col-md-4 control-label">Room/Adult <span class="impColor">*</span></span>
                     				<div class="col-md-7">
-                    				<form:select path="capacityId" class="form-control validate" onfocus="removeBorder(this.id);">
-									<form:option value="">-- Select Room Capacity --</form:option>
-									<form:options items="${capacity }"></form:options>
-									</form:select>
+                    				<select id="capacityId" name="capacityId" class="form-control validate" onFocus="removeBorder(this.id);">
+									<option value="">-- Select Room Capacity --</option>
+									<option value="1">Single(1)</option><option value="2">Double(2)</option><option value="3">Triple(3)</option>
+									</select>
                     				</div>
                     			</div>
+                    			<div class="form-group">
+                    				<span for="sun" class="col-md-4 control-label">image<span class="impColor">*</span></span>
+                    				<div class="col-md-7">
+		                            	<input type="file" id="image1" name="image" class="form-control images">
+								  	</div>
                     			</div>
-                    			<div class="col-md-4">
 								<div class="form-group">
-									<form:hidden path="id"/>
-									<label for="image1" class="col-md-4 control-label">Image<span class="impColor">*</span></label>
-									<div class="col-md-7">
-										<img id="imageId1" style="display: none;    width: 20%;" src="">
-										<span id="imageLable1" style="display: none;"></span>
-										<input id="imagePath1" name="imagePath1" type="hidden" value="">
-										
-										<%-- <form:input path="file" type="file" class="form-control validate" placeholder="Item Name"/> --%>
-										<input  type="file" id="image1" name="image" class="form-control images" />
-									</div>
-									</div>
+                    				<span for="sun" class="col-md-4 control-label">image<span class="impColor">*</span></span>
+                    				<div class="col-md-7">
+		                            	<input type="file" id="image1" name="image" class="form-control images">
+								  	</div>
                     			</div>
-						</div>
-						<div class="row">
-						<div class="col-md-3">
-								<div class="form-group">
-									<form:hidden path="id"/>
-									<label for="image2" class="col-md-4 control-label">Image<span class="impColor">*</span></label>
-									<div class="col-md-7">
-									
-									<img id="imageId2" style="display: none;    width: 20%;" src="">
-										<span id="imageLable2" style="display: none;"></span>
-										<input id="imagePath2" name="imagePath2" type="hidden" value="">
-										
-										<%-- <form:input path="file" type="file" class="form-control validate" placeholder="Item Name"/> --%>
-										<input  type="file" id="image2" name="image" class="form-control images" />
-									</div>
-									</div>
-                    			</div>
-                    			<div class="col-md-3">
-								<div class="form-group">
-									<form:hidden path="id"/>
-									<label for="image3" class="col-md-4 control-label">Image<span class="impColor">*</span></label>
-									<div class="col-md-7">
-									<img id="imageId3" style="display: none;    width: 20%;" src="">
-										<span id="imageLable3" style="display: none;"></span>
-										<input id="imagePath3" name="imagePath3" type="hidden" value="">
-										
-										<%-- <form:input path="file" type="file" class="form-control validate" placeholder="Item Name"/> --%>
-										<input  type="file" id="image3" name="image" class="form-control images" />
-									</div>
-									</div>
-                    			</div>
-                    			<div class="col-md-3">
-								<div class="form-group">
-									<form:hidden path="id"/>
-									<label for="image4" class="col-md-4 control-label">Image<span class="impColor">*</span></label>
-									<div class="col-md-7">
-									
-									<img id="imageId4" style="display: none;    width: 20%;" src="">
-										<span id="imageLable4" style="display: none;"></span>
-										<input id="imagePath4" name="imagePath4" type="hidden" value="">
-										
-										<%-- <form:input path="file" type="file" class="form-control validate" placeholder="Item Name"/> --%>
-										<input  type="file" id="image4" name="image" class="form-control  images"/>
-									</div>
-									</div>
-                    			</div>
-                    			<div class="col-md-3">
-								<div class="form-group">
-									<form:hidden path="id"/>
-									<label for="image5" class="col-md-4 control-label">Image<span class="impColor">*</span></label>
-									<div class="col-md-7">
-									
-									<img id="imageId5" style="display: none;    width: 20%;" src="">
-										<span id="imageLable5" style="display: none;"></span>
-										<input id="imagePath5" name="imagePath5" type="hidden" value="">
-										
-										<%-- <form:input path="file" type="file" class="form-control validate" placeholder="Item Name"/> --%>
-										<input  type="file" id="image5" name="image" class="images" />
-									</div>
-									</div>
-                    			</div>
-						</div>
-                    </div>
-                    <div class="panel-footer">
-				      	<div class="row">
-				      		<div class="col-sm-12">
-				      			<div class="btn-toolbar text-center">
-					      			<input class="btn-primary btn" type="submit" value="Submit" id="submit1"/>
-					      			<input class="btn-danger btn cancel" type="reset" value="Reset" />
+							</div>
+        </div><br><br><br>
+        <div class="col-sm-12">
+				      			<div class="btn-toolbar" 
+         style="float:right;">
+					      			<input class="btn-primary btn" type="submit" value="Submit" id="submit1">
+					      			<input class="btn-danger btn cancel" type="reset" value="Reset">
 				      			</div>
 				      		</div>
-				    	</div>
-					</div>
-         			</form:form>				    
-                </div>
-            </div>
-        </div>
-        <% 
-        String rootPath = System.getProperty("catalina.home");
-        session.setAttribute("rootPath", rootPath);
-        %>
-       
-	</div> <!-- container -->
-
+      </div></form:form>
+    </div>
+    </div></div></div>
 <script type="text/javascript">
 var listOrders1 =${allOrders1};
 

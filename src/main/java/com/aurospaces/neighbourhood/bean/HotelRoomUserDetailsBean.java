@@ -15,21 +15,26 @@ protected String address;
 protected String country,email;
 protected Date createdTime ;
 protected Date updatedTime ;
-protected String userId ;
 protected String checkIn ;
 protected String checkOut ;
 protected String roomTypeId ;
-protected String capacityId,noOfRooms,roomPrice,GST,totalPrice,roomsStatus ;
+protected String capacityId,noOfRooms,roomPrice,GST,totalPrice,roomsStatus,userDetailsId,bookingStatus ;
 
 
 
 
 
-public String getUserId() {
-	return userId;
+public String getBookingStatus() {
+	return bookingStatus;
 }
-public void setUserId(String userId) {
-	this.userId = userId;
+public void setBookingStatus(String bookingStatus) {
+	this.bookingStatus = bookingStatus;
+}
+public String getUserDetailsId() {
+	return userDetailsId;
+}
+public void setUserDetailsId(String userDetailsId) {
+	this.userDetailsId = userDetailsId;
 }
 public String getCheckIn() {
 	return checkIn;
