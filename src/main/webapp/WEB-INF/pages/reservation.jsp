@@ -44,8 +44,8 @@
 						showTodayButton : true,
 						sideBySide : true,
 						minDate : new Date(),
-						//	    showClose: true,
-						//	    showClear: true,
+					   showClose: true,
+						  showClear: true,
 						toolbarPlacement : 'top'
 
 					});
@@ -56,8 +56,8 @@
 						showTodayButton : true,
 						sideBySide : true,
 						minDate : new Date(),
-						//		    showClose: true,
-						//		    showClear: true,
+							    showClose: true,
+						    showClear: true,
 						toolbarPlacement : 'top'
 
 					});
