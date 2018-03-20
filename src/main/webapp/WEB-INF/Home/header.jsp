@@ -138,7 +138,7 @@ var isClick = 'No';
   				<span class="glyphicon glyphicon-save" aria-hidden="true"></span><br> Install
 			</button></a>
             </li>-->
-						<li><a href="index.html"><button type="button"
+						<li><a href="../logoutHome"><button type="button"
 									class="btn btn-default btn-lg">
 									<span class="glyphicon glyphicon-off" aria-hidden="true"></span><br>
 									Logout

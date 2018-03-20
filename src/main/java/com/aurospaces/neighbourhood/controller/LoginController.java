@@ -104,11 +104,11 @@ public class LoginController {
 				// response.sendRedirect(baseUrl+"/LoginHome1.htm" );
 //				response.sendRedirect(request.getContextPath() + "/LoginHome");
 			}
-			return "../../index";
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println(e);
 		}
-		return "index";
+		return "redirect:admin";
 	}
 }

@@ -25,7 +25,7 @@ public class BaseHotelRoomPhotosDao{
 	CustomConnection custom;
 	JdbcTemplate jdbcTemplate;
  
-	public final String INSERT_SQL = "INSERT INTO hotel_room_photos( created_time, updated_time,capacityId, room_type_id, image1, image2, image3, image4, image5,status) values (?, ?, ?, ?, ?, ?, ?, ?,?,?)"; 
+	public final String INSERT_SQL = "INSERT INTO hotel_room_photos( created_time, updated_time,capacityId, room_type_id, images,status) values (?, ?, ?, ?,?,?)"; 
 
 
 
@@ -64,12 +64,8 @@ public class BaseHotelRoomPhotosDao{
 ps.setTimestamp(2, updatedTime);
 ps.setString(3, hotelRoomPhotos.getCapacityId());
 ps.setString(4, hotelRoomPhotos.getRoomTypeId());
-ps.setString(5, hotelRoomPhotos.getImage1());
-ps.setString(6, hotelRoomPhotos.getImage2());
-ps.setString(7, hotelRoomPhotos.getImage3());
-ps.setString(8, hotelRoomPhotos.getImage4());
-ps.setString(9, hotelRoomPhotos.getImage5());
-ps.setString(10, hotelRoomPhotos.getStatus());
+ps.setString(5, hotelRoomPhotos.getImages());
+ps.setString(6, hotelRoomPhotos.getStatus());
 
 							return ps;
 						}
@@ -84,9 +80,9 @@ ps.setString(10, hotelRoomPhotos.getStatus());
 		else
 		{
 
-			String sql = "UPDATE hotel_room_photos  set capacityId=?,room_type_id = ? ,image1 = ? ,image2 = ? ,image3 = ? ,image4 = ? ,image5 = ?  where id = ? ";
+			String sql = "UPDATE hotel_room_photos  set capacityId=?,room_type_id = ? ,images = ?  where id = ? ";
 	
-			jdbcTemplate.update(sql, new Object[]{hotelRoomPhotos.getCapacityId(),hotelRoomPhotos.getRoomTypeId(),hotelRoomPhotos.getImage1(),hotelRoomPhotos.getImage2(),hotelRoomPhotos.getImage3(),hotelRoomPhotos.getImage4(),hotelRoomPhotos.getImage5(),hotelRoomPhotos.getId()});
+			jdbcTemplate.update(sql, new Object[]{hotelRoomPhotos.getCapacityId(),hotelRoomPhotos.getRoomTypeId(),hotelRoomPhotos.getImages(),hotelRoomPhotos.getId()});
 		}
 	}
 		

@@ -14,12 +14,19 @@ protected String image2 ;
 protected String image3 ;
 protected String image4 ;
 protected String image5 ;
+protected String images ;
 protected String status,photoStatus;
 protected String capacityId ;
 protected String imagePath1,imagePath2,imagePath3,imagePath4,imagePath5 ;
 
 
 
+public String getImages() {
+	return images;
+}
+public void setImages(String images) {
+	this.images = images;
+}
 public String getImagePath1() {
 	return imagePath1;
 }
