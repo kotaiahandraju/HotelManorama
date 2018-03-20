@@ -81,6 +81,7 @@ public class RoomPhotosController {
 		return "roomPhotosHome";
 	}
 
+	@SuppressWarnings("null")
 	@RequestMapping(value = "/addRoomPhotos", method = RequestMethod.POST)
 	public String addRoomPhotos(@RequestParam("image") MultipartFile[] file,
 			@ModelAttribute("roomPhotoForm") HotelRoomPhotosBean roomPhotoBean, RedirectAttributes redir,
@@ -91,33 +92,30 @@ public class RoomPhotosController {
 		int id = 0;
 
 		try {
-
+			StringBuffer photoIncreMent=null;
+			photoIncreMent=new StringBuffer();
 			for (int i = 0; i < file.length; i++) {
 				String photoPath = null;
 				// System.out.println("file=="+file[i].getOriginalFilename());
 				if (file[i].getOriginalFilename() != "") {
 					photoPath = FileUploadUtil.ImageUpload(file[i], request);
-
+					String imageData =photoPath;
+					System.out.println(imageData);
 					// System.out.println("--:"+i+"photoPath=="+photoPath+"----:"+roomPhotoBean.getCapacityId());
-					if (i == 0) {
-						roomPhotoBean.setImage1(photoPath);
+					
+					if(i==0) {
+						photoIncreMent.append(imageData);
+						System.out.println("append data...."+photoIncreMent);
+					}else {
+						StringBuffer data=photoIncreMent.append(",").append(imageData);
+						System.out.println("addd data---- "+data);
 					}
-					if (i == 1) {
-						roomPhotoBean.setImage2(photoPath);
-					}
-					if (i == 2) {
-						roomPhotoBean.setImage3(photoPath);
-					}
-					if (i == 3) {
-						roomPhotoBean.setImage4(photoPath);
-					}
-					if (i == 4) {
-						roomPhotoBean.setImage5(photoPath);
-					}
-				}
+					
 			}
-
+			}
+			
 			roomPhotoBean.setStatus("1");
+			roomPhotoBean.setImages(photoIncreMent.toString());
 			HotelRoomPhotosBean roomPhotoBean2 = RoomPhotosDao.getByRoomPhotoId(roomPhotoBean);
 			int dummyId = 0;
 			if (roomPhotoBean2 != null) {
@@ -126,27 +124,6 @@ public class RoomPhotosController {
 			if (roomPhotoBean.getId() != 0) {
 				id = roomPhotoBean.getId();
 				if (id == dummyId || roomPhotoBean2 == null) {
-					if (roomPhotoBean.getImage1() == "" || roomPhotoBean.getImage1() == null) {
-						roomPhotoBean.setImage1(roomPhotoBean.getImagePath1());
-						// System.out.println("---------setImagepath------"+roomPhotoBean.getImagePath1());
-					}
-					if (roomPhotoBean.getImage2() == "" || roomPhotoBean.getImage2() == null) {
-						roomPhotoBean.setImage2(roomPhotoBean.getImagePath2());
-						// System.out.println("---------setImagepath------"+roomPhotoBean.getImagePath2());
-					}
-					if (roomPhotoBean.getImage3() == "" || roomPhotoBean.getImage3() == null) {
-						roomPhotoBean.setImage3(roomPhotoBean.getImagePath3());
-						// System.out.println("---------setImagepath------"+roomPhotoBean.getImagePath3());
-					}
-					if (roomPhotoBean.getImage4() == "" || roomPhotoBean.getImage4() == null) {
-						roomPhotoBean.setImage4(roomPhotoBean.getImagePath4());
-						// System.out.println("---------setImagepath------"+roomPhotoBean.getImagePath4());
-					}
-					if (roomPhotoBean.getImage5() == "" || roomPhotoBean.getImage5() == null) {
-						roomPhotoBean.setImage5(roomPhotoBean.getImagePath5());
-						// System.out.println("---------setImagepath------"+roomPhotoBean.getImagePath5()+"");
-					}
-
 					RoomPhotosDao.save(roomPhotoBean);
 					redir.addFlashAttribute("msg", "Record Updated Successfully");
 					redir.addFlashAttribute("cssMsg", "warning");

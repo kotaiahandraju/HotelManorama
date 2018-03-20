@@ -64,34 +64,31 @@
       <div class="col-md-12">
      <div class="col-md-6">
 								<div class="form-group">
-									<input id="id" name="id" type="hidden" value="0">
-									<span for="roomTypeId" class="col-md-4 control-label">Room Type <span class="impColor">*</span></span>
+									<form:hidden path="id"/>
+									<label for="roomTypeId" class="col-md-4 control-label">Room Type <span class="impColor">*</span></label>
 									<div class="col-md-7">
-									<select id="roomTypeId" name="roomTypeId" class="form-control validate default-class placeholder-style your-class" onFocus="removeBorder(this.id);" style="color: rgb(231, 61, 74); border-color: rgb(231, 61, 74);">
-									<option value="">-- Select Room Type --</option>
-									
-									</select>
+									<form:select path="roomTypeId" class="form-control validate" onfocus="removeBorder(this.id);">
+									<form:option value="">-- Select Room Type --</form:option>
+									<form:options items="${roomtype }"></form:options>
+									</form:select>
 									</div>
                     			</div>
                     			<div class="form-group">
-                    				<span for="capacityId" class="col-md-4 control-label">Room/Adult <span class="impColor">*</span></span>
+                    				<label for="capacityId" class="col-md-4 control-label">Room/Adult <span class="impColor">*</span></label>
                     				<div class="col-md-7">
-                    				<select id="capacityId" name="capacityId" class="form-control validate" onFocus="removeBorder(this.id);">
-									<option value="">-- Select Room Capacity --</option>
-									<option value="1">Single(1)</option><option value="2">Double(2)</option><option value="3">Triple(3)</option>
-									</select>
+                    				<form:select path="capacityId" class="form-control validate" onfocus="removeBorder(this.id);">
+									<form:option value="">-- Select Room Capacity --</form:option>
+									<form:options items="${capacity }"></form:options>
+									</form:select>
                     				</div>
                     			</div>
                     			<div class="form-group">
                     				<span for="sun" class="col-md-4 control-label">image<span class="impColor">*</span></span>
-                    				<div class="col-md-7">
-		                            	<input type="file" id="image1" name="image" class="form-control images">
-								  	</div>
-                    			</div>
-								<div class="form-group">
-                    				<span for="sun" class="col-md-4 control-label">image<span class="impColor">*</span></span>
-                    				<div class="col-md-7">
-		                            	<input type="file" id="image1" name="image" class="form-control images">
+                    				<div class="col-md-7" id="dvPreview1">
+                    				<img id="imageId" style="display: none;    width: 20%;" src="">
+                    				<span id="imageLable" style="display: none;"></span>
+									<input id="imagePath" name="imagePath" type="hidden" value="">
+		                            	<input type="file" id="image" name="image" class="form-control images" multiple="multiple">
 								  	</div>
                     			</div>
 							</div>
@@ -118,7 +115,7 @@ var damageId = 0;
 // var serviceUnitArray ={};
 var data = {};
 
-
+var image1="";var image2="";var image3="";var image4="";var image5="";
 function showTableData(response){
 	var table=$('#tableId').html('');
 	serviceUnitArray = {};
@@ -135,14 +132,34 @@ function showTableData(response){
 		}
 		var edit = "<a class='edit editIt' onclick='editPhotos("+ orderObj.id+ ")'><i class='fa fa-edit'></i></a>"
 		serviceUnitArray[orderObj.id] = orderObj;
+		var myString = orderObj.images;
+		var arr = myString.split(',');
+		$.each(arr, function( index, value ) {
+			console.log(index+"-----"+value);
+			if(index==0){
+				 image1=value;
+			}
+			if(index==1){
+				 image2=value;				
+			}
+			if(index==2){
+				 image3=value;
+			}
+			if(index==3){
+				 image4=value;
+			}
+			if(index==4){
+				 image5=value;
+			}
+		});
 		var tblRow ="<tr>"
 			+ "<td title='"+orderObj.roomTypeId+"'>" + orderObj.roomTypeId + "</td>"
 			+ "<td title='"+orderObj.capacityId+"'>" + orderObj.capacityId + "</td>"
-			+ "<td title='Image'><img style='height: 4%;' src='${baseurl}/"+ orderObj.image1 +"'/></td>"
-			+ "<td title='"+orderObj.image2+"'><img style='height: 4%;' src='${baseurl}/"+ orderObj.image2 +"'/></td>"
-			+ "<td title='"+orderObj.image3+"'><img style='height: 4%;' src='${baseurl}/"+ orderObj.image3 +"'/></td>"
-			+ "<td title='"+orderObj.image4+"'><img style='height: 4%;' src='${baseurl}/"+ orderObj.image4 +"'/></td>"
-			+ "<td title='"+orderObj.image5+"'><img style='height: 4%;' src='${baseurl}/"+ orderObj.image5 +"'/></td>"
+			+ "<td title='Image'><img style='height: 4%;' src='${baseurl}/"+image1 +"'/></td>"
+			+ "<td title='"+image2+"'><img style='height: 4%;' src='${baseurl}/"+image2+"'/></td>"
+			+ "<td title='"+image3+"'><img style='height: 4%;' src='${baseurl}/"+image3+"'/></td>"
+			+ "<td title='"+image4+"'><img style='height: 4%;' src='${baseurl}/"+image4+"'/></td>"
+			+ "<td title='"+image5+"'><img style='height: 4%;' src='${baseurl}/"+image5+"'/></td>"
 			+ "<td title='"+orderObj.photoStatus+"'>" + orderObj.photoStatus + "</td>"
 			+ "<td style='text-align: center;white-space: nowrap;'>" + edit + "&nbsp;&nbsp;" + deleterow + "</td>"
 			+"</tr>";
@@ -156,48 +173,24 @@ function editPhotos(id){
 	$("#roomTypeId").val(serviceUnitArray[id].roomTypeId);
 	$("#capacityId").val(serviceUnitArray[id].capacityId);
 	
-	
-    $("#image1").css('color', 'transparent');
-    $("#image2").css('color', 'transparent');
-    $("#image3").css('color', 'transparent');
-    $("#image4").css('color', 'transparent');
-    $("#image5").css('color', 'transparent');
-    
-	$("#imageId1").show();
-	$("#imageId2").show();
-	$("#imageId3").show();
-	$("#imageId4").show();
-	$("#imageId5").show();
-	
-	$("#imageLable1").show();
-	$("#imageLable2").show();
-	$("#imageLable3").show();
-	$("#imageLable4").show();
-	$("#imageLable5").show();
-	
-	$("#dynamicImage1").remove();
-	$("#dynamicImage2").remove();
-	$("#dynamicImage3").remove();
-	$("#dynamicImage4").remove();
-	$("#dynamicImage5").remove();
-	
+
 	
 	/* var editImage=serviceUnitArray[id].documents;
 	var replaceImage=editImage.replace("documents/","");
-	$("#imageId").attr("src","http://localhost:8099/NBD/"+editImage);
+	$("#imageId").attr("src","${baseurl}"+editImage);
 	$("#imageLable").text(replaceImage);
 	$("#imagePath").val(editImage); */
 	
-	 $("#imageId1").attr("src", '${baseurl}/'+serviceUnitArray[id].image1);
-	$("#imageId2").attr("src", '${baseurl}/'+serviceUnitArray[id].image2);
-	$("#imageId3").attr("src", '${baseurl}/'+serviceUnitArray[id].image3);
-	$("#imageId4").attr("src", '${baseurl}/'+serviceUnitArray[id].image4);
-	$("#imageId5").attr("src", '${baseurl}/'+serviceUnitArray[id].image5);
-	$("#imagePath1").val(serviceUnitArray[id].image1);
-	$("#imagePath2").val(serviceUnitArray[id].image2);
-	$("#imagePath3").val(serviceUnitArray[id].image3);
-	$("#imagePath4").val(serviceUnitArray[id].image4);
-	$("#imagePath5").val(serviceUnitArray[id].image5);
+	/* $("#image").css('color', 'transparent');
+	$("#imageId").show();
+	$("#imageLable").show();
+	$("#dynamicImage").remove(); */
+	
+	
+// 	var replaceImage=editImage.replace("documents/","");
+// 	$("#imageId").attr("src","${baseurl}/"+image1);
+// 	$("#imageLable").text(replaceImage);
+// 	$("#imagePath").val(image1);
 	
 	$("#submit1").val("Update");
 	$(window).scrollTop($('#moveTo').offset().top);
@@ -264,20 +257,19 @@ function inactiveData() {
 
 	
 	
- $(".images").change(function(e) {
-	var id = $(this).attr('id');
-	var num = id.replace(/[^0-9]/gi, '');
-	console.log(num);
-	$("#dynamicImage"+num).remove();
-	  $("#imageId"+num).hide();
-	  $("#imageLable"+num).hide();
+  $(".images").change(function(e) {
+// 	var id = $(this).attr('id');
+// 	var num = id.replace(/[^0-9]/gi, '');
+		 $("#dynamicImage").remove();
+	     $("#imageId").hide();
+	     $("#imageLable").hide(); 
 	
     for (var i = 0; i < e.originalEvent.srcElement.files.length; i++) {
         
         var file = e.originalEvent.srcElement.files[i];
         
         var img = document.createElement("img");
-        img.id='dynamicImage'+num;
+        img.id='dynamicImage';
 //         img.setAttribute('width', '50%');
         img.setAttribute('style', 'width: 60px;height: 60px;');
         var reader = new FileReader();
@@ -285,19 +277,39 @@ function inactiveData() {
              img.src = reader.result;
         }
         reader.readAsDataURL(file);
-        $("#image"+num).before(img);
-        console.log( $("#image"+num).val());
+        $("#image").before(img);
+//         console.log( $("#image").val());
 //         $("#imageId").css('width', '20%');
     }
-});
-
+}); 
+/* $(".images").change(function () {
+    if (typeof (FileReader) != "undefined") {
+        var dvPreview = $("#dvPreview");
+        dvPreview.html("");
+        var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
+        $($(this)[0].files).each(function () {
+            var file = $(this);
+            if (regex.test(file[0].name.toLowerCase())) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    var img = $("<img />");
+                    img.attr("style", "height:100px;width: 100px");
+                    img.attr("src", e.target.result);
+                    dvPreview.append(img);
+                }
+                reader.readAsDataURL(file[0]);
+            } else {
+                alert(file[0].name + " is not a valid image file.");
+                dvPreview.html("");
+                return false;
+            }
+        });
+    } else {
+        alert("This browser does not support HTML5 FileReader.");
+    }
+}); */
  
- $( document ).ready(function() {
-	    console.log( "ready!" );
-	    var aa= $("#image1").val("");
-	    
-		console.log("data"+aa)
-	});
+
 /* var idImage = $.makeArray($('.images').map(function() {
 	return this.id;
 }));
