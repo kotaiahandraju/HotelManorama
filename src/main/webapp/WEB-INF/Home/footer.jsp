@@ -55,6 +55,8 @@
 <script src="${baseurl }/datatable/jszip.min.js"></script>
 <script type='text/javascript' src='${baseurl }/js/ajax.js'></script>
 <script type='text/javascript' src="${baseurl }/js/jquery.blockUI.min.js" ></script>
+<script type="text/javascript" src="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/src/js/bootstrap-datetimepicker.js"></script>
+      <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/build/css/bootstrap-datetimepicker.css">
   	<script>
     $('.datatables').dataTable();
   	</script>

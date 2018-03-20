@@ -54,8 +54,10 @@
 	<definition name="bookingHistory" extends="base.definition">
 		<put-attribute name="body" value="/WEB-INF/pages/booking.jsp" />
 	</definition>
-
-
+   <!-- SpecialOfferPrice master -->
+  <definition name="specialOfferPrice" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/pages/specialOfferPrice.jsp" />
+	</definition>
 </tiles-definitions>
 
 

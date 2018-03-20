@@ -26,61 +26,6 @@
 
 			</div>
 
-			<script type="text/javascript">
-				var tpj1 = jQuery;
-
-				tpj1(document)
-						.ready(
-								function() {
-									//showlock(0);
-									var cyear = new Date().getFullYear();
-									var endyear = parseInt(cyear) + 5;
-
-									tpj1("#ReservationFromDate").datepicker(
-											{
-
-												numberOfMonths : 1,
-												dateFormat : 'yy-mm-dd',
-												changeMonth : true,
-												changeYear : true,
-												minDate : 0,
-												yearRange : cyear + ':'
-														+ endyear,
-												onSelect : function(selected) {
-													tpj1("#ReservationToDate")
-															.datepicker(
-																	"option",
-																	"minDate",
-																	selected)
-												}
-											});
-
-									tpj1("#ReservationToDate")
-											.datepicker(
-													{
-														numberOfMonths : 1,
-														dateFormat : 'yy-mm-dd',
-														changeMonth : true,
-														changeYear : true,
-														yearRange : cyear + ':'
-																+ endyear,
-														onSelect : function(
-																selected) {
-															tpj1(
-																	"#ReservationFromDate")
-																	.datepicker(
-																			"option",
-																			"maxDate",
-																			selected)
-														}
-
-													});
-
-								});
-			</script>
-
-
-
 			<legend style="font-size: 36px;">Reserve A Room Now</legend>
 			<ol class="breadcrumb">
 				<li><a href="/" title="Home">Home</a></li>

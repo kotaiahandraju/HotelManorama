@@ -54,23 +54,6 @@
 .box .space { height: 30px; }
 			</style>
 			
-			
-			<script>
-  $( function() {
-    $( "#datepicker" ).datepicker({
-      showOtherMonths: true,
-      selectOtherMonths: true
-    });
-  } );
-  </script>
-  <script>
-  $(document).ready(function () {
-  $(".navbar-nav li a").click(function(event) {
-    $(".navbar-collapse").collapse('hide');
-  });
-});
-  </script>
-  
   
 	</head>
 	<body style="background: transparent;">
@@ -362,7 +345,7 @@ function subForm()
 				<div class="box">
 					<div class="icon">
 						<div class="image">
-							<a href="reservation.jsp" title="Title Link"><img src="user/icons/reservation.jpg"
+							<a href="userRoomReservation" title="Title Link"><img src="user/icons/reservation.jpg"
 								style="width: 50px; margin: -15px 0px 0px 0px;"></a>
 						</div>
 						<br>
