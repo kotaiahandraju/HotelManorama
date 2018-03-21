@@ -72,13 +72,13 @@
 
             </tr>-->
 			 <tr>
-                <td colspan="3" valign="middle" bgcolor="#FFFFFF" class="td1"><span style="color: red;">* </span> Charge for the Additional Guest&nbsp;&nbsp;<strong>Rs. 799/-</strong></td>
+                <td colspan="3" valign="middle" bgcolor="#FFFFFF" style="font-size: 12px;" class="td1"><span style="color: red;    ">* </span> Charge for the Additional Guest&nbsp;&nbsp;<strong>Rs. 799/-</strong></td>
             </tr>
 
                          
        
                         <tr>
-                <td colspan="3" valign="middle" bgcolor="#FFFFFF" class="td1"><span style="color: red;">* </span>Complimentary Breakfast. The rates are inclusive of all taxes. Extra bed will be charged additional.</td>
+                <td colspan="3" valign="middle" bgcolor="#FFFFFF" style="font-size: 12px;" class="td1"><span style="color: red;     font-size: 12px;">* </span>Complimentary Breakfast. The rates are inclusive of all taxes. Extra bed will be charged additional.</td>
             </tr>
 
             
@@ -94,29 +94,22 @@
   </div>
   
   
-<div style="margin: 5px; background-color: white; text-align: center; padding: 10px; border-radius: 5px; font-weight: normal; border: 1px solid #dcd5c7;" class="text-center-xs class=" text-center-sm"="">
-              <span style="color: #F00">*</span> For any Customised PLANS Please Contact THE FRONT OFFICE MANAGER +91 958 126 1234 .
+<div style="margin: 5px; font-size: 12px;background-color: white; text-align: center; padding: 10px; border-radius: 5px; font-weight: normal; border: 1px solid #dcd5c7;" class="text-center-xs class=" text-center-sm"="">
+              <span style="    font-size: 12px;color: #F00">*</span> For any Customised PLANS Please Contact THE FRONT OFFICE MANAGER +91 958 126 1234 .
                         </div>
 
 
 
  </div>
-                    </div>  
-		<!--<img src="img/but_banner_bussines.png" class="img-responsive pull-right" title="Manorama" alt="Manorama" style="margin-top: -240px;">					
-                 	 <div class="col-md-2 col-sm-12 col-xs-12 padding_0 text-cente-xs text-cente-sm text-right-lg text-right-md padding_Top_01 rImg">
-    	<div class="col-md-12 col-sm-6 col-xs-12 padding_0 text-cente-xs text-cente-sm padding_TB_03 hidden-xs hidden-sm"> 
-        	<a href="facilities.html"><img src="img/but_facilities.png" title="Facilities" alt="Facilities" class="img-responsive_02"></a>            
-		 </div>
-        <div class="col-md-12 col-sm-6 col-xs-12 padding_0 text-cente-xs text-cente-sm padding_TB_03 hidden-xs hidden-sm">
-            <a href="enquiry.html"><img src="img/but_enquiry.png" title="Enquiry" alt="Enquiry" class="img-responsive_02"></a>        </div>-->
+                    </div>
     	
     
 
 <div class="col-md-4">
 <legend style="font-size: 36px;"> Room Types</legend>
-	<img src="user/img/b4.png" class="img-responsive"><br>
-	<img src="user/img/b6.png" class="img-responsive"><br>
-	<img src="user/img/b8.png" class="img-responsive">
+	<img src="user/img/b4.png" class="thumbnail img-responsive pull-right"><br>
+	<img src="user/img/b6.png" class="thumbnail img-responsive pull-right"><br>
+	<img src="user/img/b8.png" class="thumbnail img-responsive pull-right">
 </div>      
 </div>                        
                  </div>

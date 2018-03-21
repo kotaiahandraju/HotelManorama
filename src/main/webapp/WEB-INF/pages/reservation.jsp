@@ -7,7 +7,14 @@
 
 <link href="${baseurl }/assets/css/datepicker1.css" rel="stylesheet"
 	type="text/css" />
-
+<style>
+p{
+font-size: 12px;
+}
+.form-control{
+font-size: 12px;
+}
+</style>
 <div class="container">
 	<div class="row">
 		<div class="col-md-8">
@@ -44,8 +51,8 @@
 						showTodayButton : true,
 						sideBySide : true,
 						minDate : new Date(),
-					   showClose: true,
-						  showClear: true,
+						//	    showClose: true,
+						//	    showClear: true,
 						toolbarPlacement : 'top'
 
 					});
@@ -56,8 +63,8 @@
 						showTodayButton : true,
 						sideBySide : true,
 						minDate : new Date(),
-							    showClose: true,
-						    showClear: true,
+						//		    showClose: true,
+						//		    showClear: true,
 						toolbarPlacement : 'top'
 
 					});
@@ -73,18 +80,14 @@
 			</ol>
 
 
-			<p>
+			
 			<p>Reserve your room by using our online reservation system</p>
 
-			</p>
-			<div class="row">
-				<p class="desc-form">
-					Please fill the form below accurately to enable us serve you
+			
+					<p>Please fill the form below accurately to enable us serve you
 					better, Fields marked in <span style="color: #F00">*</span> are
 					mandatory
 				</p>
-			</div>
-			<div>
 				<form:form action="" modelAttribute="reservationForm" method="post"
 					class="form-horizontal" id="reservationAddForm">
 					<div style="display: none;">
@@ -92,24 +95,22 @@
 					</div>
 					<div class="row white-box-form">
 						<div class="col-xs-12">
-							<p class="form-subhead">Room Information</p>
-							<div class="checkin-checkout">
-								<div class="input-group">
-									<span class="input-group-addon" id="basic-addon1">Check
+							<legend>Room Information</legend>
+							<div style="display: inline-flex; width: 600px;">
+								<div class="input-group" style='padding: 2px 24px 13px 0px;'>
+									<span style="background-color: #f3ebda;border-color: #f3ebda;" class="input-group-addon" id="basic-addon1">Check
 										In<font color="red">*</font> :
 									</span>
 									<div class="input text required">
-										<input name="checkIn" style="width: 170px;" value=""
+										<input name="checkIn" style="width: 170px; background-color: #f3ebda;border-color: #f3ebda;" value="select Date"
 											class="form-control" title="From Date" required="required"
 											onblur="clearRate();" type="text" id="checkIn" />
 									</div>
-								</div>
-								<div class="input-group">
-									<span class="input-group-addon" id="basic-addon1">Check
+									<span class="input-group-addon" id="basic-addon1" style="background-color: #f3ebda;border-color: #f3ebda;">Check
 										Out <font color="red">*</font> :
 									</span>
 									<div class="input text required">
-										<input name="checkOut" style="width: 170px;" value=""
+										<input name="checkOut" style="width: 170px; background-color: #f3ebda;border-color: #f3ebda;" value="select Date"
 											class="form-control" title="To Date" required="required"
 											onblur="clearRate();" type="text" id="checkOut" />
 									</div>
@@ -179,22 +180,21 @@
 
 								</div>
 							</div>
-							<div class="rooms">
-								<div class="input-group roomplan-w">
-									<button type="button" class="btn btn-success">Check Avalability</button>
-								</div>
-							</div>
+							
+									<button style="margin: 0px 0px 0px 289px;" type="button" class="btn btn-success">Check Avalability</button>
+								
 							<div>
-								Rooms Price: <span id="roomPrice"></span>
+								<h4  class="badge badge-info" style='background: teal;font-size: 15px;'>Rooms Price:</h4>
+								 <span class="badge badge-success" style='color: white;background: teal;font-size: 15px;' id="roomPrice"></span>
 							</div>
-
-							<div id="ol"></div>
-
-
-
-
+							
+							<p class="notes">
+								* Rate will be finalised after confirmation<br />* The rates are
+								inclusive of all taxes<br />* Maximum Number of adults in a room
+								is 3 person (including 1 extra bed)<br />* Children ( below 10
+								years ) will not be charged for extra bed
+							</p>
 							<div class="checkrate">
-
 								<table>
 									<tr>
 										<td><a href="javascript:void(0);" onclick="getRate();">
@@ -205,24 +205,15 @@
 								</table>
 
 							</div>
-							<p class="notes">
-								* Rate will be finalised after confirmation<br />* The rates are
-								inclusive of all taxes<br />* Maximum Number of adults in a room
-								is 3 person (including 1 extra bed)<br />* Children ( below 10
-								years ) will not be charged for extra bed
-							</p>
-
-
-
-						</div>
+							</div>
 					</div>
 					<div class="row bottom-form">
 						<div class="col-xs-12" style="padding-left: 20px;">
-							<p class="form-subhead">Personal Information</p>
+							<legend>Personal Information</legend>
 							<div class="form-group">
-								<label for="fname" class="col-sm-2 control-label">Name <span
+								<label for="fname" class="col-sm-3">Name <span
 									style="color: #F00">*</span></label>
-								<div class="col-sm-10 col-md-6">
+								<div class="col-md-4">
 									<div class="input text required">
 										<input name="name" value=""
 											class="form-control" title="Name" required="required"
@@ -232,10 +223,10 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="fname" class="col-sm-2 control-label">Mobile
+								<label for="fname" class="col-sm-3">Mobile
 									Number <span style="color: #F00">*</span>
 								</label>
-								<div class="col-sm-10 col-md-6">
+								<div class="col-md-4">
 									<div class="input text required">
 										<input name="mobileNumber" value="" class="form-control"
 											title="Name" required="required" placeholder="Mobile Number" pattern="[0-9]{10,16}"
@@ -244,10 +235,10 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="fname" class="col-sm-2 control-label">Alternate
+								<label for="fname" class="col-sm-3">Alternate
 									MobileNumber<span style="color: #F00">*</span>
 								</label>
-								<div class="col-sm-10 col-md-6">
+								<div class="col-md-4">
 									<div class="input text required">
 										<input name="alternateMobileNumber" value=""
 											class="form-control" title="Name" required="required"
@@ -257,10 +248,10 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="fname" class="col-sm-2 control-label">Email
+								<label for="fname" class="col-sm-3">Email
 									ID <span style="color: #F00">*</span>
 								</label>
-								<div class="col-sm-10 col-md-6">
+								<div class="col-md-4">
 									<div class="input email required">
 										<input name="email" class="form-control" title="Email ID"
 											required="required" placeholder="name@something.com"
@@ -272,9 +263,9 @@
 
 
 							<div class="form-group">
-								<label for="fname" class="col-sm-2 control-label">City <span
+								<label for="fname" class="col-sm-3">City <span
 									style="color: #F00">*</span></label>
-								<div class="col-sm-10 col-md-6">
+								<div class="col-md-4">
 									<div class="input text required">
 										<input name="city" class="form-control"
 											title="City" required="required" placeholder="City"
@@ -283,9 +274,9 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="fname" class="col-sm-2 control-label">Address
+								<label for="fname" class="col-sm-3">Address
 								</label>
-								<div class="col-sm-10 col-md-6">
+								<div class="col-md-4">
 									<div class="input textarea">
 										<textarea name="address"
 											class="form-control" title="Address" rows="3"
@@ -297,10 +288,10 @@
 
 
 							<div class="form-group">
-								<label for="fname" class="col-sm-2 control-label">Country
+								<label for="fname" class="col-sm-3">Country
 									<span style="color: #F00">*</span>
 								</label>
-								<div class="col-sm-10 col-md-6">
+								<div class="col-md-4">
 									<select name="country" required="required"
 										class="form-control" title="Please select Country"
 										id="country">
@@ -463,92 +454,15 @@
 									</select>
 								</div>
 							</div>
-							<!--<div class="form-group">
-                <label for="fname" class="col-sm-2 control-label">State</label>
-                <div class="col-sm-10 col-md-6">   
-                                          <div id="states_div">   
-                      <div class="input select"><select name="data[Reservation][state]" class="form-control" title="Please select State" id="ReservationState">
-<option value="">Select State</option>
-<option value="1">Andaman and Nicobar Islands</option>
-<option value="2">Andhra Pradesh</option>
-<option value="3">Arunachal Pradesh</option>
-<option value="4">Assam</option>
-<option value="5">Bihar</option>
-<option value="6">Chandigarh</option>
-<option value="7">Chattisgarh</option>
-<option value="8">Sikkim</option>
-<option value="9">Rajasthan</option>
-<option value="10">Delhi</option>
-<option value="11">Goa</option>
-<option value="12">Gujarat</option>
-<option value="14">Himachal Pradesh</option>
-<option value="15">Jammu and Kashmir</option>
-<option value="16">Jharkhand</option>
-<option value="17">Karnataka</option>
-<option value="18" selected="selected">Kerala</option>
-<option value="19">Punjab</option>
-<option value="20">Madhya Pradesh</option>
-<option value="21">Maharashtra</option>
-<option value="22">Manipur</option>
-<option value="23">Meghalaya</option>
-<option value="24">Mizoram</option>
-<option value="25">Haryana</option>
-<option value="26">Orissa</option>
-<option value="27">Tamil Nadu</option>
-<option value="28">Tripura</option>
-<option value="29">Uttar Prasesh</option>
-<option value="30">West Bengal</option>
-<option value="31">Lakshdweep</option>
-<option value="32">Daman &amp; Diu</option>
-<option value="33">Dadra &amp; Nagar</option>
-<option value="34">Uttaranchal</option>
-<option value="35">Pondicherry</option>
-<option value="2980">United Arab Emirates</option>
-<option value="2981">Kuwait</option>
-<option value="2982">Bahrain </option>
-<option value="2983">Qatar</option>
-<option value="2984">Oman</option>
-</select></div> 
-                    </div>
-                </div>
-            </div>  
-              <div class="form-group">
-                <label for="fname" class="col-sm-2 control-label">Zip </label>
-                <div class="col-sm-10 col-md-6">                   
-                    <div class="input text"><input name="data[Reservation][zip]" class="form-control" title="Zip"  placeholder="000000" maxlength="6" onkeyup="this.value=this.value=this.value.replace(/[^\d+-]/,&#039;&#039;)" type="text" id="ReservationZip"/></div>                </div>
-            </div>-->
-
-							<div class="form-group">
-								<label for="captcha" class="col-sm-2 control-label"></label>
-								<div class="col-sm-10 col-md-6">
-									<img src="http://www.hotelManorama.com/pages/captcha" style=""
-										vspace="2" id="captcha_image" alt="" /> <a
-										href="javascript:void(0);"
-										onclick="javascript:document.images.captcha_image.src='http://www.hotelManorama.com/pages/captcha?' + Math.round(Math.random(0)*1000)+1">
-										<img src="user/img/refresh.jpg" alt="" />
-									</a>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="captcha" class="col-sm-2 control-label">Captcha
-								</label>
-								<div class="col-sm-10 col-md-6">
-									<div class="input text">
-										<input name="data[Reservation][captcha]" required="required"
-											placeholder="Type The Code" class="form-control"
-											autocomplete="off" title="Please enter the code " type="text"
-											id="ReservationCaptcha" />
-									</div>
-								</div>
-							</div>
-							<div class="rooms">
+							
+							<div class="rooms" style='padding: 0px 69px 0px 306px;'>
 								<div class="input-group roomplan-w">
 									<button type="button" class="btn btn-success"
 										onclick=" userDetails();">Conformation</button>
 								</div>
 							</div>
 							<div class="form-group">
-								<div class="col-sm-offset-2 col-sm-10">
+								<div class="col-md-4">
 									<button type="button" onclick="showlock();"
 										style="padding: 0px; background-color: transparent; border: 0px; margin-right: 10px;">
 										<img src="user/img/bookmyplan-now.png" alt="" />
@@ -817,25 +731,16 @@
 					});
 				}
 			</script>
-		</div>
-		<!--    <img src="img/but_banner_bussines.png" class="img-responsive pull-right" title="Manorama" alt="Manorama" style="margin-top: -240px;">
-                 	 <div class="col-md-2 col-sm-12 col-xs-12 padding_0 text-cente-xs text-cente-sm text-right-lg text-right-md padding_Top_01 rImg">
-    	<div class="col-md-12 col-sm-6 col-xs-12 padding_0 text-cente-xs text-cente-sm padding_TB_03 hidden-xs hidden-sm"> 
-        	<a href="facilities.html"><img src="img/but_facilities.png" title="Facilities" alt="Facilities" class="img-responsive_02" /></a>            
-		 </div>
-        <div class="col-md-12 col-sm-6 col-xs-12 padding_0 text-cente-xs text-cente-sm padding_TB_03 hidden-xs hidden-sm">
-            <a href="enquiry.html"><img src="img/but_enquiry.png" title="Enquiry" alt="Enquiry" class="img-responsive_02" /></a>        </div>-->
-
-
 
 		<div class="col-md-4">
 			<legend style="font-size: 36px;"> Services</legend>
-			<img src="user/img/b7.png" class="img-responsive"><br> <img
-				src="user/img/b4.png" class="img-responsive"><br> <img
-				src="user/img/b8.png" class="img-responsive"><br> <img
-				src="user/img/b1.png" class="img-responsive"><br> <img
-				src="user/img/b2.png" class="img-responsive"><br> <img
-				src="user/img/b3.png" class="img-responsive">
+			<img src="user/img/b7.png" class="thumbnail img-responsive pull-right"><br> <img
+				src="user/img/b4.png" class="thumbnail img-responsive pull-right"><br> <img
+				src="user/img/b8.png" class="thumbnail img-responsive pull-right"><br> <img
+				src="user/img/b1.png" class="thumbnail img-responsive pull-right"><br> <img
+				src="user/img/b2.png" class="thumbnail img-responsive pull-right"><br> <img
+				src="user/img/b3.png" class="thumbnail img-responsive pull-right">
+		</div>
 		</div>
 	</div>
 	<jsp:include page="../../footer.jsp" />

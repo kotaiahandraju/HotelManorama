@@ -2,23 +2,23 @@
 var thumbnailSliderOptions =
 {
     sliderId: "thumbnail-slider",
-    orientation: "vertical",
-    thumbWidth: "140px",
-    thumbHeight: "70px",
-    showMode: 2,
-    autoAdvance: true,
+    orientation: "horizontal",
+    thumbWidth: "auto",
+    thumbHeight: "50px",
+    showMode: 3,
+    autoAdvance: false,
     selectable: true,
     slideInterval: 3000,
-    transitionSpeed: 900,
+    transitionSpeed: 700,
     shuffle: false,
     startSlideIndex: 0, //0-based
     pauseOnHover: true,
     initSliderByCallingInitFunc: false,
-    rightGap: 0,
+    rightGap: null,
     keyboardNav: false,
     mousewheelNav: true,
     before: function (currentIdx, nextIdx, manual) { if (typeof nslider != "undefined") nslider.displaySlide(nextIdx); },
-    license: "mylicense"
+    license: "b2e98"
 };
 
 var mcThumbnailSlider = new ThumbnailSlider(thumbnailSliderOptions);

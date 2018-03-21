@@ -67,7 +67,7 @@
 									<form:hidden path="id"/>
 									<label for="roomTypeId" class="col-md-4 control-label">Room Type <span class="impColor">*</span></label>
 									<div class="col-md-7">
-									<form:select path="roomTypeId" class="form-control validate" onfocus="removeBorder(this.id);">
+									<form:select style='width: 218px;' path="roomTypeId" class="form-control validate" onfocus="removeBorder(this.id);">
 									<form:option value="">-- Select Room Type --</form:option>
 									<form:options items="${roomtype }"></form:options>
 									</form:select>
@@ -76,19 +76,19 @@
                     			<div class="form-group">
                     				<label for="capacityId" class="col-md-4 control-label">Room/Adult <span class="impColor">*</span></label>
                     				<div class="col-md-7">
-                    				<form:select path="capacityId" class="form-control validate" onfocus="removeBorder(this.id);">
+                    				<form:select style='width: 218px;' path="capacityId" class="form-control validate" onfocus="removeBorder(this.id);">
 									<form:option value="">-- Select Room Capacity --</form:option>
 									<form:options items="${capacity }"></form:options>
 									</form:select>
                     				</div>
                     			</div>
                     			<div class="form-group">
-                    				<span for="sun" class="col-md-4 control-label">image<span class="impColor">*</span></span>
+                    				<label for="sun" class="col-md-4 control-label">Image<span class="impColor">*</span></label>
                     				<div class="col-md-7" id="dvPreview1">
                     				<img id="imageId" style="display: none;    width: 20%;" src="">
                     				<span id="imageLable" style="display: none;"></span>
 									<input id="imagePath" name="imagePath" type="hidden" value="">
-		                            	<input type="file" id="image" name="image" class="form-control images" multiple="multiple">
+		                            	<input style='width: 218px;' type="file" id="image" name="image" class="form-control images" multiple="multiple">
 								  	</div>
                     			</div>
 							</div>

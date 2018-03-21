@@ -41,13 +41,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.css">
 <link rel="stylesheet" href="${baseurl }/assets/css/select2.css">
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
 
 
 <script type='text/javascript' src='${baseurl }/js/canvasjs.min.js'></script> 
@@ -56,13 +49,18 @@
 <script type="text/javascript">
 var isClick = 'No';
 </script>
-</head>
 <style>
-.scrol {
-	max-height: 350px;
-	overflow-y: auto;
-}
+.navbar-default
+ .navbar-nav>.active>a,
+  .navbar-default
+   .navbar-nav>
+   .active>a:focus, 
+   .navbar-default 
+   .navbar-nav>
+   .active>a:hover{background: transparent;}
 </style>
+</head>
+
 <body>
 	<div class="header">
 		<!--<img src="images/1.png" class="img-responsive" style="margin:0 auto;"/>-->
@@ -70,9 +68,8 @@ var isClick = 'No';
 			<h2 style="text-align: center;">Hotel Booking</h2>
 		</div>
 	</div>
-	<div class="container">
-		<nav class="navbar navbar-default">
-			<div class="container-fluid">
+	<div class="container-fluid" style='padding-left: 0px;'>
+		<nav class="navbar navbar-default" style='border: none;height: 73px;'>
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed"
@@ -87,7 +84,7 @@ var isClick = 'No';
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="collapse-1">
-					<ul class="nav navbar-nav">
+					<ul class="nav navbar-nav" style='margin: -11px 135px;'>
 						<li class="active"><a href="dashboard.html"><button
 									type="button" class="btn btn-default btn-lg">
 									<span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span><br>
@@ -138,15 +135,14 @@ var isClick = 'No';
   				<span class="glyphicon glyphicon-save" aria-hidden="true"></span><br> Install
 			</button></a>
             </li>-->
-						<li><a href="../logoutHome"><button type="button"
+						<li><a href="index.html"><button type="button"
 									class="btn btn-default btn-lg">
 									<span class="glyphicon glyphicon-off" aria-hidden="true"></span><br>
 									Logout
 								</button></a></li>
 					</ul>
 				</div>
-				<!-- /.navbar-collapse -->
-			</div>
+				<!-- /.navbar-collapse -->			
 			<!-- /.container-fluid -->
 		</nav>
 	</div>

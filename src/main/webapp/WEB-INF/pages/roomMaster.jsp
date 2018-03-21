@@ -53,12 +53,14 @@
 									<form:hidden path="id"/>
 									<label for="roomTypeId" class="col-md-4 control-label">Room Type <span class="impColor">*</span></label>
 									<div class="col-md-7">
-									<form:select path="roomTypeId" class="form-control validate" onfocus="removeBorder(this.id);">
+									<form:select style='width: 195px;' path="roomTypeId" class="form-control validate" onfocus="removeBorder(this.id);">
 									<form:option value="">-- Select Room Type --</form:option>
 									<form:options items="${roomtype }"></form:options>
 									</form:select>
 									</div>
                     			</div>
+                    			</div>
+                    			<div class="col-md-6">
                     			<div class="form-group">
                     				<label for="capacityId" class="col-md-4 control-label">Room/Adult <span class="impColor">*</span></label>
                     				<div class="col-md-7">
@@ -68,20 +70,37 @@
 									</form:select>
                     				</div>
                     			</div>
+                    			</div>
+                    			<div class="col-md-6">
                     			<div class="form-group">
                     				<label for="maxChaild" class="col-md-4 control-label">Max Child/Room <span class="impColor">*</span></label>
                     				<div class="col-md-7">
 		                            	<form:input  path="maxChaild" class="form-control numericOnly validate" placeholder="Max Child/Room"/>
 								  	</div>
                     			</div>
+                    			</div>
+                    			<div class="col-md-6">
 								<div class="form-group">
                     				<label for="roomNumber" class="col-md-4 control-label">Room Number</label>
                     				<div class="col-md-7">
-		                            	<form:input  path="roomNumber" class="form-control validate" placeholder="Room Number"/>
+		                            	<form:input  style='width: 213px;' path="roomNumber" class="form-control numericOnly validate" placeholder="Room Number"/>
 								  	</div>
                     			</div>
+                    			</div>                    			
 							</div>
 						</div>
+						<br>
+							<div class="panel-footer">
+				      	<div class="row">
+				      		<div class="col-md-12">
+				      		<br>
+				      			<div class="btn-toolbar text-center pull-right">
+					      			<input class="btn-primary btn" type="submit" value="Submit" id="submit1"/>
+					      			<input class="btn-danger btn cancel" type="reset" value="Reset" />
+				      			</div>
+				      		</div>
+				    	</div>
+					</div>
                     </div></form:form>
     </div>
     </div></div></div>

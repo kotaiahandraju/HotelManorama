@@ -5,7 +5,7 @@
   <!-- Default panel contents -->
   
   <!-- Table -->
-  <div class="scrol">
+  <div class="">
   <table class="table table-hover">
   <tbody>
     <tr>

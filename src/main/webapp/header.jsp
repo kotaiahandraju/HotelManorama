@@ -39,21 +39,509 @@
 			<script type="text/javascript" src="user/js/preview-fullwidth.js.download"></script>
 			<script type="text/javascript" src="user/js/jquery-ui-1.8.18.custom.min.js.download"></script> -->
 			<style>
-			.box > .icon { text-align: center; position: relative; }
-.box > .icon > .image { position: relative; z-index: 2; margin: auto; width: 88px; height: 88px; border: 8px solid white; line-height: 88px; border-radius: 50%; background: white; vertical-align: middle; }
-.box > .icon:hover > .image { background: white; border: 8px solid yellowgreen; }
-.box > .icon > .image > i { font-size: 36px !important; color: #fff !important; }
-.box > .icon:hover > .image > i { color: white !important; }
-.box > .icon > .info { margin-top: -24px; background: transparent; border: none; padding: 15px 0 10px 0; }
-.box > .icon:hover > .info { background: transparent; border-color: none; color: white; }
-.box > .icon > .info > h3.title { font-family: "Roboto",sans-serif !important; font-size: 16px; color: #222; font-weight: 500; }
-.box > .icon > .info > p { font-family: "Roboto",sans-serif !important; font-size: 13px; color: #666; line-height: 1.5em; margin: 20px;}
-.box > .icon:hover > .info > h3.title, .box > .icon:hover > .info > p, .box > .icon:hover > .info > .more > a { color: #222; }
-.box > .icon > .info > .more a { font-family: "Roboto",sans-serif !important; font-weight: 700; font-size: 12px; color: #222; width: 140px; line-height: 12px; text-transform: uppercase; text-decoration: none; }
-.box > .icon:hover > .info > .more > a { color: black; padding: 6px 8px; background-color: yellowgreen; width: 140px; font-weight: 700;}
-.box .space { height: 30px; }
+			
+@font-face {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    src:url(../fonts/Oxygen-Regular.ttf) format('truetype');
+}
+@font-face {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    src:url(../fonts/Scada-Bold.ttf) format('truetype');
+}
+
+ ul{
+	padding: 0;
+	margin: 0;
+	
+}
+
+
+/*--services--*/
+.top-content {
+  text-align: center;
+  padding: 0em 0 2em;
+}
+.top-content h1 {
+  font-size: 3em;
+  color: #1B3E5C;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.top-content p {
+  font-size: 1em;
+  color: #B4B2B2;
+  line-height: 1.9em;
+}
+.grid-top {
+  text-align: center;
+}
+.glyphicon.glyphicon-home ,.glyphicon.glyphicon-time,.glyphicon.glyphicon-cog,
+.glyphicon.glyphicon-lock{
+  font-size: 1.5em;
+  color: #FFF;
+  background: #1b3e5c;
+  border-radius: 100px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 2.3em;
+}
+.top-grid h3{
+	font-size:1.5em;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 600;
+	color:#000;
+	margin: 0.5em 0 0.3em;
+}
+.top-grid p{
+	  color: #B4B2B2;
+  line-height: 1.9em;
+  font-size: 1em;
+ 
+}
+.content-top {
+  padding: 0 0 4em;
+}
+/*----*/
+
+.content-middle {
+  padding: 4em 0 0;
+}
+
+/*--responsive--*/
+@media(max-width:1366px){
+
+}
+@media(max-width:1280px){
+
+}
+@media(max-width:1024px){
+.header {
+  height: 550px;
+}
+.welcome h5 {
+  font-size: 1em;
+  margin: 0.5em 0;
+}
+.top-grid h3 {
+  font-size: 1.2em;
+}
+.top-sed label {
+  padding: 1.3em 0 0;
+}
+.sed-top h4 {
+  font-size: 1.2em;
+    margin: 0.8em 0;
+
+}
+.sed h5 {
+  font-size: 1em;
+  margin: 0.5em 0;
+}
+.sed p {
+  margin: 0.5em 0 0em;
+}
+/*--about--*/
+.mid-about p {
+  line-height: 1.7em;
+}
+.bottom-top h3 {
+  font-size: 1.65em;
+  margin-top: 1em;
+}
+/*--services--*/
+.top-services h5 {
+  font-size: 1.05em;
+}
+}
+@media(max-width:768px){
+		span.menu{
+	display: block;
+	text-align: right;
+	cursor: pointer;
+	position: relative;
+}
+.top-nav ul{
+	display: none;
+	position:absolute;
+	width: 100%;
+	z-index: 9999;
+	left: 0%;
+	margin:1.1em 0em;
+	background:#1b3e5c;
+	border:0;
+}
+.top-nav span.menu{
+	display: block;
+}
+.top-nav ul li{
+	display: block;
+	float:none;
+	padding:  0.3em;
+	text-align: center;
+}
+.top-nav ul li a{
+	color:#fff;
+	display:block;
+	margin:0;
+	background: none;
+	border:none;
+	padding:0.4em;
+}
+.top-nav ul li.active a{
+	color:#000;	
+}
+.red {
+  margin-top: 2em;
+}
+.grid-top {
+  float: left;
+  width: 50%;
+}
+.sed-top {
+  float: left;
+  width: 33.3%;
+}
+.item-in p {
+  width: 100%;
+}
+.sed {
+  margin-top: 2em;
+}
+.top-sed label {
+  padding: 2.2em 0 0;
+}
+.content-welcome {
+  padding: 3em 0;
+}
+.content-top {
+  padding: 0 0 3em;
+}
+.col-mn {
+  min-height: 261px;
+  padding: 3.5em 0;
+}
+.col-mn4 {
+  margin-top: 1.5em;
+}
+.content-middle {
+  padding: 3em 0 0;
+}
+p.footer-in {
+  width: 70%;
+}
+.logo img {
+  top: -132px;
+}
+.header-top {
+  padding: 1em 0;
+}
+/*--about--*/
+.mid-about p {
+  line-height: 1.9em;
+  margin-top: 1em;
+}
+.grid-ab {
+  padding: 0;
+}
+.content-bottom1 {
+  float: left;
+  width: 33.3%;
+}
+.bottom-top span {
+  font-size: 1.8em;
+  width: 50px;
+  height: 50px;
+}
+.bottom-top h3 {
+  font-size: 1.2em;
+}
+.about-in {
+  padding: 3em 0;
+}
+/*--services--*/
+.top-services {
+  float: left;
+  width: 33.3%;
+}
+.services {
+  padding-top: 3em;
+}
+/*--contact--*/
+.contact-grid {
+  margin-bottom: 2em;
+}
+.contact {
+  padding: 3em 0;
+}
+/*--single--*/
+.md-in {
+  float: left;
+  width: 50%;
+}
+.comment {
+  padding: 1em 0 0;
+}
+.single-bottom textarea {
+  margin: 1em 0em;
+  width: 100%;
+}
+.single-bottom input[type="submit"] {
+  margin: 0;
+}
+/*--typo--*/
+h1.grid2 {
+  font-size: 2.3em;
+}
+}
+@media(max-width:640px){
+.welcome h3, .red h3,.top-content h1,.sed h3, .sed-in h3 {
+  font-size: 2.5em;
+}
+.col-mn2 h2 {
+  font-size: 3em;
+    margin-bottom: 0.3em;
+}
+.top-sed label {
+  padding: 1.5em 0 0;
+}
+p.footer-in {
+  font-size: 1.5em;
+  width: 88%;
+}
+.header {
+  height: 445px;
+}
+/*--about--*/
+.about-bottom h2,.about-top h1{
+	font-size: 2.5em;
+}
+.bottom-top span {
+  font-size: 1.2em;
+  width: 35px;
+  height: 35px;
+  line-height: 2em;
+  margin-right: 3%;
+}
+.bottom-top h3 {
+  font-size: 1.05em;
+  margin-top: 0.7em;
+}
+/*--services--*/
+.service-top h1 {
+  font-size: 2.5em;
+}
+.top-services {
+  padding: 0 5px;
+}
+/*--contact--*/
+.contact-top h1 {
+  font-size: 2.5em;
+}
+/*--single--*/
+.single-bottom input[type="submit"] {
+    width: 14%;
+}
+.single-middle h1,.single-bottom h2{
+	font-size: 2.5em; 
+}
+/*--page--*/
+button.btn.btn-lg {
+  font-size: 1.1em;
+}
+h1.grid2 {
+  font-size: 2em;
+}
+h2.grid2 {
+  font-size: 1.9em;
+}
+}
+@media(max-width:480px){
+.welcome h3, .red h3,.top-content h1,.sed h3, .sed-in h3 {
+  font-size: 2em;
+}
+.top-grid h3 {
+  font-size: 1.1em;
+}
+.col-mn2 h2 {
+  text-transform: uppercase;
+  font-size: 2.5em;
+}
+.top-sed label {
+  font-size: 1.8em;
+  padding: 1.4em 0 0;
+}
+
+.sed-top h4 {
+  font-size: 1.05em;
+}
+.item-in p {
+  font-size: 1.2em;
+}
+p.footer-in {
+  font-size: 1.3em;
+}
+.content-middle {
+  padding: 2em 0 0;
+}
+.con-in {
+  padding: 2em 0 0em;
+}
+.wmuSliderPagination {
+  right: 36%;
+}
+.header {
+  height: 336px;
+}
+.sed-top img {
+  margin: 0 auto;
+  width: 34%;
+}
+.logo img{
+	width:140px;
+	 top: -58px;
+}
+.content-welcome {
+  padding: 2em 0;
+}
+.sed-top {
+  width: 100%;
+}
+
+/*--about--*/
+.about-bottom h2,.about-top h1{
+	font-size: 2em;
+}
+.about-1 ul li a {
+  font-size: 1em;
+  margin: 0.5em 0;
+}
+.about-in {
+  padding: 2em 0;
+}
+.content-bottom1 {
+  width: 100%;
+}
+
+.bottom-top h3 {
+  font-size: 1.2em;
+
+}
+.content-bottom1 p {
+  line-height: 1.7em;
+  margin: 0.4em 0 0;
+}
+.about-top {
+  padding: 0em 0 2em;
+}
+/*--services--*/
+.service-top h1 {
+  font-size: 2em;
+}
+.top-services {
+  width: 100%;
+}
+.services {
+  padding-top: 2em;
+}
+
+}
+@media(max-width:320px){
+
+.content-welcome {
+  padding: 1.5em 0;
+}
+.welcome h3, .red h3, .top-content h1, .sed h3, .sed-in h3 {
+  font-size: 1.5em;
+}
+.welcome h5 {
+  font-size: 0.9em;
+}
+.welcome p {
+  font-size: 0.9em;
+  line-height: 1.7em;
+}
+.hvr-bounce-to-right {
+  padding: 0.4em 1em;
+  font-size: 0.9em;
+}
+.red {
+  margin-top: 1em;
+  padding: 0;
+}
+.top-content p ,.top-grid p{
+  font-size: 0.9em;
+  line-height: 1.7em;
+}
+.grid-top {
+  padding: 0 5px;
+}
+.top-grid h3 {
+  font-size: 1em;
+  line-height: 1.4em;
+}
+.col-mn2 h2 {
+  font-size: 1.8em;
+}
+.content-top {
+  padding: 0 0 1.5em;
+}
+.col-mn2 p {
+  font-size: 0.9em;
+  line-height: 1.7em;
+}
+.col-mn {
+  min-height: 244px;
+  padding: 2em 0;
+}
+.col-mn3,.col-mn4{
+	padding: 0;
+}
+
+/*--services--*/
+.service-top h1 {
+  font-size: 1.5em;
+}
+.service-top {
+  padding: 0;
+}
+.service-top h5 {
+  font-size: 1em;
+  margin: 0.5em 0;
+}
+.service-top p,.top-services p {
+  font-size: 0.9em;
+  line-height: 1.7em;
+}
+.top-services h5 {
+  font-size: 1em;
+}
+
+.content-middle {
+  padding: 1.5em 0 0;
+}
+
+}
+a{text-decoration: none;}
+span{font-style: italic;color: black;}
 			</style>
 			
+			
+			<script>
+  $( function() {
+    $( "#datepicker" ).datepicker({
+      showOtherMonths: true,
+      selectOtherMonths: true
+    });
+  } );
+  </script>
+  <script>
+  $(document).ready(function () {
+  $(".navbar-nav li a").click(function(event) {
+    $(".navbar-collapse").collapse('hide');
+  });
+});
+  </script>
+  
   
 	</head>
 	<body style="background: transparent;">
@@ -137,11 +625,16 @@ function subForm()
 	  <img src="user/img/logo2.png" class="img-responsive"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav pull-right" style="background: none;">
+      <ul class="nav navbar-nav" style="background: none;">
+      	<li>&nbsp;</li>
+		<li>&nbsp;</li>
+		<li>&nbsp;</li>
+		<li>&nbsp;</li>
         <li><a href="userindex.jsp" style="color: white;">Home</a></li>
 		<li><a href="about.jsp" style="color: white;">About Us</a></li>
         <li><a href="userRoomTariff" style="color: white;">Room & Tariff</a></li>
         <li><a href="facilities.jsp" style="color: white;">Facilities</a></li> 
+        <li><a href="gallery.jsp" style="color: white;">Gallery</a></li>
         <li><a href="contact.jsp" style="color: white;">Contact Us</a></li> 
 		<li><a href="login.jsp" style="color: white;">Login</a></li> 
       </ul>      
@@ -155,208 +648,98 @@ function subForm()
   </div>
 			
   
-<br><div class="row" style="margin-left: 0px; margin-right: 0px;">
-		<div class="container">
-			<legend
-				style="font-weight: bold; font-size: 26px; border-bottom: 2px solid teal; color: teal;">OUR
-				SERVICES</legend>
-			<!-- Boxes de Acoes -->
-		<div class="col-md-1">
-				<div class="box">
-					<div class="icon">
-						<div class="image">
-							<a href="userRoomTariff" title="Title Link"><img src="user/icons/tariff.jpg"
-								style="width: 50px; margin: -15px 0px 0px 0px;"></a>
-						</div>
-						<br>
-						<div class="info">
-							<div class="more">
-								<a href="userRoomTariff" title="Title Link"> Rooms </a>
-							</div>
-						</div>
-					</div>
-					<div class="space"></div>
-				</div>
+<br>	
+	<div class="container">
+			<div class="content-top">
+				<div class="top-content">
+				<h1>Our Services</h1>
 			</div>
-
-			<div class="col-md-1">
-				<div class="box">
-					<div class="icon">
-						<div class="image">
-							<a href="facilities.jsp" title="Title Link"><img src="user/icons/facility.png"
-								style="width: 50px; margin: -15px 0px 0px 0px;"></a>
-						</div>
-						<br>
-						<div class="info">
-							<div class="more">
-								<a href="facilities.jsp" title="Title Link"> Facilities </a>
-							</div>
-						</div>
-					</div>
-					<div class="space"></div>
+			<div class="content-top1">
+			
+			  <div class="col-md-1 col-md-offset-1 grid-top">
+				<a href="userRoomTariff" style='text-decoration: none;'>
+				 <img src='user/icons/list.png' style='width: 55px;' alt=''></img>
+				  <div class="top-grid">
+					<span>Rooms</span>
+				  </div>
+				  </a>
 				</div>
+			
+			<div class="col-md-1 grid-top">
+				<a href="facilities.jsp" style='text-decoration: none;'>
+				 <img src='user/icons/facility.png' style='width: 55px;' alt=''></img>
+				  <div class="top-grid">
+					<span>Facilities</span>
+				  </div>
+				</a>
 			</div>
-
-			<div class="col-md-1">
-				<div class="box">
-					<div class="icon">
-						<div class="image">
-							<a href="meetings.jsp" title="Title Link"><img src="user/icons/banquets.jpg"
-								style="width: 50px; margin: -15px 0px 0px 0px;"></a>
-						</div>
-						<br>
-						<div class="info">
-							<div class="more">
-								<a href="meetings.jsp" title="Title Link"> Banquets </a>
-							</div>
-						</div>
-					</div>
-					<div class="space"></div>
-				</div>
+			<div class=" col-md-1 grid-top">
+				<a href="meetings.jsp" style='text-decoration: none;'>
+				 <img src='user/icons/banquets.jpg' style='width: 55px;' alt=''></img>
+				  <div class="top-grid">
+					<span>Banquets</span>
+				  </div>
+				</a>
 			</div>
-
-			<div class="col-md-1">
-				<div class="box">
-					<div class="icon">
-						<div class="image">
-							<a href="dining.jsp" title="Title Link"><img src="user/icons/dining.png"
-								style="width: 50px; margin: -15px 0px 0px 0px;"></a>
-						</div>
-						<br>
-						<div class="info">
-							<div class="more">
-								<a href="dining.jsp" title="Title Link"> Dining </a>
-							</div>
-						</div>
-					</div>
-					<div class="space"></div>
-				</div>
+			<div class=" col-md-1 grid-top">
+				<a href="dining.jsp" style='text-decoration: none;'>
+				 <img src='user/icons/dining.png' style='width: 55px;' alt=''></img>
+				  <div class="top-grid">
+					<span>Dining</span>
+				  </div>
+				</a>
 			</div>
-
-			<div class="col-md-1">
-				<div class="box">
-					<div class="icon">
-						<div class="image">
-						<a href="gallery.jsp" title="Title Link"> 	<img src="user/icons/gallery.png"
-								style="width: 50px; margin: -15px 0px 0px 0px;"></a>
-						</div>
-						<br>
-						<div class="info">
-							<div class="more">
-								<a href="gallery.jsp" title="Title Link"> Gallery </a>
-							</div>
-						</div>
-					</div>
-					<div class="space"></div>
-				</div>
+			<div class=" col-md-1 grid-top">
+				<a href="gallery.jsp" style='text-decoration: none;'>
+				 <img src='user/icons/gallery.png' style='width: 55px;' alt=''></img>
+				  <div class="top-grid">
+					<span>Gallery</span>
+				  </div>
+				</a>
 			</div>
-
-			<div class="col-md-1">
-				<div class="box">
-					<div class="icon">
-						<div class="image">
-						<a href="attractions.jsp" title="Title Link">	<img src="user/icons/attractions.png"
-								style="width: 50px; margin: -15px 0px 0px 0px;"></a>
-						</div>
-						<br>
-						<div class="info">
-							<div class="more">
-								<a href="attractions.jsp" title="Title Link"> Attractions </a>
-							</div>
-						</div>
-					</div>
-					<div class="space"></div>
-				</div>
+			 <div class=" col-md-1 grid-top">
+				<a href="offers.jsp" style='text-decoration: none;'>
+				 <img src='user/icons/offer.jpg' style='width: 55px;' alt=''></img>
+				  <div class="top-grid">
+					<span>Offers</span>
+				  </div>
+				</a>
 			</div>
-
-			<div class="col-md-1">
-				<div class="box">
-					<div class="icon">
-						<div class="image">
-							<a href="offers.jsp" title="Title Link">	<img src="user/icons/offer.jpg"
-								style="width: 50px; margin: -15px 0px 0px 0px;"></a>
-						</div>
-						<br>
-						<div class="info">
-							<div class="more">
-								<a href="offers.jsp" title="Title Link"> Offers </a>
-							</div>
-						</div>
-					</div>
-					<div class="space"></div>
-				</div>
+			 <div class=" col-md-1 grid-top">
+				<a href="enquiry.jsp" style='text-decoration: none;'>
+				 <img src='user/icons/enquire.png' style='width: 55px;' alt=''></img>
+				  <div class="top-grid">
+					<span>Enquiry</span>
+				  </div>
+				</a>
 			</div>
-
-			<div class="col-md-1">
-				<div class="box">
-					<div class="icon">
-						<div class="image">
-						<a href="enquiry.jsp" title="Title Link">	<img src="user/icons/enquire.png"
-								style="width: 50px; margin: -15px 0px 0px 0px;"></a>
-						</div>
-						<br>
-						<div class="info">
-							<div class="more">
-								<a href="enquiry.jsp" title="Title Link"> Enquire </a>
-							</div>
-						</div>
-					</div>
-					<div class="space"></div>
-				</div>
+			 <div class=" col-md-1 grid-top">
+				<a href="reach.jsp" style='text-decoration: none;'>
+				 <img src='user/icons/reach.png' style='width: 55px;' alt=''></img>
+				  <div class="top-grid">
+					<span>Address</span>
+				  </div>
+				</a>
 			</div>
-
-			<div class="col-md-1">
-				<div class="box">
-					<div class="icon">
-						<div class="image">
-							<a href="careers.jsp" title="Title Link"><img src="user/icons/careers.jpg"
-								style="width: 50px; margin: -15px 0px 0px 0px;"></a>
-						</div>
-						<br>
-						<div class="info">
-							<div class="more">
-								<a href="careers.jsp" title="Title Link"> Careers </a>
-							</div>
-						</div>
-					</div>
-					<div class="space"></div>
-				</div>
+			<div class=" col-md-1 grid-top">
+				<a href="userRoomReservation" style='text-decoration: none;'>
+				 <img src='user/icons/reservation.jpg' style='width: 55px;' alt=''></img>
+				  <div class="top-grid">
+					<span>Reservation</span>
+				  </div>
+				</a>
 			</div>
-
-			<div class="col-md-1">
-				<div class="box">
-					<div class="icon">
-						<div class="image">
-								<a href="reach.jsp" title="Title Link"> <img src="user/icons/reach.png"
-								style="width: 50px; margin: -15px 0px 0px 0px;"></a>
-						</div>
-						<br>
-						<div class="info">
-							<div class="more">
-								<a href="reach.jsp" title="Title Link"> Address </a>
-							</div>
-						</div>
-					</div>
-					<div class="space"></div>
-				</div>
+			 <div class=" col-md-1 grid-top">
+				<a href="attractions.jsp" style='text-decoration: none;'>
+				 <img src='user/icons/attractions.png' style='width: 55px;' alt=''></img>
+				  <div class="top-grid">
+					<span>Attractions</span>
+				  </div>
+				</a>
 			</div>
-
-			<div class="col-md-1">
-				<div class="box">
-					<div class="icon">
-						<div class="image">
-							<a href="userRoomReservation" title="Title Link"><img src="user/icons/reservation.jpg"
-								style="width: 50px; margin: -15px 0px 0px 0px;"></a>
-						</div>
-						<br>
-						<div class="info">
-							<div class="more">
-								<a href="userRoomReservation" title="Title Link"> Reservation </a>
-							</div>
-						</div>
-					</div>
-					<div class="space"></div>
-				</div>
 			</div>
+<div class="clearfix"> </div>
 		</div>
-	</div>
+		</div>
+
+	
