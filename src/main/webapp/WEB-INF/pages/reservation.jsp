@@ -41,34 +41,54 @@ font-size: 12px;
   </svg>
 
 			</div>
+			<script type='text/javascript' src='${baseurl }/assets/js/bootstrap.min.js'></script>  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
+
+
+<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script> -->
+
+ 
+<!-- Include Date Range Picker -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+
 			<script>
 				$(function() {
 
-					$('#checkIn').datetimepicker({
+					 $('#checkIn').datetimepicker({
 
 						useCurrent : false,
-						format : 'DD-MMM-YYYY hh:mm A',
+						format : 'DD-MMM-YYYY HH:mm',
 						showTodayButton : true,
 						sideBySide : true,
 						minDate : new Date(),
-						//	    showClose: true,
-						//	    showClear: true,
-						toolbarPlacement : 'top'
-
-					});
+							    showClose: true,
+							    showClear: true,
+						toolbarPlacement : 'top',
+					}); 
 					$('#checkOut').datetimepicker({
 
 						useCurrent : false,
-						format : 'DD-MMM-YYYY hh:mm A',
+						format : 'DD-MMM-YYYY HH:mm',
 						showTodayButton : true,
 						sideBySide : true,
 						minDate : new Date(),
-						//		    showClose: true,
-						//		    showClear: true,
+								    showClose: true,
+								    showClear: true,
 						toolbarPlacement : 'top'
 
-					});
+					}); 
 				});
+					/* $('#checkOut').daterangepicker({
+					    "startDate": "03/15/2018",
+					    "endDate": "03/21/2018"
+					}, function(start, end, label) {
+					  console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
+					});
+				 */
 			</script>
 
 
@@ -104,7 +124,7 @@ font-size: 12px;
 									<div class="input text required">
 										<input name="checkIn" style="width: 170px; background-color: #f3ebda;border-color: #f3ebda;" value="select Date"
 											class="form-control" title="From Date" required="required"
-											onblur="clearRate();" type="text" id="checkIn" />
+											 type="text" id="checkIn" />
 									</div>
 									<span class="input-group-addon" id="basic-addon1" style="background-color: #f3ebda;border-color: #f3ebda;">Check
 										Out <font color="red">*</font> :
@@ -112,7 +132,7 @@ font-size: 12px;
 									<div class="input text required">
 										<input name="checkOut" style="width: 170px; background-color: #f3ebda;border-color: #f3ebda;" value="select Date"
 											class="form-control" title="To Date" required="required"
-											onblur="clearRate();" type="text" id="checkOut" />
+											 type="text" id="checkOut" />
 									</div>
 								</div>
 							</div>
@@ -149,45 +169,19 @@ font-size: 12px;
 
 								</div>
 							</div>
-							<div class="rooms" id="noOfAdt" style="display: none;">
-								<div class="input-group roomplan-w">
-									<span class="input-group-addon" id="basic-addon1">No Of Adults<font color="red">*</font> :
-									</span>
-
-									<select name="numberOfAdult" required="required" 
-										class="form-control" title="Please select Country"
-										id="numberOfAdult">
-										<option value="">Select Country</option>
-										<option value="1">1</option>
-										<option value="2">2</option>
-										<option value="3">3</option>
-										</select>
-
-								</div>
+							<div class="rooms" id="noOfAdt"></div>
+														
+									<button style="margin: 0px 0px 0px 289px;" type="button" class="btn btn-success" onclick="checkDateWise();">Check Avalability</button>
+									
+									<div>
+								<h4  class="badge badge-info" style='background: teal;font-size: 15px;'>Rooms Price:</h4>
+								 <span class="badge badge-success" style='color: white;background: teal;font-size: 15px;' id="displayNoOfRooms"></span>
 							</div>
-							<div class="rooms" id="noOfChld" style="display: none;">
-								<div class="input-group roomplan-w">
-									<span class="input-group-addon" id="basic-addon1">No Of Childs<font color="red">*</font> :
-									</span>
-									<select name="max_chaild" required="required"
-										class="form-control" title="Please select Country"
-										id="max_chaild">
-										<option value="">Select Country</option>
-										<option value="1">1</option>
-										<option value="2">2</option>
-										<option value="3">3</option>
-										</select>
-
-								</div>
-							</div>
-							
-									<button style="margin: 0px 0px 0px 289px;" type="button" class="btn btn-success">Check Avalability</button>
 								
 							<div>
-								<h4  class="badge badge-info" style='background: teal;font-size: 15px;'>Rooms Price:</h4>
+								<h4  class="badge badge-info" style='background: teal;font-size: 15px;'>Total Rooms Price:</h4>
 								 <span class="badge badge-success" style='color: white;background: teal;font-size: 15px;' id="roomPrice"></span>
 							</div>
-							
 							<p class="notes">
 								* Rate will be finalised after confirmation<br />* The rates are
 								inclusive of all taxes<br />* Maximum Number of adults in a room
@@ -477,68 +471,68 @@ font-size: 12px;
 					</div>
 			</div>
 			</form:form>
-			
+			<script type='text/javascript' src='${baseurl }/js/ajax.js'></script>
 			<script type="text/javascript">
 			
 				function CheckAvailability() {
 					var roomTypeId = $("#roomTypeId").val();
 					var capacityId = $("#capacityId").val();
 					var noOfRooms = $("#noOfRooms").val();
-
+					var checkIn = $("#checkIn").val();
+					var checkOut = $("#checkOut").val();
 					var formData = new FormData();
+					
 					formData.append('roomTypeId', roomTypeId);
 					formData.append('capacityId', capacityId);
 					formData.append('noOfRooms', noOfRooms);
-
-					$.fn.makeMultipartRequest('POST', 'roomCheckAvail', false,
-							formData, false, 'text', function(data) {
+					formData.append('checkOut', checkOut);
+					formData.append('checkIn', checkIn);
+					$.fn.makeMultipartRequest('POST','roomCheckAvail', false,formData, false, 'text', function(data) {
+						$("#noOfAdt").html('');
+						var roomData=JSON.parse(data);
 						
-						$.each(JSON.parse(data), function( index, value ) {
-							 if(index =="price" ){
-								 $("#roomPrice").text(value);
-							 }
-							  if(index =="numberOfAdult" ){
-								  
-								  $("#noOfAdt").show();
-								  if(value == 1){
-									 
-									  $("#numberOfAdult option[value=1]").show();
-									  $("#numberOfAdult option[value=2]").hide();
-									  $("#numberOfAdult option[value=3]").hide();
-								  }
-								  if(value ==2){
-									  $("#numberOfAdult option[value=1]").show();
-									  $("#numberOfAdult option[value=2]").show();
-									  $("#numberOfAdult option[value=3]").hide();
-								  }
-								  if(value ==3){
-									  $("#numberOfAdult option[value=1]").show();
-									  $("#numberOfAdult option[value=2]").show();
-									  $("#numberOfAdult option[value=3]").show();
-								  }
-							  }
-							if(index =="max_chaild" ){
-								$("#noOfChld").show();
-								 // $("#roomPrice").text(value);
-								  if(value == 1){
-									  $("#max_chaild option[value=1]").show();
-									  $("#max_chaild option[value=2]").hide();
-									  $("#max_chaild option[value=3]").hide();
-								  }
-								  if(value ==2){
-									  $("#max_chaild option[value=1]").show();
-									  $("#max_chaild option[value=2]").show();
-									  $("#max_chaild option[value=3]").hide();
-								  }
-								  if(value ==3){
-									  $("#max_chaild option[value=1]").show();
-									  $("#max_chaild option[value=2]").show();
-									  $("#max_chaild option[value=3]").show();
-								  }
-							  }
+						$("#roomPrice").text(roomData.price);
+						
+						$("#displayNoOfRooms").text(roomData.sun);
+						var adultDiv='';
+						var childDiv='';
+						var rows ='';
+						for(var i=1;i<=roomData.numberOfAdult;i++)
+						{
+							adultDiv=adultDiv+'<option>'+ i; +'</option>';
+						}
+						for(var i=1;i<=roomData.max_chaild;i++)
+						{
+							console.log(i);
+							childDiv=childDiv+'<option>'+ i; +'</option>';
+						}
+						var appendDiv= '<div class="input-group nos "><span class="input-group-addon right-arrow" id="basic-addon1" style="border:1px solid #333; width:70px;">'
+						     			+'Room &nbsp;'
+						     			+i
+						     			+'</span>'
+										+'<div class="input-group roomplan-w">'
+						 				+'<span class="input-group-addon" id="basic-addon1">No Of Adults<font color="red">*</font> :'
+						 				+'</span>'
+						 				+'<select name="numberOfAdult" required="required" class="form-control" title="Please select Country" id="numberOfAdult">'
+						 				+'<option value="">Select Adults</option>'
+						 				+adultDiv
+						 				+'</select>'
+						 				+'</div>'
+						 				+'<div class="input-group roomplan-w">'
+						 				+'<span class="input-group-addon" id="basic-addon1">No Of Childs<font color="red">*</font> :'
+						 				+'</span>'
+						 				+'<select name="max_chaild" required="required" class="form-control" title="Please select Country" id="max_chaild">'
+						 				+'<option value="">Select Childs</option>'
+						 				+childDiv
+						 				+'</select>'
+						 				+'</div></div>';
+						 			
+						 	for(var i=0;i<roomData.noOfRooms;i++)
+					 		{    
+					 				console.log(i);
+					 			$("#noOfAdt").append(appendDiv);
+					 		}
 							 
-							});
-
 							});
 
 				}
@@ -588,8 +582,53 @@ font-size: 12px;
 							});
 
 				}
+				function checkDateWise() {
+					/* var roomTypeId = $("#roomTypeId").val();
+					var capacityId = $("#capacityId").val();
+					var noOfRooms = $("#noOfRooms").val();
+					var name = $("#name").val();
+					var mobileNumber = $("#mobileNumber").val();
+					var alternateMobileNumber = $("#alternateMobileNumber").val();
+					var email = $("#email").val();
+					var city = $("#city").val();
+					var address = $("#address").val();
+					var country = $("#country").val();
+					var roomPrice = $("#roomPrice").text();
+					var roomsStatus = $("#roomsStatus").val();
+					var GST = $("#GST").val();
+					var totalPrice = $("#totalPrice").val(); */
+					var checkIn = $("#checkIn").val();
+					var checkOut = $("#checkOut").val();
+					
+					
+					var formData = new FormData();
+					/* formData.append('roomTypeId', roomTypeId);
+					formData.append('capacityId', capacityId);
+					formData.append('noOfRooms', noOfRooms);
+					formData.append('name', name);
+					formData.append('mobileNumber', mobileNumber);
+					formData.append('alternateMobileNumber', alternateMobileNumber);
+					formData.append('email', email);
+					formData.append('city', city);
+					formData.append('address', address);
+					formData.append('roomPrice', roomPrice);
+					formData.append('country', country);
+					formData.append('roomsStatus', roomsStatus);
+					formData.append('totalPrice', totalPrice);
+					formData.append('GST', GST); */
+					formData.append('checkOut', checkOut);
+					formData.append('checkIn', checkIn);
+					
+					$.fn.makeMultipartRequest('POST','checkDateWise', false,
+							formData, false, 'text', function(data) {
+								console.log(data);
+								//$("#roomPrice").text(data);
 
-				function showlock(sts) {
+							});
+
+				}
+
+				/* function showlock(sts) {
 					var check_in = $('#ReservationFromDate').val();
 					var Check_out = $('#ReservationToDate').val();
 					var no_of_rooms = $('#no_of_rooms').val();
@@ -729,7 +768,7 @@ font-size: 12px;
 						jQuery(this).text('');
 
 					});
-				}
+				} */
 			</script>
 
 		<div class="col-md-4">

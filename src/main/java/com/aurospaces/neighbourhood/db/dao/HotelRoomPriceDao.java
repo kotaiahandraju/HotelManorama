@@ -1,6 +1,7 @@
 
 package com.aurospaces.neighbourhood.db.dao;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -14,6 +15,7 @@ import com.aurospaces.neighbourhood.bean.HotelRoomMasterBean;
 import com.aurospaces.neighbourhood.bean.HotelRoomPriceBean;
 import com.aurospaces.neighbourhood.bean.HotelRoomPriceHistory;
 import com.aurospaces.neighbourhood.bean.HotelRoomUserDetailsBean;
+import com.aurospaces.neighbourhood.bean.SpecialOfferPriceBean;
 import com.aurospaces.neighbourhood.daosupport.CustomConnection;
 import com.aurospaces.neighbourhood.db.basedao.BaseHotelRoomPriceDao;
 
@@ -159,4 +161,31 @@ public class HotelRoomPriceDao extends BaseHotelRoomPriceDao {
 		return null;
 		    
 		}
+	public List<SpecialOfferPriceBean> getCheckDateWiseAvailability(SpecialOfferPriceBean offerPriceBean){  
+		jdbcTemplate = custom.getJdbcTemplate();
+		 
+		 //String sql="SELECT *, DATE_FORMAT(expirydate,'%d/%m/%Y') AS expirtdate1  FROM cylindermaster";
+		 String sql =  "select *from special_offer_price where start_time >='"+offerPriceBean.getStart_time1()+"' and end_time <='"+offerPriceBean.getEnd_time1()+"'";
+		 System.out.println(sql+"sssssssss"+offerPriceBean.getCheckIn());
+		List<SpecialOfferPriceBean> retlist = jdbcTemplate.query(sql, new Object[] {},
+				ParameterizedBeanPropertyRowMapper.newInstance(SpecialOfferPriceBean.class));
+				System.out.println(retlist);
+		if (retlist.size() > 0)
+			return retlist;
+		return null;
+		    
+		}
+	
+	public List<SpecialOfferPriceBean> getDayName(Timestamp getDayName){  
+		jdbcTemplate = custom.getJdbcTemplate();
+		 
+		
+		 String sql =  "SELECT sop.*, DATE_FORMAT(sop.start_time,'%a') as getDay from special_offer_price sop where start_time=?";
+		 List<SpecialOfferPriceBean> retlist = jdbcTemplate.query(sql, new Object[] {getDayName},
+					ParameterizedBeanPropertyRowMapper.newInstance(SpecialOfferPriceBean.class));
+				System.out.println(retlist.size());
+		return retlist;
+		    
+		}
+	
 }

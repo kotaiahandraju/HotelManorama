@@ -1,6 +1,9 @@
 package com.aurospaces.neighbourhood.bean;
 
+import java.sql.Timestamp;
 import java.util.Date;
+
+import org.joda.time.DateTime;
 
 public class SpecialOfferPriceBean {
 	protected int id   = 0;
@@ -16,10 +19,42 @@ public class SpecialOfferPriceBean {
 	protected String fri ;
 	protected String sat,status;
 	protected String start_time;
-	protected String end_time,roomtypename,capacityname,specialPriceStatus;
+	protected String end_time,roomtypename,capacityname,specialPriceStatus,checkOut,checkIn;
+	protected Timestamp start_time1,end_time1;
+	protected String getDay ;
 	
 	
-
+	
+	public String getGetDay() {
+		return getDay;
+	}
+	public void setGetDay(String getDay) {
+		this.getDay = getDay;
+	}
+	public Timestamp getStart_time1() {
+		return start_time1;
+	}
+	public void setStart_time1(Timestamp start_time1) {
+		this.start_time1 = start_time1;
+	}
+	public Timestamp getEnd_time1() {
+		return end_time1;
+	}
+	public void setEnd_time1(Timestamp end_time1) {
+		this.end_time1 = end_time1;
+	}
+	public String getCheckOut() {
+		return checkOut;
+	}
+	public void setCheckOut(String checkOut) {
+		this.checkOut = checkOut;
+	}
+	public String getCheckIn() {
+		return checkIn;
+	}
+	public void setCheckIn(String checkIn) {
+		this.checkIn = checkIn;
+	}
 	public String getRoomtypename() {
 		return roomtypename;
 	}

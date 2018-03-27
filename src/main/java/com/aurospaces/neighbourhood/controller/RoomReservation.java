@@ -1,6 +1,7 @@
 package com.aurospaces.neighbourhood.controller;
 
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,6 +9,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
+import org.apache.poi.util.SystemOutLogger;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +24,7 @@ import com.aurospaces.neighbourhood.bean.HotelRoomPriceBean;
 import com.aurospaces.neighbourhood.bean.HotelRoomPriceHistory;
 import com.aurospaces.neighbourhood.bean.HotelRoomTypeBean;
 import com.aurospaces.neighbourhood.bean.HotelRoomUserDetailsBean;
+import com.aurospaces.neighbourhood.bean.SpecialOfferPriceBean;
 import com.aurospaces.neighbourhood.db.dao.HotelCapacityMasterDao;
 import com.aurospaces.neighbourhood.db.dao.HotelRoomMasterDao;
 import com.aurospaces.neighbourhood.db.dao.HotelRoomPriceDao;
@@ -110,10 +113,33 @@ public class RoomReservation {
 			ObjectMapper objectMapper=null;
 			int price=0;
 			int result=0;
+			List<SpecialOfferPriceBean> specialOfferResult=null;
+			SpecialOfferPriceBean specialOfferPriceBean=null;
+			List<SpecialOfferPriceBean> sSpecialOfferDayName=null;
 			try {
+				specialOfferPriceBean =new SpecialOfferPriceBean();
+				
 				if(roomPriceBean.getRoomTypeId() !=null  || roomPriceBean.getRoomTypeId() !="" ||  roomPriceBean.getCapacityId() !=null ||  roomPriceBean.getCapacityId() !="") {
 					priceBean=roomPriceDao.getAvailabilytyUsingRoomTypeIdAndCapacity(roomPriceBean.getRoomTypeId(), roomPriceBean.getCapacityId());
 					jsonObj=new JSONObject(priceBean);
+					specialOfferPriceBean.setStart_time1(CommonUtils.getIndainDate(roomPriceBean.getCheckIn()));
+					specialOfferPriceBean.setEnd_time1(CommonUtils.getIndainDate(roomPriceBean.getCheckOut()));
+					specialOfferResult=roomPriceDao.getCheckDateWiseAvailability(specialOfferPriceBean);
+					
+					if(specialOfferResult.size()>0 || specialOfferResult != null) {
+						sSpecialOfferDayName=roomPriceDao.getDayName(specialOfferPriceBean.getStart_time1());
+						objectMapper =new ObjectMapper();
+						String listData= objectMapper.writeValueAsString(sSpecialOfferDayName);
+						System.out.println(listData);
+						/*for(int i=0;i<listData.length();i++) {
+							System.out.println(listData+"-----2--------"+listData.indexOf(getName));
+							if(getName.equals(listData)) {
+								
+							}
+						}*/
+						
+					}
+					
 					System.out.println(jsonObj);
 //					System.out.println("----Price List---"+priceBean.toString());
 					String currentPrice= priceBean.getSun();
@@ -121,6 +147,7 @@ public class RoomReservation {
 					int iNoOfRooms=Integer.parseInt(roomPriceBean.getNoOfRooms());
 					result= iNoOfRooms * price;
 					jsonObj.put("price", result);
+					jsonObj.put("noOfRooms", roomPriceBean.getNoOfRooms());
 				}
 				
 				
@@ -148,6 +175,34 @@ public class RoomReservation {
 				roomPriceDao.roomHistory(userDetails);
 			
 			if(result) {
+				jsonObj.put("msg", "success...");
+			}else {
+				jsonObj.put("msg", "User details are not saved...");
+			}
+				
+				
+				
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+			return String.valueOf(jsonObj);
+			
+		}
+		@RequestMapping("/checkDateWise")
+		public @ResponseBody  String checkDateWise(HttpServletRequest request,@ModelAttribute SpecialOfferPriceBean offerPriceBean) {
+			HotelRoomPriceBean priceBean=null;
+			JSONObject jsonObj=null;
+			ObjectMapper objectMapper=null;
+			List<SpecialOfferPriceBean> result=null;
+			//HotelRoomUserDetailsBean userDetails =null;
+			try {
+				jsonObj =new JSONObject();
+				System.out.println("----roomUserDetails List---");
+				result=roomPriceDao.getCheckDateWiseAvailability(offerPriceBean);
+			
+			if(result !=null || result.size() >0) {
+				
 				jsonObj.put("msg", "success...");
 			}else {
 				jsonObj.put("msg", "User details are not saved...");

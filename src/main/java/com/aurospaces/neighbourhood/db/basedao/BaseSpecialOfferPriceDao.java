@@ -68,9 +68,9 @@ public class BaseSpecialOfferPriceDao {
 					ps.setString(10, specialOfferPriceBean.getFri());
 					ps.setString(11, specialOfferPriceBean.getSat());
 					ps.setString(12, specialOfferPriceBean.getStatus());
-					/*ps.setString(13, specialOfferPriceBean.getStart_time());
-					ps.setString(14, specialOfferPriceBean.getEnd_time());
-*/
+					ps.setTimestamp(13, specialOfferPriceBean.getStart_time1());
+					ps.setTimestamp(14, specialOfferPriceBean.getEnd_time1());
+
 					return ps;
 				}
 			}, keyHolder);

@@ -30,6 +30,8 @@ import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import CommonUtils.CommonUtils;
+
 @Controller
 @RequestMapping(value="/admin")
 public class SpecialOfferPriceController {
@@ -65,10 +67,18 @@ public class SpecialOfferPriceController {
 	public String saveOfferPrice(SpecialOfferPriceBean specialOfferPriceBean, HttpSession objSession,HttpServletRequest objRequest,RedirectAttributes redirect) {
 		specialOfferPriceBean.setStatus("1");
 		try {
+			
+			
+			specialOfferPriceBean.setStart_time1(CommonUtils.getIndainDate(specialOfferPriceBean.getStart_time()));
+			specialOfferPriceBean.setEnd_time1(CommonUtils.getIndainDate(specialOfferPriceBean.getEnd_time()));
+			System.out.println("---date--"+specialOfferPriceBean.getStart_time1());
 				if(specialOfferPriceBean.getId() == 0) {
+					System.out.println("---save--");
+					specialOfferPriceDao.save(specialOfferPriceBean);
 					redirect.addFlashAttribute("msg", "Record Inserted Successfully");
 					redirect.addFlashAttribute("cssMsg", "success");
 				}else {
+					System.out.println("---update--");
 					specialOfferPriceDao.save(specialOfferPriceBean);
 					redirect.addFlashAttribute("msg", "Record Updated Successfully");
 					redirect.addFlashAttribute("cssMsg", "warning");
@@ -76,6 +86,7 @@ public class SpecialOfferPriceController {
 			
 		} catch (Exception e) {
 			System.out.println("Exception in SpecialOfferPriceController Controller in saveSpecialOfferForm()");
+			e.printStackTrace();
 			redirect.addFlashAttribute("msg", "Failed");
 			redirect.addFlashAttribute("cssMsg", "danger");
 		}

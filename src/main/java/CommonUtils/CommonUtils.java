@@ -1,8 +1,13 @@
 package CommonUtils;
 
+import java.sql.Timestamp;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.UUID;
+
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 
 
 public class CommonUtils {
@@ -25,11 +30,13 @@ public class CommonUtils {
 	    String randomPIN = (x + "") + ( ((int)(Math.random()*1000)) + "" );
 	    return randomPIN;
 	}
-	public static String getIndainDate(String sDate) {
+	public static Timestamp getIndainDate(String startDate) throws ParseException {
 
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		
-		 String regDate = dateFormat.format(sDate);
-		return regDate;
+		 System.out.println("date........................."+startDate);
+		 java.text.DateFormat format1 = new java.text.SimpleDateFormat("dd-MMM-yyyy hh:mm");
+		 java.util.Date date = format1.parse(startDate);
+		 java.sql.Timestamp timestamp = new java.sql.Timestamp(date.getTime());
+		 System.out.println(timestamp);
+		return timestamp;
 	}
 }

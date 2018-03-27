@@ -18,17 +18,17 @@
 			<link rel="stylesheet" type="text/css" href="user/css/settings.css">
 			<link rel="stylesheet" type="text/css" href="user/css/jquery-ui-1.8.18.custom.css">
 			<link href="user/css/ninja-slider.css" rel="stylesheet" />
-<script src="user/js/ninja-slider.js"></script>
-<link href="user/css/thumbnail-slider.css" rel="stylesheet"
-	type="text/css" />
-<script src="user/js/thumbnail-slider.js" type="text/javascript"></script>
-
-<script type='text/javascript' src='${baseurl }/assets/js/jquery-1.10.2.min.js'></script>
+			
+			<script type='text/javascript' src='${baseurl }/assets/js/jquery-1.10.2.min.js'></script>
 			
 			<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
-			<script type='text/javascript' src="${baseurl }/js/jquery.blockUI.min.js" ></script>
 			<script type='text/javascript' src='${baseurl }/js/ajax.js'></script>
-			
+			<script type='text/javascript' src="${baseurl }/js/jquery.blockUI.min.js" ></script>
+			<script src="user/js/ninja-slider.js"></script>
+			<link href="user/css/thumbnail-slider.css" rel="stylesheet"
+				type="text/css" />
+<script src="user/js/thumbnail-slider.js" type="text/javascript"></script>
+
 			<!-- <script async="" src="user/js/analytics.js.download"></script>
 			<script type="text/javascript" src="user/js/jquery.js.download"></script>
 			<script type="text/javascript" src="user/js/bootstrap.min.js.download"></script>
@@ -526,23 +526,6 @@ span{font-style: italic;color: black;}
 			</style>
 			
 			
-			<script>
-  $( function() {
-    $( "#datepicker" ).datepicker({
-      showOtherMonths: true,
-      selectOtherMonths: true
-    });
-  } );
-  </script>
-  <script>
-  $(document).ready(function () {
-  $(".navbar-nav li a").click(function(event) {
-    $(".navbar-collapse").collapse('hide');
-  });
-});
-  </script>
-  
-  
 	</head>
 	<body style="background: transparent;">
 		
@@ -566,50 +549,7 @@ span{font-style: italic;color: black;}
 		jQuery('#weather').hide();
     }
 </script>
-<script type="text/javascript">
-   
-	var tpj1=jQuery;
-    
-tpj1(document).ready(function(){
 
-var cyear = new Date().getFullYear();
-var endyear =parseInt(cyear)+5; 
-	
-	tpj1("#date_starting").datepicker({
-
-		numberOfMonths: 1,
-		dateFormat: 'yy-mm-dd',
-		changeMonth: true,
-        changeYear: true,
-         minDate : 0,
-        yearRange: cyear+':' + endyear,
-		onSelect: function(selected) { 
-			tpj1("#date_ending").datepicker("option","minDate", selected) 
-		} 
-	});
-	
-	
-	tpj1("#date_ending").datepicker({	
-		numberOfMonths: 1,
-		dateFormat: 'yy-mm-dd',
-		changeMonth: true,
-        changeYear: true,
-        yearRange: cyear+':' + endyear,
-		onSelect: function(selected) {
-			tpj1("#date_starting").datepicker("option","maxDate", selected) 
-		}
-	
-	}); 
-
-});
-
-
-function subForm()
-{
-    document.getElementById("checkAv").submit();
-}
-
-</script>
 
 <div class="container-fluid" style="margin: 0px; padding-left: 0px; padding-right: 0px;">
  <div class="row padding_0 usehd" style="background: transparent; margin: 0px;">

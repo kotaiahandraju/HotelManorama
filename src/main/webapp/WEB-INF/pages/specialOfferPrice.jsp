@@ -157,7 +157,11 @@
                     </div></form:form>
     </div>
     </div></div></div>
-
+<script type='text/javascript' src='${baseurl }/assets/js/bootstrap.min.js'></script>  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
 <script type="text/javascript">
 var listOrders1 =${allOrders1};
 
@@ -280,7 +284,7 @@ $(function() {
 					$('#start_time').datetimepicker({
 
 						useCurrent : false,
-						format : 'DD-MMM-YYYY hh:mm A',
+						format : 'DD-MMM-YYYY HH:mm',
 						showTodayButton : true,
 						sideBySide : true,
 						minDate : new Date(),
@@ -292,7 +296,7 @@ $(function() {
 					$('#end_time').datetimepicker({
 
 						useCurrent : false,
-						format : 'DD-MMM-YYYY hh:mm A',
+						format : 'DD-MMM-YYYY HH:mm',
 						showTodayButton : true,
 						sideBySide : true,
 						minDate : new Date(),

@@ -1,6 +1,7 @@
 package com.aurospaces.neighbourhood.bean;
 
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class HotelRoomPriceBean 
@@ -16,11 +17,49 @@ protected String tue ;
 protected String wed ;
 protected String thu ;
 protected String fri ;
-protected String sat,status,roomPriceStatus,capacityname,roomtypename,noOfRooms,created_time1,updated_time1,numberOfAdult,max_chaild;
+protected String sat,status,roomPriceStatus,capacityname,roomtypename,noOfRooms,created_time1,updated_time1,numberOfAdult,max_chaild,checkOut,checkIn;
+protected String end_time,start_time;
+protected Timestamp start_time1,end_time1;
 
 
 
 
+public Timestamp getStart_time1() {
+	return start_time1;
+}
+public void setStart_time1(Timestamp start_time1) {
+	this.start_time1 = start_time1;
+}
+public Timestamp getEnd_time1() {
+	return end_time1;
+}
+public void setEnd_time1(Timestamp end_time1) {
+	this.end_time1 = end_time1;
+}
+public String getCheckOut() {
+	return checkOut;
+}
+public void setCheckOut(String checkOut) {
+	this.checkOut = checkOut;
+}
+public String getEnd_time() {
+	return end_time;
+}
+public void setEnd_time(String end_time) {
+	this.end_time = end_time;
+}
+public String getStart_time() {
+	return start_time;
+}
+public void setStart_time(String start_time) {
+	this.start_time = start_time;
+}
+public String getCheckIn() {
+	return checkIn;
+}
+public void setCheckIn(String checkIn) {
+	this.checkIn = checkIn;
+}
 public String getNumberOfAdult() {
 	return numberOfAdult;
 }

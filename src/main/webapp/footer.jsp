@@ -100,14 +100,19 @@
    <script type='text/javascript' src='${baseurl }/assets/js/jqueryui-1.10.3.min.js'></script> 
 
 
+  <script type='text/javascript' src='${baseurl }/js/customValidation.js'></script> 
+<%--   <script type='text/javascript' src='${baseurl }/js/ajax.js'></script> --%>
+<script type='text/javascript' src="${baseurl }/js/jquery.blockUI.min.js" ></script>
 
-<script type='text/javascript' src='${baseurl }/assets/js/bootstrap.min.js'></script>  
+<%-- <script type='text/javascript' src='${baseurl }/assets/js/bootstrap.min.js'></script>  
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script> --%>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
 	</body>
 </html>
