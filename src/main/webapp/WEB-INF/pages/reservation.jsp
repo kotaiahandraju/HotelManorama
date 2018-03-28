@@ -41,8 +41,8 @@ font-size: 12px;
   </svg>
 
 			</div>
-			<script type='text/javascript' src='${baseurl }/assets/js/bootstrap.min.js'></script>  
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+			<script type='text/javascript' src='${baseurl }/assets/js/bootstrap.min.js'></script>  
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
@@ -57,30 +57,29 @@ font-size: 12px;
 
 			<script>
 				$(function() {
-
-					 $('#checkIn').datetimepicker({
-
+					$("#checkOut").datetimepicker({
 						useCurrent : false,
 						format : 'DD-MMM-YYYY HH:mm',
 						showTodayButton : true,
-						sideBySide : true,
-						minDate : new Date(),
-							    showClose: true,
-							    showClear: true,
-						toolbarPlacement : 'top',
-					}); 
-					$('#checkOut').datetimepicker({
-
-						useCurrent : false,
-						format : 'DD-MMM-YYYY HH:mm',
-						showTodayButton : true,
-						sideBySide : true,
+// 						sideBySide : true,
 						minDate : new Date(),
 								    showClose: true,
 								    showClear: true,
-						toolbarPlacement : 'top'
+// 						toolbarPlacement : 'top'
 
 					}); 
+
+					 $("#checkIn").datetimepicker({
+						useCurrent : false,
+						format : 'DD-MMM-YYYY HH:mm',
+						showTodayButton : true,
+// 						sideBySide : true,
+						minDate : new Date(),
+							    showClose: true,
+							    showClear: true,
+// 						toolbarPlacement : 'top'
+					}); 
+					
 				});
 					/* $('#checkOut').daterangepicker({
 					    "startDate": "03/15/2018",
@@ -123,33 +122,22 @@ font-size: 12px;
 									</span>
 									<div class="input text required">
 										<input name="checkIn" style="width: 170px; background-color: #f3ebda;border-color: #f3ebda;" value="select Date"
-											class="form-control" title="From Date" required="required"
-											 type="text" id="checkIn" />
+											class="form-control validate" title="From Date" required="required" onkeydown="removeBorder(this.id);"	 type="text" id="checkIn" />
 									</div>
-									<span class="input-group-addon" id="basic-addon1" style="background-color: #f3ebda;border-color: #f3ebda;">Check
-										Out <font color="red">*</font> :
+									<span class="input-group-addon" id="basic-addon1" style="background-color: #f3ebda;border-color: #f3ebda;">Check Out <font color="red">*</font> :
 									</span>
 									<div class="input text required">
 										<input name="checkOut" style="width: 170px; background-color: #f3ebda;border-color: #f3ebda;" value="select Date"
-											class="form-control" title="To Date" required="required"
-											 type="text" id="checkOut" />
+											class="form-control validate" title="To Date" required="required" onkeydown="removeBorder(this.id);" type="text" id="checkOut" />
 									</div>
 								</div>
 							</div>
-							<div class="rooms">
-								<div class="input-group roomplan-w">
-									<span class="input-group-addon" id="basic-addon1">How
-										Many Rooms<font color="red">*</font> :
-									</span> <input name="noOfRooms" class="form-control validate"
-										id="noOfRooms" />
-								</div>
-							</div>
+						
 							<div class="rooms">
 								<div class="input-group roomplan-w">
 									<span class="input-group-addon" id="basic-addon1">Room
 										Type :</span>
-									<form:select path="roomTypeId" class="form-control validate"
-										onfocus="removeBorder(this.id);">
+									<form:select path="roomTypeId" class="form-control validate"	onfocus="removeBorder(this.id);" onchange="getAdults()">
 										<form:option value="">-- Select Room Type --</form:option>
 										<form:options items="${roomtype }"></form:options>
 									</form:select>
@@ -157,16 +145,27 @@ font-size: 12px;
 							</div>
 							<div class="rooms">
 								<div class="input-group roomplan-w">
-									<span class="input-group-addon" id="basic-addon1">Room
-										Capacity<font color="red">*</font> :
+									<span class="input-group-addon" id="basic-addon1">Room		Capacity<font color="red">*</font> :
 									</span>
 
-									<form:select path="capacityId" class="form-control validate"
-										onfocus="removeBorder(this.id);" onchange="CheckAvailability();">
+									<form:select path="capacityId" class="form-control validate" onfocus="removeBorder(this.id);" onchange="getAdults()" >
 										<form:option value="">-- Select Room Capacity --</form:option>
 										<form:options items="${capacity }"></form:options>
 									</form:select>
 
+								</div>
+							</div>
+								<div class="rooms">
+								<div class="input-group roomplan-w">
+									<span class="input-group-addon" id="basic-addon1">How Many Rooms<font color="red">*</font> :
+									</span> 
+									<select name="noOfRooms" class="form-control validate" onfocus="removeBorder(this.id);"	id="noOfRooms" onchange="getAdults()" >
+									<option value="">-- Select How Many Rooms --</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									</select>
 								</div>
 							</div>
 							<div class="rooms" id="noOfAdt"></div>
@@ -473,7 +472,64 @@ font-size: 12px;
 			</form:form>
 			<script type='text/javascript' src='${baseurl }/js/ajax.js'></script>
 			<script type="text/javascript">
-			
+			function getAdults(){
+				var roomTypeId = $("#roomTypeId").val();
+				var capacityId = $("#capacityId").val();
+				var noOfRooms = $("#noOfRooms").val();
+				if(roomTypeId !=null && roomTypeId !='' && roomTypeId != "undefined" && 
+					capacityId !=null && capacityId !='' && capacityId != "undefined" && 
+					noOfRooms !=null && noOfRooms !='' && noOfRooms != "undefined"){
+					var formData = new FormData();
+					formData.append('roomTypeId', roomTypeId);
+					formData.append('capacityId', capacityId);
+					formData.append('noOfRooms', noOfRooms);
+					$.fn.makeMultipartRequest('POST','getAdults', false,formData, false, 'text', function(data) {
+						$("#noOfAdt").html('');
+						var roomData=JSON.parse(data);
+						alert(roomData.maxchaild);
+						alert(roomData.numberOfAdult);
+						var adultDiv='';
+						var childDiv='';
+						var rows ='';
+						for(var i=1;i<=roomData.numberOfAdult;i++)
+						{
+							adultDiv=adultDiv+'<option>'+ i; +'</option>';
+						}
+						for(var i=1;i<=roomData.maxchaild;i++)
+						{
+							console.log(i);
+							childDiv=childDiv+'<option>'+ i; +'</option>';
+						}
+						
+						 			
+						 	for(var i=1;i<=noOfRooms;i++)
+					 		{    
+						 		var appendDiv= '<div class="input-group nos "><span class="input-group-addon right-arrow" id="basic-addon1" style="border:1px solid #333; width:70px;">'
+					     			+'Room &nbsp;'
+					     			+i
+					     			+'</span>'
+									+'<div class="input-group roomplan-w">'
+					 				+'<span class="input-group-addon" id="basic-addon1">No Of Adults<font color="red">*</font> :'
+					 				+'</span>'
+					 				+'<select name="numberOfAdult" required="required" class="form-control" title="Please select Country" id="numberOfAdult">'
+					 				+'<option value="">Select Adults</option>'
+					 				+adultDiv
+					 				+'</select>'
+					 				+'</div>'
+					 				+'<div class="input-group roomplan-w">'
+					 				+'<span class="input-group-addon" id="basic-addon1">No Of Childs<font color="red">*</font> :'
+					 				+'</span>'
+					 				+'<select name="max_chaild" required="required" class="form-control" title="Please select Country" id="max_chaild">'
+					 				+'<option value="">Select Childs</option>'
+					 				+childDiv
+					 				+'</select>'
+					 				+'</div></div>';
+					 			$("#noOfAdt").append(appendDiv);
+					 		}
+							 
+					});
+				}
+			}
 				function CheckAvailability() {
 					var roomTypeId = $("#roomTypeId").val();
 					var capacityId = $("#capacityId").val();

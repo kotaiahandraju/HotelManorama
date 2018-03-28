@@ -1,6 +1,6 @@
 	<div class="container padding_0">
             	 <div class="col-md-12 col-sm-12 col-xs-12 padding_0 text-center-xs text-center-sm padding_TB_02">    
-                 	<strong>Hotel Manorama, Business class hotel</strong> - Luxury Accommodation at Vijayawada - a perfect destination for business travelers or tourists traveling to Vijayawada.
+                 	<strong>Hotel Manorama, Business class hotel</strong> - Luxury Accommodation at Vijayawada & Hyderabad - a perfect destination for business travelers or tourists traveling to Vijayawada & Hyderabad.
                  </div>
                 </div>
         <div class="row footCon_Warp bdr_Top padding_0" style="margin-left: 0px; margin-right: 0px;">        	 
@@ -51,43 +51,12 @@
                                 	 <a href="enquiry.jsp" title="Enquiry" alt="Enquiry" class="footMore">Enquiry</a><br>
                                 	<a href="facilities.jsp" title="Facilities" alt="Facilities" class="footMore">Facilities</a>   <br>                                 
                                    
-                                    <a href="reservation.jsp" title="Reservations" class="footMore">Reservation</a>  <br>
+                                    <a href="userRoomReservation" title="Reservations" class="footMore">Reservation</a>  <br>
                                     <a href="contact.jsp" title="Contact Us" alt="Contact Us" class="footMore">Contact Us</a><br>
                                    
                         		  </div>
                             
                             </div>
-                             <!--Three End-->
-                            <div class="col-md-3 col-sm-12 col-xs-12 padding_0  pull-right bdr_Top_02">
-                     			<!--web_Social_F start-->
-                               					 <div class="web_Social_F">
-                                                 		
-                                                 	 	<div class="tweet_F">
-                                                        <a href="http://www.twitter.com/" target="_blank" title="Hotel Manorama on Twitter">&nbsp;
-                                                        </a>
-                                                         </div>
-                                                        <div class="fb_F">
-                                                        <a href="http://www.facebook.com/" target="_blank" title="Find us Facebook">&nbsp;
-                                                        </a>
-                                                        </div>
-                                                        <div class="linkdin_F">
-                                                        <a href="http://www.linkedin.com/" target="_blank" title="Hotel Manorama on linkedin">&nbsp;
-                                                        </a>
-                                                        </div>
-                                                        <div class="gplus_F">
-                                                        <a href="https://plus.google.com/+googleplus/posts/8C5oKFUKLVs" target="_blank" title="Hotel Manorama on Google +">&nbsp;
-                                                        </a>
-                                                        </div>
-                                                        
-                                                 </div>
-                               				 <!--web_Social_F End-->
-                                            <!-- powered_F start-->
-                                             <div class="powered_F">
-                                             	 <!--	Powered By : <a href="http://www.windsonline.com/" class="footMore" target="_blank">Winds Online</a> -->
-                                             
-                                             </div>
-                                             <!-- powered_F End-->
-                     		</div>
                      </div>
                      <!--foot 2Nd End-->
                 
@@ -100,19 +69,18 @@
    <script type='text/javascript' src='${baseurl }/assets/js/jqueryui-1.10.3.min.js'></script> 
 
 
-  <script type='text/javascript' src='${baseurl }/js/customValidation.js'></script> 
-<%--   <script type='text/javascript' src='${baseurl }/js/ajax.js'></script> --%>
-<script type='text/javascript' src="${baseurl }/js/jquery.blockUI.min.js" ></script>
 
-<%-- <script type='text/javascript' src='${baseurl }/assets/js/bootstrap.min.js'></script>  
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script> --%>
+<script type='text/javascript' src='${baseurl }/assets/js/bootstrap.min.js'></script>  
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script> -->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
+
+
+  <script type='text/javascript' src='${baseurl }/js/customValidation.js'></script> 
+<script type='text/javascript' src="${baseurl }/js/jquery.blockUI.min.js" ></script>
 	</body>
 </html>

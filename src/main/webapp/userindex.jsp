@@ -1,40 +1,31 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Hotel Manorama</title>
-<meta name="keywords" content="Home">
-<meta name="description" content="Home">
-
-<link rel="stylesheet" type="text/css" href="user/css/bootstrap.css">
-<link rel="stylesheet" type="text/css"
-	href="user/css/bootstrap-theme.css">
-<link rel="stylesheet" type="text/css" href="user/css/style.css">
-<link rel="stylesheet" type="text/css"
-	href="user/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="user/css/style_banner.css">
-<link rel="stylesheet" type="text/css" href="user/css/settings.css">
-<link rel="stylesheet" type="text/css"
-	href="user/css/jquery-ui-1.8.18.custom.css">
-
-<script async="" src="user/js/analytics.js.download"></script>
-<script type="text/javascript" src="user/js/jquery.js.download"></script>
-<script type="text/javascript" src="user/js/bootstrap.min.js.download"></script>
-<script type="text/javascript" src="user/js/docs.min.js.download"></script>
-<script type="text/javascript"
-	src="user/js/jquery.themepunch.plugins.min.js.download"></script>
-<script type="text/javascript"
-	src="user/js/jquery.themepunch.revolution.min.js.download"></script>
-<script type="text/javascript"
-	src="user/js/jquery-ui-1.8.21.custom.min.js.download"></script>
-<script type="text/javascript"
-	src="user/js/preview-fullwidth.js.download"></script>
-<script type="text/javascript"
-	src="user/js/jquery-ui-1.8.18.custom.min.js.download"></script>
-<style>
-@font-face {
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Hotel Manorama</title>
+        <meta name="keywords" content="Home">
+            <meta name="description" content="Home">
+			
+			<link rel="stylesheet" type="text/css" href="user/css/bootstrap.css">
+			<link rel="stylesheet" type="text/css" href="user/css/bootstrap-theme.css">
+			<link rel="stylesheet" type="text/css" href="user/css/style.css">
+			<link rel="stylesheet" type="text/css" href="user/css/font-awesome.min.css">
+			<link rel="stylesheet" type="text/css" href="user/css/style_banner.css">
+			<link rel="stylesheet" type="text/css" href="user/css/settings.css">
+			<link rel="stylesheet" type="text/css" href="user/css/jquery-ui-1.8.18.custom.css">
+			<link href="user/css/ninja-slider.css" rel="stylesheet" />
+<script src="user/js/ninja-slider.js"></script>
+<link href="user/css/thumbnail-slider.css" rel="stylesheet"
+	type="text/css" />
+<script src="user/js/thumbnail-slider.js" type="text/javascript"></script>
+			
+			<script async="" src="user/js/analytics.js.download"></script>
+			<script type="text/javascript" src="user/js/jquery.js"></script>
+			<script type="text/javascript" src="user/js/bootstrap.min.js.download"></script>
+			<script type="text/javascript" src="user/js/jquery.themepunch.plugins.min.js.download"></script>
+			<script type="text/javascript" src="user/js/jquery.themepunch.revolution.min.js.download"></script>
+			<style>
+			@font-face {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     src:url(../fonts/Oxygen-Regular.ttf) format('truetype');
 }
@@ -189,7 +180,7 @@
 }
 .grid-top {
   float: left;
-  width: 50%;
+  width: 25%;
 }
 .sed-top {
   float: left;
@@ -517,222 +508,128 @@ p.footer-in {
 }
 a{text-decoration: none;}
 span{font-style: italic; color: black;}
-</style>
 
+			</style>
+			
+  
+	</head>
+	<body style="background: transparent;">
+		
 
-<script>
-	$(function() {
-		$("#datepicker").datepicker({
-			showOtherMonths : true,
-			selectOtherMonths : true
-		});
-	});
-</script>
-</head>
+<div class="container-fluid" style="margin: 0px; padding-left: 0px; padding-right: 0px;">
+ <div class="row padding_0 usehd" style="background: transparent; margin: 0px;">
+ <nav class="navbar navbar-inverse navbar-top" style="background: tomato;" >
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <a class="navbar-brand" href="userindex.jsp" style="color: white; font-size: 36px; height: 83px;">
+	  <img src="user/img/logo.png" class="img-responsive"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar" style='margin: 0px 0px 0px 200px;'>
+      <ul class="nav navbar-nav" style="background: none;">
+        <li style='text-align: right;'><a href="userindex.jsp" style="color: white;">Home</a></li>
+		<li style='text-align: right;'><a href="about.jsp" style="color: white;">About Us</a></li>
+        <li style='text-align: right;'><a href="userRoomTariff" style="color: white;">Room & Tariff</a></li>
+        <li style='text-align: right;'><a href="facilities.jsp" style="color: white;">Facilities</a></li> 
+        <li style='text-align: right;'><a href="contact.jsp" style="color: white;">Contact Us</a></li> 
+		<li style='text-align: right;'><a href="login.jsp" style="color: white;">Login</a></li>  
+      </ul>      
+    </div>
+  </div>
+</nav>
+        </div>     
+       </div>    
+	   
+ <div id="myCarousel" class="carousel slide" data-ride="carousel">
+   
+ <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+	  <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
 
-<body style="background: transparent;">
+   
+    <div class="carousel-inner">
+      <div class="item active">
+        <img src="user/img/droom1.jpg" alt="Los Angeles" style="width:100%;">
+      </div>
 
-
-	<script type="text/javascript">
-		function toggle_visibility(id) {
-
-			var e = document.getElementById(id);
-			if (e.style.display == 'block')
-				e.style.display = 'none';
-			else
-				e.style.display = 'block';
-		}
-
-		function getDiv() {
-			jQuery('#weather').show();
-		}
-
-		function hidediv() {
-			jQuery('#weather').hide();
-		}
-	</script>
-	<script type="text/javascript">
-		var tpj1 = jQuery;
-
-		tpj1(document).ready(
-				function() {
-
-					var cyear = new Date().getFullYear();
-					var endyear = parseInt(cyear) + 5;
-
-					tpj1("#date_starting").datepicker(
-							{
-
-								numberOfMonths : 1,
-								dateFormat : 'yy-mm-dd',
-								changeMonth : true,
-								changeYear : true,
-								minDate : 0,
-								yearRange : cyear + ':' + endyear,
-								onSelect : function(selected) {
-									tpj1("#date_ending").datepicker("option",
-											"minDate", selected)
-								}
-							});
-
-					tpj1("#date_ending").datepicker(
-							{
-								numberOfMonths : 1,
-								dateFormat : 'yy-mm-dd',
-								changeMonth : true,
-								changeYear : true,
-								yearRange : cyear + ':' + endyear,
-								onSelect : function(selected) {
-									tpj1("#date_starting").datepicker("option",
-											"maxDate", selected)
-								}
-
-							});
-
-				});
-
-		function subForm() {
-			document.getElementById("checkAv").submit();
-		}
-	</script>
-
-	<div class="container-fluid"
-		style="margin: 0px; padding-left: 0px; padding-right: 0px;">
-		<div class="row padding_0 usehd"
-			style="background: transparent; margin: 0px;">
-			<nav class="navbar navbar-inverse navbar-top"
-				style="background: tomato;">
-				<div class="container">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse"
-							data-target="#myNavbar">
-							<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-								class="icon-bar"></span>
-						</button>
-						<a class="navbar-brand" href="userindex.jsp"
-							style="color: white; font-size: 36px; height: 83px;"> <img
-							src="user/img/logo2.png" class="img-responsive"></a>
-					</div>
-					<div class="collapse navbar-collapse" id="myNavbar">
-						<ul class="nav navbar-nav" style="background: none;">
-							<li>&nbsp;</li>
-							<li>&nbsp;</li>
-							<li>&nbsp;</li>
-							<li>&nbsp;</li>
-							<li><a href="userindex.jsp" style="color: white;">Home</a></li>
-							<li><a href="about.jsp" style="color: white;">About Us</a></li>
-							<li><a href="userRoomTariff" style="color: white;">Room	& Tariff</a></li>
-							<li><a href="facilities.jsp" style="color: white;">Facilities</a></li>
-							<li><a href="gallery.jsp" style="color: white;">Gallery</a></li>
-							<li><a href="contact.jsp" style="color: white;">Contact
-									Us</a></li>
-							<li><a href="login.jsp" style="color: white;">Login</a></li>
-						</ul>
-					</div>
-				</div>
-			</nav>
-		</div>
-	</div>
-
-	<div id="myCarousel" class="carousel slide" data-ride="carousel">
-
-		<ol class="carousel-indicators">
-			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-			<li data-target="#myCarousel" data-slide-to="1"></li>
-			<li data-target="#myCarousel" data-slide-to="2"></li>
-		</ol>
-
-
-		<div class="carousel-inner">
-			<div class="item active">
-				<img src="user/img/droom1.jpg" alt="Los Angeles"
-					style="width: 100%;">
-			</div>
-
-			<div class="item">
-				<img src="user/img/restaurent.png" alt="Chicago"
-					style="width: 100%;">
-			</div>
-
-
-			<div class="item">
-				<img src="user/img/dining.png" alt="Insia" style="width: 100%;">
-			</div>
-		</div>
-	</div>
-
-	<!-- <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <div class="item">
+        <img src="user/img/restaurent.png" alt="Chicago" style="width:100%;">
+      </div>
+    
+	
+	<div class="item">
+        <img src="user/img/dining.png" alt="Insia" style="width:100%;">
+      </div>
+    </div>
+</div>
+    
+   <!-- <a class="left carousel-control" href="#myCarousel" data-slide="prev">
       
     </a>
     <a class="right carousel-control" href="#myCarousel" data-slide="next">
       
     </a> -->
-	</div>
-
-	<!-- <img src="img/droom1.png" class="img-responsive" style=" width: 100%; height: 400px;">-->
-
-	<div class="row"
-		style="background: wheat; margin-left: 0px; margin-right: 0px;">
-
-		<div class="col-md-12 col-sm-12 col-xs-12">
-			<div
-				class="col-md-2 col-sm-12 col-xs-12 text-center-xs text-center-sm padding_0">
-
-				<img src="user/img/bookingHome.png" class="responsive_02"
-					title="Hotel Manorama" alt="Hotel Manorama">
-			</div>
-
-			<form method="post" action="reservation.html" id="checkAv">
-				<div class="col-md-3 col-sm-12 col-xs-12 homeBook padding_0">
-					<div
-						class="col-md-3 col-xs-3 col-sm-2 text-right-md text-center-xs text-center-sm padding_TB_01">
-						Name</div>
-					<div class="col-md-9 col-xs-9 col-sm-10 pull-right padding_0">
-						<input type="text" name="na" id="na" placeholder="Name Here">
-					</div>
-
-				</div>
-				<div class="col-md-3 col-sm-12 col-xs-12 homeBook padding_0">
-					<div
-						class="col-md-5 col-xs-3 col-sm-2 text-right-md text-center-xs text-center-sm padding_TB_01">
-						Check in Date</div>
-					<div class="col-md-7 col-xs-9 col-sm-10 pull-right padding_0">
-						<input name="from_date" id="datepicker" type="text"
-							class="dateBg hasDatepicker" placeholder="DD/MM/YYYY"
-							readonly="readonly">
-					</div>
-
-				</div>
-				<div class="col-md-3 col-sm-12 col-xs-12 homeBook padding_0">
-					<div
-						class="col-md-5 col-xs-3 col-sm-2 text-right-md text-center-xs text-center-sm padding_TB_01">
-						Departure Date</div>
-					<div class="col-md-7 col-xs-9 col-sm-10 pull-right padding_0">
-						<input name="to_date" id="datepicker" type="text"
-							class="dateBg hasDatepicker" value="DD/MM/YYYY"
-							readonly="readonly">
-					</div>
-
-				</div>
-				<div
-					class="col-md-1 col-sm-12 col-xs-12 homeBook padding_0 text-right-md text-right-lg text-right-xs text-right-sm">
-					<img src="user/img/checkavailability.png" alt="Manorama"
-						class="responsive_02 margin_TB_01" onclick="subForm();">
-					<!-- <input type="image" src="/img/checkavailability.png" alt="Submit" class="responsive_02 margin_TB_01" />-->
-				</div>
-			</form>
-		</div>
-	</div>
-	<br>
-
-	<div class="container">
+  </div>
+			
+<!-- <img src="img/droom1.png" class="img-responsive" style=" width: 100%; height: 400px;">-->
+			
+				 <div class="row" style="background: wheat; margin-left: 0px; margin-right: 0px;">
+                	
+                	 <div class="col-md-12 col-sm-12 col-xs-12">                    
+                     	<div class="col-md-2 col-sm-12 col-xs-12 text-center-xs text-center-sm padding_0">
+                        
+                        	<img src="user/img/bookingHome.png" class="responsive_02" title="Hotel Manorama" alt="Hotel Manorama">  
+                        </div>
+                       
+                          <form method="post" action="reservation.html" id="checkAv">
+                           <div class="col-md-3 col-sm-12 col-xs-12 homeBook padding_0">
+                        	<div class="col-md-3 col-xs-3 col-sm-2 text-right-md text-center-xs text-center-sm padding_TB_01">
+                            	Name
+                            </div>
+                            <div class="col-md-9 col-xs-9 col-sm-10 pull-right padding_0">                            	
+                                <input type="text" name="na" id="na" placeholder="Name Here">
+                            </div>
+                        	
+                        </div>
+                                     <div class="col-md-3 col-sm-12 col-xs-12 homeBook padding_0">
+                                    	<div class="col-md-5 col-xs-3 col-sm-2 text-right-md text-center-xs text-center-sm padding_TB_01">
+                                        	Check in Date
+                                        </div>
+                                        <div class="col-md-7 col-xs-9 col-sm-10 pull-right padding_0">                            	
+                                             <input name="from_date" id="datepicker" type="text" class="dateBg hasDatepicker" placeholder="DD/MM/YYYY">
+                                        </div>
+                                    	
+                                    </div>
+                                     <div class="col-md-3 col-sm-12 col-xs-12 homeBook padding_0">
+                                    	<div class="col-md-5 col-xs-3 col-sm-2 text-right-md text-center-xs text-center-sm padding_TB_01">
+                                        	Departure Date
+                                        </div>
+                                        <div class="col-md-7 col-xs-9 col-sm-10 pull-right padding_0">
+                                        	 <input name="date" id="datepicker" type="text" class="dateBg hasDatepicker" value="DD/MM/YYYY" >
+                                        </div>
+                                    	
+                                   	 </div>
+                                     <div class="col-md-1 col-sm-12 col-xs-12 homeBook padding_0 text-right-md text-right-lg text-right-xs text-right-sm">
+                                     <img src="user/img/checkavailability.png" alt="Manorama" class="responsive_02 margin_TB_01" onclick="subForm();">
+                                    </div>  
+                          </form>                
+                     </div>
+                </div>    
+<br>
+		<div class="container">
 			<div class="content-top">
 				<div class="top-content">
 				<h1>Our Services</h1>
 			</div>
 			<div class="content-top1">			
 			  <div class=" col-md-1 col-md-offset-1  grid-top">
-				<a href="userRoomTariff" style='text-decoration: none;'>
+				<a href="roomtariff.jsp" style='text-decoration: none;'>
 				 <img src='user/icons/list.png' style='width: 55px;' alt=''></img>
 				  <div class="top-grid">
 					<span>Rooms</span>
@@ -816,154 +713,111 @@ span{font-style: italic; color: black;}
 		</div>
 		</div>
 
-	<div class="container padding_0">
-		<div
-			class="col-md-12 col-sm-12 col-xs-12 padding_0 text-center-xs text-center-sm padding_TB_02">
-			<strong>Hotel Manorama, Business class hotel</strong> - Luxury
-			Accommodation at Vijayawada - a perfect destination for business
-			travelers or tourists traveling to Vijayawada.
-		</div>
-	</div>
-	<div class="row footCon_Warp bdr_Top padding_0"
-		style="margin-left: 0px; margin-right: 0px;">
-		<div class="row margin_0" style="margin-left: 0px; margin-right: 0px;">
-			<!--container start-->
-			<div class="container footPadd01 paddingLR_0">
-				<!--foot LEft start-->
-				<div class="col-md-3 col-sm-12 col-xs-12 padding_0">
-					<div class="footLogo text-center-xs text-center-sm">
-
-						<!-- <a href="http://www.hotelManorama.com/"><img src="img/icon.png" title="Hotel Manorama" alt="Hotel Manorama"></a>  -->
-					</div>
-					<div class="allreserve padding_0 text-center-xs text-center-sm">
-						© 2014 Hotel Manorama. All rights reserved.</div>
-
-				</div>
-				<!--foot LEft End-->
-				<!--foot 2Nd start-->
-				<div
-					class="col-md-8 col-sm-12 col-xs-12 pull-right padding_0 col-md-offset-1 col-sm-offset-0 col-xs-offset-0 pull-right">
-					<!--One Start-->
-					<div class="col-md-3 col-sm-12 col-xs-12 padding_0">
-						<div class="footItem">
-							<a href="about.jsp" title="About Us" alt="About Us"
-								class="footMore">About Us</a> <br> <a href="reach.jsp"
-								title="How to Reach" alt="How to reach" class="footMore">How
-								to Reach</a> <br> <a href="attractions.jsp" title="Attractions"
-								alt="Attractions" class="footMore">Attractions</a> <br> <a
-								href="offers.jsp" title="Offers" alt="Offers" class="footMore">Offers</a>
-
-						</div>
-
-					</div>
-					<!--One End-->
-					<!--Two Start-->
-					<div class="col-md-3 col-sm-12 col-xs-12 padding_0">
-						<div class="footItem">
-							<a href="gallery.jsp" title="Gallery" class="footMore">Gallery</a><br>
-							<a href="meetings.jsp" title="Meetings" class="footMore">Meetings</a><br>
-							<a href="dining.jsp" title="Dining" alt="Dining" class="footMore">Dining</a><br>
-							<a href="careers.jsp" title="Careers" alt="Careers"
-								class="footMore">Careers</a><br>
-
-						</div>
-
-					</div>
-					<!--Two End-->
-					<!--Three Start-->
-					<div class="col-md-2 col-sm-12 col-xs-12 padding_0">
-						<div class="footItem">
-							<a href="enquiry.jsp" title="Enquiry" alt="Enquiry"
-								class="footMore">Enquiry</a><br> <a href="facilities.jsp"
-								title="Facilities" alt="Facilities" class="footMore">Facilities</a>
-							<br> <a href="userRoomReservation" title="Reservations"
-								class="footMore">Reservation</a> <br> <a href="contact.jsp"
-								title="Contact Us" alt="Contact Us" class="footMore">Contact
-								Us</a><br>
-
-						</div>
-
-					</div>
-					<!--Three End-->
-					<div
-						class="col-md-3 col-sm-12 col-xs-12 padding_0  pull-right bdr_Top_02">
-						<!--web_Social_F start-->
-						<div class="web_Social_F">
-
-							<div class="tweet_F">
-								<a href="http://www.twitter.com/" target="_blank"
-									title="Hotel Manorama on Twitter">&nbsp; </a>
-							</div>
-							<div class="fb_F">
-								<a href="http://www.facebook.com/" target="_blank"
-									title="Find us Facebook">&nbsp; </a>
-							</div>
-							<div class="linkdin_F">
-								<a href="http://www.linkedin.com/" target="_blank"
-									title="Hotel Manorama on linkedin">&nbsp; </a>
-							</div>
-							<div class="gplus_F">
-								<a href="https://plus.google.com/+googleplus/posts/8C5oKFUKLVs"
-									target="_blank" title="Hotel Manorama on Google +">&nbsp; </a>
-							</div>
-
-						</div>
-						<!--web_Social_F End-->
-						<!-- powered_F start-->
-						<div class="powered_F">
-							<!--	Powered By : <a href="http://www.windsonline.com/" class="footMore" target="_blank">Winds Online</a> -->
-
-						</div>
-						<!-- powered_F End-->
-					</div>
-				</div>
-				<!--foot 2Nd End-->
-
-			</div>
-			<!--container End-->
-
-		</div>
-	</div>
-
-	<script type="text/javascript">
-		var tpj = jQuery;
-		tpj.noConflict();
-		tpj(document).ready(function() {
-			if (tpj.fn.cssOriginal != undefined)
-				tpj.fn.css = tpj.fn.cssOriginal;
-			tpj('.fullwidthabnner').revolution({
-				delay : 10000,
-				startwidth : 1366,
-				startheight : 612,
-
-				onHoverStop : "off", // Stop Banner Timet at Hover on Slide on/off
-
-				thumbWidth : 100, // Thumb With and Height and Amount (only if navigation Tyope set to thumb !)
-				thumbHeight : 50,
-				thumbAmount : 4,
-
-				/*hideThumbs:200,*/
-				navigationType : "both", //bullet, thumb, none, both	 (No Shadow in Fullwidth Version !)
-				/*navigationArrows:"verticalcentered",		//nexttobullets, verticalcentered, none*/
-				navigationStyle : "round", //round,square,navbar
-
-				touchenabled : "on", // Enable Swipe Function : on/off
-
-				navOffsetHorizontal : 724,
-				navOffsetVertical : 30,
-
-				fullWidth : "off",
-
-				shadow : 0
-			//0 = no Shadow, 1,2,3 = 3 Different Art of Shadows -  (No Shadow in Fullwidth Version !)
-
+				<div class="container padding_0">
+            	 <div class="col-md-12 col-sm-12 col-xs-12 padding_0 text-center-xs text-center-sm padding_TB_02">    
+                 	<strong>Hotel Manorama, Business class hotel</strong> - Luxury Accommodation at Vijayawada & Hyderabad - a perfect destination for business travelers or tourists traveling to Vijayawada & Hyderabad
+                 </div>
+                </div>
+        <div class="row footCon_Warp bdr_Top padding_0" style="margin-left: 0px; margin-right: 0px;">        	 
+        	<div class="row margin_0" style="margin-left: 0px; margin-right: 0px;">
+                <!--container start-->
+                <div class="container footPadd01 paddingLR_0">
+                	<!--foot LEft start-->
+                     <div class="col-md-3 col-sm-12 col-xs-12 padding_0">    
+                     	<div class="footLogo text-center-xs text-center-sm">                 </div>
+                     	<div class="allreserve padding_0 text-center-xs text-center-sm">
+                    		© 2014 Hotel Manorama. All rights reserved.
+                    
+                    	</div>
+                     
+                     </div>
+                	<!--foot LEft End-->
+                    <!--foot 2Nd start-->
+                      <div class="col-md-8 col-sm-12 col-xs-12 pull-right padding_0 col-md-offset-1 col-sm-offset-0 col-xs-offset-0 pull-right">
+                      		<!--One Start-->
+                     		<div class="col-md-3 col-sm-12 col-xs-12 padding_0">
+                            	<div class="footItem">
+                                    <a href="about.jsp" title="About Us" alt="About Us" class="footMore">About Us</a>                                     <br>                                     
+                                     <a href="reach.jsp" title="How to Reach" alt="How to reach" class="footMore">How to Reach</a>                                     <br>                                     
+                                     <a href="attractions.jsp" title="Attractions" alt="Attractions" class="footMore">Attractions</a>                                     <br>                                     
+                                     <a href="offers.jsp" title="Offers" alt="Offers" class="footMore">Offers</a>                                   
+                                    
+                        		 </div>
+                            
+                            </div>
+                            <!--One End-->
+                             <!--Two Start-->
+                            <div class="col-md-3 col-sm-12 col-xs-12 padding_0">
+                            	 <div class="footItem">
+                                 		<a href="gallery.jsp" title="Gallery" class="footMore">Gallery</a><br>                                 	
+                                      	<a href="meetings.jsp" title="Meetings" class="footMore">Meetings</a><br>
+                                        <a href="dining.jsp" title="Dining" alt="Dining" class="footMore">Dining</a><br>
+                                        <a href="careers.jsp" title="Careers" alt="Careers" class="footMore">Careers</a><br>
+                                       
+                        		  </div>
+                            
+                            </div>
+                             <!--Two End-->
+                              <!--Three Start-->
+                            <div class="col-md-2 col-sm-12 col-xs-12 padding_0">
+                            	<div class="footItem">
+                                	 <a href="enquiry.jsp" title="Enquiry" alt="Enquiry" class="footMore">Enquiry</a><br>
+                                	<a href="facilities.jsp" title="Facilities" alt="Facilities" class="footMore">Facilities</a>   <br>                                 
+                                   
+                                    <a href="userRoomReservation" title="Reservations" class="footMore">Reservation</a>  <br>
+                                    <a href="contact.jsp" title="Contact Us" alt="Contact Us" class="footMore">Contact Us</a><br>
+                                   
+                        		  </div>
+                            
+                            </div>
+                            
+                     </div>
+                     <!--foot 2Nd End-->
+                
+                </div>
+                 <!--container End-->
+                
+            </div>        	        
+        </div>         
+	
+    <script type="text/javascript">								
+				var tpj=jQuery;
+				tpj.noConflict();				
+				tpj(document).ready(function() {				
+				if (tpj.fn.cssOriginal!=undefined)
+					tpj.fn.css = tpj.fn.cssOriginal;
+					tpj('.fullwidthabnner').revolution(
+						{	
+							delay:10000,												
+							startwidth:1366,
+							startheight:612,
+							
+							onHoverStop:"off",						// Stop Banner Timet at Hover on Slide on/off
+							
+							thumbWidth:100,							// Thumb With and Height and Amount (only if navigation Tyope set to thumb !)
+							thumbHeight:50,
+							thumbAmount:4,
+							
+							/*hideThumbs:200,*/
+							navigationType:"both",					//bullet, thumb, none, both	 (No Shadow in Fullwidth Version !)
+							/*navigationArrows:"verticalcentered",		//nexttobullets, verticalcentered, none*/
+							navigationStyle:"round",				//round,square,navbar
+							
+							touchenabled:"on",						// Enable Swipe Function : on/off
+							
+							navOffsetHorizontal:724,
+							navOffsetVertical:30,
+							
+							fullWidth:"off",
+							
+							shadow:0								//0 = no Shadow, 1,2,3 = 3 Different Art of Shadows -  (No Shadow in Fullwidth Version !)
+														
+						});	
+						
 			});
+			</script>
+   
 
-		});
-	</script>
-
-
-	<div id="ui-datepicker-div"
-		class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div>
-</body>
+<div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div>
+	</body>
 </html>

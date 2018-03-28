@@ -9,7 +9,6 @@
 	String baseurl =  request.getScheme() + "://" + request.getServerName() +      ":" +   request.getServerPort() +  request.getContextPath();
 	session.setAttribute("baseurl", baseurl);
 %>
-
 			<link rel="stylesheet" type="text/css" href="user/css/bootstrap.css">
 			<link rel="stylesheet" type="text/css" href="user/css/bootstrap-theme.css">
 			<link rel="stylesheet" type="text/css" href="user/css/style.css">
@@ -29,18 +28,25 @@
 				type="text/css" />
 <script src="user/js/thumbnail-slider.js" type="text/javascript"></script>
 
-			<!-- <script async="" src="user/js/analytics.js.download"></script>
-			<script type="text/javascript" src="user/js/jquery.js.download"></script>
-			<script type="text/javascript" src="user/js/bootstrap.min.js.download"></script>
-			<script type="text/javascript" src="user/js/docs.min.js.download"></script>
-			<script type="text/javascript" src="user/js/jquery.themepunch.plugins.min.js.download"></script>
-			<script type="text/javascript" src="user/js/jquery.themepunch.revolution.min.js.download"></script>
-			<script type="text/javascript" src="user/js/jquery-ui-1.8.21.custom.min.js.download"></script>
-			<script type="text/javascript" src="user/js/preview-fullwidth.js.download"></script>
-			<script type="text/javascript" src="user/js/jquery-ui-1.8.18.custom.min.js.download"></script> -->
+
+
+<script async="" src="user/js/analytics.js.download"></script>
+<script type="text/javascript" src="user/js/jquery.js.download"></script>
+<script type="text/javascript" src="user/js/bootstrap.min.js.download"></script>
+<script type="text/javascript" src="user/js/docs.min.js.download"></script>
+<script type="text/javascript"
+	src="user/js/jquery.themepunch.plugins.min.js.download"></script>
+<script type="text/javascript"
+	src="user/js/jquery.themepunch.revolution.min.js.download"></script>
+<script type="text/javascript"
+	src="user/js/jquery-ui-1.8.21.custom.min.js.download"></script>
+<script type="text/javascript"
+	src="user/js/preview-fullwidth.js.download"></script>
+<script type="text/javascript"
+	src="user/js/jquery-ui-1.8.18.custom.min.js.download"></script>
+<style>
 			<style>
-			
-@font-face {
+			@font-face {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     src:url(../fonts/Oxygen-Regular.ttf) format('truetype');
 }
@@ -195,7 +201,7 @@
 }
 .grid-top {
   float: left;
-  width: 50%;
+  width: 25%;
 }
 .sed-top {
   float: left;
@@ -522,34 +528,14 @@ p.footer-in {
 
 }
 a{text-decoration: none;}
-span{font-style: italic;color: black;}
+span{font-style: italic; color: black;}
+
 			</style>
 			
-			
+  
 	</head>
 	<body style="background: transparent;">
 		
-		
-     	<script type="text/javascript">
-    function toggle_visibility(id) {
-       
-       var e = document.getElementById(id);
-       if(e.style.display == 'block')
-          e.style.display = 'none';
-       else
-          e.style.display = 'block';
-    }
-	
-	
-	    function getDiv() {
-		jQuery('#weather').show();
-    }
-	
-	    function hidediv() {
-		jQuery('#weather').hide();
-    }
-</script>
-
 
 <div class="container-fluid" style="margin: 0px; padding-left: 0px; padding-right: 0px;">
  <div class="row padding_0 usehd" style="background: transparent; margin: 0px;">
@@ -562,50 +548,38 @@ span{font-style: italic;color: black;}
         <span class="icon-bar"></span> 
       </button>
       <a class="navbar-brand" href="userindex.jsp" style="color: white; font-size: 36px; height: 83px;">
-	  <img src="user/img/logo2.png" class="img-responsive"></a>
+	  <img src="user/img/logo.png" class="img-responsive"></a>
     </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
+    <div class="collapse navbar-collapse" id="myNavbar" style='margin: 0px 0px 0px 200px;'>
       <ul class="nav navbar-nav" style="background: none;">
-      	<li>&nbsp;</li>
-		<li>&nbsp;</li>
-		<li>&nbsp;</li>
-		<li>&nbsp;</li>
-        <li><a href="userindex.jsp" style="color: white;">Home</a></li>
-		<li><a href="about.jsp" style="color: white;">About Us</a></li>
-        <li><a href="userRoomTariff" style="color: white;">Room & Tariff</a></li>
-        <li><a href="facilities.jsp" style="color: white;">Facilities</a></li> 
-        <li><a href="gallery.jsp" style="color: white;">Gallery</a></li>
-        <li><a href="contact.jsp" style="color: white;">Contact Us</a></li> 
-		<li><a href="login.jsp" style="color: white;">Login</a></li> 
+        <li style='text-align: right;'><a href="userindex.jsp" style="color: white;">Home</a></li>
+		<li style='text-align: right;'><a href="about.jsp" style="color: white;">About Us</a></li>
+        <li style='text-align: right;'><a href="userRoomTariff" style="color: white;">Room & Tariff</a></li>
+        <li style='text-align: right;'><a href="facilities.jsp" style="color: white;">Facilities</a></li> 
+        <li style='text-align: right;'><a href="contact.jsp" style="color: white;">Contact Us</a></li> 
+		<li style='text-align: right;'><a href="login.jsp" style="color: white;">Login</a></li>  
       </ul>      
     </div>
   </div>
 </nav>
         </div>     
-       </div>           
-	   
- 
-  </div>
-			
-  
-<br>	
+       </div>
+<br>
 	<div class="container">
 			<div class="content-top">
 				<div class="top-content">
 				<h1>Our Services</h1>
 			</div>
-			<div class="content-top1">
-			
-			  <div class="col-md-1 col-md-offset-1 grid-top">
-				<a href="userRoomTariff" style='text-decoration: none;'>
+			<div class="content-top1">			
+			  <div class=" col-md-1 col-md-offset-1  grid-top">
+				<a href="roomtariff.jsp" style='text-decoration: none;'>
 				 <img src='user/icons/list.png' style='width: 55px;' alt=''></img>
 				  <div class="top-grid">
 					<span>Rooms</span>
-				  </div>
-				  </a>
+				  </div></a>
 				</div>
 			
-			<div class="col-md-1 grid-top">
+			<div class=" col-md-1 grid-top">
 				<a href="facilities.jsp" style='text-decoration: none;'>
 				 <img src='user/icons/facility.png' style='width: 55px;' alt=''></img>
 				  <div class="top-grid">
@@ -629,7 +603,7 @@ span{font-style: italic;color: black;}
 				  </div>
 				</a>
 			</div>
-			<div class=" col-md-1 grid-top">
+			 <div class=" col-md-1 grid-top">
 				<a href="gallery.jsp" style='text-decoration: none;'>
 				 <img src='user/icons/gallery.png' style='width: 55px;' alt=''></img>
 				  <div class="top-grid">
@@ -681,5 +655,3 @@ span{font-style: italic;color: black;}
 <div class="clearfix"> </div>
 		</div>
 		</div>
-
-	

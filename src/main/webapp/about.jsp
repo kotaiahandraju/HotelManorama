@@ -1,65 +1,43 @@
 <jsp:include page="header.jsp" />
-<style>
-p{
-font-size: 12px;
-}
-</style>
-
 <div class="container">
-	<div class="row">
-		<div class="col-md-8">
+         <div class="row">
+            	 <div class="col-md-8">
+                    	 
+                                        
+  <legend style="font-size: 36px;">About us</legend>
+  
+  <!--breadcrumb start-->                    
+                     <ol class="breadcrumb">
+                      <li><a href="/" title="Home">Home</a></li>                 
+                      <li class="active">About us</li>
+                    </ol>
+				    <!--breadcrumb End-->
+                    
+                     
+ <p>
+	Hotel Manorama, a perfect destination for business travelers or tourists, traveling to Vijayawada & Hyderabad.&nbsp;&nbsp;&nbsp; With over 50 years of existence, Hotel Manorama, still maintains the position of one of the best hotels in Vijayawada & Hyderabad. &nbsp; &nbsp; Hotel Manorama in Vijayawada & Hyderabad have 54 tastefully appointed centrally Air-conditioned rooms including four (4) elegant Suites.</p>
+<p>
+	If you are a business traveler and looking for a business class hotel in Vijayawada & Hyderabad, Hotel indraparastha is the right destination.&nbsp; You will be welcomed by a plethora of facilities like - Multi-cuisine Restaurant, 24 hrs Coffee shop, an elegant BAR, completely Air conditioned Conference Rooms etc.,</p>
+<p>
+	If you are a tourist, and planning to stay in Vijayawada & Hyderabad, hotel Indraprashta can offer the best services to fulfill your needs. &nbsp; Being in the heart of the Vijayawada & Hyderabad city, you can access most of the tourist spots in Vijayawada & Hyderabad from here within few hrs.</p>
+<p>
+	Come, we are inviting you to experience the hospitality, and wishing you a pleasant stay in advance.</p>
+<p>
+	if you have any queries , please mail us at <a href="mailto:info@hotelManorama.com?subject=enquiry%20from%20website&amp;body=call%20me%20back%2C%20i%20am%20interested%20to%20know%20more.">info@hotelManorama.com&nbsp;</a></p>
 
-
-			<legend style="font-size: 36px;">About us</legend>
-
-			<!--breadcrumb start-->
-			<ol class="breadcrumb">
-				<li><a href="/" title="Home">Home</a></li>
-				<li class="active">About us</li>
-			</ol>
-			<!--breadcrumb End-->
-
-
-			<p></p>
-			<p>
-			<p style="font-size: 12px; text-align: justify;">Welcome to Hotel
-				Manorama a 3 star business hotel strategically located in the
-				commercial hub of Vijayawada..</p>
-			<p style="font-size: 12px; text-align: justify;">Since last 50
-				years serving to the commercial capital of Andhra Pradesh and
-				retaining its unique identity , we are welcoming you</p>
-			<p style="font-size: 12px; text-align: justify;">Hotel Manorama
-				is centrally located in the Vijayawada city. 80 rooms categorised as
-				50 Executive Rooms, 16 Deluxe Rooms, 13 Superior & 1 Seventh Heaven
-				Suite</p>
-			<p style="font-size: 12px; text-align: justify;">Hotel Manorama
-				is an ideal destination for business and leisure travelers alike.</p>
-			<p style="font-size: 12px; text-align: justify;">
-				if you have any queries , please mail us at <a
-					href="mailto:reception@hotelmanorama.com">reception@hotelmanorama.com
-					&nbsp;</a>
-			</p>
-			<h4 style="font-size: 14px; text-align: justify;">Best Business
-				Class hotel in Vijayawada - Finest hotel providing luxury stay in
-				Vijayawada.</h4>
-
-			</p>
-			<div class="col-md-4">
-			<img src="user/img/b3.png" class="thumbnail img-responsive pull-right">
-			</div>
-			<div class="col-md-4">
-			<img src="user/img/b1.png" class="thumbnail img-responsive pull-right">			
-			</div>
-		</div>
-
-		<div class="col-md-4">
-			<legend style="font-size: 36px;"> Services</legend>
-			<img src="user/img/b1.png" class="thumbnail img-responsive pull-right"><br> 
-			<img src="user/img/b2.png" class="thumbnail img-responsive pull-right">
-		</div>
-
-
+<h4 style="font-size: small;">
+	Best Business Class hotel in Vijayawada & Hyderabad -  Finest hotel providing luxury stay in Vijayawada & Hyderabad.</h4>
+ 
+     </div>                      
+   
+	<div class="col-md-4">	
+	<legend style="font-size: 36px;"> Services</legend>
+	<img src="user/img/b1.png" class="thumbnail img-responsive"><br>
+	<img src="user/img/b2.png" class="thumbnail img-responsive"><br>
 	</div>
-</div>
-
+          
+    
+</div>                              
+                 </div>
+				
 <jsp:include page="footer.jsp" />

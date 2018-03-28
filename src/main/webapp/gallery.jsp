@@ -1,10 +1,9 @@
 
 <jsp:include page="header.jsp" />
 
-<div class="container">
-<div class="row">
-<div class="col-md-12">
-	<div id='ninja-slider' style="background: white;">
+<div class="container">		
+		<!--start-->
+    <div id='ninja-slider' style="background: none;">
         <div>
             <div class="slider-inner">
                 <ul>
@@ -15,12 +14,13 @@
                     <li><a class="ns-img" href="user/img/restaurent.png"></a></li>
                     <li><a class="ns-img" href="user/img/bar.png"></a></li>
                     <li><a class="ns-img" href="user/img/hroom.png"></a></li>
-                    <li><a class="ns-img" href="user/img/slide.png"></a></li>
+                    <li><a class="ns-img" href="user/img/slide.jpg"></a></li>
                     <li><a class="ns-img" href="user/img/Room.png"></a></li>
                     <li><a class="ns-img" href="user/img/hroom1.png"></a></li>
                     <li><a class="ns-img" href="user/img/dining.png"></a></li>
                 </ul>
-                <div class="fs-icon" title="Expand/Close"><img style='width: 43px;' src='user/img/arrow.png' alt=''></div>
+                <div class="fs-icon" style='margin: 0px 27px 0px 0px;' title="Expand/Close">
+				<img src='user/img/expand.png' style='width: 34px;margin: 5px 0px 0px 0px;' alt='Expand/Close' title='Expand/Close' ></div>
             </div>
             <div id="thumbnail-slider">
                 <div class="inner">
@@ -54,7 +54,7 @@
                             <span>6</span>
                         </li>
                         <li>
-                            <a class="thumb" href="user/img/slide.png"></a>
+                            <a class="thumb" href="user/img/slide.jpg"></a>
                             <span>7</span>
                         </li>
                         <li>
@@ -68,15 +68,21 @@
                         <li>
                             <a class="thumb" href="user/img/dining.png"></a>
                             <span>10</span>
-                        </li>
+                        </li>                        
                     </ul>
                 </div>
             </div>
         </div>
     </div>
-	</div>
-	<div style="clear: both;"></div>
-</div>
-</div>
+    <!--end-->
+		
+		
+        <div style="clear:both;"></div>
+    </div>
+  </div>                        
+                 </div>
+                </div>            
+        
+			
 
 <jsp:include page="footer.jsp" />

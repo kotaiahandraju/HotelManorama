@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.aurospaces.neighbourhood.bean.HotelRoomMasterBean;
+import com.aurospaces.neighbourhood.bean.HotelRoomPriceBean;
 import com.aurospaces.neighbourhood.daosupport.CustomConnection;
 import com.aurospaces.neighbourhood.db.basedao.BaseHotelRoomMasterDao;
 
@@ -48,7 +49,17 @@ public class HotelRoomMasterDao extends BaseHotelRoomMasterDao
 				return retlist.get(0);
 			return null;
 		}
-
+	 public HotelRoomPriceBean getAdults(HotelRoomPriceBean objHotelRoomPriceBean) {
+		 jdbcTemplate = custom.getJdbcTemplate();
+			String sql = "SELECT `max_chaild`,`numberOfAdult` FROM `hotel_room_master` hrm,`hotel_room_type` hrt,`hotel_capacity_master` hcm WHERE hrm.`room_type_id`=hrt.id AND " 
+						  +" hrm.`capacity_id`=hcm.id AND hcm.id= ? AND hrt.id = ? ";
+			List<HotelRoomPriceBean> retlist = jdbcTemplate.query(sql,
+			new Object[]{objHotelRoomPriceBean.getCapacityId(),objHotelRoomPriceBean.getRoomTypeId()},
+			ParameterizedBeanPropertyRowMapper.newInstance(HotelRoomPriceBean.class));
+			if(retlist.size() > 0)
+				return retlist.get(0);
+			return null;
+		}
 	
 }
 
