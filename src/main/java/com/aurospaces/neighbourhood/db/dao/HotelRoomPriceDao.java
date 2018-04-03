@@ -31,7 +31,7 @@ public class HotelRoomPriceDao extends BaseHotelRoomPriceDao {
 		// String sql="SELECT *, DATE_FORMAT(expirydate,'%d/%m/%Y') AS expirtdate1 FROM
 		// cylindermaster";
 
-		String sql = "SELECT hrp.*,hcm.name as capacityname,hrt.name as roomtypename, CASE WHEN hrp.status IN ('0') THEN 'Deactive' WHEN hrp.status in ('1') THEN 'Active'  ELSE '-----' END as roomPriceStatus FROM hotel_room_price hrp,hotel_capacity_master hcm,hotel_room_type hrt  WHERE hrp.`room_type_id` =hrt.id AND hrp.`capacity_id`=hcm.id and hrp.status=? order by hrp.id desc";
+		String sql = "SELECT hrp.*,hcm.name as capacityname,hrt.name as roomtypename, CASE WHEN hrp.status IN ('0') THEN 'Deactive' WHEN hrp.status in ('1') THEN 'Active'  ELSE '-----' END as roomPriceStatus FROM hotel_room_price hrp,hotel_occupation_master hcm,hotel_room_type hrt  WHERE hrp.`room_type_id` =hrt.id AND hrp.`capacity_id`=hcm.id and hrp.status=? order by hrp.id desc";
 		List<HotelRoomPriceBean> retlist = jdbcTemplate.query(sql, new Object[] { status },
 				ParameterizedBeanPropertyRowMapper.newInstance(HotelRoomPriceBean.class));
 

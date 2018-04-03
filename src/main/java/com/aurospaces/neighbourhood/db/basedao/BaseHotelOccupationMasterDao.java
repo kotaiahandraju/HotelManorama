@@ -15,21 +15,21 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.aurospaces.neighbourhood.bean.HotelCapacityMasterBean;
+import com.aurospaces.neighbourhood.bean.HotelOccupationMasterBean;
 import com.aurospaces.neighbourhood.daosupport.CustomConnection;
 
 
-public class BaseHotelCapacityMasterDao{
+public class BaseHotelOccupationMasterDao{
 
 	@Autowired
 	CustomConnection custom;
 	JdbcTemplate jdbcTemplate;
  
-	public final String INSERT_SQL = "INSERT INTO hotel_capacity_master( created_time, updated_time, name, numberOfAdult, status) values (?, ?, ?, ?, ?)"; 
+	public final String INSERT_SQL = "INSERT INTO hotel_capacity_master( created_time, updated_time,  numberOfAdult,numberOfChaild, status,roomTypeId,roomOccupationId ) values (?,?, ?, ?, ?, ?,?)"; 
 
 /* this should be conditional based on whether the id is present or not */
 	@Transactional
-	public void save(final HotelCapacityMasterBean hotelCapacityMaster) 
+	public void save(final HotelOccupationMasterBean hotelCapacityMaster) 
 	{
 		jdbcTemplate = custom.getJdbcTemplate();
 	if(hotelCapacityMaster.getId() == 0)	{
@@ -58,9 +58,11 @@ public class BaseHotelCapacityMasterDao{
 									connection.prepareStatement(INSERT_SQL,new String[]{"id"});
 	ps.setTimestamp(1, createdTime);
 ps.setTimestamp(2, updatedTime);
-ps.setString(3, hotelCapacityMaster.getName());
-ps.setString(4, hotelCapacityMaster.getNumberOfAdult());
+ps.setString(3, hotelCapacityMaster.getNumberOfAdult());
+ps.setString(4, hotelCapacityMaster.getNumberOfChaild());
 ps.setString(5, hotelCapacityMaster.getStatus());
+ps.setString(6, hotelCapacityMaster.getRoomTypeId());
+ps.setString(7, hotelCapacityMaster.getRoomOccupationId());
 
 							return ps;
 						}
@@ -75,9 +77,9 @@ ps.setString(5, hotelCapacityMaster.getStatus());
 		else
 		{
 
-			String sql = "UPDATE hotel_capacity_master  set name = ? ,numberOfAdult = ?  where id = ? ";
+			String sql = "UPDATE hotel_capacity_master  set roomTypeId = ? ,numberOfAdult = ?,numberOfChaild=?,roomOccupationId=?  where id = ? ";
 	
-			jdbcTemplate.update(sql, new Object[]{hotelCapacityMaster.getName(),hotelCapacityMaster.getNumberOfAdult(),hotelCapacityMaster.getId()});
+			jdbcTemplate.update(sql, new Object[]{hotelCapacityMaster.getRoomTypeId(),hotelCapacityMaster.getNumberOfAdult(),hotelCapacityMaster.getNumberOfChaild(),hotelCapacityMaster.getRoomOccupationId(),hotelCapacityMaster.getId()});
 		}
 	}
 		
@@ -96,12 +98,12 @@ ps.setString(5, hotelCapacityMaster.getStatus());
 	}
 		
 
-	 public HotelCapacityMasterBean getById(int id) {
+	 public HotelOccupationMasterBean getById(int id) {
 		 jdbcTemplate = custom.getJdbcTemplate();
 			String sql = "SELECT * from hotel_capacity_master where id = ? ";
-			List<HotelCapacityMasterBean> retlist = jdbcTemplate.query(sql,
+			List<HotelOccupationMasterBean> retlist = jdbcTemplate.query(sql,
 			new Object[]{id},
-			ParameterizedBeanPropertyRowMapper.newInstance(HotelCapacityMasterBean.class));
+			ParameterizedBeanPropertyRowMapper.newInstance(HotelOccupationMasterBean.class));
 			if(retlist.size() > 0)
 				return retlist.get(0);
 			return null;

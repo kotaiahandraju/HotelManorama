@@ -17,11 +17,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.aurospaces.neighbourhood.bean.HotelCapacityMasterBean;
+import com.aurospaces.neighbourhood.bean.HotelOccupationMasterBean;
 import com.aurospaces.neighbourhood.bean.HotelRoomPriceBean;
 import com.aurospaces.neighbourhood.bean.HotelRoomTypeBean;
 import com.aurospaces.neighbourhood.bean.SpecialOfferPriceBean;
-import com.aurospaces.neighbourhood.db.dao.HotelCapacityMasterDao;
+import com.aurospaces.neighbourhood.db.dao.HotelOccupationMasterDao;
 import com.aurospaces.neighbourhood.db.dao.HotelRoomMasterDao;
 import com.aurospaces.neighbourhood.db.dao.HotelRoomPriceDao;
 import com.aurospaces.neighbourhood.db.dao.HotelRoomTypeDao;
@@ -38,7 +38,7 @@ public class SpecialOfferPriceController {
 	
 	@Autowired HotelRoomTypeDao hotelRoomTypeDao;
 	@Autowired HotelRoomMasterDao hotelRoomMasterDao;
-	@Autowired HotelCapacityMasterDao hotelCapacityMasterDao;
+	@Autowired HotelOccupationMasterDao hotelCapacityMasterDao;
 	@Autowired HotelRoomPriceDao roomPriceDao;
 	@Autowired SpecialOfferPriceDao specialOfferPriceDao;
 	
@@ -172,9 +172,9 @@ public class SpecialOfferPriceController {
 	public Map<Integer, String> populateCapacity() {
 		Map<Integer, String> statesMap = new LinkedHashMap<Integer, String>();
 		try {
-			String sSql = "SELECT id ,CONCAT(name,'(',numberOfAdult,')') AS name FROM `hotel_capacity_master` WHERE status='1'";
-			List<HotelCapacityMasterBean> list = hotelCapacityMasterDao.populate(sSql);
-			for (HotelCapacityMasterBean bean : list) {
+			String sSql = "SELECT id , name FROM `hotel_occupation_master` WHERE status='1'";
+			List<HotelOccupationMasterBean> list = hotelCapacityMasterDao.populate(sSql);
+			for (HotelOccupationMasterBean bean : list) {
 				statesMap.put(bean.getId(), bean.getName());
 			}
 

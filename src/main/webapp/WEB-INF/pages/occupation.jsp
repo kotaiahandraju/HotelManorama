@@ -8,10 +8,9 @@
 <div class="container">
 
 
-<h2 style="margin-top:0px;">Room Occupation</h2>
+<h2>Room Occupation</h2>
          
          <ol class="breadcrumb">
-         <li><a href="dashboard.html">Dashboard</a></li>
          <li><a href="#">Rooms</a></li>
          <li>Room Occupation</li>
          
@@ -20,6 +19,19 @@
          
        <div class="row">
     <div class="col-md-12">
+    <div class="col" style="border:solid 1px; border-color:#CCCCCC; border-radius:5px;">
+				<ul style="background-color:#F7F7F7; margin-top:5px; border:solid 1px; border-color:#CCCCCC; border-radius:5px;" id="myTab" class="nav nav-tabs" role="tablist">
+					<li style="margin-left:3px; margin-top:5px;"  class="roomTypeHome"><a href="roomTypeHome" >Rooms Type</a></li>
+					<li style="margin-top:5px;" role="presentation" class="roomcapacity"><a href="roomcapacity">Room Capacity</a></li>
+					<li style="margin-top:5px;" role="presentation" class="occupation"><a href="occupation" >Room Occupation</a></li>
+					<li style="margin-left:3px; margin-top:5px;" class="roomMasterHome"><a href="roomMasterHome" >Room Master</a></li>
+					<li style="margin-top:5px;" role="presentation" class="roomPriceHome"><a href="roomPriceHome" >Room Tariff</a></li>
+					<li style="margin-top:5px;" role="presentation" class="roomPhotosHome"><a href="roomPhotosHome" >Room Photos</a></li>
+					<li style="margin-top:5px;" role="presentation" class="offerPriceForm"><a href="offerPriceForm" >Special Offer Price</a></li>
+				</ul>
+				<div id="myTabContent" class="tab-content"></div>
+    
+    </div>   
       <div class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">Room Occupation List</h3>
@@ -49,32 +61,58 @@
     <div class="col-md-12">
       <div class="panel panel-primary">
         <div class="panel-heading">
-          <h3 class="panel-title">Room Occupation</h3>
+          <h3 class="panel-title" id="moveTo">Room Occupation</h3>
          
         </div>
-        <form:form modelAttribute="capacityForm" action="addCapacity" class="form-horizontal" method="Post" >
+        <form:form modelAttribute="occupationForm" action="addCapacity" class="form-horizontal" method="Post" >
         <div class="panel-body">
         
        
       <div class="col-md-12">
-      <div class="col-md-6">
+      					<div class="col-md-6">
 								<div class="form-group">
 									<input id="id" name="id" type="hidden" value="0">
-									<span for="name" class="col-md-4 control-label">Room Capacity Title<span class="impColor">*</span></span>
+									<span for="name" class="col-md-4 control-label">Room Type<span class="impColor">*</span></span>
 									<div class="col-md-7">
-										<input id="name" name="name" placeholder="Room Capacity Title" class="form-control validate" type="text" value="">
+									<form:select path="roomTypeId" class="form-control validate" onfocus="removeBorder(this.id);" >
+										<form:option value="">--Select Room Type--</form:option>
+										<form:options items="${roomtype}"/>
+									</form:select>
 									</div>
                     			</div>
 							</div>
-     <div class="col-md-6">
+							<div class="col-md-6">
+								<div class="form-group">
+									<input id="id" name="id" type="hidden" value="0">
+									<span for="name" class="col-md-4 control-label">Room Capacity<span class="impColor">*</span></span>
+									<div class="col-md-7">
+									<form:select path="roomOccupationId" class="form-control validate" onfocus="removeBorder(this.id);">
+										<form:option value="">--Select Room Capacity--</form:option>
+										<form:options items="${occupation}"/>
+									</form:select>
+									</div>
+                    			</div>
+							</div>
+     					<div class="col-md-6">
 								<div class="form-group">
 									<input id="id" name="id" type="hidden" value="0">
 									<span for="numberOfAdult" class="col-md-4 control-label">Number of Adult<span class="impColor">*</span></span>
 									<div class="col-md-7">
-										<input id="numberOfAdult" name="numberOfAdult" placeholder="Number of Adult" class="form-control numericOnly validate" type="text" value="">
+										<input id="numberOfAdult" name="numberOfAdult" placeholder="Number of Adult" class="form-control numericOnly validate" maxlength="2" type="text" value="">
 									</div>
                     			</div>
 							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<input id="id" name="id" type="hidden" value="0">
+									<span for="numberOfChaild" class="col-md-4 control-label">Number of Child<span class="impColor">*</span></span>
+									<div class="col-md-7">
+										<input id="numberOfChaild" name="numberOfChaild" placeholder="Number of Child" class="form-control numericOnly validate" maxlength="2" type="text" value="">
+									</div>
+                    			</div>
+							</div>
+							
+							
         </div><br><br><br>
         <div class="col-sm-12">
 				      			<div class="btn-toolbar" 
@@ -105,7 +143,7 @@ function showTableData(response){
 	serviceUnitArray = {};
 	var protectType = null;
 	var tableHead = '<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="example">'+
-    	'<thead><tr><th>Room Capacity Title </th><th>Number of Adult</th><th>Status</th><th></th></tr>'+
+    	'<thead><tr><th>Room Type</th><th>Room Capacity</th><th>Number of Adult</th><th>Number of Child</th><th>Status</th><th></th></tr>'+
     	"</thead><tbody></tbody></table>";
 	$("#tableId").html(tableHead);
 	$.each(response,function(i, orderObj) {
@@ -117,9 +155,11 @@ function showTableData(response){
 		var edit = "<a class='edit editIt' onclick='editRoomCapacity("+ orderObj.id+ ")'><i class='fa fa-edit'></i></a>"
 		serviceUnitArray[orderObj.id] = orderObj;
 		var tblRow ="<tr>"
-			+ "<td title='"+orderObj.name+"'>" + orderObj.name + "</td>"
+			+ "<td title='"+orderObj.roomTypeName+"'>" + orderObj.roomTypeName + "</td>"
+			+ "<td title='"+orderObj.occupationName+"'>" + orderObj.occupationName + "</td>"
 			+ "<td title='"+orderObj.numberOfAdult+"'>" + orderObj.numberOfAdult + "</td>"
-			+ "<td title='"+orderObj.Status+"'>" + orderObj.capacitystatus + "</td>"
+			+ "<td title='"+orderObj.numberOfChaild+"'>" + orderObj.numberOfChaild + "</td>"
+			+ "<td title='"+orderObj.capacitystatus+"'>" + orderObj.capacitystatus + "</td>"
 			+ "<td style='text-align: center;white-space: nowrap;'>" + edit + "&nbsp;&nbsp;" + deleterow + "</td>"
 			+"</tr>";
 		$(tblRow).appendTo("#tableId table tbody");
@@ -129,8 +169,10 @@ function showTableData(response){
 
 function editRoomCapacity(id){
 	$("#id").val(id);
-	$("#name").val(serviceUnitArray[id].name);
+	$("#roomOccupationId").val(serviceUnitArray[id].roomOccupationId);
+	$("#roomTypeId").val(serviceUnitArray[id].roomTypeId);
 	$("#numberOfAdult").val(serviceUnitArray[id].numberOfAdult);
+	$("#numberOfChaild").val(serviceUnitArray[id].numberOfChaild);
 	$("#submit1").val("Update");
 	$(window).scrollTop($('#moveTo').offset().top);
 }
@@ -159,7 +201,7 @@ function deleteRoomCapacity(id,status){
 						$('.deactivate').attr('data-toggle','tooltip');
 						$('.deactivate').attr('data-original-title','Deactivate');
 		            showTableData(resJson.allOrders1);
-		           
+		            tooltip1();
 		            //window.location.reload();
 				}
 		       // window.location.reload();
@@ -190,6 +232,7 @@ function inactiveData() {
 				var resJson=JSON.parse(data);
 	            showTableData(resJson);
 						console.log(resJson);
+						 tooltip1();
 			}else{
 				showTableData(data);
 			}
@@ -208,5 +251,5 @@ function dataClear(){
 	$("#location").val("");
 }
 $("#pageName").text("Room Capacity");
-$(".roomCapacity").addClass("active"); 
+$(".occupation").addClass("active"); 
 </script>

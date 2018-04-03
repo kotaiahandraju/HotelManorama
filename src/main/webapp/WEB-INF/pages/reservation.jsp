@@ -137,7 +137,7 @@ font-size: 12px;
 								<div class="input-group roomplan-w">
 									<span class="input-group-addon" id="basic-addon1">Room
 										Type :</span>
-									<form:select path="roomTypeId" class="form-control validate"	onfocus="removeBorder(this.id);" onchange="getAdults()">
+									<form:select path="roomTypeId" class="form-control validate"	onfocus="removeBorder(this.id);" onchange="getAdults(),getRoomOcupation()">
 										<form:option value="">-- Select Room Type --</form:option>
 										<form:options items="${roomtype }"></form:options>
 									</form:select>
@@ -150,7 +150,7 @@ font-size: 12px;
 
 									<form:select path="capacityId" class="form-control validate" onfocus="removeBorder(this.id);" onchange="getAdults()" >
 										<form:option value="">-- Select Room Capacity --</form:option>
-										<form:options items="${capacity }"></form:options>
+<%-- 										<form:options items="${capacity }"></form:options> --%>
 									</form:select>
 
 								</div>
@@ -825,6 +825,33 @@ font-size: 12px;
 
 					});
 				} */
+				function getRoomOcupation(){
+					var roomTypeId = $("#roomTypeId").val();
+					var formData = new FormData();
+					formData.append('roomTypeId', roomTypeId);
+					
+					$.fn.makeMultipartRequest('POST', 'getRoomOcupation1', false,formData, false, 'text', function(data) {
+//				 		alert(data);
+				$("#capacityId").html("");
+						var optionsForClass = "";
+						optionsForClass = $("#capacityId").empty();
+				optionsForClass.append(new Option("-- Select Room Capacity --", ""));
+				// $("#capacityId").html("");
+						if(data != ""){
+						var jsonobj = $.parseJSON(data);
+						$("#capacityId").html("");
+						var optionsForClass = "";
+						optionsForClass = $("#capacityId").empty();
+						optionsForClass.append(new Option("-- Select Room Capacity --", ""));
+						
+						$.each(jsonobj, function(i, tests) {
+							var id=tests.id;
+							var capacityname=tests.name;
+							optionsForClass.append(new Option(capacityname, id));
+						});
+					}
+					});
+				}
 			</script>
 
 		<div class="col-md-4">

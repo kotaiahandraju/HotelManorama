@@ -18,10 +18,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.aurospaces.neighbourhood.bean.HotelCapacityMasterBean;
+import com.aurospaces.neighbourhood.bean.HotelOccupationMasterBean;
 import com.aurospaces.neighbourhood.bean.HotelRoomMasterBean;
 import com.aurospaces.neighbourhood.bean.HotelRoomTypeBean;
-import com.aurospaces.neighbourhood.db.dao.HotelCapacityMasterDao;
+import com.aurospaces.neighbourhood.db.dao.HotelOccupationMasterDao;
 import com.aurospaces.neighbourhood.db.dao.HotelRoomMasterDao;
 import com.aurospaces.neighbourhood.db.dao.HotelRoomTypeDao;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -32,7 +32,7 @@ public class RoomMasterController {
 	
 	@Autowired HotelRoomTypeDao hotelRoomTypeDao;
 	@Autowired HotelRoomMasterDao hotelRoomMasterDao;
-	@Autowired HotelCapacityMasterDao hotelCapacityMasterDao;
+	@Autowired HotelOccupationMasterDao hotelCapacityMasterDao;
 		private Logger logger = Logger.getLogger(RoomMasterController.class);
 		
 		@RequestMapping(value = "/roomMasterHome")
@@ -73,7 +73,7 @@ public class RoomMasterController {
 				
 				String roomTypeId=hotelRoomMasterBean.getRoomTypeId();
 				String capacity_id = hotelRoomMasterBean.getCapacityId();
-				hotelRoomMaster=hotelRoomMasterDao.getByRoomType(roomTypeId,capacity_id);
+				hotelRoomMaster=hotelRoomMasterDao.getByRoomType(hotelRoomMasterBean);
 				int dummyId =0;
 				if(hotelRoomMaster != null){
 					dummyId = hotelRoomMaster.getId();
@@ -195,10 +195,10 @@ public class RoomMasterController {
 		public Map<Integer, String> populateCapacity() {
 			Map<Integer, String> statesMap = new LinkedHashMap<Integer, String>();
 			try {
-				String sSql = "SELECT id ,CONCAT(name,'(',numberOfAdult,')') AS name FROM `hotel_capacity_master` WHERE status='1'";
-				List<HotelCapacityMasterBean> list = hotelCapacityMasterDao.populate(sSql);
+				String sSql = "SELECT id , name FROM `hotel_occupation_master` WHERE status='1'";
+				List<HotelOccupationMasterBean> list = hotelCapacityMasterDao.populate(sSql);
 				System.out.println("--------List-----"+list.size());
-				for (HotelCapacityMasterBean bean : list) {
+				for (HotelOccupationMasterBean bean : list) {
 					statesMap.put(bean.getId(), bean.getName());
 				}
 

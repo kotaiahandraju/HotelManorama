@@ -81,6 +81,6 @@
 
 
   <script type='text/javascript' src='${baseurl }/js/customValidation.js'></script> 
-<script type='text/javascript' src="${baseurl }/js/jquery.blockUI.min.js" ></script>
+<%-- <script type='text/javascript' src="${baseurl }/js/jquery.blockUI.min.js" ></script> --%>
 	</body>
 </html>

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.aurospaces.neighbourhood.bean.HotelRoomMasterBean;
-import com.aurospaces.neighbourhood.db.dao.HotelCapacityMasterDao;
+import com.aurospaces.neighbourhood.db.dao.HotelOccupationMasterDao;
 import com.aurospaces.neighbourhood.db.dao.HotelRoomMasterDao;
 import com.aurospaces.neighbourhood.db.dao.HotelRoomTypeDao;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -21,7 +21,7 @@ public class UserRoomTariff {
 	
 	@Autowired HotelRoomTypeDao hotelRoomTypeDao;
 	@Autowired HotelRoomMasterDao hotelRoomMasterDao;
-	@Autowired HotelCapacityMasterDao hotelCapacityMasterDao;
+	@Autowired HotelOccupationMasterDao hotelCapacityMasterDao;
 		private Logger logger = Logger.getLogger(UserRoomTariff.class);
 		
 		@RequestMapping(value = "/userRoomTariff")

@@ -1,7 +1,9 @@
 package com.aurospaces.neighbourhood.controller;
 
 import java.io.IOException;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -21,10 +23,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.aurospaces.neighbourhood.bean.HotelCapacityMasterBean;
+import com.aurospaces.neighbourhood.bean.HotelOccupationMasterBean;
+import com.aurospaces.neighbourhood.bean.HotelRoomCapacityBean;
 import com.aurospaces.neighbourhood.bean.HotelRoomTypeBean;
-import com.aurospaces.neighbourhood.db.dao.CylindermasterDao;
-import com.aurospaces.neighbourhood.db.dao.HotelCapacityMasterDao;
+import com.aurospaces.neighbourhood.db.dao.HotelOccupationMasterDao;
+import com.aurospaces.neighbourhood.db.dao.HotelRoomCapacityDao;
 import com.aurospaces.neighbourhood.db.dao.HotelRoomTypeDao;
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -32,19 +35,20 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Controller
 @RequestMapping(value = "/admin")
-public class CapacityMasterController {
+public class RoomOccupationController {
 
-	private Logger logger = Logger.getLogger(CapacityMasterController.class);
+	private Logger logger = Logger.getLogger(RoomOccupationController.class);
 	@Autowired
-	HotelCapacityMasterDao capacityMasterDao;
-
-	@RequestMapping(value = "/capacityHome")
-	public String capacityHome(@Valid @ModelAttribute("capacityForm") HotelCapacityMasterBean hotelCapacityMasterBean,
+	HotelOccupationMasterDao capacityMasterDao;
+	@Autowired HotelRoomCapacityDao hotelRoomCapacityDao;
+	@Autowired HotelRoomTypeDao hotelRoomTypeDao;
+	@RequestMapping(value = "/occupation")
+	public String capacityHome(@Valid @ModelAttribute("occupationForm") HotelOccupationMasterBean hotelCapacityMasterBean,
 			ModelMap model, HttpServletRequest request, HttpSession session) {
 
 		ObjectMapper objectMapper = null;
 		String sJson = null;
-		List<HotelCapacityMasterBean> listOrderBeans = null;
+		List<HotelOccupationMasterBean> listOrderBeans = null;
 		try {
 			listOrderBeans = capacityMasterDao.getAllCapacity("1");
 			if (listOrderBeans != null && listOrderBeans.size() > 0) {
@@ -63,11 +67,11 @@ public class CapacityMasterController {
 			System.out.println(e);
 
 		}
-		return "capacityHome";
+		return "occupationHome";
 	}
 
 	@RequestMapping(value = "/addCapacity", method = RequestMethod.POST)
-	public String addRoomType(HotelCapacityMasterBean hotelCapacityMasterBean,
+	public String addRoomType(HotelOccupationMasterBean hotelCapacityMasterBean,
 			BindingResult bindingresults, Model model, RedirectAttributes redir) {
 
 		// List<CylindermasterBean> cylinderMaster=null;
@@ -110,14 +114,14 @@ public class CapacityMasterController {
 			System.out.println(e);
 
 		}
-		return "redirect:capacityHome";
+		return "redirect:occupation";
 	}
 
 	 @RequestMapping(value = "/deleteCapacity")
 	public @ResponseBody String deleteCapacity(HotelRoomTypeBean roomTypeBean, ModelMap model,
 			HttpServletRequest request, HttpSession session, BindingResult objBindingResult) {
 		System.out.println("deleteCylinder page...");
-		List<HotelCapacityMasterBean> listOrderBeans = null;
+		List<HotelOccupationMasterBean> listOrderBeans = null;
 		JSONObject jsonObj = new JSONObject();
 		ObjectMapper objectMapper = null;
 		String sJson = null;
@@ -161,7 +165,7 @@ public class CapacityMasterController {
 	 
 	 @RequestMapping(value = "/inActiveCapacity")
 		public @ResponseBody String inActiveRoomType(@RequestParam("status") String status) throws JsonGenerationException, JsonMappingException, IOException {
-			List<HotelCapacityMasterBean> listOrderBeans = null;
+			List<HotelOccupationMasterBean> listOrderBeans = null;
 			ObjectMapper objectMapper = null;
 			String sJson="";
 			listOrderBeans=capacityMasterDao.getAllCapacity(status);
@@ -176,5 +180,54 @@ public class CapacityMasterController {
 			
 			return sJson;
 		}
-		
+	 @RequestMapping(value = "/getRoomOcupation")
+		public @ResponseBody String getRoomOcupation(@RequestParam("roomTypeId") String roomTypeId) throws JsonGenerationException, JsonMappingException, IOException {
+			List<Map<String,Object>> listOrderBeans = null;
+			ObjectMapper objectMapper = null;
+			String sJson="";
+			listOrderBeans=capacityMasterDao.getRoomOcupation(roomTypeId);
+				 /// System.out.println("inActiveItem data--"+sJson);
+			objectMapper = new ObjectMapper();
+			if (listOrderBeans != null && listOrderBeans.size() > 0) {
+
+				objectMapper = new ObjectMapper();
+				sJson = objectMapper.writeValueAsString(listOrderBeans);
+				// System.out.println(sJson);
+			}
+			
+			return sJson;
+		}
+	 @ModelAttribute("roomtype")
+		public Map<Integer, String> populateRoomtype() {
+			Map<Integer, String> statesMap = new LinkedHashMap<Integer, String>();
+			try {
+				String sSql = "select id ,name from hotel_room_type where status='1'";
+				List<HotelRoomTypeBean> list = hotelRoomTypeDao.populate(sSql);
+				for (HotelRoomTypeBean bean : list) {
+					statesMap.put(bean.getId(), bean.getName());
+				}
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+			}
+			return statesMap;
+		}
+		@ModelAttribute("occupation")
+		public Map<Integer, String> populateCapacity() {
+			Map<Integer, String> statesMap = new LinkedHashMap<Integer, String>();
+			try {
+				String sSql = "SELECT id , name FROM `hotel_occupation_master` WHERE status='1'";
+				List<HotelRoomCapacityBean> list = hotelRoomCapacityDao.populate(sSql);
+				for (HotelRoomCapacityBean bean : list) {
+					statesMap.put(bean.getId(), bean.getName());
+				}
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+			}
+			return statesMap;
+		}
+	 
 }

@@ -8,10 +8,9 @@
 	<div class="container">
 
 
-<h2 style="margin-top:0px;">Room Master</h2>
+<h2>Room Master</h2>
          
          <ol class="breadcrumb">
-         <li><a href="dashboard.html">Dashboard</a></li>
          <li><a href="#">Rooms</a></li>
          <li>Room Master</li>
          
@@ -20,6 +19,19 @@
          <form:form modelAttribute="roomForm" action="roomMasterSave" class="form-horizontal" method="Post" >
        <div class="row">
     <div class="col-md-12">
+    <div class="col" style="border:solid 1px; border-color:#CCCCCC; border-radius:5px;">
+				<ul style="background-color:#F7F7F7; margin-top:5px; border:solid 1px; border-color:#CCCCCC; border-radius:5px;" id="myTab" class="nav nav-tabs" role="tablist">
+					<li style="margin-left:3px; margin-top:5px;"  class="roomTypeHome"><a href="roomTypeHome" >Rooms Type</a></li>
+					<li style="margin-top:5px;" role="presentation" class="roomcapacity"><a href="roomcapacity">Room Capacity</a></li>
+					<li style="margin-top:5px;" role="presentation" class="occupation"><a href="occupation" >Room Occupation</a></li>
+					<li style="margin-left:3px; margin-top:5px;" class="roomMasterHome"><a href="roomMasterHome" >Room Master</a></li>
+					<li style="margin-top:5px;" role="presentation" class="roomPriceHome"><a href="roomPriceHome" >Room Tariff</a></li>
+					<li style="margin-top:5px;" role="presentation" class="roomPhotosHome"><a href="roomPhotosHome" >Room Photos</a></li>
+					<li style="margin-top:5px;" role="presentation" class="offerPriceForm"><a href="offerPriceForm" >Special Offer Price</a></li>
+				</ul>
+				<div id="myTabContent" class="tab-content"></div>
+    
+    </div> 
       <div class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">Room Master List</h3>
@@ -29,7 +41,7 @@
 					<input type="checkbox" class="form-check-input" onclick="inactiveData();" id="inActive"> <label class="form-check-label">Show Inactive List</label>
 					<div class="table-responsive" id="tableId">
 						<table class="table table-striped table-bordered datatables" id="example">
-							<thead>	<tr><th>Room Type</th><th>Room/Adult</th><th>Max Child/Room</th><th>Room Number</th><th>Status</th><th></th></tr></thead>
+							<thead>	<tr><th>Room Type</th><th>Room Capacity</th><th>Room Number</th><th>Status</th><th></th></tr></thead>
 							<tbody></tbody>
 						</table>
 					</div>
@@ -42,7 +54,7 @@
     <div class="col-md-12">
       <div class="panel panel-primary">
         <div class="panel-heading">
-          <h3 class="panel-title">Room Master</h3>
+          <h3 class="panel-title" id="moveTo">Room Master</h3>
          
         </div>
         <form:form modelAttribute="roomForm" action="roomMasterSave" class="form-horizontal" method="Post" >
@@ -62,7 +74,7 @@
                     			</div>
                     			<div class="col-md-6">
                     			<div class="form-group">
-                    				<label for="capacityId" class="col-md-4 control-label">Room/Adult <span class="impColor">*</span></label>
+                    				<label for="capacityId" class="col-md-4 control-label">Room Capacity<span class="impColor">*</span></label>
                     				<div class="col-md-7">
                     				<form:select path="capacityId" class="form-control validate" onfocus="removeBorder(this.id);">
 									<form:option value="">-- Select Room Capacity --</form:option>
@@ -71,19 +83,19 @@
                     				</div>
                     			</div>
                     			</div>
-                    			<div class="col-md-6">
+                    		<%-- 	<div class="col-md-6">
                     			<div class="form-group">
                     				<label for="maxChaild" class="col-md-4 control-label">Max Child/Room <span class="impColor">*</span></label>
                     				<div class="col-md-7">
 		                            	<form:input  path="maxChaild" class="form-control numericOnly validate" placeholder="Max Child/Room"/>
 								  	</div>
                     			</div>
-                    			</div>
+                    			</div> --%>
                     			<div class="col-md-6">
 								<div class="form-group">
-                    				<label for="roomNumber" class="col-md-4 control-label">Room Number</label>
+                    				<label for="roomNumber" class="col-md-4 control-label">Room Number <span class="impColor">*</span></label>
                     				<div class="col-md-7">
-		                            	<form:input  style='width: 213px;' path="roomNumber" class="form-control numericOnly validate" placeholder="Room Number"/>
+		                            	<form:input  style='width: 213px;' path="roomNumber" class="form-control numericOnly validate" maxlength="10" placeholder="Room Number"/>
 								  	</div>
                     			</div>
                     			</div>                    			
@@ -124,7 +136,7 @@ function showTableData(response){
 	serviceUnitArray = {};
 	var protectType = null;
 	var tableHead = '<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="example">'+
-    	'<thead>	<tr><th>Room Type</th><th>Room/Adult</th><th>Max Child/Room</th><th>Room Number</th><th>Status</th><th></th></tr></thead>'+
+    	'<thead>	<tr><th>Room Type</th><th>Room Capacity</th><th>Room Number</th><th>Status</th><th></th></tr></thead>'+
     	"<tbody></tbody></table>";
 	$("#tableId").html(tableHead);
 	$.each(response,function(i, orderObj) {
@@ -138,7 +150,7 @@ function showTableData(response){
 		var tblRow ="<tr>"
 			+ "<td title='"+orderObj.roomtype+"'>" + orderObj.roomtype + "</td>"
 			+ "<td title='"+orderObj.roomcapacity+"'>" + orderObj.roomcapacity + "</td>"
-			+ "<td title='"+orderObj.maxChaild+"'>" + orderObj.maxChaild + "</td>"
+// 			+ "<td title='"+orderObj.maxChaild+"'>" + orderObj.maxChaild + "</td>"
 			+ "<td title='"+orderObj.roomNumber+"'>" + orderObj.roomNumber + "</td>"
 			+ "<td title='"+orderObj.roomStatus+"'>" + orderObj.roomStatus + "</td>"
 			+ "<td style='text-align: center;white-space: nowrap;'>" + edit + "&nbsp;&nbsp;" + deleterow + "</td>"
@@ -174,6 +186,7 @@ function deleteRoom(id,status){
 			var alldata = jsonobj.allOrders1;
 			console.log(jsonobj.allOrders1);
 			showTableData(alldata);
+			 tooltip1();
 		});
 	}
 }
@@ -195,6 +208,7 @@ function inactiveData() {
 			var alldata = jsonobj.allOrders1;
 			console.log(jsonobj.allOrders1);
 			showTableData(alldata);
+			 tooltip1();
 		});
 	
 }
@@ -205,5 +219,5 @@ function dataClear(){
 	$("#location").val("");
 }
 $("#pageName").text("Room Master");
-$(".rooms").addClass("active"); 
+$(".roomMasterHome").addClass("active"); 
 </script>

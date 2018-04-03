@@ -1,3 +1,4 @@
+<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://displaytag.sf.net" prefix="display"%>
@@ -7,19 +8,18 @@
 	<div class="container">
 
 
-<h2>Room Type</h2>
+<h2>Room Capacity</h2>
          
          <ol class="breadcrumb">
          <li><a href="#">Rooms</a></li>
-         <li>Room Type</li>
+         <li>Room Capacity</li>
          
          
          </ol>        
          
        <div class="row">
     <div class="col-md-12">
-
-<div class="col" style="border:solid 1px; border-color:#CCCCCC; border-radius:5px;">
+    <div class="col" style="border:solid 1px; border-color:#CCCCCC; border-radius:5px;">
 				<ul style="background-color:#F7F7F7; margin-top:5px; border:solid 1px; border-color:#CCCCCC; border-radius:5px;" id="myTab" class="nav nav-tabs" role="tablist">
 					<li style="margin-left:3px; margin-top:5px;"  class="roomTypeHome"><a href="roomTypeHome" >Rooms Type</a></li>
 					<li style="margin-top:5px;" role="presentation" class="roomcapacity"><a href="roomcapacity">Room Capacity</a></li>
@@ -31,10 +31,10 @@
 				</ul>
 				<div id="myTabContent" class="tab-content"></div>
     
-    </div>    
+    </div>   
       <div class="panel panel-primary">
         <div class="panel-heading">
-          <h3 class="panel-title">Room Type List</h3>
+          <h3 class="panel-title">Room Capacity List</h3>
           <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-down"></i></span>
         </div>
         <div class="panel-body">
@@ -47,7 +47,7 @@
 							id="example">
 							<thead>
 								<tr>
-									<th>Room Type</th>
+									<th>Room Capacity</th>
 									<th>Status</th>
 									<th></th>
 								</tr>
@@ -68,14 +68,14 @@
          
         </div>
         <div class="panel-body">
-       <form:form modelAttribute="roomTypeForm" action="addRoomType" class="form-horizontal" method="Post" >
+       <form:form modelAttribute="roomTypeForm" action="addroomcapacity" class="form-horizontal" method="Post" >
       <div class="col-md-12">
      <div class="col-md-6">
 								<div class="form-group">
 									<input id="id" name="id" type="hidden" value="0">
-									<span for="roomTypeId" class="col-md-4 control-label">Room Type <span class="impColor">*</span></span>
+									<span for="roomTypeId" class="col-md-4 control-label">Room Capacity <span class="impColor">*</span></span>
 									<div class="col-md-7">
-									<input id="name" name="name" placeholder="Room Type" class="form-control validate "  onkeydown="removeBorder(this.id);" type="text" maxlength="10" >
+									<input id="name" name="name" placeholder="Room Capacity" class="form-control validate " maxlength="10" type="text" value="" >
 									</div>
                     			</div>
                     			
@@ -111,7 +111,7 @@ function showTableData(response){
 	serviceUnitArray = {};
 	var protectType = null;
 	var tableHead = '<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="example">'+
-    	'<thead><tr><th>Room Type </th><th>Status</th><th></th></tr>'+
+    	'<thead><tr><th>Room Capacity </th><th>Status</th><th></th></tr>'+
     	"</thead><tbody></tbody></table>";
 	$("#tableId").html(tableHead);
 	$.each(response,function(i, orderObj) {
@@ -124,7 +124,7 @@ function showTableData(response){
 		serviceUnitArray[orderObj.id] = orderObj;
 		var tblRow ="<tr>"
 			+ "<td title='"+orderObj.name+"'>" + orderObj.name + "</td>"
-			+ "<td title='"+orderObj.Status+"'>" + orderObj.roomtypestatus + "</td>"
+			+ "<td title='"+orderObj.roomcapacitystatus+"'>" + orderObj.roomcapacitystatus + "</td>"
 			+ "<td style='text-align: center;white-space: nowrap;'>" + edit + "&nbsp;&nbsp;" + deleterow + "</td>"
 			+"</tr>";
 		$(tblRow).appendTo("#tableId table tbody");
@@ -149,7 +149,7 @@ function deleteItem(id,status){
 	if(checkstr == true){
 		$.ajax({
 			type : "POST",
-			url : "deleteRoomType.htm",
+			url : "deleteroomcapacity.htm",
 			data :"id="+id+"&status="+status,
 			beforeSend : function() {
 				$.blockUI({ message: 'Please wait' });
@@ -159,8 +159,8 @@ function deleteItem(id,status){
 					$.unblockUI();
 		        	var resJson=JSON.parse(response);
 		            showTableData(resJson.allOrders1);
+		            tooltip1();  
 		            //window.location.reload();
-		            tooltip1();
 				}
 		       // window.location.reload();
 			},
@@ -184,13 +184,13 @@ function inactiveData() {
 		var formData = new FormData();
 		formData.append('status', status);
 		
-		$.fn.makeMultipartRequest('POST', 'inActiveRoomType', false,
+		$.fn.makeMultipartRequest('POST', 'inactiveroomcapacity', false,
 				formData, false, 'text', function(data) {
 			if(data != ''){
 				var resJson=JSON.parse(data);
 	            showTableData(resJson);
 						console.log(resJson);
-						tooltip1();
+						 tooltip1();
 			}else{
 				//alert('Inactive Data Empty...! ');
 				showTableData(data);
@@ -199,17 +199,7 @@ function inactiveData() {
 				});
 	
 }
-function roomcapacity(){
-	
-}
-function dataClear(){
-	$("#id").val("");
-	$("#Name").val("");
-	$("#s").val("");
-	$("#location").val("");
-}
-$("#pageName").text("Room Type");
-$(".roomTypeHome").addClass("active"); 
-$(".roommenu").addClass("active"); 
 
+$("#pageName").text("Room Type");
+$(".roomcapacity").addClass("active"); 
 </script>

@@ -1,6 +1,7 @@
 package com.aurospaces.neighbourhood.controller;
 
 
+import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,17 +14,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.aurospaces.neighbourhood.bean.HotelCapacityMasterBean;
+import com.aurospaces.neighbourhood.bean.HotelOccupationMasterBean;
 import com.aurospaces.neighbourhood.bean.HotelRoomPriceBean;
 import com.aurospaces.neighbourhood.bean.HotelRoomTypeBean;
 import com.aurospaces.neighbourhood.bean.HotelRoomUserDetailsBean;
 import com.aurospaces.neighbourhood.bean.SpecialOfferPriceBean;
-import com.aurospaces.neighbourhood.db.dao.HotelCapacityMasterDao;
+import com.aurospaces.neighbourhood.db.dao.HotelOccupationMasterDao;
 import com.aurospaces.neighbourhood.db.dao.HotelRoomMasterDao;
 import com.aurospaces.neighbourhood.db.dao.HotelRoomPriceDao;
 import com.aurospaces.neighbourhood.db.dao.HotelRoomTypeDao;
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import CommonUtils.CommonUtils;
@@ -33,9 +37,9 @@ public class RoomReservation {
 	
 	@Autowired HotelRoomTypeDao hotelRoomTypeDao;
 	@Autowired HotelRoomMasterDao hotelRoomMasterDao;
-	@Autowired HotelCapacityMasterDao hotelCapacityMasterDao;
+	@Autowired HotelOccupationMasterDao hotelCapacityMasterDao;
 	@Autowired HotelRoomPriceDao roomPriceDao;
-	
+	@Autowired HotelOccupationMasterDao capacityMasterDao;
 		private Logger logger = Logger.getLogger(RoomReservation.class);
 		
 		@RequestMapping(value = "/userRoomReservation")
@@ -184,7 +188,23 @@ public class RoomReservation {
 			return String.valueOf(jsonObj);
 			
 		}
-		
+		 @RequestMapping(value = "/getRoomOcupation1")
+			public @ResponseBody String getRoomOcupation(@RequestParam("roomTypeId") String roomTypeId) throws JsonGenerationException, JsonMappingException, IOException {
+				List<Map<String,Object>> listOrderBeans = null;
+				ObjectMapper objectMapper = null;
+				String sJson="";
+				listOrderBeans=capacityMasterDao.getRoomOcupation(roomTypeId);
+					 /// System.out.println("inActiveItem data--"+sJson);
+				objectMapper = new ObjectMapper();
+				if (listOrderBeans != null && listOrderBeans.size() > 0) {
+
+					objectMapper = new ObjectMapper();
+					sJson = objectMapper.writeValueAsString(listOrderBeans);
+					// System.out.println(sJson);
+				}
+				
+				return sJson;
+			}
 		@ModelAttribute("roomtype")
 		public Map<Integer, String> populateRoomtype() {
 			Map<Integer, String> statesMap = new LinkedHashMap<Integer, String>();
@@ -206,8 +226,8 @@ public class RoomReservation {
 			Map<Integer, String> statesMap = new LinkedHashMap<Integer, String>();
 			try {
 				String sSql = "SELECT id ,name FROM `hotel_capacity_master` WHERE status='1'";
-				List<HotelCapacityMasterBean> list = hotelCapacityMasterDao.populate(sSql);
-				for (HotelCapacityMasterBean bean : list) {
+				List<HotelOccupationMasterBean> list = hotelCapacityMasterDao.populate(sSql);
+				for (HotelOccupationMasterBean bean : list) {
 					statesMap.put(bean.getId(), bean.getName());
 				}
 

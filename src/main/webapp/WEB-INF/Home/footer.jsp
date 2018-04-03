@@ -25,10 +25,17 @@
   $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
 });
   var isClick='Yes';
+  $(document).ready(function(){
+		tooltip1();
+		
+	});
+  $(document).ready(function(){
+	    $('[data-toggle="tooltip"]').tooltip();   
+	});
   </script>
   
   
- <script type='text/javascript' src="${baseurl}/assets/js/jqueryui-1.10.3.min.js"></script> 
+<%--  <script type='text/javascript' src="${baseurl}/assets/js/jqueryui-1.10.3.min.js"></script>  --%>
 
 
 
@@ -41,11 +48,13 @@
   	<!-- Datatables -->
 
 
-<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"/>
-<link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css"/>
- <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<!-- <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"/> -->
+<!-- <link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css"/> -->
 <script src="${baseurl }/datatable/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<!-- <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script> -->
+<script type='text/javascript' src='${baseurl }/assets/plugins/datatables/jquery.dataTables.min.js'></script> 
+<script type='text/javascript' src='${baseurl }/assets/plugins/datatables/dataTables.bootstrap.js'></script> 
+<script type='text/javascript' src='${baseurl }/assets/demo/demo-datatables.js'></script> 
 <script src="${baseurl }/datatable/dataTables.buttons.min.js"></script>
 <script src="${baseurl }/datatable/pdfmake.min.js"></script>
 <script src="${baseurl }/datatable/vfs_fonts.js"></script>
@@ -55,6 +64,7 @@
 <script src="${baseurl }/datatable/jszip.min.js"></script>
 <script type='text/javascript' src='${baseurl }/js/ajax.js'></script>
 <script type='text/javascript' src="${baseurl }/js/jquery.blockUI.min.js" ></script>
+<script type="text/javascript" src="http://momentjs.com/downloads/moment.js"></script>
 <script type="text/javascript" src="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/src/js/bootstrap-datetimepicker.js"></script>
       <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/build/css/bootstrap-datetimepicker.css">
   	<script>

@@ -23,11 +23,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.aurospaces.neighbourhood.bean.HotelCapacityMasterBean;
+import com.aurospaces.neighbourhood.bean.HotelOccupationMasterBean;
 import com.aurospaces.neighbourhood.bean.HotelRoomPhotosBean;
 import com.aurospaces.neighbourhood.bean.HotelRoomTypeBean;
 import com.aurospaces.neighbourhood.db.dao.CylindermasterDao;
-import com.aurospaces.neighbourhood.db.dao.HotelCapacityMasterDao;
+import com.aurospaces.neighbourhood.db.dao.HotelOccupationMasterDao;
 import com.aurospaces.neighbourhood.db.dao.HotelRoomMasterDao;
 import com.aurospaces.neighbourhood.db.dao.HotelRoomPhotosDao;
 import com.aurospaces.neighbourhood.db.dao.HotelRoomTypeDao;
@@ -49,7 +49,7 @@ public class RoomPhotosController {
 	@Autowired
 	HotelRoomMasterDao hotelRoomMasterDao;
 	@Autowired
-	HotelCapacityMasterDao hotelCapacityMasterDao;
+	HotelOccupationMasterDao hotelCapacityMasterDao;
 	@Autowired
 	HotelRoomPhotosDao RoomPhotosDao;
 
@@ -241,9 +241,9 @@ public class RoomPhotosController {
 	public Map<Integer, String> populateCapacity() {
 		Map<Integer, String> statesMap = new LinkedHashMap<Integer, String>();
 		try {
-			String sSql = "SELECT id ,CONCAT(name,'(',numberOfAdult,')') AS name FROM `hotel_capacity_master` WHERE status='1'";
-			List<HotelCapacityMasterBean> list = hotelCapacityMasterDao.populate(sSql);
-			for (HotelCapacityMasterBean bean : list) {
+			String sSql = "SELECT id ,name FROM `hotel_occupation_master` WHERE status='1'";
+			List<HotelOccupationMasterBean> list = hotelCapacityMasterDao.populate(sSql);
+			for (HotelOccupationMasterBean bean : list) {
 				statesMap.put(bean.getId(), bean.getName());
 			}
 

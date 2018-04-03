@@ -31,8 +31,11 @@
 	<definition name="roomHome" extends="base.definition">
 		<put-attribute name="body" value="/WEB-INF/pages/rooms.jsp" />
 	</definition>
-	<definition name="capacityHome" extends="base.definition">
-		<put-attribute name="body" value="/WEB-INF/pages/capacity.jsp" />
+	<definition name="occupationHome" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/pages/occupation.jsp" />
+	</definition>
+	<definition name="roomcapacity" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/pages/roomcapacity.jsp" />
 	</definition>
 
 	<!-- room master -->

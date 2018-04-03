@@ -48,6 +48,22 @@
 
 <script type="text/javascript">
 var isClick = 'No';
+
+function tooltip1(){
+	$('.view').attr('data-toggle','tooltip');
+	$('.view').attr('data-original-title','View');
+	$('.edit').attr('data-toggle','tooltip');
+	$('.edit').attr('data-original-title','Edit');
+	$('.delete').attr('data-toggle','tooltip');
+	$('.delete').attr('data-original-title','Delete');
+	$('.activate').attr('data-toggle','tooltip');
+	$('.activate').attr('data-original-title','Activate');
+	$('.printlpo').attr('data-toggle','tooltip');
+	$('.printlpo').attr('data-original-title','Print');
+	$('.deactivate').attr('data-toggle','tooltip');
+	$('.deactivate').attr('data-original-title','Deactivate');
+	  $('[data-toggle="tooltip"]').tooltip();  
+}
 </script>
 <style>
 .navbar-default
@@ -58,17 +74,66 @@ var isClick = 'No';
    .navbar-default 
    .navbar-nav>
    .active>a:hover{background: transparent;}
+   
+.alert-success, .alert-warning, .alert-danger{color: white !important;}
+.alert-success{background-color: #4CAF50 !important;}
+.alert-warning{background-color: #ff6600 !important;}
+.alert-danger{background-color: #d43f3a !important;}
+
+.your-class::-webkit-input-placeholder {color: #e73d4a !important;}
+.your-class::-moz-placeholder {color: #e73d4a !important;}
+
+.default-class::-webkit-input-placeholder {color: #e73d4a !important;}
+.default-class::-moz-placeholder {color: #e73d4a !important;}
+
+.msgcss
+{
+/* 	width: 50% !important; */
+/* 	font-weight: bold; */
+	margin: auto;
+	text-align: center;
+	top: 3px !important;
+	left:0;
+	right:0;
+	position: fixed;
+	font-size: 14px;
+	z-index:99999;
+}
+.navbar {
+margin-bottom:10px;
+}
+.form-control {
+    display: block;
+    width: 185px;
+    }
 </style>
+<script>
+window.setTimeout(function() {
+    $(".msgcss").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove(); 
+    });
+}, 5000);
+
+</script>
 </head>
 
 <body>
+	<c:if test="${not empty msg}">
+		<div class="msgcss row">
+			<div class="col-sm-4 col-sm-offset-4">
+				<div class="form-group">
+					<div class="alert alert-${cssMsg} fadeIn animated">${msg}</div>
+				</div>
+			</div>
+		</div>
+	</c:if>
 	<div class="header">
 		<!--<img src="images/1.png" class="img-responsive" style="margin:0 auto;"/>-->
 		<div id="logo">
 			<h2 style="text-align: center;">Hotel Booking</h2>
 		</div>
 	</div>
-	<div class="container-fluid" style='padding-left: 0px;'>
+	<div class="container-fluid" style='padding-left: 0px; background:#f8f8f8;'>
 		<nav class="navbar navbar-default" style='border: none;height: 73px;'>
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
@@ -96,20 +161,12 @@ var isClick = 'No';
 									<span class="glyphicon glyphicon-book" aria-hidden="true"></span><br>
 									Bookings
 								</button></a></li>
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown"><button type="button"
+						<li class="roommenu"><a href="roomTypeHome" ><button type="button"
 									class="btn btn-default btn-lg">
 									<span class="glyphicon glyphicon-tags" aria-hidden="true"></span><br>
 									Rooms
 								</button></a>
-							<ul class="dropdown-menu">
-								<li><a href="roomTypeHome">Room Type</a></li>
-								<li><a href="capacityHome">Room Occupation</a></li>
-								<li><a href="roomMasterHome">Room Master</a></li>
-								<li><a href="roomPriceHome">Room Tariff</a></li>
-								<li><a href="roomPhotosHome">Room Photos</a></li>
-								<li><a href="offerPriceForm">Special Offer Price</a></li>
-							</ul></li>
+							</li>
 						<li><a href="options.html"><button type="button"
 									class="btn btn-default btn-lg">
 									<span class="glyphicon glyphicon-menu-hamburger"
@@ -135,7 +192,7 @@ var isClick = 'No';
   				<span class="glyphicon glyphicon-save" aria-hidden="true"></span><br> Install
 			</button></a>
             </li>-->
-						<li><a href="index.html"><button type="button"
+						<li><a href="../logoutHome"><button type="button"
 									class="btn btn-default btn-lg">
 									<span class="glyphicon glyphicon-off" aria-hidden="true"></span><br>
 									Logout
@@ -146,3 +203,17 @@ var isClick = 'No';
 			<!-- /.container-fluid -->
 		</nav>
 	</div>
+	<script>
+$(document).on('click', '.panel-heading span.clickable', function(e){
+    var $this = $(this);
+  if(!$this.hasClass('panel-collapsed')) {
+    $this.parents('.panel').find('.panel-body').slideUp();
+    $this.addClass('panel-collapsed');
+    $this.find('i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+  } else {
+    $this.parents('.panel').find('.panel-body').slideDown();
+    $this.removeClass('panel-collapsed');
+    $this.find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+  }
+})
+</script>

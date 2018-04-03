@@ -8,10 +8,9 @@
 	<div class="container">
 
 
-<h2 style="margin-top:0px;">Room Photos</h2>
+<h2>Room Photos</h2>
          
          <ol class="breadcrumb">
-         <li><a href="dashboard.html">Dashboard</a></li>
          <li><a href="#">Rooms</a></li>
          <li>Room Photos</li>
          
@@ -20,6 +19,19 @@
          
        <div class="row">
     <div class="col-md-12">
+    <div class="col" style="border:solid 1px; border-color:#CCCCCC; border-radius:5px;">
+				<ul style="background-color:#F7F7F7; margin-top:5px; border:solid 1px; border-color:#CCCCCC; border-radius:5px;" id="myTab" class="nav nav-tabs" role="tablist">
+					<li style="margin-left:3px; margin-top:5px;"  class="roomTypeHome"><a href="roomTypeHome" >Rooms Type</a></li>
+					<li style="margin-top:5px;" role="presentation" class="roomcapacity"><a href="roomcapacity">Room Capacity</a></li>
+					<li style="margin-top:5px;" role="presentation" class="occupation"><a href="occupation" >Room Occupation</a></li>
+					<li style="margin-left:3px; margin-top:5px;" class="roomMasterHome"><a href="roomMasterHome" >Room Master</a></li>
+					<li style="margin-top:5px;" role="presentation" class="roomPriceHome"><a href="roomPriceHome" >Room Tariff</a></li>
+					<li style="margin-top:5px;" role="presentation" class="roomPhotosHome"><a href="roomPhotosHome" >Room Photos</a></li>
+					<li style="margin-top:5px;" role="presentation" class="offerPriceForm"><a href="offerPriceForm" >Special Offer Price</a></li>
+				</ul>
+				<div id="myTabContent" class="tab-content"></div>
+    
+    </div> 
       <div class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">Room Photos List</h3>
@@ -33,7 +45,7 @@
 							<thead>
 								<tr>
 									<th>Room Type</th>
-									<th>Capacity</th>
+									<th>Room Capacity</th>
 									<th>Images</th>
 									<th>Images</th>
 									<th>Images</th>
@@ -54,7 +66,7 @@
     <div class="col-md-12">
       <div class="panel panel-primary">
         <div class="panel-heading">
-          <h3 class="panel-title">Room Photos</h3>
+          <h3 class="panel-title" id="moveTo">Room Photos</h3>
          
         </div>
         <form:form modelAttribute="roomPhotoForm" action="addRoomPhotos" class="form-horizontal" method="Post"  enctype="multipart/form-data">
@@ -74,7 +86,7 @@
 									</div>
                     			</div>
                     			<div class="form-group">
-                    				<label for="capacityId" class="col-md-4 control-label">Room/Adult <span class="impColor">*</span></label>
+                    				<label for="capacityId" class="col-md-4 control-label">Room Capacity <span class="impColor">*</span></label>
                     				<div class="col-md-7">
                     				<form:select style='width: 218px;' path="capacityId" class="form-control validate" onfocus="removeBorder(this.id);">
 									<form:option value="">-- Select Room Capacity --</form:option>
@@ -216,6 +228,7 @@ function deletePhotos(id,status){
 					$.unblockUI();
 		        	var resJson=JSON.parse(response);
 		            showTableData(resJson.allOrders1);
+		            tooltip1();
 		            //window.location.reload();
 				}
 		       // window.location.reload();
@@ -246,6 +259,7 @@ function inactiveData() {
 				var resJson=JSON.parse(data);
 	            showTableData(resJson);
 						console.log(resJson);
+						 tooltip1();
 			}else{
 				//alert('Inactive Data Empty...! ');
 				showTableData(data);
@@ -324,5 +338,5 @@ function dataClear(){
 	$("#location").val("");
 }
 $("#pageName").text("Room Photos");
-$(".roomPhoto").addClass("active"); 
+$(".roomPhotosHome").addClass("active"); 
 </script>
