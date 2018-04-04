@@ -532,11 +532,11 @@ span{font-style: italic; color: black;}
     <div class="collapse navbar-collapse" id="myNavbar" style='margin: 0px 0px 0px 200px;'>
       <ul class="nav navbar-nav" style="background: none;">
         <li style='text-align: right;'><a href="userindex.jsp" style="color: white;">Home</a></li>
-		<li style='text-align: right;'><a href="about.jsp" style="color: white;">About Us</a></li>
-        <li style='text-align: right;'><a href="userRoomTariff" style="color: white;">Room & Tariff</a></li>
-        <li style='text-align: right;'><a href="facilities.jsp" style="color: white;">Facilities</a></li> 
-        <li style='text-align: right;'><a href="contact.jsp" style="color: white;">Contact Us</a></li> 
-		<li style='text-align: right;'><a href="login.jsp" style="color: white;">Login</a></li>  
+		<li style='text-align: right;'><a href="aboutus" style="color: white;">About Us</a></li>
+        <li style='text-align: right;'><a href="userroomtariff" style="color: white;">Room & Tariff</a></li>
+        <li style='text-align: right;'><a href="facilities" style="color: white;">Facilities</a></li> 
+        <li style='text-align: right;'><a href="contactus" style="color: white;">Contact Us</a></li> 
+		<li style='text-align: right;'><a href="userlogin" style="color: white;">Login</a></li>  
       </ul>      
     </div>
   </div>
@@ -611,7 +611,7 @@ span{font-style: italic; color: black;}
                                         	Departure Date
                                         </div>
                                         <div class="col-md-7 col-xs-9 col-sm-10 pull-right padding_0">
-                                        	 <input name="date" id="datepicker" type="text" class="dateBg hasDatepicker" value="DD/MM/YYYY" >
+                                        	 <input name="form_date" id="datepicker" type="text" class="dateBg hasDatepicker" placeholder="DD/MM/YYYY" >
                                         </div>
                                     	
                                    	 </div>

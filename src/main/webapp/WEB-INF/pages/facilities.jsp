@@ -1,4 +1,4 @@
-<jsp:include page="header.jsp" />
+<jsp:include page="../../header.jsp" />
 			
 			
 <style>
@@ -111,4 +111,4 @@ p{
 </div>                              
                  </div>
                 </div>
-<jsp:include page="footer.jsp" />
+<jsp:include page="../../footer.jsp" />

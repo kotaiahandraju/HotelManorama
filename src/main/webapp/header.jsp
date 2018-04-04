@@ -548,16 +548,16 @@ span{font-style: italic; color: black;}
         <span class="icon-bar"></span> 
       </button>
       <a class="navbar-brand" href="userindex.jsp" style="color: white; font-size: 36px; height: 83px;">
-	  <img src="user/img/logo.png" class="img-responsive"></a>
+	  <img src="user/img/logo.png" class="img-responsive" style="margin-top:-15px;"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar" style='margin: 0px 0px 0px 200px;'>
       <ul class="nav navbar-nav" style="background: none;">
-        <li style='text-align: right;'><a href="userindex.jsp" style="color: white;">Home</a></li>
-		<li style='text-align: right;'><a href="about.jsp" style="color: white;">About Us</a></li>
-        <li style='text-align: right;'><a href="userRoomTariff" style="color: white;">Room & Tariff</a></li>
-        <li style='text-align: right;'><a href="facilities.jsp" style="color: white;">Facilities</a></li> 
-        <li style='text-align: right;'><a href="contact.jsp" style="color: white;">Contact Us</a></li> 
-		<li style='text-align: right;'><a href="login.jsp" style="color: white;">Login</a></li>  
+        <li style='text-align: right;'><a href="userindex.jsp" style="color: white;margin-top:8px;">Home</a></li>
+		<li style='text-align: right;'><a href="aboutus" style="color: white;margin-top:8px;">About Us</a></li>
+        <li style='text-align: right;'><a href="userroomtariff" style="color: white;margin-top:8px;">Room & Tariff</a></li>
+        <li style='text-align: right;'><a href="facilities" style="color: white;margin-top:8px;">Facilities</a></li> 
+        <li style='text-align: right;'><a href="contactus" style="color: white;margin-top:8px;">Contact Us</a></li> 
+		<li style='text-align: right;'><a href="userlogin" style="color: white;margin-top:8px;">Login</a></li>  
       </ul>      
     </div>
   </div>
@@ -572,7 +572,7 @@ span{font-style: italic; color: black;}
 			</div>
 			<div class="content-top1">			
 			  <div class=" col-md-1 col-md-offset-1  grid-top">
-				<a href="roomtariff.jsp" style='text-decoration: none;'>
+				<a href="userroomtariff" style='text-decoration: none;'>
 				 <img src='user/icons/list.png' style='width: 55px;' alt=''></img>
 				  <div class="top-grid">
 					<span>Rooms</span>
@@ -580,7 +580,7 @@ span{font-style: italic; color: black;}
 				</div>
 			
 			<div class=" col-md-1 grid-top">
-				<a href="facilities.jsp" style='text-decoration: none;'>
+				<a href="facilities" style='text-decoration: none;'>
 				 <img src='user/icons/facility.png' style='width: 55px;' alt=''></img>
 				  <div class="top-grid">
 					<span>Facilities</span>

@@ -106,10 +106,12 @@
 							</div>
         </div><br><br><br>
         <div class="col-sm-12">
+        <div class="col-sm-7">
 				      			<div class="btn-toolbar" 
          style="float:right;">
 					      			<input class="btn-primary btn" type="submit" value="Submit" id="submit1">
 					      			<input class="btn-danger btn cancel" type="reset" value="Reset">
+				      			</div>
 				      			</div>
 				      		</div>
       </div></form:form>
@@ -214,6 +216,7 @@ function deletePhotos(id,status){
 		 checkstr = confirm('Are you sure you want to Deactivate?');
 	}else{
 		 checkstr = confirm('Are you sure you want to Activate?');
+		 $('#inActive').prop('checked', false);
 	}
 	if(checkstr == true){
 		$.ajax({

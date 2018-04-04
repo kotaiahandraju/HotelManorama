@@ -1,5 +1,5 @@
 
-<jsp:include page="header.jsp" />
+<jsp:include page="../../header.jsp" />
 <div class="container padding_0">
 	<div
 		class="col-md-12 col-sm-12 col-xs-12 padding_0 text-center-xs text-center-sm padding_TB_02">
@@ -100,4 +100,4 @@
 	</div>
 </div>
 </div>
-<jsp:include page="footer.jsp" />
+<jsp:include page="../../footer.jsp" />

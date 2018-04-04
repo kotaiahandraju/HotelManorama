@@ -24,8 +24,8 @@ public class UserRoomTariff {
 	@Autowired HotelOccupationMasterDao hotelCapacityMasterDao;
 		private Logger logger = Logger.getLogger(UserRoomTariff.class);
 		
-		@RequestMapping(value = "/userRoomTariff")
-		 public String userRoomTariff() {
+		@RequestMapping(value = "/userroomtariff")
+		 public String userroomtariff() {
 			ObjectMapper objectMapper = null;
 			String sJson = null;
 			List<HotelRoomMasterBean> listOrderBeans=null;

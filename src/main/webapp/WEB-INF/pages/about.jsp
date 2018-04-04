@@ -1,4 +1,4 @@
-<jsp:include page="header.jsp" />
+<jsp:include page="../../header.jsp" />
 <div class="container">
          <div class="row">
             	 <div class="col-md-8">
@@ -8,7 +8,7 @@
   
   <!--breadcrumb start-->                    
                      <ol class="breadcrumb">
-                      <li><a href="/" title="Home">Home</a></li>                 
+                      <li><a href="aboutus" title="Home">Home</a></li>                 
                       <li class="active">About us</li>
                     </ol>
 				    <!--breadcrumb End-->
@@ -40,4 +40,4 @@
 </div>                              
                  </div>
 				
-<jsp:include page="footer.jsp" />
+<jsp:include page="../../footer.jsp" />

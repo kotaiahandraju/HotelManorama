@@ -82,12 +82,14 @@
 							</div>
         </div><br><br><br>
         <div class="col-sm-12">
+        <div class="col-sm-7">
+        
 				      			<div class="btn-toolbar" 
          style="float:right;">
 					      			<input class="btn-primary btn" type="submit" value="Submit" id="submit1">
 					      			<input class="btn-danger btn cancel" type="reset" value="Reset">
 				      			</div>
-				      		</div></form:form>
+				      		</div></div></form:form>
       </div>
     </div>
     </div></div></div>
@@ -145,6 +147,7 @@ function deleteItem(id,status){
 		 checkstr = confirm('Are you sure you want to Deactivate?');
 	}else{
 		 checkstr = confirm('Are you sure you want to Activate?');
+		  $('#inActive').prop('checked', false);
 	}
 	if(checkstr == true){
 		$.ajax({
@@ -210,6 +213,6 @@ function dataClear(){
 }
 $("#pageName").text("Room Type");
 $(".roomTypeHome").addClass("active"); 
-$(".roommenu").addClass("active"); 
+$(".roommenu").addClass("inactive"); 
 
 </script>
