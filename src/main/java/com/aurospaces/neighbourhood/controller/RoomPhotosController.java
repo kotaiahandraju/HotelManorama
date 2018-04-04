@@ -81,10 +81,9 @@ public class RoomPhotosController {
 		return "roomPhotosHome";
 	}
 
-	@SuppressWarnings("null")
 	@RequestMapping(value = "/addRoomPhotos", method = RequestMethod.POST)
 	public String addRoomPhotos(@RequestParam("image") MultipartFile[] file,
-			@ModelAttribute("roomPhotoForm") HotelRoomPhotosBean roomPhotoBean, RedirectAttributes redir,
+			@ModelAttribute("roomPhotoForm") HotelRoomPhotosBean roomPhotoBean, RedirectAttributes redir,@RequestParam("imagePath") String imagePath,
 			HttpServletRequest request) {
 
 		// List<CylindermasterBean> cylinderMaster=null;
@@ -100,15 +99,15 @@ public class RoomPhotosController {
 				if (file[i].getOriginalFilename() != "") {
 					photoPath = FileUploadUtil.ImageUpload(file[i], request);
 					String imageData =photoPath;
-					System.out.println(imageData);
+//					System.out.println(imageData);
 					// System.out.println("--:"+i+"photoPath=="+photoPath+"----:"+roomPhotoBean.getCapacityId());
 					
 					if(i==0) {
 						photoIncreMent.append(imageData);
-						System.out.println("append data...."+photoIncreMent);
+//						System.out.println("append data...."+photoIncreMent);
 					}else {
 						StringBuffer data=photoIncreMent.append(",").append(imageData);
-						System.out.println("addd data---- "+data);
+//						System.out.println("addd data---- "+data);
 					}
 					
 			}
@@ -124,9 +123,18 @@ public class RoomPhotosController {
 			if (roomPhotoBean.getId() != 0) {
 				id = roomPhotoBean.getId();
 				if (id == dummyId || roomPhotoBean2 == null) {
-					RoomPhotosDao.save(roomPhotoBean);
-					redir.addFlashAttribute("msg", "Record Updated Successfully");
-					redir.addFlashAttribute("cssMsg", "warning");
+					//System.out.println("----imagePath-----"+imagePath);
+					if(imagePath.isEmpty()) {
+						RoomPhotosDao.save(roomPhotoBean);
+						redir.addFlashAttribute("msg", "Record Updated Successfully");
+						redir.addFlashAttribute("cssMsg", "warning");
+					}else {
+						roomPhotoBean.setImages(imagePath);
+						RoomPhotosDao.save(roomPhotoBean);
+						redir.addFlashAttribute("msg", "Record Updated Successfully");
+						redir.addFlashAttribute("cssMsg", "warning");
+					}
+					
 				} else {
 					redir.addFlashAttribute("msg", "Already Record Exist");
 					redir.addFlashAttribute("cssMsg", "danger");
@@ -149,11 +157,6 @@ public class RoomPhotosController {
 
 		}
 		return "redirect:roomPhotosHome";
-	}
-
-	private List ArrayList() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@RequestMapping(value = "/deleteRoomPhotos")

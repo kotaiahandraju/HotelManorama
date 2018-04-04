@@ -17,10 +17,22 @@ protected String image5 ;
 protected String images ;
 protected String status,photoStatus;
 protected String capacityId ;
-protected String imagePath1,imagePath2,imagePath3,imagePath4,imagePath5 ;
+protected String imagePath1,imagePath2,imagePath3,imagePath4,imagePath5,roomTypeName,roomOcupenceyName;
 
 
 
+public String getRoomTypeName() {
+	return roomTypeName;
+}
+public void setRoomTypeName(String roomTypeName) {
+	this.roomTypeName = roomTypeName;
+}
+public String getRoomOcupenceyName() {
+	return roomOcupenceyName;
+}
+public void setRoomOcupenceyName(String roomOcupenceyName) {
+	this.roomOcupenceyName = roomOcupenceyName;
+}
 public String getImages() {
 	return images;
 }

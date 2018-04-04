@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.aurospaces.neighbourhood.bean.HotelOccupationMasterBean;
+import com.aurospaces.neighbourhood.bean.HotelRoomPhotosBean;
 import com.aurospaces.neighbourhood.bean.HotelRoomPriceBean;
 import com.aurospaces.neighbourhood.bean.HotelRoomTypeBean;
 import com.aurospaces.neighbourhood.bean.SpecialOfferPriceBean;
@@ -72,7 +73,36 @@ public class SpecialOfferPriceController {
 			specialOfferPriceBean.setStart_time1(CommonUtils.getIndainDate(specialOfferPriceBean.getStart_time()));
 			specialOfferPriceBean.setEnd_time1(CommonUtils.getIndainDate(specialOfferPriceBean.getEnd_time()));
 			System.out.println("---date--"+specialOfferPriceBean.getStart_time1());
-				if(specialOfferPriceBean.getId() == 0) {
+			SpecialOfferPriceBean offerPriceBean = specialOfferPriceDao.getByRoomCapacityAndRoomTypeList(specialOfferPriceBean);
+			
+			int id = 0;
+			int dummyId = 0;
+			if (offerPriceBean != null) {
+				dummyId = offerPriceBean.getId();
+			}
+			if (specialOfferPriceBean.getId() != 0) {
+				id = specialOfferPriceBean.getId();
+				if (id == dummyId || offerPriceBean == null) {
+					specialOfferPriceDao.save(specialOfferPriceBean);
+					redirect.addFlashAttribute("msg", "Record Updated Successfully");
+					redirect.addFlashAttribute("cssMsg", "warning");
+				} else {
+					redirect.addFlashAttribute("msg", "Already Record Exist");
+					redirect.addFlashAttribute("cssMsg", "danger");
+				}
+			}
+			if (specialOfferPriceBean.getId() == 0 && offerPriceBean == null) {
+				specialOfferPriceDao.save(specialOfferPriceBean);
+
+				redirect.addFlashAttribute("msg", "Record Inserted Successfully");
+				redirect.addFlashAttribute("cssMsg", "success");
+			}
+			if (specialOfferPriceBean.getId() == 0 && offerPriceBean != null) {
+				redirect.addFlashAttribute("msg", "Already Record Exist");
+				redirect.addFlashAttribute("cssMsg", "danger");
+			}
+			
+				/*if(specialOfferPriceBean.getId() == 0) {
 					System.out.println("---save--");
 					specialOfferPriceDao.save(specialOfferPriceBean);
 					redirect.addFlashAttribute("msg", "Record Inserted Successfully");
@@ -82,7 +112,7 @@ public class SpecialOfferPriceController {
 					specialOfferPriceDao.save(specialOfferPriceBean);
 					redirect.addFlashAttribute("msg", "Record Updated Successfully");
 					redirect.addFlashAttribute("cssMsg", "warning");
-				}
+				}*/
 			
 		} catch (Exception e) {
 			System.out.println("Exception in SpecialOfferPriceController Controller in saveSpecialOfferForm()");

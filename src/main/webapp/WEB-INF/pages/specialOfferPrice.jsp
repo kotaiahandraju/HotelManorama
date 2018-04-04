@@ -230,7 +230,9 @@ function editSpecialPrice(id){
 	$("#id").val(id);
 	console.log(id);
 	$("#roomTypeId").val(serviceUnitArray[id].roomTypeId);
-	$("#capacityId").val(serviceUnitArray[id].capacityId);
+	var optionsForClass = "";
+	optionsForClass = $("#capacityId").empty();
+	optionsForClass.append(new Option(serviceUnitArray[id].capacityname, serviceUnitArray[id].capacityId));
 	$("#sun").val(serviceUnitArray[id].sun);
 	$("#mon").val(serviceUnitArray[id].mon);
 	$("#tue").val(serviceUnitArray[id].tue);
