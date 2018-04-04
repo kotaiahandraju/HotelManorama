@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.aurospaces.neighbourhood.bean.SpecialOfferPriceBean;
+import com.aurospaces.neighbourhood.bean.SpecialOfferPriceBean;
 import com.aurospaces.neighbourhood.daosupport.CustomConnection;
 import com.aurospaces.neighbourhood.db.basedao.BaseSpecialOfferPriceDao;
 
@@ -33,6 +34,16 @@ public class SpecialOfferPriceDao extends BaseSpecialOfferPriceDao {
 		return null;
 
 	}
+	public SpecialOfferPriceBean getByRoomCapacityAndRoomTypeList(SpecialOfferPriceBean offerPriceBean) {
+		 jdbcTemplate = custom.getJdbcTemplate();
+			String sql = "SELECT * from special_offer_price where room_type_id=? and capacity_id=?";
+			List<SpecialOfferPriceBean> retlist = jdbcTemplate.query(sql,
+			new Object[]{offerPriceBean.getRoomTypeId(),offerPriceBean.getCapacityId()},
+			ParameterizedBeanPropertyRowMapper.newInstance(SpecialOfferPriceBean.class));
+			if(retlist.size() > 0)
+				return retlist.get(0);
+			return null;
+		}
 
 		
 }

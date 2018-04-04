@@ -99,7 +99,7 @@
                     				<div class="col-md-7" id="dvPreview1">
                     				<img id="imageId" style="display: none;    width: 20%;" src="">
                     				<span id="imageLable" style="display: none;"></span>
-									<input id="imagePath" name="imagePath" type="hidden" value="">
+										<input id="imagePath" name="imagePath" type="hidden" value="">
 		                            	<input style='width: 218px;' type="file" id="image" name="image" class="form-control images" multiple="multiple">
 								  	</div>
                     			</div>
@@ -165,8 +165,8 @@ function showTableData(response){
 			}
 		});
 		var tblRow ="<tr>"
-			+ "<td title='"+orderObj.roomTypeId+"'>" + orderObj.roomTypeId + "</td>"
-			+ "<td title='"+orderObj.capacityId+"'>" + orderObj.capacityId + "</td>"
+			+ "<td title='"+orderObj.roomTypeId+"'>" + orderObj.roomTypeName + "</td>"
+			+ "<td title='"+orderObj.capacityId+"'>" + orderObj.roomOcupenceyName + "</td>"
 			+ "<td title='Image'><img style='height: 4%;' src='${baseurl}/"+image1 +"'/></td>"
 			+ "<td title='"+image2+"'><img style='height: 4%;' src='${baseurl}/"+image2+"'/></td>"
 			+ "<td title='"+image3+"'><img style='height: 4%;' src='${baseurl}/"+image3+"'/></td>"
@@ -185,25 +185,10 @@ function editPhotos(id){
 	$("#roomTypeId").val(serviceUnitArray[id].roomTypeId);
 	$("#capacityId").val(serviceUnitArray[id].capacityId);
 	
-
-	
-	/* var editImage=serviceUnitArray[id].documents;
-	var replaceImage=editImage.replace("documents/","");
-	$("#imageId").attr("src","${baseurl}"+editImage);
-	$("#imageLable").text(replaceImage);
-	$("#imagePath").val(editImage); */
-	
-	/* $("#image").css('color', 'transparent');
-	$("#imageId").show();
-	$("#imageLable").show();
-	$("#dynamicImage").remove(); */
-	
-	
-// 	var replaceImage=editImage.replace("documents/","");
-// 	$("#imageId").attr("src","${baseurl}/"+image1);
-// 	$("#imageLable").text(replaceImage);
-// 	$("#imagePath").val(image1);
-	
+	var imagePaths = serviceUnitArray[id].images;
+	console.log(typeof(imagePaths));
+	$("#imagePath").val(imagePaths);
+	console.log($("#imagePath").val());
 	$("#submit1").val("Update");
 	$(window).scrollTop($('#moveTo').offset().top);
 }
@@ -277,6 +262,7 @@ function inactiveData() {
 		 $("#dynamicImage").remove();
 	     $("#imageId").hide();
 	     $("#imageLable").hide(); 
+	     $("#imagePath").val("");
 	
     for (var i = 0; i < e.originalEvent.srcElement.files.length; i++) {
         
@@ -296,33 +282,6 @@ function inactiveData() {
 //         $("#imageId").css('width', '20%');
     }
 }); 
-/* $(".images").change(function () {
-    if (typeof (FileReader) != "undefined") {
-        var dvPreview = $("#dvPreview");
-        dvPreview.html("");
-        var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
-        $($(this)[0].files).each(function () {
-            var file = $(this);
-            if (regex.test(file[0].name.toLowerCase())) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    var img = $("<img />");
-                    img.attr("style", "height:100px;width: 100px");
-                    img.attr("src", e.target.result);
-                    dvPreview.append(img);
-                }
-                reader.readAsDataURL(file[0]);
-            } else {
-                alert(file[0].name + " is not a valid image file.");
-                dvPreview.html("");
-                return false;
-            }
-        });
-    } else {
-        alert("This browser does not support HTML5 FileReader.");
-    }
-}); */
- 
 
 /* var idImage = $.makeArray($('.images').map(function() {
 	return this.id;
@@ -339,4 +298,35 @@ function dataClear(){
 }
 $("#pageName").text("Room Photos");
 $(".roomPhotosHome").addClass("active"); 
+</script>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script language="javascript" type="text/javascript">
+function dynamicImage(){
+	 if (typeof (FileReader) != "undefined") {
+         var dvPreview = $("#dvPreview");
+         dvPreview.html("");
+         var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
+         $($(this)[0].files).each(function () {
+             var file = $(this);
+             if (regex.test(file[0].name.toLowerCase())) {
+                 var reader = new FileReader();
+                 reader.onload = function (e) {
+                     var img = $("<img />");
+                     img.attr("style", "height:100px;width: 100px");
+                     img.attr("src", e.target.result);
+                     dvPreview.append(img);
+                 }
+                 reader.readAsDataURL(file[0]);
+             } else {
+                 alert(file[0].name + " is not a valid image file.");
+                 dvPreview.html("");
+                 return false;
+             }
+         });
+     } else {
+         alert("This browser does not support HTML5 FileReader.");
+     }
+}
+       
 </script>
