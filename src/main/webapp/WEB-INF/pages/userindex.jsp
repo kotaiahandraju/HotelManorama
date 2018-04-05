@@ -507,15 +507,15 @@ span {
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-          <a class="navbar-brand" href="userindex.jsp" > <img src="user/img/logo.png" class="img-responsive"></a> </div>
+          <a class="navbar-brand" href="userindex" > <img src="user/img/logo.png" class="img-responsive"></a> </div>
         <div class="collapse navbar-collapse" id="myNavbar" >
           <ul class="nav navbar-nav pull-right" >
-            <li style='text-align: right;'><a href="userindex.jsp" >Home</a></li>
-            <li style='text-align: right;'><a href="about.jsp" >About Us</a></li>
-            <li style='text-align: right;'><a href="userRoomTariff" >Room & Tariff</a></li>
-            <li style='text-align: right;'><a href="facilities.jsp">Facilities</a></li>
-            <li style='text-align: right;'><a href="contact.jsp" >Contact Us</a></li>
-            <li style='text-align: right;'><a href="login.jsp" >Login</a></li>
+            <li style='text-align: right;'><a href="userindex" >Home</a></li>
+            <li style='text-align: right;'><a href="aboutus" >About Us</a></li>
+            <li style='text-align: right;'><a href="usersroomtariff" >Room & Tariff</a></li>
+            <li style='text-align: right;'><a href="facilities">Facilities</a></li>
+            <li style='text-align: right;'><a href="contactus" >Contact Us</a></li>
+            <li style='text-align: right;'><a href="userlogin" >Login</a></li>
           </ul>
         </div>
       </div>
@@ -560,7 +560,7 @@ span {
       <div class="col-md-3 homeBook padding_0">
         <div class="col-md-5 col-xs-3 col-sm-2 text-right-md text-center-xs text-center-sm padding_TB_01" align="right"> Check out </div>
         <div class="col-md-7 col-xs-9 col-sm-10 pull-right padding_0">
-          <input name="date" id="datepicker" type="text" class="dateBg hasDatepicker" value="DD/MM/YYYY" >
+          <input name="date" id="datepicker" type="text" class="dateBg hasDatepicker" placeholder="DD/MM/YYYY" >
         </div>
       </div>
       <div class="col-md-1 homeBook padding_0 text-right-md text-right-lg text-right-xs text-right-sm"> <img src="user/img/checkavailability.png" alt="Manorama" class="responsive_02 margin_TB_01" onclick="subForm();"> </div>
@@ -582,34 +582,34 @@ span {
       <h1>Our Services</h1>
     </div>
     <div class="content-top1">
-      <div class=" col-md-1 col-md-offset-1  grid-top"> <a href="roomtariff.jsp" style='text-decoration: none;'> <img src='user/icons/list.png' style='width: 55px;' alt=''></img>
+      <div class=" col-md-1 col-md-offset-1  grid-top"> <a href="usersroomtariff" style='text-decoration: none;'> <img src='user/icons/list.png' style='width: 55px;' alt=''></img>
         <div class="top-grid"> <span>Rooms</span> </div>
         </a> </div>
-      <div class=" col-md-1 grid-top"> <a href="facilities.jsp" style='text-decoration: none;'> <img src='user/icons/facility.png' style='width: 55px;' alt=''></img>
+      <div class=" col-md-1 grid-top"> <a href="facilities" style='text-decoration: none;'> <img src='user/icons/facility.png' style='width: 55px;' alt=''></img>
         <div class="top-grid"> <span>Facilities</span> </div>
         </a> </div>
-      <div class=" col-md-1 grid-top"> <a href="meetings.jsp" style='text-decoration: none;'> <img src='user/icons/banquets.jpg' style='width: 55px;' alt=''></img>
+      <div class=" col-md-1 grid-top"> <a href="meetings" style='text-decoration: none;'> <img src='user/icons/banquets.jpg' style='width: 55px;' alt=''></img>
         <div class="top-grid"> <span>Banquets</span> </div>
         </a> </div>
-      <div class=" col-md-1 grid-top"> <a href="dining.jsp" style='text-decoration: none;'> <img src='user/icons/dining.png' style='width: 55px;' alt=''></img>
+      <div class=" col-md-1 grid-top"> <a href="dining" style='text-decoration: none;'> <img src='user/icons/dining.png' style='width: 55px;' alt=''></img>
         <div class="top-grid"> <span>Dining</span> </div>
         </a> </div>
-      <div class=" col-md-1 grid-top"> <a href="gallery.jsp" style='text-decoration: none;'> <img src='user/icons/gallery.png' style='width: 55px;' alt=''></img>
+      <div class=" col-md-1 grid-top"> <a href="gallery" style='text-decoration: none;'> <img src='user/icons/gallery.png' style='width: 55px;' alt=''></img>
         <div class="top-grid"> <span>Gallery</span> </div>
         </a> </div>
-      <div class=" col-md-1 grid-top"> <a href="offers.jsp" style='text-decoration: none;'> <img src='user/icons/offer.jpg' style='width: 55px;' alt=''></img>
+      <div class=" col-md-1 grid-top"> <a href="offers" style='text-decoration: none;'> <img src='user/icons/offer.jpg' style='width: 55px;' alt=''></img>
         <div class="top-grid"> <span>Offers</span> </div>
         </a> </div>
-      <div class=" col-md-1 grid-top"> <a href="enquiry.jsp" style='text-decoration: none;'> <img src='user/icons/enquire.png' style='width: 55px;' alt=''></img>
+      <div class=" col-md-1 grid-top"> <a href="enquiry" style='text-decoration: none;'> <img src='user/icons/enquire.png' style='width: 55px;' alt=''></img>
         <div class="top-grid"> <span>Enquiry</span> </div>
         </a> </div>
-      <div class=" col-md-1 grid-top"> <a href="reach.jsp" style='text-decoration: none;'> <img src='user/icons/reach.png' style='width: 55px;' alt=''></img>
+      <div class=" col-md-1 grid-top"> <a href="reach" style='text-decoration: none;'> <img src='user/icons/reach.png' style='width: 55px;' alt=''></img>
         <div class="top-grid"> <span>Address</span> </div>
         </a> </div>
       <div class=" col-md-1 grid-top"> <a href="userRoomReservation" style='text-decoration: none;'> <img src='user/icons/reservation.jpg' style='width: 55px;' alt=''></img>
         <div class="top-grid"> <span>Reservation</span> </div>
         </a> </div>
-      <div class=" col-md-1 grid-top"> <a href="attractions.jsp" style='text-decoration: none;'> <img src='user/icons/attractions.png' style='width: 55px;' alt=''></img>
+      <div class=" col-md-1 grid-top"> <a href="attractions" style='text-decoration: none;'> <img src='user/icons/attractions.png' style='width: 55px;' alt=''></img>
         <div class="top-grid"> <span>Attractions</span> </div>
         </a> </div>
     </div>
@@ -633,27 +633,27 @@ span {
       <div class="col-md-8 col-sm-12 col-xs-12 pull-right padding_0 col-md-offset-1 col-sm-offset-0 col-xs-offset-0 pull-right">
         <!--One Start-->
         <div class="col-md-3 col-sm-12 col-xs-12 padding_0">
-          <div class="footItem"> <a href="about.jsp" title="About Us" alt="About Us" class="footMore">About Us</a> <br>
+          <div class="footItem"> <a href="aboutus" title="About Us" alt="About Us" class="footMore">About Us</a> <br>
             <a href="reach.jsp" title="How to Reach" alt="How to reach" class="footMore">How to Reach</a> <br>
             <a href="attractions.jsp" title="Attractions" alt="Attractions" class="footMore">Attractions</a> <br>
-            <a href="offers.jsp" title="Offers" alt="Offers" class="footMore">Offers</a> </div>
+            <a href="offers" title="Offers" alt="Offers" class="footMore">Offers</a> </div>
         </div>
         <!--One End-->
         <!--Two Start-->
         <div class="col-md-3 col-sm-12 col-xs-12 padding_0">
           <div class="footItem"> <a href="gallery.jsp" title="Gallery" class="footMore">Gallery</a><br>
-            <a href="meetings.jsp" title="Meetings" class="footMore">Meetings</a><br>
-            <a href="dining.jsp" title="Dining" alt="Dining" class="footMore">Dining</a><br>
+            <a href="meetings" title="Meetings" class="footMore">Meetings</a><br>
+            <a href="dining" title="Dining" alt="Dining" class="footMore">Dining</a><br>
             <a href="careers.jsp" title="Careers" alt="Careers" class="footMore">Careers</a><br>
           </div>
         </div>
         <!--Two End-->
         <!--Three Start-->
         <div class="col-md-2 col-sm-12 col-xs-12 padding_0">
-          <div class="footItem"> <a href="enquiry.jsp" title="Enquiry" alt="Enquiry" class="footMore">Enquiry</a><br>
-            <a href="facilities.jsp" title="Facilities" alt="Facilities" class="footMore">Facilities</a> <br>
+          <div class="footItem"> <a href="enquiry" title="Enquiry" alt="Enquiry" class="footMore">Enquiry</a><br>
+            <a href="facilities" title="Facilities" alt="Facilities" class="footMore">Facilities</a> <br>
             <a href="userRoomReservation" title="Reservations" class="footMore">Reservation</a> <br>
-            <a href="contact.jsp" title="Contact Us" alt="Contact Us" class="footMore">Contact Us</a><br>
+            <a href="contact" title="Contact Us" alt="Contact Us" class="footMore">Contact Us</a><br>
           </div>
         </div>
       </div>

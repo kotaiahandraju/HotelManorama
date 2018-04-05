@@ -1,4 +1,4 @@
-<jsp:include page="header.jsp" />
+<jsp:include page="../../header.jsp" />
 			
 <div class="container padding_0">
             	 <div class="col-md-12 col-sm-12 col-xs-12 padding_0 text-center-xs text-center-sm padding_TB_02"> 
@@ -25,7 +25,7 @@ function updating(){
  </script> 
 <h1>Enquiry</h1>
 <ol class="breadcrumb">
-      <li><a href="/" title="Home">Home</a></li>                     
+      <li><a href="http://hotelmanorama.com/" title="Home">Home</a></li>                     
       <li class="active">Enquiry</li>
 </ol>			
  
@@ -311,4 +311,4 @@ function updating(){
 </div>                              
                  </div>
                 </div>  
-<jsp:include page="footer.jsp" />
+<jsp:include page="../../footer.jsp" />

@@ -8,7 +8,7 @@
   
   <!--breadcrumb start-->                    
                      <ol class="breadcrumb">
-                      <li><a href="/" title="Home">Home</a></li>                 
+                      <li><a href="http://hotelmanorama.com/" title="Home">Home</a></li>                 
                       <li class="active">Attractions</li>
                     </ol>
 				    <!--breadcrumb End-->
@@ -25,7 +25,7 @@
 		</tr>
 	</tbody>
 </table>
- <p> The moment you mention Vijaywada to locals, they will talk about beautiful springs, mouthwatering sweets and juicy mangoes. Also, known as Bezawada, this city is located on the banks of Krishna River and overlooks the Bay of Bengal. The Indrakeeladri Hill forms a spectacular backdrop to the city on the west.</p>
+ <p> The moment you mention Vijaywada to locals, they will talk about beautiful springs, mouthwatering sweets and juicy mangoes. Also, known as Bezawada, this city is located on the banks of  River Krishna and overlooks the Bay of Bengal. The Indrakeeladri Hill forms a spectacular backdrop to the city on the west.</p>
 
 <p>The name of the city translates to 'place of victory' and it holds and important position in South India because it is home to the region's largest railway junction. The city name has mythological connections, as it is claimed that Arjuna was blessed by Lord Shiva at the top of the Indrakeeladri Hill and after that Arjuna created Vijayawada. According to another myth, Goddess Durga rested here after killed a demon and that is why the place got its name. Nonetheless, Vijayawada is a veritable paradise for people to learn more about the region's history and culture. The city is renowned for some beautiful temples, Buddhist shrines and of course, the famous Prakasam Barrage. </p>                 
 
@@ -36,7 +36,7 @@
 		</p>
 	<h2 style='font-size: 16px;'>Amaravati</h2>
 <p>
-	Amaravati is a small town located on the banks of Krishna River. It is about 33 kilometres from Vijayawada and has historical importance. It used to be the site of an ancient Buddhist settlement, which was known as Chintapalli. The stupa at this site was said to be bigger than the one at Sachi. This stupa was built in the 3rd century BC during the reign of King Ashoka. It had gateway at each cardinal point. While these structures are no longer there, one of the gateways was meticulously reconstructed. The carvings on the gateway highlight the life of Buddha. There is a small museum that has collections right from the 3rd century to the 12th century AD and one of the images of Buddha has lotus symbols on the feet with long ear lobes and tight curls. The museum is fascinating.</p>
+	Amaravati is a small town located on the banks of River Krishna. It is about 33 kilometres from Vijayawada and has historical importance. It used to be the site of an ancient Buddhist settlement, which was known as Chintapalli. The stupa at this site was said to be bigger than the one at Sachi. This stupa was built in the 3rd century BC during the reign of King Ashoka. It had gateway at each cardinal point. While these structures are no longer there, one of the gateways was meticulously reconstructed. The carvings on the gateway highlight the life of Buddha. There is a small museum that has collections right from the 3rd century to the 12th century AD and one of the images of Buddha has lotus symbols on the feet with long ear lobes and tight curls. The museum is fascinating.</p>
 <h2 style='font-size: 16px;'>
 	Bhavani Island</h2>
 <p>

@@ -535,12 +535,12 @@ span {
           <a class="navbar-brand" href="userindex.jsp" > <img src="user/img/logo.png" class="img-responsive"></a> </div>
         <div class="collapse navbar-collapse" id="myNavbar" >
           <ul class="nav navbar-nav pull-right" >
-            <li style='text-align: right;'><a href="userindex.jsp" >Home</a></li>
-            <li style='text-align: right;'><a href="about.jsp" >About Us</a></li>
-            <li style='text-align: right;'><a href="userRoomTariff" >Room & Tariff</a></li>
-            <li style='text-align: right;'><a href="facilities.jsp">Facilities</a></li>
-            <li style='text-align: right;'><a href="contact.jsp" >Contact Us</a></li>
-            <li style='text-align: right;'><a href="login.jsp" >Login</a></li>
+            <li style='text-align: right;'><a href="userindex" >Home</a></li>
+            <li style='text-align: right;'><a href="aboutus" >About Us</a></li>
+            <li style='text-align: right;'><a href="usersroomtariff" >Room & Tariff</a></li>
+            <li style='text-align: right;'><a href="facilities">Facilities</a></li>
+            <li style='text-align: right;'><a href="contactus" >Contact Us</a></li>
+            <li style='text-align: right;'><a href="userlogin" >Login</a></li>
           </ul>
         </div>
       </div>
@@ -554,7 +554,7 @@ span {
 			<div style="margin:25px 0;">
 			<div class="content-top1">			
 			  <div class=" col-md-1 col-md-offset-1  grid-top">
-				<a href="roomtariff.jsp" style='text-decoration: none;'>
+				<a href="usersroomtariff" style='text-decoration: none;'>
 				 <img src='user/icons/list.png' style='width: 55px;' alt=''></img>
 				  <div class="top-grid">
 					<span>Rooms</span>
@@ -562,7 +562,7 @@ span {
 				</div>
 			
 			<div class=" col-md-1 grid-top">
-				<a href="facilities.jsp" style='text-decoration: none;'>
+				<a href="facilities" style='text-decoration: none;'>
 				 <img src='user/icons/facility.png' style='width: 55px;' alt=''></img>
 				  <div class="top-grid">
 					<span>Facilities</span>
@@ -570,7 +570,7 @@ span {
 				</a>
 			</div>
 			<div class=" col-md-1 grid-top">
-				<a href="meetings.jsp" style='text-decoration: none;'>
+				<a href="meetings" style='text-decoration: none;'>
 				 <img src='user/icons/banquets.png' style='width: 55px;' alt=''></img>
 				  <div class="top-grid">
 					<span>Banquets</span>
@@ -578,7 +578,7 @@ span {
 				</a>
 			</div>
 			<div class=" col-md-1 grid-top">
-				<a href="dining.jsp" style='text-decoration: none;'>
+				<a href="dining" style='text-decoration: none;'>
 				 <img src='user/icons/dining.png' style='width: 55px;' alt=''></img>
 				  <div class="top-grid">
 					<span>Dining</span>
@@ -586,7 +586,7 @@ span {
 				</a>
 			</div>
 			 <div class=" col-md-1 grid-top">
-				<a href="gallery.jsp" style='text-decoration: none;'>
+				<a href="gallery" style='text-decoration: none;'>
 				 <img src='user/icons/gallery.png' style='width: 55px;' alt=''></img>
 				  <div class="top-grid">
 					<span>Gallery</span>
@@ -594,7 +594,7 @@ span {
 				</a>
 			</div>
 			 <div class=" col-md-1 grid-top">
-				<a href="offers.jsp" style='text-decoration: none;'>
+				<a href="offers" style='text-decoration: none;'>
 				 <img src='user/icons/offer.png' style='width: 55px;' alt=''></img>
 				  <div class="top-grid">
 					<span>Offers</span>
@@ -602,7 +602,7 @@ span {
 				</a>
 			</div>
 			 <div class=" col-md-1 grid-top">
-				<a href="enquiry.jsp" style='text-decoration: none;'>
+				<a href="enquiry" style='text-decoration: none;'>
 				 <img src='user/icons/enquire.png' style='width: 55px;' alt=''></img>
 				  <div class="top-grid">
 					<span>Enquiry</span>

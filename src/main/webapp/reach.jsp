@@ -8,7 +8,7 @@
   
   <!--breadcrumb start-->                    
                      <ol class="breadcrumb">
-                      <li><a href="/" title="Home">Home</a></li>                 
+                      <li><a href="http://hotelmanorama.com/" title="Home">Home</a></li>                 
                       <li class="active">How To Reach</li>
                     </ol>
 				    <!--breadcrumb End-->

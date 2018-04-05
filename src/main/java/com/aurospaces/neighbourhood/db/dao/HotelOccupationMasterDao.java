@@ -54,7 +54,7 @@ public class HotelOccupationMasterDao extends BaseHotelOccupationMasterDao
 		 }
 	public List<Map<String,Object>> getRoomOcupation(String roomTypeId){  
 		jdbcTemplate = custom.getJdbcTemplate();
-		 String sql =  "  SELECT hom.`id`,hom.name FROM `hotel_room_master` hcm , `hotel_occupation_master` hom   WHERE hom.id=hcm.`capacity_id` AND  `room_type_id` =? ";
+		 String sql =  "  SELECT hom.`id`,hom.name FROM `hotel_room_master` hcm , `hotel_occupation_master` hom   WHERE hom.id=hcm.`capacity_id` AND  `room_type_id` =? group by hcm.capacity_id ";
 		 List<Map<String,Object>> retlist = jdbcTemplate.queryForList(sql, new Object[] { roomTypeId });
 		
 		if (retlist.size() > 0)

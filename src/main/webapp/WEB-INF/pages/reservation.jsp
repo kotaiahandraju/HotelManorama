@@ -94,7 +94,7 @@ font-size: 12px;
 
 			<legend style="font-size: 36px;">Reserve A Room Now</legend>
 			<ol class="breadcrumb">
-				<li><a href="/" title="Home">Home</a></li>
+				<li><a href="http://hotelmanorama.com/" title="Home">Home</a></li>
 				<li class="active">Reserve A Room Now</li>
 			</ol>
 
@@ -170,7 +170,7 @@ font-size: 12px;
 							</div>
 							<div class="rooms" id="noOfAdt"></div>
 														
-									<button style="margin: 0px 0px 0px 289px;" type="button" class="btn btn-success" onclick="checkDateWise();">Check Avalability</button>
+									<button style="margin: 0px 0px 0px 289px;" type="button" class="btn btn-success" onclick="checkDateWise();">Check Availability</button>
 									
 									<div>
 								<h4  class="badge badge-info" style='background: teal;font-size: 15px;'>Rooms Price:</h4>
@@ -451,7 +451,7 @@ font-size: 12px;
 							<div class="rooms" style='padding: 0px 69px 0px 306px;'>
 								<div class="input-group roomplan-w">
 									<button type="button" class="btn btn-success"
-										onclick=" userDetails();">Conformation</button>
+										onclick=" userDetails();">Confirmation</button>
 								</div>
 							</div>
 							<div class="form-group">
