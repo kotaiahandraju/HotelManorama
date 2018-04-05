@@ -13,7 +13,7 @@
                          
                             <!-- <a href="http://www.hotelManorama.com/"><img src="img/icon.png" title="Hotel Manorama" alt="Hotel Manorama"></a>  -->                          </div>
                      	<div class="allreserve padding_0 text-center-xs text-center-sm">
-                    		© 2014 Hotel Manorama. All rights reserved.
+                    		© 2018 Hotel Manorama. All rights reserved.
                     
                     	</div>
                      
@@ -66,6 +66,8 @@
             </div>        	        
         </div>         
 	
+<br /><br />
+
    <script type='text/javascript' src='${baseurl }/assets/js/jqueryui-1.10.3.min.js'></script> 
 
 
@@ -76,11 +78,11 @@
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script> -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
 
 
   <script type='text/javascript' src='${baseurl }/js/customValidation.js'></script> 
-<%-- <script type='text/javascript' src="${baseurl }/js/jquery.blockUI.min.js" ></script> --%>
+<script type='text/javascript' src="${baseurl }/js/jquery.blockUI.min.js" ></script>
 	</body>
 </html>

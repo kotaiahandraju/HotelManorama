@@ -105,7 +105,7 @@
 
 
 				<div
-					style="margin: 5px; font-size: small; background-color: white; text-align: center; padding: 10px; border-radius: 5px; font-weight: normal; border: 1px solid #dcd5c7;"
+					style="font-size: small; background-color: white; text-align: center; padding: 10px; font-weight: normal; border: 1px solid #dcd5c7;"
 					class="text-center-xs class=" text-center-sm"="">
 					<span style="color: #F00;">*</span> For any Customised PLANS Please
 					Contact THE FRONT OFFICE MANAGER +91 94471 16004.
