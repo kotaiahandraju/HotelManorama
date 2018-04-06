@@ -51,12 +51,12 @@ public class HotelRoomPriceDao extends BaseHotelRoomPriceDao {
 		return null;
 	}
 
-	public HotelRoomPriceBean getAvailabilytyUsingRoomTypeIdAndCapacity(String roomTypeId, String capacityId) {
+	public HotelRoomPriceBean getAvailabilytyUsingRoomTypeIdAndCapacity(HotelRoomPriceBean roomPriceBean) {
 		jdbcTemplate = custom.getJdbcTemplate();
 		//String sql = "SELECT hrp.*,DATE_FORMAT(hrp.created_time, '%d-%M-%Y') as created_time1,DATE_FORMAT(hrp.updated_time, '%d-%M-%Y') as updated_time1,hrm.max_chaild,hcm.numberOfAdult from hotel_room_price hrp,hotel_room_master hrm,hotel_capacity_master hcm where hrm.room_type_id=hrp.room_type_id and hcm.numberOfAdult=hrp.capacity_id and hrp.room_type_id = ? and hrp.capacity_id=?";
 		String sql = "select * from vhotel_capm_type_price where room_type_id =? and capacity_id=?";
 		System.out.println("--sql---"+sql);
-		List<HotelRoomPriceBean> retlist = jdbcTemplate.query(sql, new Object[] { roomTypeId, capacityId },
+		List<HotelRoomPriceBean> retlist = jdbcTemplate.query(sql, new Object[] { roomPriceBean.getRoomTypeId(), roomPriceBean.getCapacityId() },
 				ParameterizedBeanPropertyRowMapper.newInstance(HotelRoomPriceBean.class));
 		if (retlist.size() > 0)
 			return retlist.get(0);
@@ -136,9 +136,9 @@ public class HotelRoomPriceDao extends BaseHotelRoomPriceDao {
 			java.sql.Timestamp updatedTime = new java.sql.Timestamp(priceHistory.getUpdatedTime().getTime());
 
 			final String INSERT_SQL1 = "INSERT INTO userdetails(created_time,updated_time,roomId,roomPrice,GST,discount,totalPrice) values (?,?,?,?,?,?,?)";
-			System.out.println("INSERT_SQL1===" + INSERT_SQL1);
+//			System.out.println("INSERT_SQL1===" + INSERT_SQL1);
 			int insert = jdbcTemplate.update(INSERT_SQL1, new Object[] {priceHistory.getCreatedTime(),priceHistory.getUpdatedTime(),priceHistory.getRoomId(),priceHistory.getRoomPrice(),priceHistory.getGST(),priceHistory.getDiscount(),priceHistory.getTotalPrice()});
-			System.out.println("222insert===" + insert);
+//			System.out.println("222insert===" + insert);
 			if (insert > 0) {
 				isSave = true;
 			}
@@ -166,13 +166,11 @@ public class HotelRoomPriceDao extends BaseHotelRoomPriceDao {
 		 
 		 //String sql="SELECT *, DATE_FORMAT(expirydate,'%d/%m/%Y') AS expirtdate1  FROM cylindermaster";
 		 String sql =  "select *from special_offer_price where start_time >='"+offerPriceBean.getStart_time1()+"' and end_time <='"+offerPriceBean.getEnd_time1()+"'";
-		 System.out.println(sql+"sssssssss"+offerPriceBean.getCheckIn());
+//		 System.out.println(sql+"sssssssss");
 		List<SpecialOfferPriceBean> retlist = jdbcTemplate.query(sql, new Object[] {},
 				ParameterizedBeanPropertyRowMapper.newInstance(SpecialOfferPriceBean.class));
-				System.out.println(retlist);
-		if (retlist.size() > 0)
-			return retlist;
-		return null;
+//				System.out.println(retlist.size());
+		return retlist;
 		    
 		}
 	
@@ -181,11 +179,30 @@ public class HotelRoomPriceDao extends BaseHotelRoomPriceDao {
 		 
 		
 		 String sql =  "SELECT sop.*, DATE_FORMAT(sop.start_time,'%a') as getDay from special_offer_price sop where start_time=?";
+//		 System.out.println(sql);
 		 List<SpecialOfferPriceBean> retlist = jdbcTemplate.query(sql, new Object[] {getDayName},
 					ParameterizedBeanPropertyRowMapper.newInstance(SpecialOfferPriceBean.class));
-				System.out.println(retlist.size());
 		return retlist;
 		    
 		}
+	public String getDayNameByDate(Timestamp getDayName){  
+		jdbcTemplate = custom.getJdbcTemplate();
+		String result=null;
+		String result1=null;
+		 String sql =  "SELECT DATE_FORMAT('"+getDayName+"','%a') as getDay ";
+		 result = (String) jdbcTemplate.queryForObject(sql,String.class);
+		 String sql1 = "select "+result.toLowerCase()+" from hotel_room_price where "+result.toLowerCase()+"";
+	        result1 = (String) jdbcTemplate.queryForObject(sql1,String.class); 
+		 
+		return result1;
+		    
+		}
+	
+	public String getCostOfSpecialOffers(String week) {
+        String result=null;
+        String sql = "select "+week+" from special_offer_price where "+week+"";
+        result = (String) jdbcTemplate.queryForObject(sql,String.class); 
+        return result;
+    }
 	
 }

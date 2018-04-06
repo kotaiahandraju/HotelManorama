@@ -17,13 +17,25 @@ protected String tue ;
 protected String wed ;
 protected String thu ;
 protected String fri ;
-protected String sat,status,roomPriceStatus,capacityname,roomtypename,noOfRooms,created_time1,updated_time1,numberOfAdult,max_chaild,checkOut,checkIn;
-protected String end_time,start_time;
+protected String sat,status,roomPriceStatus,capacityname,roomtypename,noOfRooms,created_time1,updated_time1,numberOfAdult,numberOfChaild,max_chaild,checkOut,checkIn;
+protected String end_time,start_time,getDay;
 protected Timestamp start_time1,end_time1;
 
 
 
 
+public String getNumberOfChaild() {
+	return numberOfChaild;
+}
+public void setNumberOfChaild(String numberOfChaild) {
+	this.numberOfChaild = numberOfChaild;
+}
+public String getGetDay() {
+	return getDay;
+}
+public void setGetDay(String getDay) {
+	this.getDay = getDay;
+}
 public Timestamp getStart_time1() {
 	return start_time1;
 }

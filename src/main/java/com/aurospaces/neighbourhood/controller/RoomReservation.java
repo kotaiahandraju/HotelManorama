@@ -63,48 +63,16 @@ public class RoomReservation {
 		@ResponseBody public String getAdults(@ModelAttribute HotelRoomPriceBean roomPriceBean) {
 			JSONObject jsonObj=new JSONObject();
 			HotelRoomPriceBean listOrderBeans = null;
-			try {
-				
-				listOrderBeans=	hotelRoomMasterDao.getAdults(roomPriceBean);
-				if(listOrderBeans != null){
-					jsonObj.put("maxchaild", listOrderBeans.getMax_chaild());
-					jsonObj.put("numberOfAdult", listOrderBeans.getNumberOfAdult());
-				}else{
-					jsonObj.put("maxchaild", "''");
-					jsonObj.put("numberOfAdult", "''");
-				}
-				System.out.println(listOrderBeans);
-				
-				
-			} catch (Exception e) {
-				// TODO: handle exception
-			}
-			return String.valueOf(jsonObj);
-			
-		}
-		@RequestMapping("/roomCheckAvail")
-		@ResponseBody public String roomCheckAvail(@ModelAttribute HotelRoomPriceBean roomPriceBean) {
-			HotelRoomPriceBean priceBean=null;
-			JSONObject jsonObj=null;
-			ObjectMapper objectMapper=null;
 			int price=0;
 			int result=0;
 			List<SpecialOfferPriceBean> specialOfferResult=null;
 			SpecialOfferPriceBean specialOfferPriceBean=null;
 			List<SpecialOfferPriceBean> sSpecialOfferDayName=null;
+			ObjectMapper objectMapper=null;
 			try {
-				specialOfferPriceBean =new SpecialOfferPriceBean();
 				
-				/*if(roomPriceBean.getRoomTypeId() !=null  || roomPriceBean.getRoomTypeId() !="" ||  roomPriceBean.getCapacityId() !=null ||  roomPriceBean.getCapacityId() !="") {
-					priceBean=roomPriceDao.getAvailabilytyUsingRoomTypeIdAndCapacity(roomPriceBean.getRoomTypeId(), roomPriceBean.getCapacityId());
-					jsonObj=new JSONObject(priceBean);
-					String currentPrice= priceBean.getSun();
-					price=Integer.parseInt(priceBean.getSun());
-					int iNoOfRooms=Integer.parseInt(roomPriceBean.getNoOfRooms());
-					result= iNoOfRooms * price;
-					jsonObj.put("price", result);
-					jsonObj.put("noOfRooms", roomPriceBean.getNoOfRooms());
-
+				if(roomPriceBean.getRoomTypeId() !=null  || roomPriceBean.getRoomTypeId() !="" ||  roomPriceBean.getCapacityId() !=null ||  roomPriceBean.getCapacityId() !="") {
+					
 					specialOfferPriceBean.setStart_time1(CommonUtils.getIndainDate(roomPriceBean.getCheckIn()));
 					specialOfferPriceBean.setEnd_time1(CommonUtils.getIndainDate(roomPriceBean.getCheckOut()));
 					specialOfferResult=roomPriceDao.getCheckDateWiseAvailability(specialOfferPriceBean);
@@ -118,8 +86,79 @@ public class RoomReservation {
 						
 					}
 					
-					System.out.println(jsonObj);
-				}*/
+					
+				}
+//				listOrderBeans=	hotelRoomMasterDao.getAdults(roomPriceBean);
+				listOrderBeans=roomPriceDao.getAvailabilytyUsingRoomTypeIdAndCapacity(roomPriceBean);
+				
+				if(listOrderBeans != null){
+					
+					jsonObj.put("maxchaild", listOrderBeans.getMax_chaild());
+					jsonObj.put("numberOfAdult", listOrderBeans.getNumberOfAdult());
+					jsonObj.put("noOfRooms", listOrderBeans.getNoOfRooms());
+				}else{
+					jsonObj.put("maxchaild", "''");
+					jsonObj.put("numberOfAdult", "''");
+				}
+				System.out.println(listOrderBeans);
+				
+				
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			return String.valueOf(jsonObj);
+			
+		}
+		@SuppressWarnings("unused")
+		@RequestMapping("/roomCheckAvail")
+		@ResponseBody public String roomCheckAvail(@ModelAttribute HotelRoomPriceBean roomPriceBean) {
+			HotelRoomPriceBean priceBean=null;
+			JSONObject jsonObj=null;
+			ObjectMapper objectMapper=null;
+			int price=0;
+			int result=0;
+			List<SpecialOfferPriceBean> specialOfferResult=null;
+			SpecialOfferPriceBean specialOfferPriceBean=null;
+			List<SpecialOfferPriceBean> sSpecialOfferDayName=null;
+			try {
+				specialOfferPriceBean =new SpecialOfferPriceBean();
+				
+				if(roomPriceBean.getRoomTypeId() !=null  || roomPriceBean.getRoomTypeId() !="" ||  roomPriceBean.getCapacityId() !=null ||  roomPriceBean.getCapacityId() !="") {
+					priceBean=roomPriceDao.getAvailabilytyUsingRoomTypeIdAndCapacity(roomPriceBean);
+					jsonObj=new JSONObject(priceBean);
+
+					specialOfferPriceBean.setStart_time1(CommonUtils.getIndainDate(roomPriceBean.getCheckIn()));
+					specialOfferPriceBean.setEnd_time1(CommonUtils.getIndainDate(roomPriceBean.getCheckOut()));
+					specialOfferResult=roomPriceDao.getCheckDateWiseAvailability(specialOfferPriceBean);
+					if(specialOfferResult.size() >0) {
+						sSpecialOfferDayName=roomPriceDao.getDayName(specialOfferPriceBean.getStart_time1());
+						String name=null;
+						for (SpecialOfferPriceBean specialOfferPriceBean2 : sSpecialOfferDayName) {
+							 name=specialOfferPriceBean2.getGetDay().toLowerCase();
+						}
+						
+						String currentPrice=roomPriceDao.getCostOfSpecialOffers(name);
+						price=Integer.parseInt(currentPrice);
+						int iNoOfRooms=Integer.parseInt(roomPriceBean.getNoOfRooms());
+						result= iNoOfRooms * price;
+						jsonObj.put("price", result);
+						jsonObj.put("roomPrice", price);
+						jsonObj.put("noOfRooms", roomPriceBean.getNoOfRooms());
+						jsonObj.put("max_chaild", priceBean.getMax_chaild());
+						
+					}else {
+						String resultData=roomPriceDao.getDayNameByDate(specialOfferPriceBean.getStart_time1());
+						price=Integer.parseInt(resultData);
+						int iNoOfRooms=Integer.parseInt(roomPriceBean.getNoOfRooms());
+						result= iNoOfRooms * price;
+						jsonObj.put("price", result);
+						jsonObj.put("roomPrice", price);
+						jsonObj.put("noOfRooms", roomPriceBean.getNoOfRooms());
+						jsonObj.put("max_chaild", priceBean.getMax_chaild());
+					
+					}
+//					System.out.println(jsonObj);
+				}
 				
 				
 				
@@ -221,7 +260,7 @@ public class RoomReservation {
 			}
 			return statesMap;
 		}
-		@ModelAttribute("capacity")
+		/*@ModelAttribute("capacity")
 		public Map<Integer, String> populateCapacity() {
 			Map<Integer, String> statesMap = new LinkedHashMap<Integer, String>();
 			try {
@@ -236,7 +275,7 @@ public class RoomReservation {
 			} finally {
 			}
 			return statesMap;
-		}	
+		}	*/
 	}
 
 
