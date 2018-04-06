@@ -1,4 +1,4 @@
-<jsp:include page="header.jsp" />
+<jsp:include page="../../header.jsp" />
 	  	 <div class="container">
          <div class="row">
             	 <div class="col-md-8">
@@ -70,5 +70,5 @@
 	<img src="user/img/pbarage.jpg" alt='Prakasam Barriage' style='float: right;' class="thumbnail img-responsive">
                  </div> 
 				 </div>
-                    <jsp:include page="footer.jsp" />
+                    <jsp:include page="../../footer.jsp" />
                  

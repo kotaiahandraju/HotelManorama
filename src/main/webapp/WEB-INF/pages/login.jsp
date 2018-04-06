@@ -23,7 +23,7 @@ document.getElementById('UserregistrationLoginForm').reset();
 
 <h1>login</h1>
 <ol class="breadcrumb">
-     <li><a href="/" title="Home">Home</a></li>                      
+     <li><a href="http://hotelmanorama.com" title="Home">Home</a></li>                      
       <li class="active">login</li>
 </ol>			
 Login User Page 

@@ -1,4 +1,4 @@
-<jsp:include page="header.jsp" />
+<jsp:include page="../../header.jsp" />
 <div class="container padding_0">
             	 <div class="col-md-12 col-sm-12 col-xs-12 padding_0 text-center-xs text-center-sm padding_TB_02"> 
                  	<div class="col-md-10 col-sm-12 col-xs-12 padding_0 text-cente-xs text-cente-sm innerLeft">
@@ -47,4 +47,4 @@ var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
 </div>                              
                  </div>
                 </div>   
-				<jsp:include page="footer.jsp" />
+				<jsp:include page="../../footer.jsp" />
