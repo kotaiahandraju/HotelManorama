@@ -21,18 +21,11 @@
 	href="user/css/jquery-ui-1.8.18.custom.css">
 <link href="user/css/ninja-slider.css" rel="stylesheet" />
 <script src="user/js/ninja-slider.js"></script>
-<<<<<<< HEAD
-<link href="user/css/thumbnail-slider.css" rel="stylesheet"	type="text/css" />
-<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-<link href="${baseurl }/assets/css/datepicker1.css" rel="stylesheet" type="text/css" />
-=======
+
 <link href="user/css/thumbnail-slider.css" rel="stylesheet"
 	type="text/css" />
 <link href="https://fonts.googleapis.com/css?family=Roboto"
 	rel="stylesheet">
-
->>>>>>> 45eaae5b76d0793b95e14af906c00476f04974a1
-
 <script src="user/js/thumbnail-slider.js" type="text/javascript"></script>
 <script async="" src="user/js/analytics.js.download"></script>
 <script type="text/javascript" src="user/js/jquery.js"></script>
