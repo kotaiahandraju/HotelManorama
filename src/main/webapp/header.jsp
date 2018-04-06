@@ -17,7 +17,7 @@
 			<link rel="stylesheet" type="text/css" href="user/css/settings.css">
 			<link rel="stylesheet" type="text/css" href="user/css/jquery-ui-1.8.18.custom.css">
 			<link href="user/css/ninja-slider.css" rel="stylesheet" />
-			
+			<link href="${baseurl}/assets/css/bootstrap.min.css" rel="stylesheet">
 			<script type='text/javascript' src='${baseurl }/assets/js/jquery-1.10.2.min.js'></script>
 			
 			<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
@@ -30,7 +30,7 @@
 <script async="" src="user/js/analytics.js.download"></script>
 <script type="text/javascript" src="user/js/jquery.js.download"></script>
 <script type="text/javascript" src="user/js/bootstrap.min.js.download"></script>
-<script type="text/javascript" src="user/js/docs.min.js.download"></script>
+<!-- <script type="text/javascript" src="user/js/docs.min.js.download"></script> -->
 <script type="text/javascript"
 	src="user/js/jquery.themepunch.plugins.min.js.download"></script>
 <script type="text/javascript"

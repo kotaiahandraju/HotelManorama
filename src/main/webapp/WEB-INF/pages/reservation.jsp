@@ -46,14 +46,14 @@ font-size: 12px;
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
-
+<script type="text/javascript" src="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/src/js/bootstrap-datetimepicker.js"></script>
 
 <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script> -->
 
  
 <!-- Include Date Range Picker -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script> -->
 
 			<script>
 				$(function() {
@@ -61,11 +61,11 @@ font-size: 12px;
 						useCurrent : false,
 						format : 'DD-MMM-YYYY HH:mm',
 						showTodayButton : true,
-// 						sideBySide : true,
+						sideBySide : true,
 						minDate : new Date(),
 								    showClose: true,
 								    showClear: true,
-// 						toolbarPlacement : 'top'
+						toolbarPlacement : 'top'
 
 					}); 
 
@@ -73,11 +73,11 @@ font-size: 12px;
 						useCurrent : false,
 						format : 'DD-MMM-YYYY HH:mm',
 						showTodayButton : true,
-// 						sideBySide : true,
+						sideBySide : true,
 						minDate : new Date(),
 							    showClose: true,
 							    showClear: true,
-// 						toolbarPlacement : 'top'
+						toolbarPlacement : 'top'
 					}); 
 					
 				});
@@ -137,7 +137,7 @@ font-size: 12px;
 								<div class="input-group roomplan-w">
 									<span class="input-group-addon" id="basic-addon1">Room
 										Type :</span>
-									<form:select path="roomTypeId" class="form-control validate"	onfocus="removeBorder(this.id);" onchange="getAdults(),getRoomOcupation()">
+									<form:select path="roomTypeId" class="form-control validate"	onfocus="removeBorder(this.id);" onchange="getRoomOcupation(),CheckAvailability()">
 										<form:option value="">-- Select Room Type --</form:option>
 										<form:options items="${roomtype }"></form:options>
 									</form:select>
@@ -148,7 +148,7 @@ font-size: 12px;
 									<span class="input-group-addon" id="basic-addon1">Room		Capacity<font color="red">*</font> :
 									</span>
 
-									<form:select path="capacityId" class="form-control validate" onfocus="removeBorder(this.id);" onchange="getAdults()" >
+									<form:select path="capacityId" class="form-control validate" onfocus="removeBorder(this.id);" onchange="CheckAvailability()" >
 										<form:option value="">-- Select Room Capacity --</form:option>
 <%-- 										<form:options items="${capacity }"></form:options> --%>
 									</form:select>
@@ -159,7 +159,7 @@ font-size: 12px;
 								<div class="input-group roomplan-w">
 									<span class="input-group-addon" id="basic-addon1">How Many Rooms<font color="red">*</font> :
 									</span> 
-									<select name="noOfRooms" class="form-control validate" onfocus="removeBorder(this.id);"	id="noOfRooms" onchange="getAdults()" >
+									<select name="noOfRooms" class="form-control validate" onfocus="removeBorder(this.id);"	id="noOfRooms" onchange="CheckAvailability()" >
 									<option value="">-- Select How Many Rooms --</option>
 									<option value="1">1</option>
 									<option value="2">2</option>
@@ -174,12 +174,12 @@ font-size: 12px;
 									
 									<div>
 								<h4  class="badge badge-info" style='background: teal;font-size: 15px;'>Rooms Price:</h4>
-								 <span class="badge badge-success" style='color: white;background: teal;font-size: 15px;' id="displayNoOfRooms"></span>
+								 <span class="badge badge-success" style='color: white;background: teal;font-size: 15px;' id="roomPrice"></span>
 							</div>
 								
 							<div>
 								<h4  class="badge badge-info" style='background: teal;font-size: 15px;'>Total Rooms Price:</h4>
-								 <span class="badge badge-success" style='color: white;background: teal;font-size: 15px;' id="roomPrice"></span>
+								 <span class="badge badge-success" style='color: white;background: teal;font-size: 15px;' id="roomTotalPrice"></span>
 							</div>
 							<p class="notes">
 								* Rate will be finalised after confirmation<br />* The rates are
@@ -476,6 +476,8 @@ font-size: 12px;
 				var roomTypeId = $("#roomTypeId").val();
 				var capacityId = $("#capacityId").val();
 				var noOfRooms = $("#noOfRooms").val();
+				var checkIn = $("#checkIn").val();
+				var checkOut = $("#checkOut").val();
 				if(roomTypeId !=null && roomTypeId !='' && roomTypeId != "undefined" && 
 					capacityId !=null && capacityId !='' && capacityId != "undefined" && 
 					noOfRooms !=null && noOfRooms !='' && noOfRooms != "undefined"){
@@ -483,6 +485,8 @@ font-size: 12px;
 					formData.append('roomTypeId', roomTypeId);
 					formData.append('capacityId', capacityId);
 					formData.append('noOfRooms', noOfRooms);
+					formData.append('checkOut', checkOut);
+					formData.append('checkIn', checkIn);
 					$.fn.makeMultipartRequest('POST','getAdults', false,formData, false, 'text', function(data) {
 						$("#noOfAdt").html('');
 						var roomData=JSON.parse(data);
@@ -490,7 +494,7 @@ font-size: 12px;
 						alert(roomData.numberOfAdult);
 						var adultDiv='';
 						var childDiv='';
-						var rows ='';
+						var rows =0;
 						for(var i=1;i<=roomData.numberOfAdult;i++)
 						{
 							adultDiv=adultDiv+'<option>'+ i; +'</option>';
@@ -506,7 +510,7 @@ font-size: 12px;
 					 		{    
 						 		var appendDiv= '<div class="input-group nos "><span class="input-group-addon right-arrow" id="basic-addon1" style="border:1px solid #333; width:70px;">'
 					     			+'Room &nbsp;'
-					     			+i
+					     			+(++i)
 					     			+'</span>'
 									+'<div class="input-group roomplan-w">'
 					 				+'<span class="input-group-addon" id="basic-addon1">No Of Adults<font color="red">*</font> :'
@@ -536,6 +540,11 @@ font-size: 12px;
 					var noOfRooms = $("#noOfRooms").val();
 					var checkIn = $("#checkIn").val();
 					var checkOut = $("#checkOut").val();
+					if(roomTypeId !=null && roomTypeId !='' && roomTypeId != "undefined" && 
+							capacityId !=null && capacityId !='' && capacityId != "undefined" && 
+							noOfRooms !=null && noOfRooms !='' && noOfRooms != "undefined" &&
+							checkIn !=null && checkIn !='' && checkIn != "undefined" &&
+							checkOut !=null && checkOut !='' && checkOut != "undefined"){
 					var formData = new FormData();
 					
 					formData.append('roomTypeId', roomTypeId);
@@ -543,28 +552,28 @@ font-size: 12px;
 					formData.append('noOfRooms', noOfRooms);
 					formData.append('checkOut', checkOut);
 					formData.append('checkIn', checkIn);
+					var room=0;
 					$.fn.makeMultipartRequest('POST','roomCheckAvail', false,formData, false, 'text', function(data) {
 						$("#noOfAdt").html('');
 						var roomData=JSON.parse(data);
 						
-						$("#roomPrice").text(roomData.price);
+						$("#roomTotalPrice").text(roomData.price);
 						
-						$("#displayNoOfRooms").text(roomData.sun);
+						$("#roomPrice").text(roomData.roomPrice);
 						var adultDiv='';
 						var childDiv='';
-						var rows ='';
+						console.log("adult"+roomData.numberOfAdult);
 						for(var i=1;i<=roomData.numberOfAdult;i++)
 						{
 							adultDiv=adultDiv+'<option>'+ i; +'</option>';
 						}
-						for(var i=1;i<=roomData.max_chaild;i++)
+						console.log("child"+roomData.numberOfChaild);
+						for(var i=1;i<=roomData.numberOfChaild;i++)
 						{
 							console.log(i);
 							childDiv=childDiv+'<option>'+ i; +'</option>';
 						}
-						var appendDiv= '<div class="input-group nos "><span class="input-group-addon right-arrow" id="basic-addon1" style="border:1px solid #333; width:70px;">'
-						     			+'Room &nbsp;'
-						     			+i
+						var appendDiv= '<div class="input-group nos "><span class="input-group-addon right-arrow" id="roomData" style="border:1px solid #333; width:70px;">'
 						     			+'</span>'
 										+'<div class="input-group roomplan-w">'
 						 				+'<span class="input-group-addon" id="basic-addon1">No Of Adults<font color="red">*</font> :'
@@ -582,15 +591,17 @@ font-size: 12px;
 						 				+childDiv
 						 				+'</select>'
 						 				+'</div></div>';
-						 			
+						 			var room="";
 						 	for(var i=0;i<roomData.noOfRooms;i++)
-					 		{    
-					 				console.log(i);
+					 		{   	 room=i;
+					 				room ++;
+						 		$("#roomData").text("Room :"+room);
 					 			$("#noOfAdt").append(appendDiv);
 					 		}
 							 
 							});
 
+				}
 				}
 				
 				function userDetails() {
