@@ -7,6 +7,7 @@
 <title>Hotel Manorama</title>
 <meta name="keywords" content="Home">
 <meta name="description" content="Home">
+<link href="${baseurl}/assets/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="user/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="user/css/bootstrap-theme.css">
 <link rel="stylesheet" type="text/css" href="user/css/style.css">
@@ -18,7 +19,7 @@
 <script src="user/js/ninja-slider.js"></script>
 <link href="user/css/thumbnail-slider.css" rel="stylesheet"	type="text/css" />
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-
+<link href="${baseurl }/assets/css/datepicker1.css" rel="stylesheet" type="text/css" />
 
 <script src="user/js/thumbnail-slider.js" type="text/javascript"></script>
 <script async="" src="user/js/analytics.js.download"></script>
@@ -554,13 +555,13 @@ span {
       <div class="col-md-3 homeBook padding_0">
         <div class="col-md-5 col-xs-3 col-sm-2 text-right-md text-center-xs text-center-sm padding_TB_01" align="right"> Check in</div>
         <div class="col-md-7 col-xs-9 col-sm-10 pull-right padding_0">
-          <input name="from_date" id="datepicker" type="text" class="dateBg hasDatepicker" placeholder="DD/MM/YYYY">
+          <input name="from_date" id="checkIn" type="text" class="dateBg hasDatepicker" placeholder="DD/MM/YYYY">
         </div>
       </div>
       <div class="col-md-3 homeBook padding_0">
         <div class="col-md-5 col-xs-3 col-sm-2 text-right-md text-center-xs text-center-sm padding_TB_01" align="right"> Check out </div>
         <div class="col-md-7 col-xs-9 col-sm-10 pull-right padding_0">
-          <input name="date" id="datepicker" type="text" class="dateBg hasDatepicker" placeholder="DD/MM/YYYY" >
+          <input name="date" id="checkOut" type="text" class="dateBg hasDatepicker" placeholder="DD/MM/YYYY" >
         </div>
       </div>
       <div class="col-md-1 homeBook padding_0 text-right-md text-right-lg text-right-xs text-right-sm"> <img src="user/img/checkavailability.png" alt="Manorama" class="responsive_02 margin_TB_01" onclick="subForm();"> </div>
@@ -664,42 +665,45 @@ span {
 </div>
 </div>
 <br /><br />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+			<script type='text/javascript' src='${baseurl }/assets/js/bootstrap.min.js'></script>  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/src/js/bootstrap-datetimepicker.js"></script>
+<script>
+				$(function() {
+					$("#checkOut").datetimepicker({
+						useCurrent : false,
+						format : 'DD-MMM-YYYY HH:mm',
+						showTodayButton : true,
+						sideBySide : true,
+						minDate : new Date(),
+								    showClose: true,
+								    showClear: true,
+						toolbarPlacement : 'top'
 
-<script type="text/javascript">								
-				var tpj=jQuery;
-				tpj.noConflict();				
-				tpj(document).ready(function() {				
-				if (tpj.fn.cssOriginal!=undefined)
-					tpj.fn.css = tpj.fn.cssOriginal;
-					tpj('.fullwidthabnner').revolution(
-						{	
-							delay:10000,												
-							startwidth:1366,
-							startheight:612,
-							
-							onHoverStop:"off",						// Stop Banner Timet at Hover on Slide on/off
-							
-							thumbWidth:100,							// Thumb With and Height and Amount (only if navigation Tyope set to thumb !)
-							thumbHeight:50,
-							thumbAmount:4,
-							
-							/*hideThumbs:200,*/
-							navigationType:"both",					//bullet, thumb, none, both	 (No Shadow in Fullwidth Version !)
-							/*navigationArrows:"verticalcentered",		//nexttobullets, verticalcentered, none*/
-							navigationStyle:"round",				//round,square,navbar
-							
-							touchenabled:"on",						// Enable Swipe Function : on/off
-							
-							navOffsetHorizontal:724,
-							navOffsetVertical:30,
-							
-							fullWidth:"off",
-							
-							shadow:0								//0 = no Shadow, 1,2,3 = 3 Different Art of Shadows -  (No Shadow in Fullwidth Version !)
-														
-						});	
-						
-			});
+					}); 
+
+					 $("#checkIn").datetimepicker({
+						useCurrent : false,
+						format : 'DD-MMM-YYYY HH:mm',
+						showTodayButton : true,
+						sideBySide : true,
+						minDate : new Date(),
+							    showClose: true,
+							    showClear: true,
+						toolbarPlacement : 'top'
+					}); 
+					
+				});
+					/* $('#checkOut').daterangepicker({
+					    "startDate": "03/15/2018",
+					    "endDate": "03/21/2018"
+					}, function(start, end, label) {
+					  console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
+					});
+				 */
 			</script>
 <div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div>
 </body>

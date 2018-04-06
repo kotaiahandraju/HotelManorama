@@ -217,9 +217,6 @@ public class RoomReservation {
 			}else {
 				jsonObj.put("msg", "User details are not saved...");
 			}
-				
-				
-				
 			} catch (Exception e) {
 				// TODO: handle exception
 				e.printStackTrace();

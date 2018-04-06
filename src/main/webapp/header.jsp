@@ -9,6 +9,7 @@
 	String baseurl =  request.getScheme() + "://" + request.getServerName() +      ":" +   request.getServerPort() +  request.getContextPath();
 	session.setAttribute("baseurl", baseurl);
 %>
+			<link href="${baseurl}/assets/css/bootstrap.min.css" rel="stylesheet">
 			<link rel="stylesheet" type="text/css" href="user/css/bootstrap.css">
 			<link rel="stylesheet" type="text/css" href="user/css/bootstrap-theme.css">
 			<link rel="stylesheet" type="text/css" href="user/css/style.css">
@@ -17,9 +18,9 @@
 			<link rel="stylesheet" type="text/css" href="user/css/settings.css">
 			<link rel="stylesheet" type="text/css" href="user/css/jquery-ui-1.8.18.custom.css">
 			<link href="user/css/ninja-slider.css" rel="stylesheet" />
-			<link href="${baseurl}/assets/css/bootstrap.min.css" rel="stylesheet">
-			<script type='text/javascript' src='${baseurl }/assets/js/jquery-1.10.2.min.js'></script>
 			
+			<script type='text/javascript' src='${baseurl }/assets/js/jquery-1.10.2.min.js'></script>
+			<script type='text/javascript' src='${baseurl }/assets/js/bootstrap.min.js'></script>  
 			<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
 			<script type='text/javascript' src='${baseurl }/js/ajax.js'></script>
 			<script type='text/javascript' src="${baseurl }/js/jquery.blockUI.min.js" ></script>

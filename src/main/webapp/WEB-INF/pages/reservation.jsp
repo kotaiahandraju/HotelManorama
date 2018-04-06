@@ -5,8 +5,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <jsp:include page="../../header.jsp" />
 
-<link href="${baseurl }/assets/css/datepicker1.css" rel="stylesheet"
-	type="text/css" />
+<link href="${baseurl }/assets/css/datepicker1.css" rel="stylesheet" type="text/css" />
 <style>
 p{
 font-size: 12px;
@@ -42,7 +41,6 @@ font-size: 12px;
 
 			</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-			<script type='text/javascript' src='${baseurl }/assets/js/bootstrap.min.js'></script>  
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
@@ -122,13 +120,13 @@ font-size: 12px;
 									</span>
 									<div class="input text required">
 										<input name="checkIn" style="width: 170px; background-color: #f3ebda;border-color: #f3ebda;" value="select Date"
-											class="form-control validate" title="From Date" required="required" onkeydown="removeBorder(this.id);"	 type="text" id="checkIn" />
+											class="form-control validate" title="From Date" required="required" onkeydown="removeBorder(this.id);" placeholder="Checck In"	 type="text" id="checkIn" />
 									</div>
 									<span class="input-group-addon" id="basic-addon1" style="background-color: #f3ebda;border-color: #f3ebda;">Check Out <font color="red">*</font> :
 									</span>
 									<div class="input text required">
 										<input name="checkOut" style="width: 170px; background-color: #f3ebda;border-color: #f3ebda;" value="select Date"
-											class="form-control validate" title="To Date" required="required" onkeydown="removeBorder(this.id);" type="text" id="checkOut" />
+											class="form-control validate" title="To Date" required="required" onkeydown="removeBorder(this.id);" placeholder="Check Out" type="text" id="checkOut" />
 									</div>
 								</div>
 							</div>
@@ -170,7 +168,7 @@ font-size: 12px;
 							</div>
 							<div class="rooms" id="noOfAdt"></div>
 														
-									<button style="margin: 0px 0px 0px 289px;" type="button" class="btn btn-success" onclick="checkDateWise();">Check Availability</button>
+<!-- 									<button style="margin: 0px 0px 0px 289px;" type="button" class="btn btn-success" onclick="checkDateWise();">Check Availability</button> -->
 									
 									<div>
 								<h4  class="badge badge-info" style='background: teal;font-size: 15px;'>Rooms Price:</h4>
@@ -573,29 +571,30 @@ font-size: 12px;
 							console.log(i);
 							childDiv=childDiv+'<option>'+ i; +'</option>';
 						}
-						var appendDiv= '<div class="input-group nos "><span class="input-group-addon right-arrow" id="roomData" style="border:1px solid #333; width:70px;">'
-						     			+'</span>'
-										+'<div class="input-group roomplan-w">'
-						 				+'<span class="input-group-addon" id="basic-addon1">No Of Adults<font color="red">*</font> :'
-						 				+'</span>'
-						 				+'<select name="numberOfAdult" required="required" class="form-control" title="Please select Country" id="numberOfAdult">'
-						 				+'<option value="">Select Adults</option>'
-						 				+adultDiv
-						 				+'</select>'
-						 				+'</div>'
-						 				+'<div class="input-group roomplan-w">'
-						 				+'<span class="input-group-addon" id="basic-addon1">No Of Childs<font color="red">*</font> :'
-						 				+'</span>'
-						 				+'<select name="max_chaild" required="required" class="form-control" title="Please select Country" id="max_chaild">'
-						 				+'<option value="">Select Childs</option>'
-						 				+childDiv
-						 				+'</select>'
-						 				+'</div></div>';
+						
 						 			var room="";
 						 	for(var i=0;i<roomData.noOfRooms;i++)
 					 		{   	 room=i;
 					 				room ++;
-						 		$("#roomData").text("Room :"+room);
+					 				var appendDiv= '<div class="input-group nos "><span class="input-group-addon right-arrow" id="roomData" style="border:1px solid #333; width:70px;">'
+						     						+room
+								 					+'</span>'
+													+'<div class="input-group roomplan-w">'
+									 				+'<span class="input-group-addon" id="basic-addon1">No Of Adults<font color="red">*</font> :'
+									 				+'</span>'
+									 				+'<select name="numberOfAdult" required="required" class="form-control" title="Please select Country" id="numberOfAdult">'
+									 				+'<option value="">Select Adults</option>'
+									 				+adultDiv
+									 				+'</select>'
+									 				+'</div>'
+									 				+'<div class="input-group roomplan-w">'
+									 				+'<span class="input-group-addon" id="basic-addon1">No Of Childs<font color="red">*</font> :'
+									 				+'</span>'
+									 				+'<select name="max_chaild" required="required" class="form-control" title="Please select Country" id="max_chaild">'
+									 				+'<option value="">Select Childs</option>'
+									 				+childDiv
+									 				+'</select>'
+									 				+'</div></div>';
 					 			$("#noOfAdt").append(appendDiv);
 					 		}
 							 
@@ -618,7 +617,7 @@ font-size: 12px;
 					var roomPrice = $("#roomPrice").text();
 					var roomsStatus = $("#roomsStatus").val();
 					var GST = $("#GST").val();
-					var totalPrice = $("#totalPrice").val();
+					var totalPrice = $("#roomTotalPrice").val();
 					var checkIn = $("#checkIn").val();
 					var checkOut = $("#checkOut").val();
 					
@@ -645,7 +644,7 @@ font-size: 12px;
 							formData, false, 'text', function(data) {
 								console.log(data);
 								//$("#roomPrice").text(data);
-
+								window.location.reload();
 							});
 
 				}
