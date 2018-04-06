@@ -191,7 +191,7 @@ font-size: 12px;
 								<table>
 									<tr>
 										<td><a href="javascript:void(0);" onclick="getRate();">
-												<img src="user/img/check-rate-btn.png" alt="" />
+												
 										</a></td>
 										<td><span id="rate_div"> </span></td>
 									</tr>
@@ -458,10 +458,9 @@ font-size: 12px;
 								<div class="col-md-4">
 									<button type="button" onclick="showlock();"
 										style="padding: 0px; background-color: transparent; border: 0px; margin-right: 10px;">
-										<img src="user/img/bookmyplan-now.png" alt="" />
+										
 									</button>
-									<a href="javascript:void(0);" onclick="reset_form();"><img
-										src="user/img/reset-btn.png" alt="" /></a>
+									<a href="javascript:void(0);" onclick="reset_form();">
 								</div>
 							</div>
 

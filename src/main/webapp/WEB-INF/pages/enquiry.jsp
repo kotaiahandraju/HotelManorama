@@ -67,7 +67,7 @@ function updating(){
                 <label for="fname" class="col-sm-2 control-label">Country <span style="color: #F00">*</span></label>
                 <div class="col-sm-10 col-md-6">                   
                     <select name="data[Enquiry][country_id]" required="required" onchange="updating();" class="form-control" title="Please select Country" id="EnquiryCountryId">
-<option value="">Select Country</option>
+<option value="" selected="selected">Select Country</option>
 <option value="1">Afghanistan</option>
 <option value="2">Albania </option>
 <option value="3">Algeria  </option>
@@ -124,7 +124,7 @@ function updating(){
 <option value="55">Guyana</option>
 <option value="56">Hungary</option>
 <option value="57">Iceland</option>
-<option value="80" selected="selected">India</option>
+<option value="80">India</option>
 <option value="59">Indonesia</option>
 <option value="60">Iran</option>
 <option value="61">Iraq</option>
@@ -230,7 +230,7 @@ function updating(){
                 <div class="col-sm-10 col-md-6">    
                     <div id="states1">               
                     <div class="input select"><select name="data[Enquiry][state_id]" class="form-control" title="Please select State" id="EnquiryStateId">
-<option value="">Select State</option>
+<option value="" selected="selected">Select State</option>
 <option value="1">Andaman and Nicobar Islands</option>
 <option value="2">Andhra Pradesh</option>
 <option value="3">Arunachal Pradesh</option>
@@ -248,7 +248,7 @@ function updating(){
 <option value="15">Jammu and Kashmir</option>
 <option value="16">Jharkhand</option>
 <option value="17">Karnataka</option>
-<option value="18" selected="selected">Kerala</option>
+<option value="18">Kerala</option>
 <option value="31">Lakshdweep</option>
 <option value="20">Madhya Pradesh</option>
 <option value="21">Maharashtra</option>

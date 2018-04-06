@@ -11,7 +11,7 @@
 
 			<!--breadcrumb start-->
 			<ol class="breadcrumb">
-				<li><a href="/" title="Home">Home</a></li>
+				<li><a href="http://hotelmanorama.com" title="Home">Home</a></li>
 				<li class="active">Contact Us</li>
 			</ol>
 			<!--breadcrumb End-->

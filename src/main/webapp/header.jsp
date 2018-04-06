@@ -610,7 +610,7 @@ span {
 				</a>
 			</div>
 			 <div class=" col-md-1 grid-top">
-				<a href="reach.jsp" style='text-decoration: none;'>
+				<a href="reach" style='text-decoration: none;'>
 				 <img src='user/icons/reach.png' style='width: 55px;' alt=''></img>
 				  <div class="top-grid">
 					<span>Address</span>
@@ -626,7 +626,7 @@ span {
 				</a>
 			</div>
 			 <div class=" col-md-1 grid-top">
-				<a href="attractions.jsp" style='text-decoration: none;'>
+				<a href="attractions" style='text-decoration: none;'>
 				 <img src='user/icons/attractions.png' style='width: 55px;' alt=''></img>
 				  <div class="top-grid">
 					<span>Attractions</span>
