@@ -1,4 +1,4 @@
-   <jsp:include page="header.jsp" />
+   <jsp:include page="../../header.jsp" />
    
    <div class="container">
          <div class="row">
@@ -9,7 +9,7 @@
   
   <!--breadcrumb start-->                    
                      <ol class="breadcrumb">
-                      <li><a href="/" title="Home">Home</a></li>                 
+                      <li><a href="http://hotelmanorama.com/" title="Home">Home</a></li>                 
                       <li class="active">Dining</li>
                     </ol>
 				    <!--breadcrumb End-->
@@ -19,7 +19,7 @@
 
 	Continuing with the tradition of serving our guests with Limitless Hospitality, HOTEL Manorama serves guests with a host of dining options.</p>
 
-	<p>A wide selection of cuisine is available to guests in the hotel&rsquo;s two restaurants and the bar, each with a very distinctive character.</p>
+	<p>A wide selection of cuisine is available to guests in the Hotels two restaurants and the bar, each with a very distinctive character.</p>
 <h3 style='font-size: 16px;'>
 	THE RESTAURANT</h3>
 
@@ -56,4 +56,4 @@
                  </div>
 
 
-				<jsp:include page="footer.jsp" />
+				<jsp:include page="../../footer.jsp" />

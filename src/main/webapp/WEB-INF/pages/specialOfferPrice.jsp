@@ -92,7 +92,7 @@
                     			<div class="clearfix"></div>
                     			<div class="col-md-4">
 								<div class="form-group">
-                    				<label for="mon" class="col-md-4 control-label">Monday</label>
+                    				<label for="mon" class="col-md-4 control-label">Monday<span class="impColor">*</span></label>
                     				<div class="col-md-7"> 
 		                            	<form:input  path="mon" class="form-control numericOnly validate" maxlength="5" placeholder="Price(INR)"/>
 								  	</div>
@@ -100,7 +100,7 @@
                     			</div>
                     			<div class="col-md-4">
                     			<div class="form-group">
-                    				<label for="tue" class="col-md-4 control-label">Tuesday</label>
+                    				<label for="tue" class="col-md-4 control-label">Tuesday<span class="impColor">*</span></label>
                     				<div class="col-md-7">
 		                            	<form:input  style='width: 214px;' path="tue" class="form-control numericOnly validate" maxlength="5" placeholder="Price(INR)"/>
 								  	</div>
@@ -108,7 +108,7 @@
                     			</div>
                     			<div class="col-md-4">
                     			<div class="form-group">
-                    				<label for="wed" class="col-md-4 control-label">Wednesday</label>
+                    				<label for="wed" class="col-md-4 control-label">Wednesday<span class="impColor">*</span></label>
                     				<div class="col-md-7">
 		                            	<form:input  path="wed" class="form-control numericOnly validate" placeholder="Price(INR)" maxlength="5"/>
 								  	</div>
@@ -116,7 +116,7 @@
                     			</div>
                     			<div class="col-md-4">
                     			<div class="form-group">
-                    				<label for="thu" class="col-md-4 control-label">Thursday</label>
+                    				<label for="thu" class="col-md-4 control-label">Thursday<span class="impColor">*</span></label>
                     				<div class="col-md-7">
 		                            	<form:input  path="thu" class="form-control  validate" placeholder="Price(INR)" maxlength="5"/>
 								  	</div>
@@ -124,7 +124,7 @@
                     			</div>
                     			<div class="col-md-4">
                     			<div class="form-group">
-                    				<label for="fri" class="col-md-4 control-label">Friday</label>
+                    				<label for="fri" class="col-md-4 control-label">Friday<span class="impColor">*</span></label>
                     				<div class="col-md-7">
 		                            	<form:input  style='width: 214px;' path="fri" class="form-control numericOnly validate" placeholder="Price(INR)" maxlength="5"/>
 								  	</div>
@@ -132,7 +132,7 @@
                     			</div>
                     			<div class="col-md-4">
                     			<div class="form-group">
-                    				<label for="sat" class="col-md-4 control-label">Saturday</label>
+                    				<label for="sat" class="col-md-4 control-label">Saturday<span class="impColor">*</span></label>
                     				<div class="col-md-7">
 		                            	<form:input  path="sat" class="form-control numericOnly validate" placeholder="Price(INR)" maxlength="5"/>
 								  	</div>
@@ -140,7 +140,7 @@
                     			</div>
                     			<div class="col-md-4">
 							<div class="form-group">
-                    				<label for="start_time" class="col-md-4 control-label">Start-Date</label>
+                    				<label for="start_time" class="col-md-4 control-label">Start-Date<span class="impColor">*</span></label>
                     				<div class="col-md-7">
 		                            	<form:input  path="start_time" class="form-control numericOnly "   placeholder="Start Date"/>
 								  	</div>
@@ -148,7 +148,7 @@
                     			</div>
                     			<div class="col-md-4">
                     			<div class="form-group">
-                    				<label for="end_time" class="col-md-4 control-label">End-Date</label>
+                    				<label for="end_time" class="col-md-4 control-label">End-Date<span class="impColor">*</span></label>
                     				<div class="col-md-7">
 		                            	<form:input  style='width: 214px;' path="end_time" class="form-control numericOnly " placeholder="End Date"/>
 								  	</div>

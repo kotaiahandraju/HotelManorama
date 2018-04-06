@@ -17,7 +17,7 @@ p{
   
   <!--breadcrumb start-->                    
                      <ol class="breadcrumb">
-                      <li><a href="/" title="Home">Home</a></li>                 
+                      <li><a href="http://hotelmanorama.com/" title="Home">Home</a></li>                 
                       <li class="active">Facilities</li>
                     </ol>
 				    <!--breadcrumb End-->
@@ -34,7 +34,7 @@ p{
 <h4>
 	Facilities On Request on Chargeable Basis</h4>
 <p>
-	Travel Desk, Doctor on Call, Fax, Coffee Shop, Multi Cosine Restaurant, Conference Hall , Laundry Services, Mini Bar Items.</p>
+	Travel Desk, Doctor on Call, Fax, Coffee Shop, Multi Cuisine Restaurant, Conference Hall , Laundry Services, Mini Bar Items.</p>
 
 <p>
 	Hotel Manorama is one of the oldest hotels in Vijayawada . The hotel opened its doors in 1985 and since then it has been fulfilling each and every need of its guests. Located in the heart of the city, Hotel Manorama is now a completely renovated destination for business class travellers. From the point you touch the reception hall to the Restaurant to rooms, each facility is been meticulously planned and designed to make you comfortable.</p>

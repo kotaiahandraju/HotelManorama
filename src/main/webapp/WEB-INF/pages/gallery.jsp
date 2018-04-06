@@ -1,5 +1,5 @@
 
-<jsp:include page="header.jsp" />
+<jsp:include page="../../header.jsp" />
 
 <div class="container">		
 		<!--start-->
@@ -85,4 +85,4 @@
         
 			
 
-<jsp:include page="footer.jsp" />
+<jsp:include page="../../footer.jsp" />
