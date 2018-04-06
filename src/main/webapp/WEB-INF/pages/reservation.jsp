@@ -575,7 +575,8 @@ font-size: 12px;
 						 	for(var i=0;i<roomData.noOfRooms;i++)
 					 		{   	 room=i;
 					 				room ++;
-					 				var appendDiv= '<div class="input-group nos "><span class="input-group-addon right-arrow" id="roomData" style="border:1px solid #333; width:70px;">'
+					 				var appendDiv= '<div class="input-group nos "><div class="row"><span class="input-group-addon right-arrow" id="roomData" style="border:1px solid #333; width:70px;">'
+					 								+'Room :'
 						     						+room
 								 					+'</span>'
 													+'<div class="input-group roomplan-w">'
@@ -593,7 +594,7 @@ font-size: 12px;
 									 				+'<option value="">Select Childs</option>'
 									 				+childDiv
 									 				+'</select>'
-									 				+'</div></div>';
+									 				+'</div></div></div>';
 					 			$("#noOfAdt").append(appendDiv);
 					 		}
 							 
