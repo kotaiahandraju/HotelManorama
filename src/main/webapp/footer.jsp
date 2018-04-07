@@ -13,7 +13,7 @@
                          
                             <!-- <a href="http://www.hotelManorama.com/"><img src="img/icon.png" title="Hotel Manorama" alt="Hotel Manorama"></a>  -->                          </div>
                      	<div class="allreserve padding_0 text-center-xs text-center-sm">
-                    		Â© 2018 Hotel Manorama. All rights reserved.
+                    		© 2018 Hotel Manorama. All rights reserved.
                     
                     	</div>
                      
