@@ -49,8 +49,12 @@
                                    </div>  
 <div class="col-md-4">	
 	<legend style="font-size: 36px;"> Services</legend>
-	<img src="user/img/m1.jpg" class="thumbnail img-responsive"><br>
-	<img src="user/img/gi5.jpg" class="thumbnail img-responsive">
+	<div class="thumbnail">
+	<img src="user/img/m1.jpg" class="img-responsive" width="100%">
+	</div>
+	<div class="thumbnail">
+	<img src="user/img/gi5.jpg" class="img-responsive"  width="100%">
+	</div>
 	</div>   
 </div>                         
                  </div>

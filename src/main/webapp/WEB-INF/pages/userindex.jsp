@@ -600,9 +600,9 @@ span {
       <div class=" col-md-1 grid-top"> <a href="gallery" style='text-decoration: none;'> <img src='user/icons/gallery.png' style='width: 55px;' alt=''></img>
         <div class="top-grid"> <span>Gallery</span> </div>
         </a> </div>
-      <div class=" col-md-1 grid-top"> <a href="offers" style='text-decoration: none;'> <img src='user/icons/offer.jpg' style='width: 55px;' alt=''></img>
-        <div class="top-grid"> <span>Offers</span> </div>
-        </a> </div>
+     <!-- <div class=" col-md-1 grid-top"> <a href="offers" style='text-decoration: none;'> <img src='user/icons/offer.jpg' style='width: 55px;' alt=''></img>
+        <div class="top-grid"> <span>Offers</span> </div> 
+        </a> </div> -->
       <div class=" col-md-1 grid-top"> <a href="enquiry" style='text-decoration: none;'> <img src='user/icons/enquire.png' style='width: 55px;' alt=''></img>
         <div class="top-grid"> <span>Enquiry</span> </div>
         </a> </div>
@@ -629,7 +629,7 @@ span {
       <!--foot LEft start-->
       <div class="col-md-3 col-sm-12 col-xs-12 padding_0">
         <div class="footLogo text-center-xs text-center-sm"> </div>
-        <div class="allreserve padding_0 text-center-xs text-center-sm">Â© 2018. Hotel Manorama. All rights reserved. </div>
+        <div class="allreserve padding_0 text-center-xs text-center-sm">© 2018. Hotel Manorama. All rights reserved. </div>
       </div>
       <!--foot LEft End-->
       <!--foot 2Nd start-->

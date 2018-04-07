@@ -490,6 +490,8 @@ p.footer-in {
 .service-top {
  padding: 0;
 }
+.img-responsive{
+width:100%;}
 .service-top h5 {
  font-size: 1em;
  margin: 0.5em 0;
@@ -594,14 +596,14 @@ span {
 				  </div>
 				</a>
 			</div>
-			 <div class=" col-md-1 grid-top">
+			<!--  <div class=" col-md-1 grid-top">
 				<a href="offers" style='text-decoration: none;'>
 				 <img src='user/icons/offer.png' style='width: 55px;' alt=''></img>
 				  <div class="top-grid">
 					<span>Offers</span>
 				  </div>
 				</a>
-			</div>
+			</div>-->
 			 <div class=" col-md-1 grid-top">
 				<a href="enquiry" style='text-decoration: none;'>
 				 <img src='user/icons/enquire.png' style='width: 55px;' alt=''></img>
