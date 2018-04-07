@@ -36,7 +36,7 @@
 
 
 	<h3 style='font-size: 16px;'>
-		<span style="font-size: 16px;">THE BAR</span></h3>
+		THE BAR</h3>
 
 
 	<p>When it is time to relax, there is no place in Vijayawada & Hyderabad like our cozy and relaxing bar.

@@ -27,6 +27,8 @@
 <script type="text/javascript" src="user/js/bootstrap.min.js.download"></script>
 <script type="text/javascript" src="user/js/jquery.themepunch.plugins.min.js.download"></script>
 <script type="text/javascript" src="user/js/jquery.themepunch.revolution.min.js.download"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
 <style>
 @font-face {
  font-family: 'Roboto', sans-serif;
@@ -675,7 +677,7 @@ span {
 				$(function() {
 					$("#checkOut").datetimepicker({
 						useCurrent : false,
-						format : 'DD-MMM-YYYY HH:mm',
+						format : 'DD-MMM-YYYY',
 						showTodayButton : true,
 						sideBySide : true,
 						minDate : new Date(),
@@ -687,7 +689,7 @@ span {
 
 					 $("#checkIn").datetimepicker({
 						useCurrent : false,
-						format : 'DD-MMM-YYYY HH:mm',
+						format : 'DD-MMM-YYYY',
 						showTodayButton : true,
 						sideBySide : true,
 						minDate : new Date(),
