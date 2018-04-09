@@ -95,8 +95,9 @@ public class RoomPhotosController {
 			photoIncreMent=new StringBuffer();
 			for (int i = 0; i < file.length; i++) {
 				String photoPath = null;
-				// System.out.println("file=="+file[i].getOriginalFilename());
+				 System.out.println("file=="+file[i].getOriginalFilename());
 				if (file[i].getOriginalFilename() != "") {
+					System.out.println("original Name");
 					photoPath = FileUploadUtil.ImageUpload(file[i], request);
 					String imageData =photoPath;
 //					System.out.println(imageData);
@@ -125,10 +126,12 @@ public class RoomPhotosController {
 				if (id == dummyId || roomPhotoBean2 == null) {
 					//System.out.println("----imagePath-----"+imagePath);
 					if(imagePath.isEmpty()) {
+						System.out.println("update---1");
 						RoomPhotosDao.save(roomPhotoBean);
 						redir.addFlashAttribute("msg", "Record Updated Successfully");
 						redir.addFlashAttribute("cssMsg", "warning");
 					}else {
+						System.out.println("update---2");
 						roomPhotoBean.setImages(imagePath);
 						RoomPhotosDao.save(roomPhotoBean);
 						redir.addFlashAttribute("msg", "Record Updated Successfully");

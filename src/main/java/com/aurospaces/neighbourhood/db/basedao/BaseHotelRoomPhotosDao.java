@@ -74,12 +74,12 @@ ps.setString(6, hotelRoomPhotos.getStatus());
 				
 				Number unId = keyHolder.getKey();
 				hotelRoomPhotos.setId(unId.intValue());
-				
+				System.out.println("-----save---");
 
 		}
 		else
 		{
-
+			System.out.println("--id----"+hotelRoomPhotos.getId());
 			String sql = "UPDATE hotel_room_photos  set capacityId=?,room_type_id = ? ,images = ?  where id = ? ";
 	
 			jdbcTemplate.update(sql, new Object[]{hotelRoomPhotos.getCapacityId(),hotelRoomPhotos.getRoomTypeId(),hotelRoomPhotos.getImages(),hotelRoomPhotos.getId()});

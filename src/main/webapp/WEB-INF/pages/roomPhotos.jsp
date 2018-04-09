@@ -129,7 +129,7 @@ var damageId = 0;
 // var serviceUnitArray ={};
 var data = {};
 
-var image1="";var image2="";var image3="";var image4="";var image5="";
+
 function showTableData(response){
 	var table=$('#tableId').html('');
 	serviceUnitArray = {};
@@ -139,6 +139,7 @@ function showTableData(response){
     	"</thead><tbody></tbody></table>";
 	$("#tableId").html(tableHead);
 	$.each(response,function(i, orderObj) {
+		var image1="";var image2="";var image3="";var image4="";var image5="";
 		if(orderObj.status == "1"){
 			var deleterow = "<a class='deactivate' onclick='deletePhotos("+ orderObj.id+ ",0)'><i class='fa fa-eye'></i></a>"
 		}else{  
@@ -149,6 +150,7 @@ function showTableData(response){
 		var myString = orderObj.images;
 		var arr = myString.split(',');
 		$.each(arr, function( index, value ) {
+			
 			console.log(index+"-----"+value);
 			if(index==0){
 				 image1=value;

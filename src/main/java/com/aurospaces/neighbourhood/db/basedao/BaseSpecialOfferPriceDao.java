@@ -79,13 +79,13 @@ public class BaseSpecialOfferPriceDao {
 			specialOfferPriceBean.setId(unId.intValue());
 
 		} else {
-			String sql = "UPDATE special_offer_price  set room_type_id = ? ,capacity_id = ? ,sun = ? ,mon = ? ,tue = ? ,wed = ? ,thu = ? ,fri = ? ,sat = ? ,status=? where id = ? ";
+			String sql = "UPDATE special_offer_price  set room_type_id = ? ,capacity_id = ? ,sun = ? ,mon = ? ,tue = ? ,wed = ? ,thu = ? ,fri = ? ,sat = ? ,status=?,start_time=?, end_time=? where id = ? ";
 
 			jdbcTemplate.update(sql,
 					new Object[] { specialOfferPriceBean.getRoomTypeId(), specialOfferPriceBean.getCapacityId(),
 							specialOfferPriceBean.getSun(), specialOfferPriceBean.getMon(), specialOfferPriceBean.getTue(),
 							specialOfferPriceBean.getWed(), specialOfferPriceBean.getThu(), specialOfferPriceBean.getFri(),
-							specialOfferPriceBean.getSat(),specialOfferPriceBean.getStatus(),specialOfferPriceBean.getId()});
+							specialOfferPriceBean.getSat(),specialOfferPriceBean.getStatus(),specialOfferPriceBean.getStart_time1(),specialOfferPriceBean.getEnd_time1(),specialOfferPriceBean.getId()});
 		}
 	}
 

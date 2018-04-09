@@ -1,15 +1,8 @@
 <jsp:include page="../../header.jsp" />
 			
 			
-<style>
-h4{
-font-size: 18px;
-}
-p{
-    font-size: 14px;
-    text-align:justify;
-}
-</style></style>
+
+
 <div class="container">
          <div class="row">
             	 <div class="col-md-8">       	 
@@ -24,48 +17,46 @@ p{
 				    <!--breadcrumb End-->
                     
                     
- <p> 
-   
- </p>
+
  <p>                   
- <h4 >
-	<b>Facilities &amp; Amenities Provided on Complimentary Basis</b></h4>
-<p >
+ <h4>
+	Facilities &amp; Amenities Provided on Complimentary Basis</h4>
+<p align="justify">
 	Safe locker, Coffee/Tea maker, Buffet Breakfast(indian american continental) Dental and Shaving kit, Shampoo, Soap, Moisturizer, Sewing kit, Shoe Shine,Two bottles of purified drinking water (500 ML each) and 24hrs WIFI, Parking, iron Box and ironing board,News Paper.</p>
-<h4 >
-	<b>Facilities On Request on Chargeable Basis</b></h4>
-<p >
+<h4>
+	Facilities On Request on Chargeable Basis</h4>
+<p align="justify">
 	Travel Desk, Doctor on Call, Fax, Coffee Shop, Multi Cuisine Restaurant, Conference Hall , Laundry Services, Mini Bar Items.</p>
 
-<p > 
+<p align="justify">
 	Hotel Manorama is one of the oldest hotels in Vijayawada . The hotel opened its doors in 1985 and since then it has been fulfilling each and every need of its guests. Located in the heart of the city, Hotel Manorama is now a completely renovated destination for business class travellers. From the point you touch the reception hall to the Restaurant to rooms, each facility is been meticulously planned and designed to make you comfortable.</p>
 <h4>
-	<b>Reception &amp; Lobby</b></h4>
-<p >
+	Reception &amp; Lobby</h4>
+<p align="justify">
 	Pleasant smiles will greet you at our reception to bid you a warm welcome. The newly renovated lobby is a treat for the eyes</p>
 <h4>
-	<b>The Rooms</b></h4>
-<p >
+	The Rooms</h4>
+<p align="justify">
 	Hotel Manorama has a brand new selection of rooms and suites, now renovated and designed to deliver to each guest, a completely new stay experience.</p>
-<p >
+<p align="justify">
 	Reflecting a perfect harmony of elegance, luxury and technology, the new rooms and suites have rich wooden flooring, in room digital safe, spacious work desk, television and Wi-Fi connect, making business communication faster and seamless.</p>
-<p >
+<p align="justify">
 	Our Premium rooms and suites come with a private balcony overlooking our famed and lush greenery and that may be one of the reasons why many of our guests keep coming back quite frequently.</p>
 <h4>
-	<b>The Restaurant</b></h4>
-<p >
+	The Restaurant</h4>
+<p align="justify">
 	The Restaurant at Manorama is one of the finest multi cuisines restaurants in town. With a warm, spacious ambiance, guests can choose delicacies from Chinese, Continental, Tandoori and Indian dishes.</p>
 <h4>
-	<b>The Coffee shop (24 HOURS)</b></h4>
-<p >
+	The Coffee shop (24 HOURS)</h4>
+<p>
 	Vegetarians!!! We understand your heart better than any one else. Coffee shop is our pure vegetarian restaurant with a separate kitchen to serve any thing that is vegetarian. Built with a touch of the traditional Keralite architecture the coffee shop has the perfect ambiance.</p>
 <h4>
-	<b>The Bar</b></h4>
-<p >
+	The Bar</h4>
+<p align="justify">
 	When it is time to relax, there is no place in Vijayawada like our cozy and relaxing bar. We serve you with a variety of alcoholic beverages and cocktails</p>
 <h4>
-	<b>Other Facilities</b></h4>
-<ul style="line-height:2.5;">
+	Other Facilities</h4>
+<ul style="margin-left:30px;">
 	<li>
 		Safe Deposit Locker</li>
 	<li>
@@ -93,7 +84,8 @@ p{
 	<li>
 		<strong>Master Hall&nbsp;:</strong>&nbsp;300 PAX</li>
 </ul>
-  
+ 
+</p> 
    
 
                                                           
@@ -101,24 +93,14 @@ p{
                                    </div> 
     	
     <div class="col-md-4">	
-	<legend style="font-size: 36px;"> Services</legend>
-	<div class="thumbnail">
-	<img src="user/img/s.jpg" width="100%" class=" img-responsive">
-	</div>
-	<div class="thumbnail">
-	<img src="user/img/s1.jpg"  width="100%" class="img-responsive">
-	</div>
-	<div class="thumbnail">
-	<img src="user/img/s2.jpg" width="100%" class="img-responsive">
-	</div>
-	<div class="thumbnail">
-	<img src="user/img/s3.jpg" width="100%" class="img-responsive">
-	</div>
-	<div class="thumbnail">
-	<img src="user/img/s4.jpg" width="100%" class="img-responsive">
-	</div>
+	<legend style="font-size: 36px;"> &nbsp;</legend>
+	<img src="user/img/s.jpg" class="thumbnail img-responsive ">
+	<img src="user/img/s1.jpg" class="thumbnail img-responsive">
+	<img src="user/img/s2.jpg" class="thumbnail img-responsive">
+	<img src="user/img/s3.jpg" class="thumbnail img-responsive">
+	
 	</div>
 </div>                              
                  </div>
-               
+                </div>
 <jsp:include page="../../footer.jsp" />

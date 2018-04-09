@@ -33,7 +33,7 @@ public class CommonUtils {
 	public static Timestamp getIndainDate(String startDate) throws ParseException {
 
 //		 System.out.println("date........................."+startDate);
-		 java.text.DateFormat format1 = new java.text.SimpleDateFormat("dd-MMM-yyyy hh:mm");
+		 java.text.DateFormat format1 = new java.text.SimpleDateFormat("dd-MMM-yyyy hh:mm:ss");
 		 java.util.Date date = format1.parse(startDate);
 		 java.sql.Timestamp timestamp = new java.sql.Timestamp(date.getTime());
 //		 System.out.println(timestamp);

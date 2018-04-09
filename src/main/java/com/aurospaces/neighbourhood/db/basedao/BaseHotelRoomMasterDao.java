@@ -25,7 +25,7 @@ public class BaseHotelRoomMasterDao{
 	CustomConnection custom;
 	JdbcTemplate jdbcTemplate;
  
-	public final String INSERT_SQL = "INSERT INTO hotel_room_master( created_time, updated_time, room_number, room_type_id, capacity_id, max_chaild, status) values (?, ?, ?, ?, ?, ?, ?)"; 
+	public final String INSERT_SQL = "INSERT INTO hotel_room_master( created_time, updated_time, room_number, room_type_id, capacity_id, status) values (?, ?, ?, ?, ?, ?)"; 
 
 
 
@@ -65,8 +65,7 @@ ps.setTimestamp(2, updatedTime);
 ps.setString(3, hotelRoomMaster.getRoomNumber());
 ps.setString(4, hotelRoomMaster.getRoomTypeId());
 ps.setString(5, hotelRoomMaster.getCapacityId());
-ps.setString(6, hotelRoomMaster.getMaxChaild());
-ps.setString(7, hotelRoomMaster.getStatus());
+ps.setString(6, hotelRoomMaster.getStatus());
 
 							return ps;
 						}
@@ -81,9 +80,9 @@ ps.setString(7, hotelRoomMaster.getStatus());
 		else
 		{
 
-			String sql = "UPDATE hotel_room_master  set room_number = ? ,room_type_id = ? ,capacity_id = ? ,max_chaild = ?   where id = ? ";
+			String sql = "UPDATE hotel_room_master  set room_number = ? ,room_type_id = ? ,capacity_id = ?  where id = ? ";
 	
-			jdbcTemplate.update(sql, new Object[]{hotelRoomMaster.getRoomNumber(),hotelRoomMaster.getRoomTypeId(),hotelRoomMaster.getCapacityId(),hotelRoomMaster.getMaxChaild(),hotelRoomMaster.getId()});
+			jdbcTemplate.update(sql, new Object[]{hotelRoomMaster.getRoomNumber(),hotelRoomMaster.getRoomTypeId(),hotelRoomMaster.getCapacityId(),hotelRoomMaster.getId()});
 		}
 	}
 		

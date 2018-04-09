@@ -1,11 +1,70 @@
 
 <jsp:include page="../../header.jsp" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<div class="container">		
-		<!--start-->
+<div class="container">	
+	<div class="img">
+		<div class="col-md-4">
+			<div class="thumbnail">
+				<a href="#" data-toggle="modal" data-target="#Modalg"><img width="100%" src="user/img/sroom.png" class="img-responsive"/></a>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="thumbnail">
+				<a href="#" data-toggle="modal" data-target="#Modalg"><img width="100%" src="user/img/droom1.png" class="img-responsive"/></a>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="thumbnail">
+				<a href="#" data-toggle="modal" data-target="#Modalg"><img width="100%" src="user/img/droom.png" class="img-responsive"/></a>
+			</div>
+		</div><div class="clearfix"></div>
+		<div class="col-md-4">
+			<div class="thumbnail">
+				<a href="#" data-toggle="modal" data-target="#Modalg"><img width="100%" src="user/img/function.png" class="img-responsive"/></a>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="thumbnail">
+				<a href="#" data-toggle="modal" data-target="#Modalg"><img width="100%" src="user/img/restaurent.png" class="img-responsive"/></a>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="thumbnail">
+				<a href="#" data-toggle="modal" data-target="#Modalg"><img width="100%" src="user/img/bar.png" class="img-responsive"/></a>
+			</div>
+		</div><div class="clearfix"></div>
+		<div class="col-md-4">
+			<div class="thumbnail">
+				<a href="#" data-toggle="modal" data-target="#Modalg"><img width="100%" src="user/img/hroom.png" class="img-responsive"/></a>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="thumbnail">
+				<a href="#" data-toggle="modal" data-target="#Modalg"><img width="100%" src="user/img/slide.jpg" class="img-responsive"/></a>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="thumbnail">
+				<a href="#" data-toggle="modal" data-target="#Modalg"><img width="100%" src="user/img/Room.png" class="img-responsive"/></a>
+			</div>
+		</div><div class="clearfix"></div>
+	</div>
+	
+	<!-- Modal -->
+		
+		
+  <div class="modal fade" tabindex="-1" id="Modalg" role="dialog">
+    
+      <!-- Modal content-->
+
+
+
+	<!--start-->
     <div id='ninja-slider' style="background: none;">
         <div>
             <div class="slider-inner">
+          <button style="color:#ffffff;" type="button" class="close btn btn-lg-primary" data-dismiss="modal">&times;</button>
                 <ul>
                     <li><a class="ns-img" href="user/img/sroom.png"></a></li>
                     <li><a class="ns-img" href="user/img/droom1.png"></a></li>
@@ -19,9 +78,6 @@
                     <li><a class="ns-img" href="user/img/hroom1.png"></a></li>
                     <li><a class="ns-img" href="user/img/dining.png"></a></li>
                 </ul>
-                <div class="fs-icon" style='margin: 0px 27px 0px 0px;' title="Expand/Close">
-				<img src='user/img/expand.png' style='width: 34px;margin: 5px 0px 0px 0px;' alt='Expand/Close' title='Expand/Close' ></div>
-            </div>
             <div id="thumbnail-slider">
                 <div class="inner">
                     <ul>
@@ -75,6 +131,14 @@
         </div>
     </div>
     <!--end-->
+
+
+        </div>
+      
+    </div>
+		
+	<!-- Modal -->
+	
 		
 		
         <div style="clear:both;"></div>

@@ -130,6 +130,7 @@ public class RoomReservation {
 					specialOfferPriceBean.setStart_time1(CommonUtils.getIndainDate(roomPriceBean.getCheckIn()));
 					specialOfferPriceBean.setEnd_time1(CommonUtils.getIndainDate(roomPriceBean.getCheckOut()));
 					specialOfferResult=roomPriceDao.getCheckDateWiseAvailability(specialOfferPriceBean);
+//					System.out.println("222222222222222222222222222::"+roomPriceBean.getNoOfRooms());
 					if(specialOfferResult.size() >0) {
 						sSpecialOfferDayName=roomPriceDao.getDayName(specialOfferPriceBean.getStart_time1());
 						String name=null;
@@ -150,6 +151,7 @@ public class RoomReservation {
 						String resultData=roomPriceDao.getDayNameByDate(specialOfferPriceBean.getStart_time1());
 						price=Integer.parseInt(resultData);
 						int iNoOfRooms=Integer.parseInt(roomPriceBean.getNoOfRooms());
+//						System.out.println("222222222222222222222222222:::"+roomPriceBean.getNoOfRooms());
 						result= iNoOfRooms * price;
 						jsonObj.put("price", result);
 						jsonObj.put("roomPrice", price);
@@ -163,6 +165,7 @@ public class RoomReservation {
 				
 				
 			} catch (Exception e) {
+				e.printStackTrace();
 				// TODO: handle exception
 			}
 			return String.valueOf(jsonObj);

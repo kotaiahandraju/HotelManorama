@@ -57,7 +57,7 @@ font-size: 12px;
 				$(function() {
 					$("#checkOut").datetimepicker({
 						useCurrent : false,
-						format : 'DD-MMM-YYYY HH:mm',
+						format : 'DD-MMM-YYYY HH:mm:ss',
 						showTodayButton : true,
 						sideBySide : true,
 						minDate : new Date(),
@@ -69,7 +69,7 @@ font-size: 12px;
 
 					 $("#checkIn").datetimepicker({
 						useCurrent : false,
-						format : 'DD-MMM-YYYY HH:mm',
+						format : 'DD-MMM-YYYY HH:mm:ss',
 						showTodayButton : true,
 						sideBySide : true,
 						minDate : new Date(),
@@ -166,7 +166,52 @@ font-size: 12px;
 									</select>
 								</div>
 							</div>
-							<div class="rooms" id="noOfAdt"></div>
+							<div class="rooms" id="noOfAdt">
+								<!--  <div  class="rooms">
+								 <div class="input-group nos ">
+								 <span class="input-group-addon right-arrow" id="basic-addon1" style="border:1px solid #333; width:70px;">Room &nbsp'+min+ '</span>
+								 </div>
+								 <div class="input-group nos">
+								 <span class="input-group-addon smaller" id="basic-addon1" >Adult :</span>
+								 <select name="info[room'+min+'][adult][]" onchange="childhide();" id="adult'+min+'"  class="form-control nos odoo ">
+								 <option value="1">01</option>
+								 <option value="2">02</option>
+								 <option value="3">03</option>  
+								 </select>
+								 </div>
+								 <div class="input-group nos " id="child'+min+'">
+								 <span class="input-group-addon smaller jk" >Children :</span>
+								 <select name="info[room'+min+'][child][]" class="form-control jk" onchange="clearRate();" id="child1'+min+'">
+								 <option value="0" selected>00</option>
+								 <option value="1">01</option>
+								 <option value="2">02</option>  
+								 </select>
+								 </div>
+								 </div> -->
+							
+<!-- 							<div class="row"><div class="col-4"><span class="input-group-addon right-arrow" id="roomData" style="border:1px solid #333; width:70px;"> -->
+<!-- 					 								Room : -->
+<!-- 						     						room -->
+<!-- 								 					</span> -->
+<!-- 								 					</div> -->
+<!-- 													<div class="col-4"> -->
+<!-- 									 				<span class="input-group-addon" id="basic-addon1">No Of Adults<font color="red">*</font> : -->
+<!-- 									 				</span> -->
+<!-- 									 				<select name="numberOfAdult" required="required" class="form-control" title="Please select Country" id="numberOfAdult"> -->
+<!-- 									 				<option value="">Select Adults</option> -->
+<!-- 									 				adultDiv -->
+<!-- 									 				</select> -->
+<!-- 									 				</div> -->
+<!-- 									 				<div class="col-4"> -->
+<!-- 									 				<span class="input-group-addon" id="basic-addon1">No Of Childs<font color="red">*</font> : -->
+<!-- 									 				</span> -->
+<!-- 									 				<select name="max_chaild" required="required" class="form-control" title="Please select Country" id="max_chaild"> -->
+<!-- 									 				<option value="">Select Childs</option> -->
+<!-- 									 				childDiv -->
+<!-- 									 				</select> -->
+<!-- 									 				</div></div> -->
+							
+							</div>
 														
 <!-- 									<button style="margin: 0px 0px 0px 289px;" type="button" class="btn btn-success" onclick="checkDateWise();">Check Availability</button> -->
 									
@@ -575,26 +620,24 @@ font-size: 12px;
 						 	for(var i=0;i<roomData.noOfRooms;i++)
 					 		{   	 room=i;
 					 				room ++;
-					 				var appendDiv= '<div class="input-group nos "><div class="row"><span class="input-group-addon right-arrow" id="roomData" style="border:1px solid #333; width:70px;">'
-					 								+'Room :'
-						     						+room
-								 					+'</span>'
-													+'<div class="input-group roomplan-w">'
-									 				+'<span class="input-group-addon" id="basic-addon1">No Of Adults<font color="red">*</font> :'
-									 				+'</span>'
-									 				+'<select name="numberOfAdult" required="required" class="form-control" title="Please select Country" id="numberOfAdult">'
+					 				var appendDiv= '<div  class="rooms">'
+													 +'<div class="input-group nos ">'
+													 +'<span class="input-group-addon right-arrow" id="basic-addon1" style="border:1px solid #333; width:70px;">Room &nbsp'+room+'</span>'
+													 +'</div>'
+													 +'<div class="input-group nos">'
+													 +'<span class="input-group-addon smaller" id="basic-addon1" >Adult :</span>'
+									 				+'<select name="numberOfAdult" onchange="childhide();" id="numberOfAdult"  class="form-control nos odoo ">'
 									 				+'<option value="">Select Adults</option>'
 									 				+adultDiv
 									 				+'</select>'
 									 				+'</div>'
-									 				+'<div class="input-group roomplan-w">'
-									 				+'<span class="input-group-addon" id="basic-addon1">No Of Childs<font color="red">*</font> :'
-									 				+'</span>'
-									 				+'<select name="max_chaild" required="required" class="form-control" title="Please select Country" id="max_chaild">'
+									 				+'<div class="input-group nos ">'
+									 				+'<span class="input-group-addon smaller jk" >Children :</span>'
+									 				+'<select name="max_chaild" onchange="childhide();" id="max_chaild"  class="form-control nos odoo ">'
 									 				+'<option value="">Select Childs</option>'
 									 				+childDiv
 									 				+'</select>'
-									 				+'</div></div></div>';
+									 				+'</div></div>';
 					 			$("#noOfAdt").append(appendDiv);
 					 		}
 							 

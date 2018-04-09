@@ -18,12 +18,24 @@ protected Date updatedTime ;
 protected String checkIn ;
 protected String checkOut ;
 protected String roomTypeId ;
-protected String capacityId,noOfRooms,roomPrice,GST,totalPrice,roomsStatus,userDetailsId,bookingStatus ;
+protected String capacityId,noOfRooms,roomPrice,GST,totalPrice,roomsStatus,userDetailsId,bookingStatus,numberOfAdult,numberOfChaild ;
 
 
 
 
 
+public String getNumberOfAdult() {
+	return numberOfAdult;
+}
+public void setNumberOfAdult(String numberOfAdult) {
+	this.numberOfAdult = numberOfAdult;
+}
+public String getNumberOfChaild() {
+	return numberOfChaild;
+}
+public void setNumberOfChaild(String numberOfChaild) {
+	this.numberOfChaild = numberOfChaild;
+}
 public String getBookingStatus() {
 	return bookingStatus;
 }

@@ -109,6 +109,7 @@ public class RoomMasterController {
 				
 				
 			} catch (Exception e) {
+				e.printStackTrace();
 				System.out.println("Exception in Product Controller in productSave()");
 				redirect.addFlashAttribute("msg", "Failed");
 				redirect.addFlashAttribute("cssMsg", "danger");

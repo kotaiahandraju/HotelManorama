@@ -304,7 +304,7 @@ $(function() {
 					$('#start_time').datetimepicker({
 
 						useCurrent : false,
-						format : 'DD-MMM-YYYY HH:mm',
+						format : 'DD-MMM-YYYY HH:mm:ss',
 						showTodayButton : true,
 						sideBySide : true,
 						minDate : new Date(),
@@ -316,7 +316,7 @@ $(function() {
 					$('#end_time').datetimepicker({
 
 						useCurrent : false,
-						format : 'DD-MMM-YYYY HH:mm',
+						format : 'DD-MMM-YYYY HH:mm:ss',
 						showTodayButton : true,
 						sideBySide : true,
 						minDate : new Date(),
