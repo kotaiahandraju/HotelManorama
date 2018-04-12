@@ -5,23 +5,9 @@
                     	 
                         <script type="text/javascript"> 
 
-function validatecontents(){
- jQuery('#UserregistrationLoginForm').submit();
- }
- 
-function reset_form()
-{
-document.getElementById('UserregistrationLoginForm').reset();
-	jQuery(":input").next('label').remove();
-	jQuery("label[class=error]").each(
-	function(){
-		jQuery(this).text('');
-		
-	}); 
-}
 </script> 
 
-<h1>login</h1>
+<legend style="font-size: 36px;">Login</legend>
 <ol class="breadcrumb">
      <li><a href="http://hotelmanorama.com" title="Home">Home</a></li>                      
       <li class="active">login</li>
@@ -59,7 +45,7 @@ Login User Page
           <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                   <div class="checkbox text-left-sm  text-left-xs padding_0">                    
-                     <a href="/Userregistrations/forgotpassword" class="more1" title="Forgot your password?">Forgot your password?</a><span class="space">|</span><a href="/Userregistrations/register" class="more1" title="Register Now">Register New Account</a>                      </div>
+                     <a href="#" class="more1" title="Forgot your password?">Forgot your password?</a><span class="space">|</span><a href="#" class="more1" title="Register Now">Register New Account</a>                      </div>
                 </div>
           </div>     
                   

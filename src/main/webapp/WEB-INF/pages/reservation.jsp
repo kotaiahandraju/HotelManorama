@@ -120,7 +120,7 @@ font-size: 12px;
 									</span>
 									<div class="input text required">
 										<input name="checkIn" style="width: 170px; background-color: #f3ebda;border-color: #f3ebda;" value="select Date"
-											class="form-control validate" title="From Date" required="required" onkeydown="removeBorder(this.id);" placeholder="Checck In"	 type="text" id="checkIn" />
+											class="form-control validate" title="From Date" required="required" onkeydown="removeBorder(this.id);" placeholder="Check In"	 type="text" id="checkIn" />
 									</div>
 									<span class="input-group-addon" id="basic-addon1" style="background-color: #f3ebda;border-color: #f3ebda;">Check Out <font color="red">*</font> :
 									</span>
@@ -157,7 +157,7 @@ font-size: 12px;
 								<div class="input-group roomplan-w">
 									<span class="input-group-addon" id="basic-addon1">How Many Rooms<font color="red">*</font> :
 									</span> 
-									<select name="noOfRooms" class="form-control validate" onfocus="removeBorder(this.id);"	id="noOfRooms" onchange="CheckAvailability()" >
+									<select name="noOfRooms" class="form-control validate" onfocus="removeBorder(this.id);"	id="noOfRooms" onchange="CheckAvailability();" >
 									<option value="">-- Select How Many Rooms --</option>
 									<option value="1">1</option>
 									<option value="2">2</option>
@@ -267,6 +267,16 @@ font-size: 12px;
 										<input name="mobileNumber" value="" class="form-control"
 											title="Name" required="required" placeholder="Mobile Number" pattern="[0-9]{10,16}"
 											id="mobileNumber" />
+									</div>
+								</div>
+							</div>
+							<div class="form-group" style="display: none;">
+								<div class="col-md-4">
+									<div class="input text required">
+										<input name="otpValidate" value="" class="form-control"  required="required" id="otpValidate" />
+									</div>
+									<div class="col-md-4">
+										<input type="button" id="otpValidate" value="validate" />
 									</div>
 								</div>
 							</div>
@@ -494,7 +504,7 @@ font-size: 12px;
 							<div class="rooms" style='padding: 0px 69px 0px 306px;'>
 								<div class="input-group roomplan-w">
 									<button type="button" class="btn btn-success"
-										onclick=" userDetails();">Confirmation</button>
+										onclick="checkOTPValidate();">Confirmation</button>
 								</div>
 							</div>
 							<div class="form-group">
@@ -503,7 +513,7 @@ font-size: 12px;
 										style="padding: 0px; background-color: transparent; border: 0px; margin-right: 10px;">
 										
 									</button>
-									<a href="javascript:void(0);" onclick="reset_form();">
+									
 								</div>
 							</div>
 
@@ -626,14 +636,14 @@ font-size: 12px;
 													 +'</div>'
 													 +'<div class="input-group nos">'
 													 +'<span class="input-group-addon smaller" id="basic-addon1" >Adult :</span>'
-									 				+'<select name="numberOfAdult" onchange="childhide();" id="numberOfAdult"  class="form-control nos odoo ">'
+									 				+'<select name="numberOfAdult[]" id="numberOfAdult"  class="form-control nos odoo ">'
 									 				+'<option value="">Select Adults</option>'
 									 				+adultDiv
 									 				+'</select>'
 									 				+'</div>'
 									 				+'<div class="input-group nos ">'
 									 				+'<span class="input-group-addon smaller jk" >Children :</span>'
-									 				+'<select name="max_chaild" onchange="childhide();" id="max_chaild"  class="form-control nos odoo ">'
+									 				+'<select name="numberOfChaild[]"  id="max_chaild"  class="form-control nos odoo ">'
 									 				+'<option value="">Select Childs</option>'
 									 				+childDiv
 									 				+'</select>'
@@ -647,6 +657,14 @@ font-size: 12px;
 				}
 				
 				function userDetails() {
+					
+					var chaild = $("select[name='numberOfChaild\\[\\]']")
+		              .map(function(){return $(this).val();}).get();
+					var adult = $("select[name='numberOfAdult\\[\\]']")
+		              .map(function(){return $(this).val();}).get();
+					console.log(chaild+"----chaild");
+					console.log(adult+"----adult");
+					
 					var roomTypeId = $("#roomTypeId").val();
 					var capacityId = $("#capacityId").val();
 					var noOfRooms = $("#noOfRooms").val();
@@ -682,202 +700,37 @@ font-size: 12px;
 					formData.append('GST', GST);
 					formData.append('checkOut', checkOut);
 					formData.append('checkIn', checkIn);
+					formData.append('chaild', chaild);
+					formData.append('adult', adult);
 					
-					$.fn.makeMultipartRequest('POST','roomUserDetails', false,
+					 $.fn.makeMultipartRequest('POST','roomUserDetails', false,
 							formData, false, 'text', function(data) {
 								console.log(data);
 								//$("#roomPrice").text(data);
-								window.location.reload();
-							});
+								//window.location.reload();
+							}); 
 
 				}
-				function checkDateWise() {
-					/* var roomTypeId = $("#roomTypeId").val();
-					var capacityId = $("#capacityId").val();
-					var noOfRooms = $("#noOfRooms").val();
+				function checkOTPValidate() {
 					var name = $("#name").val();
 					var mobileNumber = $("#mobileNumber").val();
-					var alternateMobileNumber = $("#alternateMobileNumber").val();
-					var email = $("#email").val();
-					var city = $("#city").val();
-					var address = $("#address").val();
-					var country = $("#country").val();
-					var roomPrice = $("#roomPrice").text();
-					var roomsStatus = $("#roomsStatus").val();
-					var GST = $("#GST").val();
-					var totalPrice = $("#totalPrice").val(); */
-					var checkIn = $("#checkIn").val();
-					var checkOut = $("#checkOut").val();
-					
-					
 					var formData = new FormData();
-					/* formData.append('roomTypeId', roomTypeId);
-					formData.append('capacityId', capacityId);
-					formData.append('noOfRooms', noOfRooms);
 					formData.append('name', name);
 					formData.append('mobileNumber', mobileNumber);
-					formData.append('alternateMobileNumber', alternateMobileNumber);
-					formData.append('email', email);
-					formData.append('city', city);
-					formData.append('address', address);
-					formData.append('roomPrice', roomPrice);
-					formData.append('country', country);
-					formData.append('roomsStatus', roomsStatus);
-					formData.append('totalPrice', totalPrice);
-					formData.append('GST', GST); */
-					formData.append('checkOut', checkOut);
-					formData.append('checkIn', checkIn);
 					
-					$.fn.makeMultipartRequest('POST','checkDateWise', false,
+					$.fn.makeMultipartRequest('POST','validateOTP', false,
 							formData, false, 'text', function(data) {
 								console.log(data);
+// 								$.each(jsonobj, function(i, tests) {
+// 									console.log(tests);
+// 								}
 								//$("#roomPrice").text(data);
 
 							});
 
 				}
 
-				/* function showlock(sts) {
-					var check_in = $('#ReservationFromDate').val();
-					var Check_out = $('#ReservationToDate').val();
-					var no_of_rooms = $('#no_of_rooms').val();
-
-					var pname = $('#ReservationName').val();
-					var pemail = $('#ReservationEmail').val();
-					var pphone = $('#ReservationPhone').val();
-					var pcity = $('#ReservationCity').val();
-					var pcountry = $('#ReservationCountry').val();
-					var ReservationCaptcha = $('#ReservationCaptcha').val();
-
-					jQuery.post('/reservations/ajax_validate/', {
-						a : 1,
-						check_in : check_in,
-						Check_out : Check_out,
-						no_of_rooms : no_of_rooms,
-						pname : pname,
-						pemail : pemail,
-						pphone : pphone,
-						pcity : pcity,
-						pcountry : pcountry,
-						ReservationCaptcha : ReservationCaptcha
-					}, function(data) {
-						if (data == "") {
-							document.getElementById('ReservationAddForm')
-									.submit();
-
-						} else {
-							alert(data);
-						}
-					}, "html");
-
-				}
-
-				function get_states() {
-					var country_id = jQuery('#ReservationCountry').val();
-
-					var state_id = jQuery('#ReservationStateId').val();
-					jQuery.post('/states/ajax_update_state/', {
-						country_id : country_id,
-						state_id : state_id
-					}, function(data) {
-
-						jQuery("#states_div").html(jQuery.trim(data));
-					}, "html");
-				}
-
-				function clearRate() {
-
-					jQuery("#amount").val("");
-					jQuery("#rate_div").html("");
-
-				}
-
-				function getRate() {
-
-					var room_no = $('#no_of_rooms').val();
-					var plan_id = jQuery('#ReservationRoomPlanId').val();
-					var to_date = jQuery('#ReservationToDate').val();
-					var from_date = jQuery('#ReservationFromDate').val();
-					var pmode_string = "";
-					var sum1 = "";
-
-					if (from_date == "") {
-						alert("Please Select Check in Date..!");
-						return false;
-					}
-					if (to_date == "") {
-						alert("Please Check out Date..!");
-						return false;
-					}
-					if (room_no == 0) {
-						alert("Please Select Room Number..!");
-						return false;
-					}
-
-					$('.odoo').each(
-							function() {
-
-								var adult_ids = this.id;
-								var ids = this.id.substr(5);
-								var room_nos = ids;
-								var adult_no = $('#adult' + ids).val();
-								var child_no = $('#child1' + ids).val();
-
-								if (pmode_string == "") {
-									pmode_string = room_nos + "*" + adult_no
-											+ "*" + child_no;
-								} else {
-									pmode_string += "|" + room_nos + "*"
-											+ adult_no + "*" + child_no;
-								}
-
-							});
-
-					jQuery.post('/reservations/ajax_getRate/', {
-						plandet_id : plan_id,
-						pmode_string : pmode_string,
-						from_date : from_date,
-						to_date : to_date,
-						room_nos : room_no
-					}, function(data) {
-						console.log(data);
-						//   alert(data);  
-						//$("#rate_div").html(data);
-
-						//jQuery("#rate_div").val(jQuery.trim(data));
-						jQuery("#rate_div").html(
-								"Rs. " + jQuery.trim(data) + "<font>*</font>");
-					}, "html");
-
-					// console.log(pmode_string);
-
-					// if (selected.length > 0) 
-					// {
-					//     selectedVal = selected.val();
-					// }
-
-					// jQuery.post('/reservations/ajax_getRate/', { plandet_id:plan_id ,no_of_rooms:no_of_rooms, single_double :to_date:to_date,from_date:from_date} ,function(data)
-					// { 
-					//  //alert(data);  
-					//   jQuery("#amount").val(jQuery.trim(data));
-					//   jQuery("#rate_div").html("Rs. "+jQuery.trim(data)+"<font>*</font>");
-					// },"html");
-				}
-
-				function reset_form() {
-
-					$('#ReservationFromDate').val("");
-					$('#ReservationToDate').val("");
-					$('#no_of_rooms').val(0);
-					$("#ol").html("");
-					jQuery("#rate_div").html("");
-
-					document.getElementById('ReservationAddForm').reset();
-					jQuery("label[class=error]").each(function() {
-						jQuery(this).text('');
-
-					});
-				} */
+				
 				function getRoomOcupation(){
 					var roomTypeId = $("#roomTypeId").val();
 					var formData = new FormData();
@@ -905,6 +758,15 @@ font-size: 12px;
 					}
 					});
 				}
+				//getting  date values to userindex page 
+				var startDate='${startDate}';
+				var endDate='${endDate}';
+				if(startDate !=null && endDate !=null)
+					{
+					
+					$("#checkIn").val(startDate);
+					$("#checkOut").val(endDate);
+					}
 			</script>
 
 		<div class="col-md-4">

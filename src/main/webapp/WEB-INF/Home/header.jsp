@@ -130,7 +130,7 @@ window.setTimeout(function() {
 	<div class="header">
 		<!--<img src="images/1.png" class="img-responsive" style="margin:0 auto;"/>-->
 		<div id="logo">
-			<h2 style="text-align: center;">Hotel Booking</h2>
+			<h2 style="text-align: center;">Manorama</h2>
 		</div>
 	</div>
 	<div class="container-fluid" style='padding-left: 0px; background:#f8f8f8;'>

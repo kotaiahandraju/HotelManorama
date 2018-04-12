@@ -1,7 +1,5 @@
 	<div class="container padding_0">
-            	 <div class="col-md-12 col-sm-12 col-xs-12 padding_0 text-center-xs text-center-sm padding_TB_02">    
-                 	<strong>Hotel Manorama, Business class hotel</strong> - Luxury Accommodation at Vijayawada & Hyderabad - a perfect destination for business travelers or tourists traveling to Vijayawada & Hyderabad.
-                 </div>
+            	
                 </div>
         <div class="row footCon_Warp bdr_Top padding_0" style="margin-left: 0px; margin-right: 0px;">        	 
         	<div class="row margin_0" style="margin-left: 0px; margin-right: 0px;">
@@ -9,14 +7,13 @@
                 <div class="container footPadd01 paddingLR_0">
                 	<!--foot LEft start-->
                      <div class="col-md-3 col-sm-12 col-xs-12 padding_0">    
-                     	<div class="footLogo text-center-xs text-center-sm">
-                         
-                            <!-- <a href="http://www.hotelManorama.com/"><img src="img/icon.png" title="Hotel Manorama" alt="Hotel Manorama"></a>  -->                          </div>
+                     
                      	<div class="allreserve padding_0 text-center-xs text-center-sm">
-                    		© 2018 Hotel Manorama. All rights reserved.
+                    		
+                     &copy; 2018 Hotel Manorama. All rights reserved.
+
                     
                     	</div>
-                     
                      </div>
                 	<!--foot LEft End-->
                     <!--foot 2Nd start-->
@@ -27,7 +24,7 @@
                                     <a href="aboutus" title="About Us" alt="About Us" class="footMore">About Us</a>                                     <br>                                     
                                      <a href="reach" title="How to Reach" alt="How to reach" class="footMore">How to Reach</a>                                     <br>                                     
                                      <a href="attractions" title="Attractions" alt="Attractions" class="footMore">Attractions</a>                                     <br>                                     
-                                     <a href="offers" title="Offers" alt="Offers" class="footMore">Offers</a>                                   
+                                                                    
                                     
                         		 </div>
                             

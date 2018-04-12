@@ -7,9 +7,7 @@
 
 <div class="clearfix"></div><br>
     <div id="footer-wrap">
-			<div class="content"  style="margin:0 100px;">
-			   	<p>All Rights Reserved © 2018 <a href="#" target="_blank"></a></p>
-	        </div>
+    © 2018 Hotel Manorama. All rights reserved.
         </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

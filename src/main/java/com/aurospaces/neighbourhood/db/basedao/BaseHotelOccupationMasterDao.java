@@ -16,6 +16,7 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.aurospaces.neighbourhood.bean.HotelOccupationMasterBean;
+import com.aurospaces.neighbourhood.bean.OTP;
 import com.aurospaces.neighbourhood.daosupport.CustomConnection;
 
 
@@ -109,6 +110,58 @@ ps.setString(7, hotelCapacityMaster.getRoomOccupationId());
 			return null;
 		}
 
+	 public void otpSave(final OTP otpBean) 
+		{
+		 final String INSERT_SQL = "INSERT INTO otp(created_time,updated_time,mobileNumber,name,otp) values (?,?,?,?,?)";
+			jdbcTemplate = custom.getJdbcTemplate();
+			try {
+				if(otpBean.getId() == 0)	{
+
+					KeyHolder keyHolder = new GeneratedKeyHolder();
+					int update = jdbcTemplate.update(
+							new PreparedStatementCreator() {
+									public PreparedStatement 
+									createPreparedStatement(Connection connection) throws SQLException {
+					
+									if(otpBean.getCreatedTime() == null)
+									{
+									otpBean.setCreatedTime( new Date());
+									}
+									java.sql.Timestamp createdTime = 
+										new java.sql.Timestamp(otpBean.getCreatedTime().getTime()); 
+											
+									if(otpBean.getUpdatedTime() == null)
+									{
+									otpBean.setUpdatedTime( new Date());
+									}
+									java.sql.Timestamp updatedTime = 
+										new java.sql.Timestamp(otpBean.getUpdatedTime().getTime()); 
+											
+									PreparedStatement ps =
+													connection.prepareStatement(INSERT_SQL,new String[]{"id"});
+					ps.setTimestamp(1, createdTime);
+				ps.setTimestamp(2, updatedTime);
+				ps.setString(3, otpBean.getMobileNumber());
+				ps.setString(4, otpBean.getName());
+				ps.setString(5, otpBean.getOtp());
+
+											return ps;
+										}
+								},
+								keyHolder);
+								
+								Number unId = keyHolder.getKey();
+								otpBean.setId(unId.intValue());
+								System.out.println("-----save---");
+
+						}
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+				// TODO: handle exception
+			}
+		
+		}
 	
 
 }

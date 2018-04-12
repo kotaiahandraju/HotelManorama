@@ -75,7 +75,7 @@
 									<input id="id" name="id" type="hidden" value="0">
 									<span for="roomTypeId" class="col-md-4 control-label">Room Capacity <span class="impColor">*</span></span>
 									<div class="col-md-7">
-									<input id="name" name="name" placeholder="Room Capacity" class="form-control validate " maxlength="10" type="text" value="" >
+									<input id="name" name="name" placeholder="Room Capacity" class="form-control validate " maxlength="20" type="text" value="" >
 									</div>
                     			</div>
                     			

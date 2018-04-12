@@ -23,10 +23,10 @@ function updating(){
 	}); 
 	}
  </script> 
-<h1>Enquiry</h1>
+<legend style="font-size: 36px;">Enquiry</legend>
 <ol class="breadcrumb">
       <li><a href="http://hotelmanorama.com/" title="Home">Home</a></li>                     
-      <li class="active">Enquiry</li>
+      <li class="active"></li>
 </ol>			
  
   

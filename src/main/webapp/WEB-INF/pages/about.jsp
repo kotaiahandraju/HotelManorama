@@ -23,7 +23,7 @@
 <p  align="justify">
 	Come, we are inviting you to experience the hospitality, and wishing you a pleasant stay in advance.</p>
 <p  align="justify">
-	if you have any queries , please mail us at <a href="mailto:info@hotelManorama.com?subject=enquiry%20from%20website&amp;body=call%20me%20back%2C%20i%20am%20interested%20to%20know%20more.">info@hotelManorama.com&nbsp;</a></p>
+	if you have any queries , please mail us at <a href="mailto:info@hotelmanorama.com?subject=enquiry%20from%20website&amp;body=call%20me%20back%2C%20i%20am%20interested%20to%20know%20more.">info@hotelmanorama.com&nbsp;</a></p>
 
 <h4 style="font-size: small;">
 	Best Business Class hotel in Vijayawada -  Finest hotel providing luxury stay in Vijayawada.</h4>

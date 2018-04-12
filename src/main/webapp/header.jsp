@@ -535,7 +535,7 @@ span {
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-          <a class="navbar-brand" href="userindex.jsp" > <img src="user/img/logo.png" class="img-responsive"></a> </div>
+          <a class="navbar-brand" href="userindex" > <img src="user/img/logo.png" class="img-responsive"></a> </div>
         <div class="collapse navbar-collapse" id="myNavbar" >
           <ul class="nav navbar-nav pull-right" >
             <li style='text-align: right;'><a href="userindex" >Home</a></li>

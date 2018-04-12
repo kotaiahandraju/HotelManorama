@@ -4,7 +4,7 @@
                  	<div class="col-md-10 col-sm-12 col-xs-12 padding_0 text-cente-xs text-cente-sm innerLeft">
                     	 
                                         
-  <h1>How To Reach</h1>
+  <legend style="font-size: 36px;">How To Reach</legend>
   
   <!--breadcrumb start-->                    
                      <ol class="breadcrumb">

@@ -1,14 +1,21 @@
 
 package com.aurospaces.neighbourhood.db.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Autowired;import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.aurospaces.neighbourhood.bean.HotelRoomHistory;
 import com.aurospaces.neighbourhood.bean.HotelRoomMasterBean;
@@ -91,7 +98,7 @@ public class HotelRoomPriceDao extends BaseHotelRoomPriceDao {
 		return isSave;
 	}
 	
-	public Boolean roomHistory(HotelRoomUserDetailsBean userDetails) {
+	/*public Boolean roomHistory(HotelRoomUserDetailsBean userDetails) {
 		boolean isSave = false;
 		try {
 			if (userDetails.getCreatedTime() == null) {
@@ -105,13 +112,13 @@ public class HotelRoomPriceDao extends BaseHotelRoomPriceDao {
 			java.sql.Timestamp updatedTime = new java.sql.Timestamp(userDetails.getUpdatedTime().getTime());
 
 			final String INSERT_SQL1 = "INSERT INTO roomhistory(created_time,updated_time,userDetailsId,checkIn,checkOut,"
-					+ "roomTypeId,capacityId,noOfRooms,roomPrice,GST,totalPrice,roomsStatus) values (?,?,?,?,?,?,?,?,?,?,?,?)";
+					+ "roomTypeId,capacityId,noOfRooms,roomPrice,GST,totalPrice,roomsStatus,numberOfAdult,numberOfChaild) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			System.out.println("INSERT_SQL1===" + INSERT_SQL1);
 			int insert = jdbcTemplate.update(INSERT_SQL1, new Object[] {userDetails.getCreatedTime(),
 					userDetails.getUpdatedTime(),userDetails.getUserDetailsId(),userDetails.getCheckIn(),
 					userDetails.getCheckOut(),userDetails.getRoomTypeId(),userDetails.getCapacityId(),
 					userDetails.getNoOfRooms(),userDetails.getRoomPrice(),userDetails.getGST(),userDetails.getTotalPrice(),
-					userDetails.getRoomsStatus()});
+					userDetails.getRoomsStatus(),userDetails.getNumberOfAdult(),userDetails.getNumberOfChaild()});
 			System.out.println("222insert===" + insert);
 			if (insert > 0) {
 				isSave = true;
@@ -120,7 +127,73 @@ public class HotelRoomPriceDao extends BaseHotelRoomPriceDao {
 			e.printStackTrace();
 		}
 		return isSave;
-	}
+	}*/
+	
+
+
+		/* this should be conditional based on whether the id is present or not */
+		@Transactional
+		public void roomHistory(final HotelRoomUserDetailsBean userDetails) 
+		{
+			  final String INSERT_SQL = "INSERT INTO roomhistory(created_time,updated_time,userDetailsId,checkIn,checkOut,roomTypeId,capacityId,noOfRooms,roomPrice,GST,totalPrice,roomsStatus,numberOfAdult,numberOfChaild) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			jdbcTemplate = custom.getJdbcTemplate();
+		if(userDetails.getId() == 0)	{
+
+		KeyHolder keyHolder = new GeneratedKeyHolder();
+		int update = jdbcTemplate.update(
+				new PreparedStatementCreator() {
+						public PreparedStatement 
+						createPreparedStatement(Connection connection) throws SQLException {
+		
+						if(userDetails.getCreatedTime() == null)
+						{
+						userDetails.setCreatedTime( new Date());
+						}
+						java.sql.Timestamp createdTime = 
+							new java.sql.Timestamp(userDetails.getCreatedTime().getTime()); 
+								
+						if(userDetails.getUpdatedTime() == null)
+						{
+						userDetails.setUpdatedTime( new Date());
+						}
+						java.sql.Timestamp updatedTime = 
+							new java.sql.Timestamp(userDetails.getUpdatedTime().getTime()); 
+								
+						PreparedStatement ps =
+										connection.prepareStatement(INSERT_SQL,new String[]{"id"});
+		ps.setTimestamp(1, createdTime);
+	ps.setTimestamp(2, updatedTime);
+	ps.setString(3, userDetails.getUserDetailsId());
+	ps.setString(4, userDetails.getCheckIn());
+	ps.setString(5, userDetails.getCheckOut());
+	ps.setString(6, userDetails.getRoomTypeId());
+	ps.setString(7, userDetails.getCapacityId());
+	ps.setString(8, userDetails.getNoOfRooms());
+	ps.setString(9, userDetails.getRoomPrice());
+	ps.setString(10, userDetails.getGST());
+	ps.setString(11, userDetails.getTotalPrice());
+	ps.setString(12, userDetails.getRoomsStatus());
+	ps.setString(13, userDetails.getNumberOfAdult());
+	ps.setString(14, userDetails.getNumberOfChaild());
+
+								return ps;
+							}
+					},
+					keyHolder);
+					
+					Number unId = keyHolder.getKey();
+					userDetails.setId(unId.intValue());
+					System.out.println("update----"+update);
+
+			}
+			/*else
+			{
+
+				String sql = "UPDATE hotel_room_price  set room_type_id = ? ,capacity_id = ? ,sun = ? ,mon = ? ,tue = ? ,wed = ? ,thu = ? ,fri = ? ,sat = ?  where id = ? ";
+		
+				jdbcTemplate.update(sql, new Object[]{userDetails.getRoomTypeId(),userDetails.getCapacityId(),userDetails.getSun(),userDetails.getMon(),userDetails.getTue(),userDetails.getWed(),userDetails.getThu(),userDetails.getFri(),userDetails.getSat(),userDetails.getId()});
+			}*/
+		}
 	
 	public Boolean userDetails(HotelRoomPriceHistory  priceHistory) {
 		boolean isSave = false;
@@ -185,23 +258,42 @@ public class HotelRoomPriceDao extends BaseHotelRoomPriceDao {
 		return retlist;
 		    
 		}
-	public String getDayNameByDate(Timestamp getDayName){  
+	public String getDayNameByDate(Timestamp getDayName,String roomTypeId,String capacityId){  
 		jdbcTemplate = custom.getJdbcTemplate();
 		String result=null;
 		String result1=null;
-		 String sql =  "SELECT DATE_FORMAT('"+getDayName+"','%a') as getDay ";
-		 result = (String) jdbcTemplate.queryForObject(sql,String.class);
-		 String sql1 = "select "+result.toLowerCase()+" from hotel_room_price where "+result.toLowerCase()+"";
-	        result1 = (String) jdbcTemplate.queryForObject(sql1,String.class); 
+		try {
+//			System.out.println("week"+getDayName);
+			 String sql =  "SELECT DATE_FORMAT('"+getDayName+"','%a') as getDay ";
+			 result = (String) jdbcTemplate.queryForObject(sql,String.class);
+//			 System.out.println("week"+result);
+			 if(result !=null) {
+				 String sql1 = "select "+result.toLowerCase()+" from hotel_room_price where room_type_id="+roomTypeId+" and capacity_id="+capacityId+"";
+//				 System.out.println("sql1"+sql1);
+			        result1 = (String) jdbcTemplate.queryForObject(sql1,String.class); 
+			 }
+		} catch (EmptyResultDataAccessException e) {
+			return null;
+		}
+
 		 
 		return result1;
 		    
 		}
 	
-	public String getCostOfSpecialOffers(String week) {
+	public String getCostOfSpecialOffers(String week,String roomTypeId,String capacityId) {
         String result=null;
-        String sql = "select "+week+" from special_offer_price where "+week+"";
-        result = (String) jdbcTemplate.queryForObject(sql,String.class); 
+        try {
+//          System.out.println("week"+week);
+            String sql = "select "+week+" from special_offer_price where room_type_id="+roomTypeId+" and capacity_id="+capacityId+"";
+            result = (String) jdbcTemplate.queryForObject(sql,String.class); 
+            	
+			
+		} catch (EmptyResultDataAccessException e) {
+			// TODO: handle exception
+			return null;
+		}
+
         return result;
     }
 	

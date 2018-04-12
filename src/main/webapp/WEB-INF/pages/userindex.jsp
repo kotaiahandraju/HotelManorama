@@ -19,7 +19,9 @@
 <script src="user/js/ninja-slider.js"></script>
 <link href="user/css/thumbnail-slider.css" rel="stylesheet"	type="text/css" />
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-<link href="${baseurl }/assets/css/datepicker1.css" rel="stylesheet" type="text/css" />
+
+
+<link rel="stylesheet" type="text/css" href="user/css/datepicker.css">
 
 <script src="user/js/thumbnail-slider.js" type="text/javascript"></script>
 <script async="" src="user/js/analytics.js.download"></script>
@@ -27,8 +29,6 @@
 <script type="text/javascript" src="user/js/bootstrap.min.js.download"></script>
 <script type="text/javascript" src="user/js/jquery.themepunch.plugins.min.js.download"></script>
 <script type="text/javascript" src="user/js/jquery.themepunch.revolution.min.js.download"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
 <style>
 @font-face {
  font-family: 'Roboto', sans-serif;
@@ -36,7 +36,7 @@
 @font-face {
  font-family: 'Roboto', sans-serif;
 }
-body { font-family: 'Roboto', sans-serif;}
+body { font-family: 'Roboto', sans-serif; font-size:14px;}
 ul {
 	padding: 0;
 	margin: 0;
@@ -557,16 +557,16 @@ span {
       <div class="col-md-3 homeBook padding_0">
         <div class="col-md-5 col-xs-3 col-sm-2 text-right-md text-center-xs text-center-sm padding_TB_01" align="right"> Check in</div>
         <div class="col-md-7 col-xs-9 col-sm-10 pull-right padding_0">
-          <input name="from_date" id="checkIn" type="text" class="dateBg hasDatepicker" placeholder="DD/MM/YYYY">
+          <input name="from_date" id="startDate" type="text" class="dateBg hasDatepicker startDate" placeholder="DD/MM/YYYY">
         </div>
       </div>
       <div class="col-md-3 homeBook padding_0">
         <div class="col-md-5 col-xs-3 col-sm-2 text-right-md text-center-xs text-center-sm padding_TB_01" align="right"> Check out </div>
         <div class="col-md-7 col-xs-9 col-sm-10 pull-right padding_0">
-          <input name="date" id="checkOut" type="text" class="dateBg hasDatepicker" placeholder="DD/MM/YYYY" >
+          <input name="date" id="endDate" type="text" class="dateBg hasDatepicker endDate" placeholder="DD/MM/YYYY" >
         </div>
       </div>
-      <div class="col-md-1 homeBook padding_0 text-right-md text-right-lg text-right-xs text-right-sm"> <img src="user/img/checkavailability.png" alt="Manorama" class="responsive_02 margin_TB_01" onclick="subForm();"> </div>
+      <div class="col-md-1 homeBook padding_0 text-right-md text-right-lg text-right-xs text-right-sm"> <img src="user/img/checkavailability.png" alt="Manorama" class="responsive_02 margin_TB_01" onclick="getcheck();"> </div>
     </form>
   </div>
 </div>
@@ -600,9 +600,7 @@ span {
       <div class=" col-md-1 grid-top"> <a href="gallery" style='text-decoration: none;'> <img src='user/icons/gallery.png' style='width: 55px;' alt=''></img>
         <div class="top-grid"> <span>Gallery</span> </div>
         </a> </div>
-     <!-- <div class=" col-md-1 grid-top"> <a href="offers" style='text-decoration: none;'> <img src='user/icons/offer.jpg' style='width: 55px;' alt=''></img>
-        <div class="top-grid"> <span>Offers</span> </div> 
-        </a> </div> -->
+      
       <div class=" col-md-1 grid-top"> <a href="enquiry" style='text-decoration: none;'> <img src='user/icons/enquire.png' style='width: 55px;' alt=''></img>
         <div class="top-grid"> <span>Enquiry</span> </div>
         </a> </div>
@@ -619,9 +617,9 @@ span {
     <div class="clearfix"> </div>
   </div>
 </div>
-<div class="container padding_0">
-  <div class="col-md-12 col-sm-12 col-xs-12 padding_0 text-center-xs text-center-sm padding_TB_02"> <strong>Hotel Manorama, Business class hotel</strong> - Luxury Accommodation at Vijayawada & Hyderabad - a perfect destination for business travelers or tourists traveling to Vijayawada & Hyderabad </div>
-</div>
+<!-- <div class="container padding_0"> -->
+<!--   <div class="col-md-12 col-sm-12 col-xs-12 padding_0 text-center-xs text-center-sm padding_TB_02"> <strong>Hotel Manorama, Business class hotel</strong> - Luxury Accommodation at Vijayawada & Hyderabad - a perfect destination for business travelers or tourists traveling to Vijayawada & Hyderabad </div> -->
+<!-- </div> -->
 <div class="row footCon_Warp bdr_Top padding_0" style="margin-left: 0px; margin-right: 0px;">
   <div class="row margin_0" style="margin-left: 0px; margin-right: 0px;">
     <!--container start-->
@@ -639,7 +637,7 @@ span {
           <div class="footItem"> <a href="aboutus" title="About Us" alt="About Us" class="footMore">About Us</a> <br>
             <a href="reach.jsp" title="How to Reach" alt="How to reach" class="footMore">How to Reach</a> <br>
             <a href="attractions.jsp" title="Attractions" alt="Attractions" class="footMore">Attractions</a> <br>
-            <a href="offers" title="Offers" alt="Offers" class="footMore">Offers</a> </div>
+            </div>
         </div>
         <!--One End-->
         <!--Two Start-->
@@ -667,9 +665,33 @@ span {
 </div>
 </div>
 <br /><br />
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 			<script type='text/javascript' src='${baseurl }/assets/js/bootstrap.min.js'></script>  
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+			<script type="text/javascript" src="user/js/datepicker.js"></script>	
+			
+			
+			 <script language="javascript">
+    	var tripDatePicker = new datePicker({
+    	    start:  document.getElementsByClassName('startDate'),
+    	    end:    document.getElementsByClassName('endDate'),
+    	    months: 1,
+    	    format : 'DD-MMM-YYYY HH:mm',
+    	});
+    </script>
+    
+    
+    <script type="text/javascript">  
+function getcheck(){  
+	alert(startDate);  
+var startDate=document.getElementById("startDate").value;  
+var endDate=document.getElementById("endDate").value;
+	window.location.href="userindex?startDate="+startDate+"&endDate="+endDate;
+
+}  
+		</script>	
+			
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
 <script type="text/javascript" src="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/src/js/bootstrap-datetimepicker.js"></script>
@@ -677,7 +699,7 @@ span {
 				$(function() {
 					$("#checkOut").datetimepicker({
 						useCurrent : false,
-						format : 'DD-MMM-YYYY',
+						format : 'DD-MMM-YYYY HH:mm',
 						showTodayButton : true,
 						sideBySide : true,
 						minDate : new Date(),
@@ -689,7 +711,7 @@ span {
 
 					 $("#checkIn").datetimepicker({
 						useCurrent : false,
-						format : 'DD-MMM-YYYY',
+						format : 'DD-MMM-YYYY HH:mm',
 						showTodayButton : true,
 						sideBySide : true,
 						minDate : new Date(),
@@ -707,6 +729,6 @@ span {
 					});
 				 */
 			</script>
-<div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div>
+<div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div> -->
 </body>
 </html>

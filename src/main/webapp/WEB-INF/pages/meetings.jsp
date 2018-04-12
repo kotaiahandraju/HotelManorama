@@ -19,7 +19,7 @@
  </p>
  <p>                   
  <p>
-	For three decades, Hotel Manorama has hosted Vijayawada & Hyderabad&rsquo;s most notable business, social, and cultural events. That is probably why we have become exceptionally good when it comes to making your event Special and surpassing your expectations!!</p>
+	For three decades, Hotel Manorama has hosted Vijayawada  most notable business, social, and cultural events. That is probably why we have become exceptionally good when it comes to making your event Special and surpassing your expectations!!</p>
 <p>
 	Organisations on the lookout for a place to host their events, exhibitions and business meetings can choose from our range of halls and other facilities with seating capacities ranging from 25 to 500 people and you can be sure your delegates will enjoy the time they spend here.</p>
 <h2 style='font-size: 16px;'>
