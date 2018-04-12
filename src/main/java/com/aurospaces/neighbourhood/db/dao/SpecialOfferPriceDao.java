@@ -25,7 +25,7 @@ public class SpecialOfferPriceDao extends BaseSpecialOfferPriceDao {
 		// String sql="SELECT *, DATE_FORMAT(expirydate,'%d/%m/%Y') AS expirtdate1 FROM
 		// cylindermaster";
 
-		String sql = "SELECT sop.*,hcm.name as capacityname,hrt.name as roomtypename, CASE WHEN sop.status IN ('0') THEN 'Deactive' WHEN sop.status in ('1') THEN 'Active'  ELSE '-----' END as specialPriceStatus FROM special_offer_price sop,hotel_occupation_master hcm,hotel_room_type hrt  WHERE sop.`room_type_id` =hrt.id AND sop.`capacity_id`=hcm.id and sop.status=? order by sop.id desc";
+		String sql = "SELECT sop.*,DATE_FORMAT(sop.start_time, '%d/%b/%Y') as start_time2,DATE_FORMAT(sop.end_time, '%d/%b/%Y') as end_time2,hcm.name as capacityname,hrt.name as roomtypename, CASE WHEN sop.status IN ('0') THEN 'Deactive' WHEN sop.status in ('1') THEN 'Active'  ELSE '-----' END as specialPriceStatus FROM special_offer_price sop,hotel_occupation_master hcm,hotel_room_type hrt  WHERE sop.`room_type_id` =hrt.id AND sop.`capacity_id`=hcm.id and sop.status=? order by sop.id desc";
 		List<SpecialOfferPriceBean> retlist = jdbcTemplate.query(sql, new Object[] { status },
 				ParameterizedBeanPropertyRowMapper.newInstance(SpecialOfferPriceBean.class));
 

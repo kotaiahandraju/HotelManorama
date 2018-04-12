@@ -216,8 +216,8 @@ function showTableData(response){
 			+ "<td title='"+orderObj.thu+"'>" + orderObj.thu + "</td>"
 			+ "<td title='"+orderObj.fri+"'>" + orderObj.fri + "</td>"
 			+ "<td title='"+orderObj.sat+"'>" + orderObj.sat + "</td>"
-			+ "<td title='"+orderObj.start_time+"'>" + orderObj.start_time + "</td>"
-			+ "<td title='"+orderObj.end_time+"'>" + orderObj.end_time + "</td>"
+			+ "<td title='"+orderObj.start_time2+"'>" + orderObj.start_time2 + "</td>"
+			+ "<td title='"+orderObj.end_time2+"'>" + orderObj.end_time2 + "</td>"
 			+ "<td title='"+orderObj.specialPriceStatus+"'>" + orderObj.specialPriceStatus + "</td>"
 			+ "<td style='text-align: center;white-space: nowrap;'>" + edit + "&nbsp;&nbsp;" + deleterow + "</td>"
 			+"</tr>";

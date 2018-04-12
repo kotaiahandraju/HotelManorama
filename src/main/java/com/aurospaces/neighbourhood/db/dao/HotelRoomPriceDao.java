@@ -86,9 +86,9 @@ public class HotelRoomPriceDao extends BaseHotelRoomPriceDao {
 			java.sql.Timestamp updatedTime = new java.sql.Timestamp(userDetails.getUpdatedTime().getTime());
 
 			final String INSERT_SQL1 = "INSERT INTO userdetails(created_time,updated_time,name,mobileNumber,alternateMobileNumber,email,city,address,country,userDetailsId) values (?,?,?,?,?,?,?,?,?,?)";
-			System.out.println("INSERT_SQL1===" + INSERT_SQL1);
-			int insert = jdbcTemplate.update(INSERT_SQL1, new Object[] {userDetails.getCreatedTime(),userDetails.getUpdatedTime(),userDetails.getName(),userDetails.getAlternateMobileNumber(),userDetails.getAlternateMobileNumber(),userDetails.getEmail(),userDetails.getCity(),userDetails.getAddress(),userDetails.getCountry(),userDetails.getUserDetailsId()});
-			System.out.println("222insert===" + insert);
+//			System.out.println("INSERT_SQL1===" + INSERT_SQL1);
+			int insert = jdbcTemplate.update(INSERT_SQL1, new Object[] {userDetails.getCreatedTime(),userDetails.getUpdatedTime(),userDetails.getName(),userDetails.getMobileNumber(),userDetails.getAlternateMobileNumber(),userDetails.getEmail(),userDetails.getCity(),userDetails.getAddress(),userDetails.getCountry(),userDetails.getUserDetailsId()});
+//			System.out.println("222insert===" + insert);
 			if (insert > 0) {
 				isSave = true;
 			}
@@ -183,8 +183,8 @@ public class HotelRoomPriceDao extends BaseHotelRoomPriceDao {
 					
 					Number unId = keyHolder.getKey();
 					userDetails.setId(unId.intValue());
-					System.out.println("update----"+update);
 
+					System.out.println("update----"+update);
 			}
 			/*else
 			{
