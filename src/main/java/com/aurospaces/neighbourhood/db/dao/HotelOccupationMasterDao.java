@@ -10,7 +10,9 @@ import org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.aurospaces.neighbourhood.bean.HotelOccupationMasterBean;
+import com.aurospaces.neighbourhood.bean.HotelRoomPhotosBean;
 import com.aurospaces.neighbourhood.bean.HotelRoomTypeBean;
+import com.aurospaces.neighbourhood.bean.OTP;
 import com.aurospaces.neighbourhood.daosupport.CustomConnection;
 import com.aurospaces.neighbourhood.db.basedao.BaseHotelOccupationMasterDao;
 
@@ -61,6 +63,16 @@ public class HotelOccupationMasterDao extends BaseHotelOccupationMasterDao
 			return retlist;
 		return null;
 		    
+		}
+	
+	public OTP getOtpDetails(String mobileNumber) {
+		 jdbcTemplate = custom.getJdbcTemplate();
+		 String sql =  "SELECT *from otp where mobileNumber=?";
+			List<OTP> retlist = jdbcTemplate.query(sql, new Object[] {mobileNumber},
+					ParameterizedBeanPropertyRowMapper.newInstance(OTP.class));
+			if(retlist.size() > 0)
+				return retlist.get(0);
+			return null;
 		}
 	
 }

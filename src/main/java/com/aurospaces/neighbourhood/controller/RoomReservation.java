@@ -6,6 +6,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
@@ -13,6 +14,7 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -21,6 +23,7 @@ import com.aurospaces.neighbourhood.bean.HotelOccupationMasterBean;
 import com.aurospaces.neighbourhood.bean.HotelRoomPriceBean;
 import com.aurospaces.neighbourhood.bean.HotelRoomTypeBean;
 import com.aurospaces.neighbourhood.bean.HotelRoomUserDetailsBean;
+import com.aurospaces.neighbourhood.bean.OTP;
 import com.aurospaces.neighbourhood.bean.SpecialOfferPriceBean;
 import com.aurospaces.neighbourhood.db.dao.HotelOccupationMasterDao;
 import com.aurospaces.neighbourhood.db.dao.HotelRoomMasterDao;
@@ -31,6 +34,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import CommonUtils.CommonUtils;
+import CommonUtils.Sms;
 
 @Controller
 public class RoomReservation {
@@ -40,6 +44,7 @@ public class RoomReservation {
 	@Autowired HotelOccupationMasterDao hotelCapacityMasterDao;
 	@Autowired HotelRoomPriceDao roomPriceDao;
 	@Autowired HotelOccupationMasterDao capacityMasterDao;
+	@Autowired ServletContext objContext;
 		private Logger logger = Logger.getLogger(RoomReservation.class);
 		
 		@RequestMapping(value = "/userRoomReservation")
@@ -137,18 +142,25 @@ public class RoomReservation {
 						for (SpecialOfferPriceBean specialOfferPriceBean2 : sSpecialOfferDayName) {
 							 name=specialOfferPriceBean2.getGetDay().toLowerCase();
 						}
+						System.out.println("----"+name);
+						if(name !=null && roomPriceBean.getCapacityId() !=null && roomPriceBean.getRoomTypeId() !="") {
+							
+							String currentPrice=roomPriceDao.getCostOfSpecialOffers(name,roomPriceBean.getRoomTypeId(),roomPriceBean.getCapacityId());
+							if(currentPrice !=null) {
+								price=Integer.parseInt(currentPrice);
+								int iNoOfRooms=Integer.parseInt(roomPriceBean.getNoOfRooms());
+								result= iNoOfRooms * price;
+								jsonObj.put("price", result);
+								jsonObj.put("roomPrice", price);
+								jsonObj.put("noOfRooms", roomPriceBean.getNoOfRooms());
+								jsonObj.put("max_chaild", priceBean.getMax_chaild());
+							}
+							
+						}
 						
-						String currentPrice=roomPriceDao.getCostOfSpecialOffers(name);
-						price=Integer.parseInt(currentPrice);
-						int iNoOfRooms=Integer.parseInt(roomPriceBean.getNoOfRooms());
-						result= iNoOfRooms * price;
-						jsonObj.put("price", result);
-						jsonObj.put("roomPrice", price);
-						jsonObj.put("noOfRooms", roomPriceBean.getNoOfRooms());
-						jsonObj.put("max_chaild", priceBean.getMax_chaild());
 						
 					}else {
-						String resultData=roomPriceDao.getDayNameByDate(specialOfferPriceBean.getStart_time1());
+						String resultData=roomPriceDao.getDayNameByDate(specialOfferPriceBean.getStart_time1(),roomPriceBean.getRoomTypeId(),roomPriceBean.getCapacityId());
 						price=Integer.parseInt(resultData);
 						int iNoOfRooms=Integer.parseInt(roomPriceBean.getNoOfRooms());
 //						System.out.println("222222222222222222222222222:::"+roomPriceBean.getNoOfRooms());
@@ -172,20 +184,32 @@ public class RoomReservation {
 			
 		}
 		@RequestMapping("/roomUserDetails")
-		public @ResponseBody  String roomUserDetails(HttpServletRequest request,@ModelAttribute HotelRoomUserDetailsBean userDetails) {
+		public @ResponseBody  String roomUserDetails(HttpServletRequest request,@ModelAttribute HotelRoomUserDetailsBean userDetails,@RequestParam("chaild") String[] chaild,@RequestParam("adult") String[] adult) {
 			HotelRoomPriceBean priceBean=null;
 			JSONObject jsonObj=null;
 			ObjectMapper objectMapper=null;
 			boolean result=false;
-			//HotelRoomUserDetailsBean userDetails =null;
+			HotelRoomUserDetailsBean roomUserDetails =null;
+//			System.out.println("----roomUserDetails List---"+userDetails);
+//			System.out.println("----numberOfChaild List---"+chaild.length+"----numberOfAdult-"+adult.length);
 			try {
+				
 				jsonObj =new JSONObject();
-				System.out.println("----roomUserDetails List---");
 				userDetails.setRoomNumber("dsfhds");
 				userDetails.setUserDetailsId(CommonUtils.getAutoGenId());
 				result=roomPriceDao.userDetails(userDetails);
-				userDetails.setRoomsStatus("1");
-				roomPriceDao.roomHistory(userDetails);
+				for(int i=0;i<=userDetails.getNoOfRooms().length();i++) {
+//					System.out.println("---------------1-----------");
+					userDetails.setId(0);
+							userDetails.setNumberOfChaild(chaild[i]);
+							userDetails.setNumberOfAdult(adult[i]);
+							userDetails.setRoomsStatus("1");
+//							System.out.println("----roomUserDetails List---");
+							System.out.println("query"+userDetails.getNumberOfAdult()+"---userDetails---"+userDetails.getNumberOfChaild());
+							roomPriceDao.roomHistory(userDetails);
+				}
+				
+				
 			
 			if(result) {
 				jsonObj.put("msg", "success...");
@@ -244,6 +268,50 @@ public class RoomReservation {
 				
 				return sJson;
 			}
+		 
+		 @SuppressWarnings("unused")
+		@RequestMapping(value = "/validateOTP")
+			public @ResponseBody String validateOTP(@ModelAttribute OTP otp)  {
+				List<Map<String,Object>> listOrderBeans = null;
+				ObjectMapper objectMapper = null;
+				String sJson="";
+				String sRetList="";
+				OTP otpBean=null;
+				OTP otp2=null;
+				boolean result=false;
+				JSONObject OtpJson=null;
+				try {
+					JSONObject json=new JSONObject();
+					if(otp.getId()==0) {
+						OtpJson=new JSONObject();
+						otpBean=capacityMasterDao.getOtpDetails(otp.getMobileNumber());
+						if(otpBean != null) {
+							System.out.println("otpBean=="+otpBean);
+							OtpJson.put("msg", "mobile number already exist.");
+//							sJson=json.toString();
+							
+						}else {
+							otp.setOtp(CommonUtils.generateOtpPIN());
+							capacityMasterDao.otpSave(otp);
+							otp2=capacityMasterDao.getOtpDetails(otp.getMobileNumber());
+								result=Sms.sendMessage(objContext, otp2);
+								if(result) {
+									OtpJson=new JSONObject(otp2);
+//									System.out.println("OtpData=="+OtpJson);
+//									System.out.println("OtpData=="+otp2.toString());
+									
+							}
+							
+						}
+						
+					}
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				return String.valueOf(OtpJson);
+			}
+		 
 		@ModelAttribute("roomtype")
 		public Map<Integer, String> populateRoomtype() {
 			Map<Integer, String> statesMap = new LinkedHashMap<Integer, String>();

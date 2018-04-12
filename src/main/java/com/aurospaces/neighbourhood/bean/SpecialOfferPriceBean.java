@@ -21,10 +21,28 @@ public class SpecialOfferPriceBean {
 	protected String start_time;
 	protected String end_time,roomtypename,capacityname,specialPriceStatus,checkOut,checkIn;
 	protected Timestamp start_time1,end_time1;
-	protected String getDay ;
+	protected String getDay,created_time1,start_time2,end_time2;
 	
 	
 	
+	public String getEnd_time2() {
+		return end_time2;
+	}
+	public void setEnd_time2(String end_time2) {
+		this.end_time2 = end_time2;
+	}
+	public String getStart_time2() {
+		return start_time2;
+	}
+	public void setStart_time2(String start_time2) {
+		this.start_time2 = start_time2;
+	}
+	public String getCreated_time1() {
+		return created_time1;
+	}
+	public void setCreated_time1(String created_time1) {
+		this.created_time1 = created_time1;
+	}
 	public String getGetDay() {
 		return getDay;
 	}

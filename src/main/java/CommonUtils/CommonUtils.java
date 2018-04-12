@@ -39,4 +39,11 @@ public class CommonUtils {
 //		 System.out.println(timestamp);
 		return timestamp;
 	}
+	public static String generateOtpPIN() 
+	{   
+	    int x = (int)(Math.random() * 4);
+	    x = x + 1;
+	    String randomPIN = (x + "") + ( ((int)(Math.random()*1000)) + "" );
+	    return randomPIN;
+	}
 }

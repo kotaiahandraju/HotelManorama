@@ -16,6 +16,7 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.aurospaces.neighbourhood.bean.HotelRoomPhotosBean;
+import com.aurospaces.neighbourhood.bean.OTP;
 import com.aurospaces.neighbourhood.daosupport.CustomConnection;
 
 
@@ -109,7 +110,5 @@ ps.setString(6, hotelRoomPhotos.getStatus());
 				return retlist.get(0);
 			return null;
 		}
-
-	
 
 }

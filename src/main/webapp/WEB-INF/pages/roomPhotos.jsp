@@ -268,24 +268,37 @@ function inactiveData() {
 	     $("#imageId").hide();
 	     $("#imageLable").hide(); 
 	     $("#imagePath").val("");
+	     
+	     var maxFiles = 5,
+	     filesCounter = 0;
 	
     for (var i = 0; i < e.originalEvent.srcElement.files.length; i++) {
-        
-        var file = e.originalEvent.srcElement.files[i];
-        
-        var img = document.createElement("img");
-        img.id='dynamicImage';
-//         img.setAttribute('width', '50%');
-        img.setAttribute('style', 'width: 60px;height: 60px;');
-        var reader = new FileReader();
-        reader.onloadend = function() {
-             img.src = reader.result;
-        }
-        reader.readAsDataURL(file);
-        $("#image").before(img);
-//         console.log( $("#image").val());
-//         $("#imageId").css('width', '20%');
+    	
+    	 if (filesCounter + i + 1 > maxFiles) {
+    		 alert("Selected Maximum only 5 images...");
+    		 $('.images').css('color','transparent');
+             return null;
+         }else{
+		    	
+        	 var file = e.originalEvent.srcElement.files[i];
+ 	        
+ 	        var img = document.createElement("img");
+ 	        img.id='dynamicImage';
+// 	         img.setAttribute('width', '50%');
+ 	        img.setAttribute('style', 'width: 60px;height: 60px;');
+ 	        var reader = new FileReader();
+ 	        reader.onloadend = function() {
+ 	             img.src = reader.result;
+ 	        }
+ 	        reader.readAsDataURL(file);
+ 	      //  $("#image").before(img);
+// 	         console.log( $("#image").val());
+    	}
+    	 
+       
     }
+   
+    
 }); 
 
 /* var idImage = $.makeArray($('.images').map(function() {

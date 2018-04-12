@@ -39,7 +39,7 @@
 		THE BAR</h3>
 
 
-	<p>When it is time to relax, there is no place in Vijayawada & Hyderabad like our cozy and relaxing bar.
+	<p>When it is time to relax, there is no place in Vijayawada  like our cozy and relaxing bar.
 	We serve you with the best quality and variety of alcoholic beverages and cocktails. 
 </p> 
    
